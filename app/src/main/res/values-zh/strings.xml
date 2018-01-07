@@ -3,4 +3,5 @@
     <string name="title_home">主页</string>
     <string name="title_dashboard">仪表盘</string>
     <string name="title_notifications">通知</string>
+    <string name="action_search">搜索</string>
 </resources>
