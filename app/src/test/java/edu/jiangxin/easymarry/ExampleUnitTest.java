@@ -1,4 +1,4 @@
-package org.jiangxin.edu.easymarry;
+package edu.jiangxin.easymarry;
 
 import org.junit.Test;
 
