@@ -11,16 +11,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
-import edu.jiangxin.easymarry.R;
-
+import edu.jiangxin.easymarry.adapter.MainActivityViewPagerAdapter;
 import edu.jiangxin.easymarry.fragment.DashboardFragment;
 import edu.jiangxin.easymarry.fragment.HomeFragment;
 import edu.jiangxin.easymarry.fragment.NotificationsFragment;
 
 public class MainActivity extends AppCompatActivity {
 
-    ViewPager mainActivityViewPager;
-    BottomNavigationView navigation;
+    private ViewPager mainActivityViewPager;
+    private BottomNavigationView navigation;
     private MainActivityViewPagerAdapter adapter;
 
     @Override
@@ -88,8 +87,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        adapter = new MainActivityViewPagerAdapter(getSupportFragmentManager());
 
         adapter = new MainActivityViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment());

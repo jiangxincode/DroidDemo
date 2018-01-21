@@ -4,4 +4,12 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="action_search">search</string>
+    <string name="s1">SYSTEM_UI_FLAG_VISIBLE</string>
+    <string name="s2">INVISIBLE</string>
+    <string name="s3">SYSTEM_UI_FLAG_FULLSCREEN</string>
+    <string name="s4">SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN</string>
+    <string name="s5">SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION</string>
+    <string name="s6">SYSTEM_UI_LAYOUT_FLAGS</string>
+    <string name="s7">SYSTEM_UI_FLAG_HIDE_NAVIGATION</string>
+    <string name="s8">SYSTEM_UI_FLAG_LOW_PROFILE</string>
 </resources>

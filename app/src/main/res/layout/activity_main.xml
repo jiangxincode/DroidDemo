@@ -5,7 +5,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.jiangxin.edu.easymarry.edu.jiangxin.easymarry.MainActivity">
+    tools:context="edu.jiangxin.easymarry.MainActivity">
 
 
     <android.support.v4.view.ViewPager
