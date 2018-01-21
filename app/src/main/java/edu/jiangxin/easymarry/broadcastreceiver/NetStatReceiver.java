@@ -57,9 +57,16 @@ public class NetStatReceiver extends BroadcastReceiver {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Bundle data = msg.getData();
-            boolean result = data.getBoolean("result");
-            Log.i(TAG, "connected to baidu: " + result);
+            switch (msg.what) {
+                case 0:
+                    Bundle data = msg.getData();
+                    boolean result = data.getBoolean("result");
+                    Log.i(TAG, "connected to baidu: " + result);
+                    break;
+                default:
+                    break;
+            }
+
         }
     };
 
@@ -84,7 +91,9 @@ public class NetStatReceiver extends BroadcastReceiver {
             Bundle data = new Bundle();
             data.putBoolean("result", result);
             msg.setData(data);
-            handler.sendMessage(msg);
+            msg.what = 0;
+            handler.removeMessages(0);
+            handler.sendMessageDelayed(msg, 3000);
         }
     };
 }

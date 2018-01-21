@@ -28,6 +28,13 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE"></action>
             </intent-filter>
         </receiver>
+
+        <!--由于PowerManager的限制，SCREEN_ON和SCREEN_OFF两个action必须要通过代码注册的方式才能使用，这里使用USER_PRESENT捕获解锁广播-->
+        <receiver android:name="edu.jiangxin.easymarry.broadcastreceiver.ScreenOnReceiver">
+            <intent-filter android:priority="90000">
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

@@ -19,11 +19,14 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8;
     View root;
+    View decorView;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_notifications, container, false);
+
+        decorView = getActivity().getWindow().getDecorView();
 
         //显示状态栏，Activity不全屏显示(恢复到有状态的正常情况)
         mBtn1 = (Button)root.findViewById(R.id.btn1);
@@ -52,56 +55,56 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
         });
         mBtn2.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.INVISIBLE);
+                decorView.setSystemUiVisibility(View.INVISIBLE);
             }
         });
         mBtn3.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
             }
         });
         mBtn4.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
             }
         });
         mBtn5.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
             }
         });
         mBtn6.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_LAYOUT_FLAGS);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_LAYOUT_FLAGS);
             }
         });
         mBtn7.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
             }
         });
         mBtn8.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View v) {
-                root.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
+                decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
             }
         });
         return root;
