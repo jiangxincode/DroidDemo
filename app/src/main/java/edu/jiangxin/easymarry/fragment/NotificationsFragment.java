@@ -1,13 +1,16 @@
 package edu.jiangxin.easymarry.fragment;
 
+import android.app.KeyguardManager;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.PowerManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 
 import edu.jiangxin.easymarry.R;
 
@@ -17,7 +20,10 @@ import edu.jiangxin.easymarry.R;
 
 public class NotificationsFragment extends Fragment {
 
+    private static final String TAG = "NotificationsFragment";
+
     private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8;
+    private Button mBtn9;
     View root;
     View decorView;
 
@@ -29,84 +35,108 @@ public class NotificationsFragment extends Fragment {
         decorView = getActivity().getWindow().getDecorView();
 
         //显示状态栏，Activity不全屏显示(恢复到有状态的正常情况)
-        mBtn1 = (Button)root.findViewById(R.id.btn1);
-
-        //隐藏状态栏，同时Activity会伸展全屏显示
-        mBtn2 = (Button)root.findViewById(R.id.btn2);
-
-        //Activity全屏显示，且状态栏被隐藏覆盖掉
-        mBtn3 = (Button)root.findViewById(R.id.btn3);
-
-        //Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住
-        mBtn4 = (Button)root.findViewById(R.id.btn4);
-
-        //同mRLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        mBtn5 = (Button)root.findViewById(R.id.btn5);
-
-        //同mRLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
-        mBtn6 = (Button)root.findViewById(R.id.btn6);
-
-        //隐藏虚拟按键(导航栏)
-        mBtn7 = (Button)root.findViewById(R.id.btn7);
-
-        //状态栏显示处于低能显示状态(low profile模式)，状态栏上一些图标显示会被隐藏。
-        mBtn8 = (Button)root.findViewById(R.id.btn8);
-        mBtn1.setOnClickListener(new View.OnClickListener(){
+        mBtn1 = (Button) root.findViewById(R.id.btn1);
+        mBtn1.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE);
             }
         });
-        mBtn2.setOnClickListener(new View.OnClickListener(){
+
+
+        //隐藏状态栏，同时Activity会伸展全屏显示
+        mBtn2 = (Button) root.findViewById(R.id.btn2);
+        mBtn2.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.INVISIBLE);
             }
         });
-        mBtn3.setOnClickListener(new View.OnClickListener(){
+
+
+        //Activity全屏显示，且状态栏被隐藏覆盖掉
+        mBtn3 = (Button) root.findViewById(R.id.btn3);
+        mBtn3.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);
             }
         });
-        mBtn4.setOnClickListener(new View.OnClickListener(){
+
+
+        //Activity全屏显示，但状态栏不会被隐藏覆盖，状态栏依然可见，Activity顶端布局部分会被状态遮住
+        mBtn4 = (Button) root.findViewById(R.id.btn4);
+        mBtn4.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
             }
         });
-        mBtn5.setOnClickListener(new View.OnClickListener(){
+
+
+        //同mRLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        mBtn5 = (Button) root.findViewById(R.id.btn5);
+        mBtn5.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION);
             }
         });
-        mBtn6.setOnClickListener(new View.OnClickListener(){
+
+
+        //同mRLayout.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        mBtn6 = (Button) root.findViewById(R.id.btn6);
+        mBtn6.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_LAYOUT_FLAGS);
             }
         });
-        mBtn7.setOnClickListener(new View.OnClickListener(){
+
+
+        //隐藏虚拟按键(导航栏)
+        mBtn7 = (Button) root.findViewById(R.id.btn7);
+        mBtn7.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
             }
         });
-        mBtn8.setOnClickListener(new View.OnClickListener(){
+
+
+        //状态栏显示处于低能显示状态(low profile模式)，状态栏上一些图标显示会被隐藏。
+        mBtn8 = (Button) root.findViewById(R.id.btn8);
+        mBtn8.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LOW_PROFILE);
             }
         });
+
+        mBtn9 = (Button) root.findViewById(R.id.btn9);
+        mBtn9.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                PowerManager pm = (PowerManager) getContext().getSystemService(Context.POWER_SERVICE);
+                //如果为true，则表示屏幕“亮”了，否则屏幕“暗”了
+                Log.i(TAG, "isScreenOn: " + pm.isScreenOn());
+
+                //如果flag为true，表示有两种状态：a、屏幕是黑的 b、目前正处于解锁状态 。
+                // 如果flag为false，表示目前未锁屏
+                KeyguardManager mKeyguardManager = (KeyguardManager) getContext().getSystemService(Context.KEYGUARD_SERVICE);
+                Log.i(TAG, "inKeyguardRestrictedInputMode: " + mKeyguardManager.inKeyguardRestrictedInputMode());
+            }
+        });
+
         return root;
     }
 }
