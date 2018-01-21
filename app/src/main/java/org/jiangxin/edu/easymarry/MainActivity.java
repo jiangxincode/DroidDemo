@@ -1,9 +1,9 @@
 package org.jiangxin.edu.easymarry;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -84,7 +84,18 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        ActionBar actionBar = getActionBar();
+        ActionBar actionBar = getSupportActionBar();
+
+        //是否显示对应图标
+        actionBar.setHomeButtonEnabled(false);
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.mipmap.ic_launcher);
+
+        //显示返回图标
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
+        // 显示标题
+        actionBar.setDisplayShowTitleEnabled(true);
 
         mHomeListView = (ListView) findViewById(R.id.home_list_view);
         mTextMessage = (TextView) findViewById(R.id.message);
