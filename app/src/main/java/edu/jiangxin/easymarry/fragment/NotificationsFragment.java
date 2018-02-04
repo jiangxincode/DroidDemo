@@ -2,15 +2,22 @@ package edu.jiangxin.easymarry.fragment;
 
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.os.Process;
+import android.os.UserHandle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
 import edu.jiangxin.easymarry.R;
 
@@ -22,10 +29,9 @@ public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
 
-    private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8;
-    private Button mBtn9;
-    View root;
-    View decorView;
+    private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8, mBtn9, mBtn10;
+    private View root;
+    private View decorView;
 
     @Nullable
     @Override
@@ -134,6 +140,29 @@ public class NotificationsFragment extends Fragment {
                 // 如果flag为false，表示目前未锁屏
                 KeyguardManager mKeyguardManager = (KeyguardManager) getContext().getSystemService(Context.KEYGUARD_SERVICE);
                 Log.i(TAG, "inKeyguardRestrictedInputMode: " + mKeyguardManager.inKeyguardRestrictedInputMode());
+            }
+        });
+
+        mBtn10 = (Button) root.findViewById(R.id.btn10);
+        mBtn10.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Log.i(TAG, "Process.myUid(): " + Process.myUid());
+                Log.i(TAG, "Process.myPid(): " + Process.myPid());
+                Log.i(TAG, "Process.myTid(): " + Process.myTid());
+
+                try {
+                    Method getUserId = UserHandle.class.getMethod("getUserId", new Class[]{int.class});
+                    int userUserId = (Integer) getUserId.invoke(null, Process.myUid());
+                    Log.i(TAG, "UserHandle.getUserId(int uid): " + userUserId);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                }
             }
         });
 
