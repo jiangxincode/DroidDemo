@@ -12,4 +12,6 @@
     <string name="s6">SYSTEM_UI_LAYOUT_FLAGS</string>
     <string name="s7">SYSTEM_UI_FLAG_HIDE_NAVIGATION</string>
     <string name="s8">SYSTEM_UI_FLAG_LOW_PROFILE</string>
+    <string name="title_activity_messenger">MessengerActivity</string>
+    <string name="hello_world">Hello world!</string>
 </resources>

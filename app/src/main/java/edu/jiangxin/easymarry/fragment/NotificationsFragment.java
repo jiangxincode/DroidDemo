@@ -2,14 +2,14 @@ package edu.jiangxin.easymarry.fragment;
 
 import android.app.KeyguardManager;
 import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Process;
 import android.os.UserHandle;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +20,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import edu.jiangxin.easymarry.R;
+import edu.jiangxin.easymarry.activity.MessengerActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -29,7 +30,7 @@ public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
 
-    private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8, mBtn9, mBtn10;
+    private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8, mBtn9, mBtn10, mBtn11, mBtn12, mBtn13;
     private View root;
     private View decorView;
 
@@ -163,6 +164,51 @@ public class NotificationsFragment extends Fragment {
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        mBtn11 = (Button) root.findViewById(R.id.btn11);
+        mBtn11.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                DisplayMetrics metric = new DisplayMetrics();
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
+
+                Log.i(TAG, "Screen width(px): " + metric.widthPixels); // 屏幕宽度（像素）
+                Log.i(TAG, "Screen height(px): " + metric.heightPixels); // 屏幕高度（像素）
+                Log.i(TAG, "Screen density: " + metric.density); // 屏幕密度（0.75 / 1.0 / 1.5）
+                Log.i(TAG, "Screen densityDpi(dpi): " + metric.densityDpi); // 屏幕密度DPI（120 / 160 / 240）
+                Log.i(TAG, "Screen width(inch): " + (float)metric.widthPixels / metric.densityDpi);
+                Log.i(TAG, "Screen height(inch): " + (float)metric.heightPixels / metric.densityDpi);
+            }
+        });
+
+        mBtn12 = (Button) root.findViewById(R.id.btn12);
+        mBtn12.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                DisplayMetrics metric = new DisplayMetrics();
+                getActivity().getWindowManager().getDefaultDisplay().getMetrics(metric);
+
+                Log.i(TAG, "Screen width(px): " + metric.widthPixels); // 屏幕宽度（像素）
+                Log.i(TAG, "Screen height(px): " + metric.heightPixels); // 屏幕高度（像素）
+                Log.i(TAG, "Screen density: " + metric.density); // 屏幕密度（0.75 / 1.0 / 1.5）
+                Log.i(TAG, "Screen densityDpi(dpi): " + metric.densityDpi); // 屏幕密度DPI（120 / 160 / 240）
+                Log.i(TAG, "Screen width(inch): " + (float)metric.widthPixels / metric.densityDpi);
+                Log.i(TAG, "Screen height(inch): " + (float)metric.heightPixels / metric.densityDpi);
+            }
+        });
+
+        mBtn13 = (Button) root.findViewById(R.id.btn13);
+        mBtn13.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), MessengerActivity.class);
+                startActivity(intent);
             }
         });
 
