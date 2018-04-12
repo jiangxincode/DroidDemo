@@ -21,6 +21,7 @@ import java.lang.reflect.Method;
 
 import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
+import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -30,7 +31,7 @@ public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
 
-    private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8, mBtn9, mBtn10, mBtn11, mBtn12, mBtn13;
+    private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8, mBtn9, mBtn10, mBtn11, mBtn12, mBtn13, mBtn14;
     private View root;
     private View decorView;
 
@@ -208,6 +209,17 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), MessengerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtn14 = (Button) root.findViewById(R.id.btn14);
+        mBtn14.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ListViewActivity.class);
                 startActivity(intent);
             }
         });

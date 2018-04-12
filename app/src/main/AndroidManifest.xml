@@ -42,11 +42,41 @@
 
         <activity
             android:name=".activity.MessengerActivity"
-            android:label="@string/title_activity_messenger" >
+            android:label="@string/title_activity_messenger">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+
+
+        <!--ListView 下拉    -->
+        <activity
+            android:name=".activity.listview.ListViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--ListView 侧滑    -->
+        <activity
+            android:name=".activity.listview.SlideListViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--GridView 下拉、收缩    -->
+        <activity
+            android:name=".activity.listview.GridViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <!--ListView 下拉、收缩    -->
+        <activity
+            android:name=".activity.listview.ExpandableListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".activity.listview.ViewFlipperActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
     </application>
 
 </manifest>

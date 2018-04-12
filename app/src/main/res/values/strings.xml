@@ -14,4 +14,27 @@
     <string name="s8">SYSTEM_UI_FLAG_LOW_PROFILE</string>
     <string name="title_activity_messenger">MessengerActivity</string>
     <string name="hello_world">Hello world!</string>
+    
+    <string name="action_share">Share</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_settings">Settings</string>
+
+    <!--Title -->
+    <string name="title_dashboard_menu_left">Menu</string>
+    <string name="title_dashboard_name">Dashboard</string>
+    <string name="title_left">left</string>
+    <string name="title_add">Add</string>
+    <string name="title_search">Search</string>
+    <string name="title_done">Done</string>
+
+    <!--µÇÂ½Ò³-->
+    <string name="login_OrgId">Org. ID</string>
+    <string name="login_UserName">User Name</string>
+    <string name="login_Password">Password</string>
+    <string name="login_EmailAddress">Email Address</string>
+    <string name="login_Login">Log In</string>
+
+    <!-- ²âÊÔ listview ²à»¬Ò³-->
+    <string name="tv_listview_title">Test ListView</string>
+    <string name="tv_list_view_title">ListView</string>
 </resources>

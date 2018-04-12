@@ -97,6 +97,12 @@
                 android:layout_height="wrap_content"
                 android:text="Messanger" />
 
+            <Button
+                android:id="@+id/btn14"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ListViewActivity" />
+
         </LinearLayout>
     </ScrollView>
 
