@@ -38,7 +38,7 @@ public class ListViewActivity extends Activity {
     public void ininData() {
         menuList = new ArrayList<String>();
         String[] menu = new String[]{"ExpandableList", "GridView", "ListView侧滑",
-                "ViewFlipperActivity"};
+                "ViewFlipper"};
 
         for (int i = 0; i < menu.length; ++i) {
             menuList.add(menu[i]);

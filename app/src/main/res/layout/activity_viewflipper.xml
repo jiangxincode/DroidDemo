@@ -12,38 +12,38 @@
 
         <ViewFlipper
             android:id="@+id/vf_id"
-            android:layout_width="240dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:background="@color/colorLightBlack"
             android:flipInterval="2000">
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="@string/action_edit"
+                android:text="@string/view_flipper_str1"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="@string/action_settings"
+                android:text="@string/view_flipper_str2"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="@string/app_name"
+                android:text="@string/view_flipper_str3"
                 android:textSize="20sp" />
 
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
-                android:text="@string/login_EmailAddress"
+                android:text="@string/view_flipper_str4"
                 android:textSize="20sp" />
 
         </ViewFlipper>
