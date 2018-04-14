@@ -18,6 +18,8 @@
 
 ## Snapshot
 
+![ExpandableListView](https://raw.githubusercontent.com/wiki/jiangxincode/EasyMarry/gif/ExpandableListView.gif)
+
 ## TODO
 
 ## Contributing
