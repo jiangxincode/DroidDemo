@@ -26,6 +26,7 @@ import edu.jiangxin.easymarry.activity.DialogActivity;
 import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
+import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
 import edu.jiangxin.easymarry.activity.AppListActivity;
 
@@ -37,7 +38,7 @@ public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
 
-    private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance, mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance;
+    private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance, mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance;
     private View root;
 
 
@@ -189,6 +190,19 @@ public class NotificationsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        mBtnVariousNotificationEntrance = root.findViewById(R.id.btnVariousNotificationEntrance);
+        mBtnVariousNotificationEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), VariousNotificationActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
 

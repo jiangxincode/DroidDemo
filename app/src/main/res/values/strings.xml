@@ -17,6 +17,7 @@
     <string name="button_blur_entrance">高斯模糊</string>
     <string name="button_forbid_screenshot_entrance">禁止录屏</string>
     <string name="button_app_list_entrance">应用列表</string>
+    <string name="button_various_notification_entrance">各种通知</string>
 
 
     <string name="title_activity_messenger">MessengerActivity</string>

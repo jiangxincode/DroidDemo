@@ -85,6 +85,13 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_app_list_entrance" />
 
+            <Button
+                android:id="@+id/btnVariousNotificationEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_various_notification_entrance" />
+
+
         </LinearLayout>
     </ScrollView>
 
