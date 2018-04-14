@@ -15,6 +15,9 @@
     <string name="button_dialog_entrance">对话框背景</string>
     <string name="button_ripple_entrance">水波动效</string>
     <string name="button_blur_entrance">高斯模糊</string>
+    <string name="button_forbid_screenshot_entrance">禁止录屏</string>
+    <string name="button_app_list_entrance">应用列表</string>
+
 
     <string name="title_activity_messenger">MessengerActivity</string>
     <string name="hello_world">Hello world!</string>
@@ -30,4 +33,19 @@
 
     <string name="tv_listview_title">Test ListView</string>
     <string name="tv_list_view_title">ListView</string>
+
+    <string name="hint_s">点击Item获取详细信息(MD5签名等)</string>
+    <string name="md5_hint_s">APP_MD5</string>
+    <string name="sha1_hint_s">SHA1</string>
+    <string name="sha256_hint_s">SHA256</string>
+    <string name="effective_hint_s">有效时间</string>
+    <string name="iseffective_hint_s">签名是否过期</string>
+    <string name="overdue_hint_s">已过期</string>
+    <string name="notoverdue_hint_s">未过期</string>
+    <string name="principal_hint_s">证书发布方</string>
+    <string name="version_hint_s">证书版本号</string>
+    <string name="sigalgname_hint_s">证书算法名称</string>
+    <string name="sigalgoid_hint_s">证书算法OID</string>
+    <string name="dercode_hint_s">证书DER编码</string>
+    <string name="serialnumber_hint_s">证书机器码</string>
 </resources>

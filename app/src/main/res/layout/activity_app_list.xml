@@ -1,0 +1,29 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/am_hint_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@mipmap/app_list_hint"
+        android:drawablePadding="10.0dip"
+        android:ellipsize="end"
+        android:gravity="fill"
+        android:maxLines="1"
+        android:padding="15.0dip"
+        android:text="@string/hint_s"
+        android:textSize="15.0sp" />
+
+    <ListView
+        android:id="@+id/am_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:listSelector="@drawable/listview_item_selector" >
+    </ListView>
+
+</LinearLayout>

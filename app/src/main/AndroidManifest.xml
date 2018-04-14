@@ -75,7 +75,16 @@
         <activity android:name=".activity.DialogActivity" />
         <activity android:name=".activity.BlurActivity" />
         <activity android:name=".activity.RippleActivity" />
-        <activity android:name=".activity.DecorViewActivity"></activity>
+        <activity android:name=".activity.DecorViewActivity" />
+        <activity android:name=".activity.ForbidScreenShotActivity"></activity>
+
+        <activity
+            android:name=".activity.AppListActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".activity.SignaturesActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

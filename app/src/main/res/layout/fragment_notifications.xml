@@ -73,6 +73,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_blur_entrance" />
 
+            <Button
+                android:id="@+id/btnForbidScreenShotEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_forbid_screenshot_entrance" />
+
+            <Button
+                android:id="@+id/btnAppListEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_app_list_entrance" />
+
         </LinearLayout>
     </ScrollView>
 
