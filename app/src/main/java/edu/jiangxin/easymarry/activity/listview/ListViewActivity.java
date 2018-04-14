@@ -32,7 +32,7 @@ public class ListViewActivity extends Activity {
     }
 
     public void findViewById() {
-        lv_view = (ListView) findViewById(R.id.lv_menu_view);
+        lv_view = findViewById(R.id.lv_menu_view);
     }
 
     public void ininData() {
@@ -100,7 +100,7 @@ class ListViewMenuAdapter extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = LayoutInflater.from(mContext).inflate(R.layout.adapter_listview_item, null);
-            holder.tvMenu = (TextView) view.findViewById(R.id.tv_list_view_menu_item);
+            holder.tvMenu = view.findViewById(R.id.tv_list_view_menu_item);
 
             view.setTag(holder);
         } else {

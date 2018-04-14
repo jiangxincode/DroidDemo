@@ -12,7 +12,7 @@ public class ViewFlipperActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_viewflipper);
-        ViewFlipper viewFlipper = (ViewFlipper) findViewById(R.id.vf_id);
+        ViewFlipper viewFlipper = findViewById(R.id.vf_id);
         viewFlipper.startFlipping();
     }
 }

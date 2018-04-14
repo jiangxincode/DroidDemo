@@ -12,6 +12,10 @@
     <string name="s6">SYSTEM_UI_LAYOUT_FLAGS</string>
     <string name="s7">SYSTEM_UI_FLAG_HIDE_NAVIGATION</string>
     <string name="s8">SYSTEM_UI_FLAG_LOW_PROFILE</string>
+    <string name="button_dialog_entrance">对话框背景</string>
+    <string name="button_ripple_entrance">水波动效</string>
+    <string name="button_blur_entrance">高斯模糊</string>
+
     <string name="title_activity_messenger">MessengerActivity</string>
     <string name="hello_world">Hello world!</string>
 

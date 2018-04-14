@@ -103,6 +103,24 @@
                 android:layout_height="wrap_content"
                 android:text="ListViewActivity" />
 
+            <Button
+                android:id="@+id/btnDialogEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_dialog_entrance" />
+
+            <Button
+                android:id="@+id/btnRippleEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_ripple_entrance" />
+
+            <Button
+                android:id="@+id/btnBlurEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_blur_entrance" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -30,7 +30,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_home, container, false);
-        mHomeListView = (ListView) root.findViewById(R.id.home_list_view);
+        mHomeListView = root.findViewById(R.id.home_list_view);
 
         String[] name = {"找车", "找饭店", "找宾馆", "买车票"};
         String[] desc = {"找车", "找饭店", "找宾馆", "买车票"};

@@ -36,9 +36,9 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grid_view);
-        gridView = (GridView) findViewById(R.id.gv_test);
-        lt_menu = (LinearLayout) findViewById(R.id.lt_grid_view_title_menu);
-        iv_menu = (ImageView) findViewById(R.id.iv_grid_view_title);
+        gridView = findViewById(R.id.gv_test);
+        lt_menu = findViewById(R.id.lt_grid_view_title_menu);
+        iv_menu = findViewById(R.id.iv_grid_view_title);
         lt_menu.setOnClickListener(this);
         final List<GridViewEntity> list = new ArrayList<GridViewEntity>();
         for (int i = 0; i < itemLogo.length; ++i) {
@@ -109,8 +109,8 @@ class GridViewAdapter extends BaseAdapter {
         if (contertView == null) {
             holder = new GridViewChildHolder();
             contertView = LayoutInflater.from(context).inflate(R.layout.adaper_grid_view_item, null);
-            holder.iv_icon = (ImageView) contertView.findViewById(R.id.iv_item);
-            holder.tv_name = (TextView) contertView.findViewById(R.id.tv_item);
+            holder.iv_icon = contertView.findViewById(R.id.iv_item);
+            holder.tv_name = contertView.findViewById(R.id.tv_item);
 
             contertView.setTag(holder);
         } else {

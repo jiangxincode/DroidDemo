@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry;
+package edu.jiangxin.easymarry.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.SearchView;
 
+import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.adapter.MainActivityViewPagerAdapter;
 import edu.jiangxin.easymarry.fragment.DashboardFragment;
 import edu.jiangxin.easymarry.fragment.HomeFragment;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowTitleEnabled(true);
 
 
-        navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
 
             @Override
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mainActivityViewPager = (ViewPager) findViewById(R.id.main_viewpager);
+        mainActivityViewPager = findViewById(R.id.main_viewpager);
 
         mainActivityViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -144,9 +145,6 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
-
-
-
 
 
 }

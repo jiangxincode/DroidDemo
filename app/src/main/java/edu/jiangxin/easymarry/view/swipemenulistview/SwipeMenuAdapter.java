@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.swipemenulistview;
+package edu.jiangxin.easymarry.view.swipemenulistview;
 
 import android.content.Context;
 import android.database.DataSetObserver;

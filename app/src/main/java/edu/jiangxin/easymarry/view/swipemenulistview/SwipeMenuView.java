@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.swipemenulistview;
+package edu.jiangxin.easymarry.view.swipemenulistview;
 
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -92,7 +92,7 @@ public class SwipeMenuView extends LinearLayout implements OnClickListener {
         this.mLayout = mLayout;
     }
 
-    public static interface OnSwipeItemClickListener {
+    public interface OnSwipeItemClickListener {
         void onItemClick(SwipeMenuView view, SwipeMenu menu, int index);
     }
 }

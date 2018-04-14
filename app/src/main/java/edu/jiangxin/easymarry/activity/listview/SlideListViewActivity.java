@@ -19,10 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.jiangxin.easymarry.R;
-import edu.jiangxin.easymarry.swipemenulistview.SwipeMenu;
-import edu.jiangxin.easymarry.swipemenulistview.SwipeMenuCreator;
-import edu.jiangxin.easymarry.swipemenulistview.SwipeMenuItem;
-import edu.jiangxin.easymarry.swipemenulistview.SwipeMenuListView;
+import edu.jiangxin.easymarry.view.swipemenulistview.SwipeMenu;
+import edu.jiangxin.easymarry.view.swipemenulistview.SwipeMenuCreator;
+import edu.jiangxin.easymarry.view.swipemenulistview.SwipeMenuItem;
+import edu.jiangxin.easymarry.view.swipemenulistview.SwipeMenuListView;
 
 public class SlideListViewActivity extends Activity {
     private List<SlideListViewEntity> mAppList;
@@ -34,7 +34,7 @@ public class SlideListViewActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple);
         mAppList = new ArrayList<SlideListViewEntity>();
-        mListView = (SwipeMenuListView) findViewById(R.id.listView);
+        mListView = findViewById(R.id.listView);
         for (int i = 0; i < 3; ++i) {
             SlideListViewEntity map = new SlideListViewEntity();
             map.setName("test" + i);
@@ -131,8 +131,8 @@ class SlideListViewAdapter extends BaseAdapter {
         if (view == null) {
             holder = new SlieListViewHolder();
             view = LayoutInflater.from(mContext).inflate(R.layout.adapter_slide_list_view_item, null);
-            holder.iv_icon = (ImageView) view.findViewById(R.id.iv_icon);
-            holder.tv_name = (TextView) view.findViewById(R.id.tv_name);
+            holder.iv_icon = view.findViewById(R.id.iv_icon);
+            holder.tv_name = view.findViewById(R.id.tv_name);
 
             view.setTag(holder);
         } else {
@@ -157,10 +157,7 @@ class SlideListViewAdapter extends BaseAdapter {
 
 
     public boolean getSwipEnableByPosition(int position) {
-        if (position % 2 == 0) {
-            return false;
-        }
-        return true;
+        return position % 2 != 0;
     }
 }
 

@@ -33,7 +33,7 @@ public class ExpandableListActivity extends Activity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_expandable_list);
-        expandableListView = (ExpandableListView) findViewById(R.id.ev_view);
+        expandableListView = findViewById(R.id.ev_view);
         group = new ArrayList<String>();
         childText = new ArrayList<List<String>>();
         childLogo = new ArrayList<List<Integer>>();
@@ -151,8 +151,8 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (view == null) {
             holder = new GroupHolder();
             view = LayoutInflater.from(mContext).inflate(R.layout.adapter_expandlist_group_item, null);
-            holder.groupName = (TextView) view.findViewById(R.id.tv_expandlist_group_name);
-            holder.groupArrow = (ImageView) view.findViewById(R.id.iv_expandlist_group);
+            holder.groupName = view.findViewById(R.id.tv_expandlist_group_name);
+            holder.groupArrow = view.findViewById(R.id.iv_expandlist_group);
             view.setTag(holder);
         } else {
             holder = (GroupHolder) view.getTag();
@@ -177,10 +177,10 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
         if (view == null) {
             holder = new ChildHolder();
             view = LayoutInflater.from(mContext).inflate(R.layout.adapter_expandlist_child_item, null);
-            holder.childLogo = (ImageView) view.findViewById(R.id.iv_expandlist_child_avatar);
-            holder.childTitle = (TextView) view.findViewById(R.id.tv_expandlist_child_name);
-            holder.childContent = (TextView) view.findViewById(R.id.tv_expandlist_child_content);
-            holder.childDivider = (ImageView) view.findViewById(R.id.iv_expandlist_child_divider);
+            holder.childLogo = view.findViewById(R.id.iv_expandlist_child_avatar);
+            holder.childTitle = view.findViewById(R.id.tv_expandlist_child_name);
+            holder.childContent = view.findViewById(R.id.tv_expandlist_child_content);
+            holder.childDivider = view.findViewById(R.id.iv_expandlist_child_divider);
             view.setTag(holder);
         } else {
             holder = (ChildHolder) view.getTag();

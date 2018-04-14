@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.swipemenulistview;
+package edu.jiangxin.easymarry.view.swipemenulistview;
 
 import android.content.Context;
 import android.support.v4.view.GestureDetectorCompat;
@@ -176,7 +176,6 @@ public class SwipeMenuLayout extends FrameLayout {
                 int dis = (int) (mDownX - event.getX());
                 if (state == STATE_OPEN) {
                     dis += mMenuView.getWidth() * mSwipeDirection;
-                    ;
                 }
                 swipe(dis);
                 break;
