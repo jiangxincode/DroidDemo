@@ -72,12 +72,10 @@
             android:name=".activity.listview.ViewFlipperActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" />
-
-        <activity android:name=".activity.DialogActivity"></activity>
-
-        <activity android:name=".activity.BlurActivity"></activity>
-
-        <activity android:name=".activity.RippleActivity"></activity>
+        <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.BlurActivity" />
+        <activity android:name=".activity.RippleActivity" />
+        <activity android:name=".activity.DecorViewActivity"></activity>
     </application>
 
 </manifest>

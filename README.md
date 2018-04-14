@@ -20,9 +20,6 @@
 
 ## TODO
 
-+ toast时间缩短，如果有新的toast，则老的toast立即消失
-+ 部分提示进行优化
-
 ## Contributing
 
 1. Fork it

@@ -20,58 +20,52 @@
             android:scrollbars="vertical">
 
             <Button
-                android:id="@+id/btn9"
+                android:id="@+id/btn1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="显示屏幕状态" />
+                android:text="@string/s1" />
 
             <Button
-                android:id="@+id/btn10"
+                android:id="@+id/btn2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="显示用户信息" />
+                android:text="@string/s2" />
 
             <Button
-                android:id="@+id/btn11"
+                android:id="@+id/btn3"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="显示屏幕信息" />
+                android:text="@string/s3" />
 
             <Button
-                android:id="@+id/btnDecorViewEntrance"
+                android:id="@+id/btn4"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="状态栏/标题栏设置" />
+                android:text="@string/s4" />
 
             <Button
-                android:id="@+id/btn13"
+                android:id="@+id/btn5"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="Messanger" />
+                android:text="@string/s5" />
 
             <Button
-                android:id="@+id/btn14"
+                android:id="@+id/btn6"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="各种ListView" />
+                android:text="@string/s6" />
 
             <Button
-                android:id="@+id/btnDialogEntrance"
+                android:id="@+id/btn7"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_dialog_entrance" />
+                android:text="@string/s7" />
 
             <Button
-                android:id="@+id/btnRippleEntrance"
+                android:id="@+id/btn8"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_ripple_entrance" />
-
-            <Button
-                android:id="@+id/btnBlurEntrance"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/button_blur_entrance" />
+                android:text="@string/s8" />
 
         </LinearLayout>
     </ScrollView>

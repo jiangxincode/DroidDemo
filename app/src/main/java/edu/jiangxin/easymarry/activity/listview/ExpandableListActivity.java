@@ -27,6 +27,7 @@ public class ExpandableListActivity extends Activity {
     private List<List<String>> childText;     //子列表
     private List<List<Integer>> childLogo;     //子列表
     private ExpandableListAdapter adapter;
+    private Toast mToast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +62,14 @@ public class ExpandableListActivity extends Activity {
         expandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-                Toast.makeText(
+                if (mToast != null) {
+                    mToast.cancel();
+                }
+                mToast = Toast.makeText(
                         ExpandableListActivity.this,
                         "你点击了" + adapter.getChild(groupPosition, childPosition),
-                        Toast.LENGTH_LONG).show();
+                        Toast.LENGTH_SHORT);
+                mToast.show();
                 return false;
             }
         });

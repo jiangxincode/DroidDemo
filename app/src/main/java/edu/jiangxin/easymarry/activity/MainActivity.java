@@ -35,9 +35,9 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
 
         //是否显示对应图标
-        actionBar.setHomeButtonEnabled(false);
+        /*actionBar.setHomeButtonEnabled(false);
         actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);
+        actionBar.setIcon(R.mipmap.ic_launcher);*/
 
         //显示返回图标
         actionBar.setDisplayHomeAsUpEnabled(true);

@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
         }
 
         simpleAdapter = new SimpleAdapter(getActivity(), data,
-                R.layout.home_listview, new String[]{"name", "head", "desc"},
+                R.layout.fragment_home_listview_item, new String[]{"name", "head", "desc"},
                 new int[]{R.id.name, R.id.head, R.id.desc});
 
         mHomeListView.setAdapter(simpleAdapter);
