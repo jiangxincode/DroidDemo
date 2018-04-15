@@ -1,5 +1,7 @@
 # EasyMarry
 
+[![Build Status](https://travis-ci.org/jiangxincode/EasyMarry.svg?branch=master)](https://travis-ci.org/jiangxincode/EasyMarry)
+
 ## Authors
 
 + JiangXin jiangxinnju@163.com
