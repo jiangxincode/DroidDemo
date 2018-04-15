@@ -2,10 +2,10 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/activity/FriendsListActivity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/sortlistview/CharacterParser.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/sortlistview/ClearEditText.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/sortlistview/GroupMemberBean.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/sortlistview/SortGroupMemberAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/CharacterParser.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/ClearEditText.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/GroupMemberBean.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/SortGroupMemberAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/view/IndexableListView.java" charset="UTF-8" />
   </component>
 </project>

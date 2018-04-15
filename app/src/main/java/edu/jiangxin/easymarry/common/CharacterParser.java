@@ -4,7 +4,7 @@
  * @author	LuRuihui
  * @version	0.1
  */
-package edu.jiangxin.easymarry.sortlistview;
+package edu.jiangxin.easymarry.common;
 
 /**
  * Java汉字转换为拼音
