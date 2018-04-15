@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="autosize_text_sizes">
+        <item>12</item>
+        <item>18</item>
+        <item>20</item>
+        <item>32</item>
+        <item>42</item>
+    </array>
+</resources>

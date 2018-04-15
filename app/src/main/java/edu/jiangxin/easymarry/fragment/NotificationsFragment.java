@@ -20,15 +20,16 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import edu.jiangxin.easymarry.R;
+import edu.jiangxin.easymarry.activity.AppListActivity;
 import edu.jiangxin.easymarry.activity.BlurActivity;
 import edu.jiangxin.easymarry.activity.DecorViewActivity;
 import edu.jiangxin.easymarry.activity.DialogActivity;
 import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
+import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
-import edu.jiangxin.easymarry.activity.AppListActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -38,7 +39,9 @@ public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
 
-    private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance, mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance;
+    private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
+            mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
+            mBtnScaleTextEntrance;
     private View root;
 
 
@@ -202,9 +205,16 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+        mBtnScaleTextEntrance = root.findViewById(R.id.btnScaleTextEntrance);
+        mBtnScaleTextEntrance.setOnClickListener(new View.OnClickListener() {
 
-
-
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ScaleTextActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return root;
     }

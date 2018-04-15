@@ -91,6 +91,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_various_notification_entrance" />
 
+            <Button
+                android:id="@+id/btnScaleTextEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_scale_text_entrance" />
+
 
         </LinearLayout>
     </ScrollView>

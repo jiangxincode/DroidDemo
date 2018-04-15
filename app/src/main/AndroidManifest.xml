@@ -83,7 +83,8 @@
         <activity
             android:name=".activity.SignaturesActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.VariousNotificationActivity"></activity>
+        <activity android:name=".activity.VariousNotificationActivity" />
+        <activity android:name=".activity.ScaleTextActivity"></activity>
     </application>
 
 </manifest>

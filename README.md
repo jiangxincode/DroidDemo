@@ -26,7 +26,16 @@
 
 ![RipplesView](https://raw.githubusercontent.com/wiki/jiangxincode/EasyMarry/gif/RipplesView.gif)
 
+* ScaleTextView
+
+![ScaleTextView](https://raw.githubusercontent.com/wiki/jiangxincode/EasyMarry/gif/ScaleTextView.gif)
+
 ## TODO
+
+* 索引条
+* 搜索框
+* 播放器
+* 报名修改
 
 ## Contributing
 
