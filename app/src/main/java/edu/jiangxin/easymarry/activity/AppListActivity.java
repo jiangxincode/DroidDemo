@@ -66,8 +66,8 @@ public class AppListActivity extends Activity implements OnClickListener {
 	 * 初始化控件
 	 */
 	private void initViews() {
-		am_hint_tv = (TextView) this.findViewById(R.id.am_hint_tv);
-		am_listview = (ListView) this.findViewById(R.id.am_listview);
+		am_hint_tv = this.findViewById(R.id.am_hint_tv);
+		am_listview = this.findViewById(R.id.am_listview);
 	}
 
 	/**
@@ -174,7 +174,7 @@ public class AppListActivity extends Activity implements OnClickListener {
         // 获取手机内所有应用
         List<PackageInfo> packlist = pManager.getInstalledPackages(0);
         for (int i = 0; i < packlist.size(); i++) {
-            PackageInfo pak = (PackageInfo) packlist.get(i);
+            PackageInfo pak = packlist.get(i);
             // 判断是否为非系统预装的应用程序
             // 这里还可以添加系统自带的，这里就先不添加了，如果有需要可以自己添加
             // if()里的值如果<=0则为自己装的程序，否则为系统工程自带
@@ -211,9 +211,9 @@ public class AppListActivity extends Activity implements OnClickListener {
 				convertView = LayoutInflater.from(mContext).inflate(R.layout.activity_app_list_item, null);
 				holder = new ViewHolder();
 				convertView.setTag(holder);
-				holder.ai_igview = (ImageView) convertView.findViewById(R.id.ai_igview);
-				holder.ai_name_tv = (TextView) convertView.findViewById(R.id.ai_name_tv);
-				holder.ai_pack_tv = (TextView) convertView.findViewById(R.id.ai_pack_tv);
+				holder.ai_igview = convertView.findViewById(R.id.ai_igview);
+				holder.ai_name_tv = convertView.findViewById(R.id.ai_name_tv);
+				holder.ai_pack_tv = convertView.findViewById(R.id.ai_pack_tv);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}

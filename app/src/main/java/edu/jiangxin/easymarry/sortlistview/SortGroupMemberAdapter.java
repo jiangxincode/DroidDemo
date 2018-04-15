@@ -49,8 +49,8 @@ public class SortGroupMemberAdapter extends BaseAdapter implements SectionIndexe
 		if (view == null) {
 			viewHolder = new ViewHolder();
 			view = LayoutInflater.from(mContext).inflate(R.layout.activity_group_member_item, null);
-			viewHolder.tvTitle = (TextView) view.findViewById(R.id.title);
-			viewHolder.tvLetter = (TextView) view.findViewById(R.id.catalog);
+			viewHolder.tvTitle = view.findViewById(R.id.title);
+			viewHolder.tvLetter = view.findViewById(R.id.catalog);
 			view.setTag(viewHolder);
 		} else {
 			viewHolder = (ViewHolder) view.getTag();

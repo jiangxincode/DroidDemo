@@ -110,33 +110,33 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 	 * 初始化控件
 	 */
 	private void initViews() {
-		as_igview = (ImageView) this.findViewById(R.id.as_igview);
-		as_name_tv = (TextView) this.findViewById(R.id.as_name_tv);
-		as_pack_tv = (TextView) this.findViewById(R.id.as_pack_tv);
-		as_md5_tv = (TextView) this.findViewById(R.id.as_md5_tv);
-		as_sha1_tv = (TextView) this.findViewById(R.id.as_sha1_tv);
-		as_sha256_tv = (TextView) this.findViewById(R.id.as_sha256_tv);
-		as_effective_tv = (TextView) this.findViewById(R.id.as_effective_tv);
-		as_iseffective_tv = (TextView) this.findViewById(R.id.as_iseffective_tv);
-		as_principal_tv = (TextView) this.findViewById(R.id.as_principal_tv);
-		as_version_tv = (TextView) this.findViewById(R.id.as_version_tv);
-		as_sigalgname_tv = (TextView) this.findViewById(R.id.as_sigalgname_tv);
-		as_sigalgoid_tv = (TextView) this.findViewById(R.id.as_sigalgoid_tv);
-		as_serialnumber_tv = (TextView) this.findViewById(R.id.as_serialnumber_tv);
-		as_dercode_tv = (TextView) this.findViewById(R.id.as_dercode_tv);
+		as_igview = this.findViewById(R.id.as_igview);
+		as_name_tv = this.findViewById(R.id.as_name_tv);
+		as_pack_tv = this.findViewById(R.id.as_pack_tv);
+		as_md5_tv = this.findViewById(R.id.as_md5_tv);
+		as_sha1_tv = this.findViewById(R.id.as_sha1_tv);
+		as_sha256_tv = this.findViewById(R.id.as_sha256_tv);
+		as_effective_tv = this.findViewById(R.id.as_effective_tv);
+		as_iseffective_tv = this.findViewById(R.id.as_iseffective_tv);
+		as_principal_tv = this.findViewById(R.id.as_principal_tv);
+		as_version_tv = this.findViewById(R.id.as_version_tv);
+		as_sigalgname_tv = this.findViewById(R.id.as_sigalgname_tv);
+		as_sigalgoid_tv = this.findViewById(R.id.as_sigalgoid_tv);
+		as_serialnumber_tv = this.findViewById(R.id.as_serialnumber_tv);
+		as_dercode_tv = this.findViewById(R.id.as_dercode_tv);
 		
 		
-		as_md5_linear = (LinearLayout) this.findViewById(R.id.as_md5_linear);
-		as_sha1_linear = (LinearLayout) this.findViewById(R.id.as_sha1_linear);
-		as_sha256_linear = (LinearLayout) this.findViewById(R.id.as_sha256_linear);
-		as_effective_linear = (LinearLayout) this.findViewById(R.id.as_effective_linear);
-		as_iseffective_linear = (LinearLayout) this.findViewById(R.id.as_iseffective_linear);
-		as_principal_linear = (LinearLayout) this.findViewById(R.id.as_principal_linear);
-		as_version_linear = (LinearLayout) this.findViewById(R.id.as_version_linear);
-		as_sigalgname_linear = (LinearLayout) this.findViewById(R.id.as_sigalgname_linear);
-		as_sigalgoid_linear = (LinearLayout) this.findViewById(R.id.as_sigalgoid_linear);
-		as_serialnumber_linear = (LinearLayout) this.findViewById(R.id.as_serialnumber_linear);
-		as_dercode_linear = (LinearLayout) this.findViewById(R.id.as_dercode_linear);
+		as_md5_linear = this.findViewById(R.id.as_md5_linear);
+		as_sha1_linear = this.findViewById(R.id.as_sha1_linear);
+		as_sha256_linear = this.findViewById(R.id.as_sha256_linear);
+		as_effective_linear = this.findViewById(R.id.as_effective_linear);
+		as_iseffective_linear = this.findViewById(R.id.as_iseffective_linear);
+		as_principal_linear = this.findViewById(R.id.as_principal_linear);
+		as_version_linear = this.findViewById(R.id.as_version_linear);
+		as_sigalgname_linear = this.findViewById(R.id.as_sigalgname_linear);
+		as_sigalgoid_linear = this.findViewById(R.id.as_sigalgoid_linear);
+		as_serialnumber_linear = this.findViewById(R.id.as_serialnumber_linear);
+		as_dercode_linear = this.findViewById(R.id.as_dercode_linear);
 	}
 
 	/**

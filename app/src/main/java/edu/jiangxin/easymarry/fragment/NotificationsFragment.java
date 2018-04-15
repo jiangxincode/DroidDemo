@@ -30,7 +30,7 @@ import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
-import edu.jiangxin.easymarry.sortlistview.FriendsListActivity;
+import edu.jiangxin.easymarry.activity.FriendsListActivity;
 
 /**
  * Created by jiang on 2018/1/21.

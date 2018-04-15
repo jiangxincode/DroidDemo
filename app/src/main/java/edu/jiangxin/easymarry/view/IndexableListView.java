@@ -123,7 +123,7 @@ public class IndexableListView extends View {
 	}
 
 	public interface OnTouchingLetterChangedListener {
-		public void onTouchingLetterChanged(String s);
+		void onTouchingLetterChanged(String s);
 	}
 
 }

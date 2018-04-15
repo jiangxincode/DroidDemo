@@ -85,7 +85,7 @@
             android:screenOrientation="portrait" />
         <activity android:name=".activity.VariousNotificationActivity" />
         <activity android:name=".activity.ScaleTextActivity"></activity>
-        <activity android:name=".sortlistview.FriendsListActivity"></activity>
+        <activity android:name=".activity.FriendsListActivity"></activity>
     </application>
 
 </manifest>
