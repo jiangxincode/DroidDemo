@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "org.jiangxin.edu.easymarry"
+        applicationId "edu.jiangxin.easymarry"
         minSdkVersion 24
         targetSdkVersion 26
         versionCode 1
