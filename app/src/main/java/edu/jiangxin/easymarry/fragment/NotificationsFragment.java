@@ -28,6 +28,7 @@ import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
+import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
 import edu.jiangxin.easymarry.activity.FriendsListActivity;
@@ -42,7 +43,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance;
     private View root;
 
 
@@ -227,6 +228,19 @@ public class NotificationsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        mBtnSpannableStringEntrance = root.findViewById(R.id.btnSpannableStringEntrance);
+        mBtnSpannableStringEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), SpannableStringActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         return root;
     }

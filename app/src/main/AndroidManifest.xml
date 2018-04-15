@@ -84,8 +84,9 @@
             android:name=".activity.SignaturesActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".activity.VariousNotificationActivity" />
-        <activity android:name=".activity.ScaleTextActivity"></activity>
-        <activity android:name=".activity.FriendsListActivity"></activity>
+        <activity android:name=".activity.ScaleTextActivity" />
+        <activity android:name=".activity.FriendsListActivity" />
+        <activity android:name=".activity.SpannableStringActivity"></activity>
     </application>
 
 </manifest>

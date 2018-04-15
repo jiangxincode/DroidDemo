@@ -20,8 +20,7 @@
     <string name="button_various_notification_entrance">各种通知</string>
     <string name="button_scale_text_entrance">自动缩放TextView</string>
     <string name="button_search_entrance">搜索与索引条</string>
-
-
+    <string name="button_spannable_string_entrance">SpannableString示例</string>
 
 
     <string name="title_activity_messenger">MessengerActivity</string>
@@ -53,4 +52,6 @@
     <string name="sigalgoid_hint_s">证书算法OID</string>
     <string name="dercode_hint_s">证书DER编码</string>
     <string name="serialnumber_hint_s">证书机器码</string>
+
+    <string name="exchange_txt_hint"><Data><![CDATA[请使用<font color="#ff0000"><b>%1$s</b></font>牛兑换<font color="#00ff00"><b>%2$s</b></font>%3$s 上网时长]]></Data></string>
 </resources>
