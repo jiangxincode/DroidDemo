@@ -97,6 +97,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_scale_text_entrance" />
 
+            <Button
+                android:id="@+id/btnSearchEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_search_entrance" />
+
 
         </LinearLayout>
     </ScrollView>

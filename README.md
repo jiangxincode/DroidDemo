@@ -32,8 +32,6 @@
 
 ## TODO
 
-* 索引条
-* 搜索框
 * 播放器
 
 ## Contributing

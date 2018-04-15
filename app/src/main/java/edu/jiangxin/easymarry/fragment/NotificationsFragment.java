@@ -30,6 +30,7 @@ import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
+import edu.jiangxin.easymarry.sortlistview.FriendsListActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -41,7 +42,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance;
     private View root;
 
 
@@ -212,6 +213,17 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ScaleTextActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnSearchEntrance = root.findViewById(R.id.btnSearchEntrance);
+        mBtnSearchEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), FriendsListActivity.class);
                 startActivity(intent);
             }
         });
