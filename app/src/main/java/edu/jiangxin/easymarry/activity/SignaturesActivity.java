@@ -147,7 +147,7 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 		pManager = mContext.getPackageManager();
 		try {
 			// 获取对应的PackageInfo(原始的PackageInfo 获取 signatures 等于null,需要这样获取)
-			PackageInfo pInfo = pManager.getPackageInfo(packName, 64);
+			PackageInfo pInfo = pManager.getPackageInfo(packName, PackageManager.GET_SIGNATURES);
 			// 包名
 			String aPack = pInfo.applicationInfo.packageName;
 			// app名

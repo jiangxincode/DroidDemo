@@ -10,7 +10,7 @@
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:scaleType="fitCenter"
-        android:src="@mipmap/el_guo_jia"
+        android:src="@drawable/el_guo_jia"
         app:riv_oval="true" />
 
     <LinearLayout

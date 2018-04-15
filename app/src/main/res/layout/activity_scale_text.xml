@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    tools:context="com.didikee.idea.demo.ScaleTextActivity">
+    android:padding="16dp">
 
 
     <TextView
@@ -15,15 +11,13 @@
         android:layout_width="100dp"
         android:layout_height="20dp"
         android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        />
+        android:gravity="center" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
-        android:text="width:"
-        />
+        android:text="width:" />
 
     <SeekBar
         android:id="@+id/sb_width"
@@ -31,15 +25,13 @@
         android:layout_height="wrap_content"
         android:max="200"
         android:paddingBottom="16dp"
-        android:paddingTop="8dp"
-        />
+        android:paddingTop="8dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="16dp"
-        android:text="height:"
-        />
+        android:text="height:" />
 
     <SeekBar
         android:id="@+id/sb_height"
@@ -47,6 +39,5 @@
         android:layout_height="wrap_content"
         android:max="100"
         android:paddingBottom="16dp"
-        android:paddingTop="8dp"
-        />
+        android:paddingTop="8dp" />
 </LinearLayout>

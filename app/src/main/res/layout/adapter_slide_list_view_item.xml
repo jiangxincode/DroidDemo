@@ -10,7 +10,7 @@
             android:id="@+id/iv_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/lv_dog"
+            android:src="@drawable/lv_dog"
             android:layout_centerVertical="true"/>
 
         <TextView

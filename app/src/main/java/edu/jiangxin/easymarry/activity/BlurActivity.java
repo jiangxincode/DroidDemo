@@ -54,7 +54,7 @@ public class BlurActivity extends Activity {
                 if (radius < 1) {
                     radius = 1;
                 }
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.blur_picture);
+                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.blur_picture);
                 imageView.setImageBitmap(gaussianBlur(radius, bitmap));
 
                 // 如果需要对整个layout进行高斯模糊，可能会用到Layout类中的setDrawingCacheEnabled和setDrawingCacheQuality方法：

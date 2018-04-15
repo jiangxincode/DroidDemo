@@ -25,9 +25,9 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
     private LinearLayout lt_menu;
     private ImageView iv_menu;
     private GridView gridView;
-    private int[] itemLogo = {R.mipmap.gv_baisheng, R.mipmap.gv_caozheng, R.mipmap.gv_chaijin,
-            R.mipmap.gv_likui, R.mipmap.gv_lizhong, R.mipmap.gv_ruanxiaoer,
-            R.mipmap.gv_shiqian, R.mipmap.gv_wangying, R.mipmap.gv_wuyong, R.mipmap.gv_zhutong};
+    private int[] itemLogo = {R.drawable.gv_baisheng, R.drawable.gv_caozheng, R.drawable.gv_chaijin,
+            R.drawable.gv_likui, R.drawable.gv_lizhong, R.drawable.gv_ruanxiaoer,
+            R.drawable.gv_shiqian, R.drawable.gv_wangying, R.drawable.gv_wuyong, R.drawable.gv_zhutong};
     private String[] itemName = {"白胜", "曹正", "柴进",
             "李逵", "李忠", "阮小二",
             "时迁", "王英", "吴用", "朱仝"};
@@ -63,12 +63,12 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.lt_grid_view_title_menu:
                 if (visibility) {
-                    iv_menu.setBackgroundResource(R.mipmap.gv_left);
+                    iv_menu.setBackgroundResource(R.drawable.gv_left);
                     gridView.setVisibility(View.GONE);
                     visibility = false;
                 } else {
                     visibility = true;
-                    iv_menu.setBackgroundResource(R.mipmap.gv_down);
+                    iv_menu.setBackgroundResource(R.drawable.gv_down);
                     gridView.setVisibility(View.VISIBLE);
                 }
                 break;
