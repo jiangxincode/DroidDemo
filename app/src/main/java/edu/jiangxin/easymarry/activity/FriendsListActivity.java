@@ -225,7 +225,7 @@ public class FriendsListActivity extends AppCompatActivity implements SectionInd
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.actionbar, menu);
+        getMenuInflater().inflate(R.menu.actionbar_search, menu);
 
         MenuItem searchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) searchItem.getActionView();

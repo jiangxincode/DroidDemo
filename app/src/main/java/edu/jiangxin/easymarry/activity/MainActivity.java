@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.SearchView;
 
 import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.adapter.MainActivityViewPagerAdapter;
@@ -138,10 +137,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.actionbar, menu);
-
-        MenuItem searchItem = menu.findItem(R.id.action_search);
-        SearchView searchView = (SearchView) searchItem.getActionView();
+        inflater.inflate(R.menu.actionbar_main, menu);
 
         return super.onCreateOptionsMenu(menu);
     }
