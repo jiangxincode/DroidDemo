@@ -139,6 +139,34 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.actionbar_main, menu);
 
+        MenuItem home = menu.findItem(R.id.navigation_home);
+        home.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                mainActivityViewPager.setCurrentItem(0);
+                return true;
+            }
+        });
+
+        MenuItem dashboard = menu.findItem(R.id.navigation_dashboard);
+        dashboard.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                mainActivityViewPager.setCurrentItem(1);
+                return true;
+            }
+        });
+
+        MenuItem notifications = menu.findItem(R.id.navigation_notifications);
+        notifications.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                mainActivityViewPager.setCurrentItem(2);
+                return true;
+            }
+        });
+
+
         return super.onCreateOptionsMenu(menu);
     }
 
