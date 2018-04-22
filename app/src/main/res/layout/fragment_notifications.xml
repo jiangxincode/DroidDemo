@@ -109,6 +109,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_spannable_string_entrance" />
 
+            <Button
+                android:id="@+id/btnGlobalSearchEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="全局搜索样例" />
+
 
 
         </LinearLayout>

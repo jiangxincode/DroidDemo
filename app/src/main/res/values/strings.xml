@@ -4,7 +4,7 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="action_search">search</string>
-    
+
     <string name="s1">SYSTEM_UI_FLAG_VISIBLE</string>
     <string name="s2">INVISIBLE</string>
     <string name="s3">SYSTEM_UI_FLAG_FULLSCREEN</string>

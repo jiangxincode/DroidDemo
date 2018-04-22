@@ -26,6 +26,7 @@ import edu.jiangxin.easymarry.activity.DecorViewActivity;
 import edu.jiangxin.easymarry.activity.DialogActivity;
 import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
+import edu.jiangxin.easymarry.activity.QuickSearchBoxActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
@@ -43,7 +44,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, GlobalSearchEntrance;
     private View root;
 
 
@@ -240,7 +241,16 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+        GlobalSearchEntrance = root.findViewById(R.id.btnGlobalSearchEntrance);
+        GlobalSearchEntrance.setOnClickListener(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), QuickSearchBoxActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return root;
     }

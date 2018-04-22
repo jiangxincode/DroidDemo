@@ -86,7 +86,29 @@
         <activity android:name=".activity.VariousNotificationActivity" />
         <activity android:name=".activity.ScaleTextActivity" />
         <activity android:name=".activity.FriendsListActivity" />
-        <activity android:name=".activity.SpannableStringActivity"></activity>
+        <activity android:name=".activity.SpannableStringActivity" />
+        <activity android:name=".activity.QuickSearchBoxActivity">
+            <intent-filter>
+                <action android:name="edu.jiangxin.easymarry.action.Search" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+
+        <provider
+            android:name=".provider.QuickSearchBoxProvider"
+            android:authorities="edu.jiangxin.easymarry.SEARCH_AUTHORITY"
+            android:enabled="true"
+            android:exported="true"></provider>
     </application>
 
 </manifest>
