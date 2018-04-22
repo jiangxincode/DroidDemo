@@ -90,12 +90,10 @@
         <activity android:name=".activity.QuickSearchBoxActivity">
             <intent-filter>
                 <action android:name="edu.jiangxin.easymarry.action.Search" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 

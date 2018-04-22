@@ -18,11 +18,11 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        db.execSQL("DROP TABLE IF EXISTS " + EMPLOYEES_TABLE_NAME);
         db.execSQL("CREATE TABLE " + EMPLOYEES_TABLE_NAME + " ("
-                + Employees.Employee._ID + " INTEGER PRIMARY KEY,"
-                + Employees.Employee.NAME + " TEXT,"
-                + Employees.Employee.GENDER + " TEXT,"
-                + Employees.Employee.AGE + " INTEGER"
+                + "_ID" + " TEXT,"
+                + "SUGGEST_COLUMN_TEXT_1" + " TEXT,"
+                + "SUGGEST_COLUMN_TEXT_2" + " TEXT"
                 + ");");
     }
 

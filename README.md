@@ -38,7 +38,7 @@
 * 部分打印日志的地方修改为界面输出
 * 搜索优化
 * 索引条，搜索功能，应用列表合并，支持是否显示系统应用
-* 全局搜索功能完善
+* 全局搜索功能完善<https://developer.android.com/guide/topics/search/index.html><https://blog.csdn.net/mayingcai1987/article/details/6265797><https://blog.csdn.net/sandform/article/details/51471023>
 
 ## Contributing
 

@@ -10,7 +10,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 
 import edu.jiangxin.easymarry.R;
-import edu.jiangxin.easymarry.common.Employees.Employee;
+import edu.jiangxin.easymarry.common.QuickSearchBoxContent;
 
 
 public class QuickSearchBoxActivity extends Activity implements OnClickListener {
@@ -45,28 +45,27 @@ public class QuickSearchBoxActivity extends Activity implements OnClickListener 
     public void onClick(View view) {
         if (view == mBtnInsert) {
             ContentValues values = new ContentValues();
-            values.put(Employee.NAME, "zhangsan");
-            values.put(Employee.GENDER, "male");
-            values.put(Employee.AGE, 30);
+            values.put("_ID", "_ID");
+            values.put("SUGGEST_COLUMN_TEXT_1", "SUGGEST_COLUMN_TEXT_1");
+            values.put("SUGGEST_COLUMN_TEXT_2", "SUGGEST_COLUMN_TEXT_2");
 
-            getContentResolver().insert(Employee.CONTENT_URI, values);
+            getContentResolver().insert(QuickSearchBoxContent.CONTENT_URI, values);
             Log.i(TAG, "insert");
 
         } else if (view == mBtnQuery) {
             String[] PROJECTION = new String[]{
-                    Employee._ID,         // 0
-                    Employee.NAME,         // 1
-                    Employee.GENDER,     // 2
-                    Employee.AGE         // 3
+                    "_ID",         // 0
+                    "SUGGEST_COLUMN_TEXT_1",         // 1
+                    "SUGGEST_COLUMN_TEXT_2",     // 2
             };
-            Cursor cursor = getContentResolver().query(Employee.CONTENT_URI, PROJECTION, null, null, Employee.DEFAULT_SORT_ORDER);
+            Cursor cursor = getContentResolver().query(QuickSearchBoxContent.CONTENT_URI, PROJECTION, null, null, "SUGGEST_COLUMN_TEXT_1 DESC");
             if (cursor.moveToFirst()) {
                 for (int i = 0; i < cursor.getCount(); i++) {
                     cursor.moveToPosition(i);
-                    String name = cursor.getString(1);
-                    String gender = cursor.getString(2);
-                    int age = cursor.getInt(3);
-                    Log.i(TAG, "db第" + i + "个数据：" + "--name:" + name + "--gender:" + gender + "--age:" + age);
+                    String _ID = cursor.getString(0);
+                    String SUGGEST_COLUMN_TEXT_1 = cursor.getString(1);
+                    String SUGGEST_COLUMN_TEXT_2 = cursor.getString(2);
+                    Log.i(TAG, "_ID: " + _ID + ", SUGGEST_COLUMN_TEXT_1: " + SUGGEST_COLUMN_TEXT_1 + ", SUGGEST_COLUMN_TEXT_2: " + SUGGEST_COLUMN_TEXT_2);
                 }
             }
             cursor.close();
@@ -74,22 +73,21 @@ public class QuickSearchBoxActivity extends Activity implements OnClickListener 
 
         } else if (view == mBtnDelete) {
 
-            //这是删除名字为：amaker的数据的方法：
             String[] deleteValue = {"amaker"};
             String where = "name";
-            getContentResolver().delete(Employee.CONTENT_URI, where + "=?", deleteValue);
+            getContentResolver().delete(QuickSearchBoxContent.CONTENT_URI, where + "=?", deleteValue);
             Log.i(TAG, "del");
 
         } else if (view == mBtnUpdate) {
 
             ContentValues values = new ContentValues();
-            values.put(Employee.NAME, "testUpdate");
-            values.put(Employee.GENDER, "female");
-            values.put(Employee.AGE, 39);
+            values.put("_ID", "_ID");
+            values.put("SUGGEST_COLUMN_TEXT_1", "SUGGEST_COLUMN_TEXT_1");
+            values.put("SUGGEST_COLUMN_TEXT_2", "SUGGEST_COLUMN_TEXT_2");
 
-            String where = "name";
-            String[] selectValue = {"amaker"};
-            getContentResolver().update(Employee.CONTENT_URI, values, where + "=?", selectValue);
+            String where = "SUGGEST_COLUMN_TEXT_1";
+            String[] selectValue = {"SUGGEST_COLUMN_TEXT_1"};
+            getContentResolver().update(QuickSearchBoxContent.CONTENT_URI, values, where + "=?", selectValue);
             Log.i(TAG, "update");
         }
     }
