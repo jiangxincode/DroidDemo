@@ -33,6 +33,7 @@ import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
 import edu.jiangxin.easymarry.activity.FriendsListActivity;
+import edu.jiangxin.easymarry.activity.various.VariousMainActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -44,7 +45,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtn9, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, GlobalSearchEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnVariousEntrance;
     private View root;
 
 
@@ -241,13 +242,24 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
-        GlobalSearchEntrance = root.findViewById(R.id.btnGlobalSearchEntrance);
-        GlobalSearchEntrance.setOnClickListener(new View.OnClickListener() {
+        mBtnGlobalSearchEntrance = root.findViewById(R.id.btnGlobalSearchEntrance);
+        mBtnGlobalSearchEntrance.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), QuickSearchBoxActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnVariousEntrance = root.findViewById(R.id.btnVariousEntrance);
+        mBtnVariousEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), VariousMainActivity.class);
                 startActivity(intent);
             }
         });

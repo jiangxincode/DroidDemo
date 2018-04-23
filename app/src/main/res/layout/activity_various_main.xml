@@ -1,0 +1,39 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?android:attr/actionBarSize"
+    tools:context="edu.jiangxin.easymarry.fragment.NotificationsFragment">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="vertical">
+
+            <Button
+                android:id="@+id/btn01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="加载图片到内存" />
+
+            <Button
+                android:id="@+id/btn02"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="加载大图片到内存" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

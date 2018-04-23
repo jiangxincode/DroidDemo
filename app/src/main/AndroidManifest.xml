@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -90,10 +92,12 @@
         <activity android:name=".activity.QuickSearchBoxActivity">
             <intent-filter>
                 <action android:name="edu.jiangxin.easymarry.action.Search" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
@@ -106,7 +110,11 @@
             android:name=".provider.QuickSearchBoxProvider"
             android:authorities="edu.jiangxin.easymarry.SEARCH_AUTHORITY"
             android:enabled="true"
-            android:exported="true"></provider>
+            android:exported="true" />
+
+        <activity android:name=".activity.various.VariousMainActivity" />
+        <activity android:name=".activity.various.LoadPictureToMemActivity" />
+        <activity android:name=".activity.various.LoadBigPictureToMemActivity"></activity>
     </application>
 
 </manifest>
