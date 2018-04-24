@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/expand_text_view_title01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="#FFF"
+        android:padding="10dip"
+        android:textColor="#000"
+        android:textSize="20sp"/>
+
+    <edu.jiangxin.easymarry.view.PullDownTextView
+        android:id="@+id/expand_text_view01"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:layout_marginTop="10dip"
+            android:paddingRight="10dip"
+            android:paddingLeft="10dip"
+            android:lineSpacingExtra = "8dip"
+            android:textColor="#666666" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:layout_marginRight="10dip"
+            android:layout_gravity="right|bottom"/>
+
+    </edu.jiangxin.easymarry.view.PullDownTextView>
+
+
+    <TextView
+        android:id="@+id/expand_text_view_title02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="#FFF"
+        android:padding="10dip"
+        android:textColor="#000"
+        android:textSize="20sp"/>
+
+    <edu.jiangxin.easymarry.view.PullDownTextView
+        android:id="@+id/expand_text_view02"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:layout_marginTop="10dip"
+            android:paddingRight="10dip"
+            android:paddingLeft="10dip"
+            android:lineSpacingExtra = "8dip"
+            android:textColor="#666666" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:layout_marginRight="10dip"
+            android:layout_gravity="right|bottom"/>
+
+    </edu.jiangxin.easymarry.view.PullDownTextView>
+
+    <TextView
+        android:id="@+id/expand_text_view_title03"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:background="#FFF"
+        android:padding="10dip"
+        android:textColor="#000"
+        android:textSize="20sp"/>
+
+    <edu.jiangxin.easymarry.view.PullDownTextView
+        android:id="@+id/expand_text_view03"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#FFF"
+        android:paddingLeft="10dip"
+        android:paddingRight="10dip"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:layout_marginTop="10dip"
+            android:paddingRight="10dip"
+            android:paddingLeft="10dip"
+            android:lineSpacingExtra = "8dip"
+            android:textColor="#666666" />
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFF"
+            android:layout_marginRight="10dip"
+            android:layout_gravity="right|bottom"/>
+
+    </edu.jiangxin.easymarry.view.PullDownTextView>
+
+
+
+</LinearLayout>
