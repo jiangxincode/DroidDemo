@@ -2,19 +2,12 @@ package edu.jiangxin.easymarry.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Process;
-import android.os.UserHandle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
 
 import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.activity.AppListActivity;
@@ -52,7 +45,7 @@ public class NotificationsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
-        mBtnShowInfoEntrance = root.findViewById(R.id.btn9);
+        mBtnShowInfoEntrance = root.findViewById(R.id.btnShowInfoEntrance);
         mBtnShowInfoEntrance.setOnClickListener(new View.OnClickListener() {
 
             @Override
