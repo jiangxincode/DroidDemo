@@ -86,7 +86,7 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
         }
 
         //有内容，但是内容比较短的时候，正常显示TextView，但是相应的隐藏ImageButton
-        if(mTextView.getLineCount() <= mTextVisibilityCount){
+        if(getLineCount(mTextView.getText()) <= mTextVisibilityCount){
             mTextView.setVisibility(View.VISIBLE);
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             return ;
@@ -185,6 +185,7 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
         }
         isPull = !isPull ;
         mImageButton.setImageDrawable(isPull ? mUpDownDrawable : mPullDownDrawable);
+        mTextView.getParent().requestLayout();
     }
 
     /**
@@ -223,6 +224,16 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
     /** TextView展开回调 */
     public interface OnTextViewPullListener{
         void textViewPull(TextView textView, boolean isPull) ;
+    }
+
+    private int getLineCount(CharSequence text) {
+        int count = 0;
+        for (int i=0;i<text.length();i++) {
+            if (text.charAt(i) == '\n') {
+                count++;
+            }
+        }
+        return count++;
     }
 
 }
