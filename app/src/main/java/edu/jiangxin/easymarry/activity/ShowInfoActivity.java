@@ -2,12 +2,19 @@ package edu.jiangxin.easymarry.activity;
 
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.Process;
 import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -82,6 +89,20 @@ public class ShowInfoActivity extends AppCompatActivity {
         sb03.append("Screen height(inch): " + (float) metric.heightPixels / metric.densityDpi).append("\n");
 
         menuList.add(new ShowInfoContent("显示屏幕信息", sb03.toString()));
+
+
+        PackageManager packageManager = getPackageManager();
+        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(packageManager.GET_UNINSTALLED_PACKAGES | packageManager.GET_ACTIVITIES);
+        for (PackageInfo packageInfo : packageInfos) {
+            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+            Intent startIntent = new Intent(Intent.ACTION_MAIN, null);
+            startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+            List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(startIntent, 0);
+            for (ResolveInfo resolveInfo : resolveInfos) {
+                ActivityInfo activityInfo = resolveInfo.activityInfo;
+            }
+        }
+
 
         lv = findViewById(R.id.lv_show_info);
 
