@@ -27,15 +27,7 @@ public class ListViewActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
-        findViewById();
-        ininData();
-    }
-
-    public void findViewById() {
         lv_view = findViewById(R.id.lv_menu_view);
-    }
-
-    public void ininData() {
         menuList = new ArrayList<String>();
         String[] menu = new String[]{"ExpandableList", "GridView", "ListView侧滑",
                 "ViewFlipper"};
@@ -49,21 +41,17 @@ public class ListViewActivity extends Activity {
         lv_view.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                intent(position);
+                if (position == 0) {
+                    startActivity(new Intent(ListViewActivity.this, ExpandableListActivity.class));
+                } else if (position == 1) {
+                    startActivity(new Intent(ListViewActivity.this, GridViewActivity.class));
+                } else if (position == 2) {
+                    startActivity(new Intent(ListViewActivity.this, SlideListViewActivity.class));
+                } else if (position == 3) {
+                    startActivity(new Intent(ListViewActivity.this, ViewFlipperActivity.class));
+                }
             }
         });
-    }
-
-    public void intent(int position) {
-        if (position == 0) {
-            startActivity(new Intent(this, ExpandableListActivity.class));
-        } else if (position == 1) {
-            startActivity(new Intent(this, GridViewActivity.class));
-        } else if (position == 2) {
-            startActivity(new Intent(this, SlideListViewActivity.class));
-        } else if (position == 3) {
-            startActivity(new Intent(this, ViewFlipperActivity.class));
-        }
     }
 
 }

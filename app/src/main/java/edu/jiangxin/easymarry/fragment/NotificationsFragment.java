@@ -24,7 +24,6 @@ import edu.jiangxin.easymarry.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
-import edu.jiangxin.easymarry.activity.various.VariousMainActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -34,9 +33,9 @@ public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
 
-    private Button mBtnShowInfoEntrance, mBtn10, mBtn11, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
+    private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnVariousEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance;
     private View root;
 
 
@@ -195,17 +194,6 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), QuickSearchBoxActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtnVariousEntrance = root.findViewById(R.id.btnVariousEntrance);
-        mBtnVariousEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), VariousMainActivity.class);
                 startActivity(intent);
             }
         });
