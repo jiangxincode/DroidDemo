@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigation;
     private MainActivityViewPagerAdapter adapter;
 
-    private ShortcutManager mShortcutManager;
-
     @Override
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     protected void onCreate(Bundle savedInstanceState) {
@@ -188,23 +186,22 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     private void setupShortcuts() {
-        mShortcutManager = getSystemService(ShortcutManager.class);
+        ShortcutManager mShortcutManager = getSystemService(ShortcutManager.class);
 
         List<ShortcutInfo> infos = new ArrayList<>();
         String[] name = {"找车", "找饭店", "找宾馆", "买车票"};
         for (int i = 0; i < mShortcutManager.getMaxShortcutCountPerActivity(); i++) {
             Intent intent = new Intent(this, MessageActivity.class);
             intent.setAction(Intent.ACTION_VIEW);
-            intent.putExtra("msg", "我和" + name[i % 4] + "的对话");
+            intent.putExtra("msg", name[i % 4]);
 
             ShortcutInfo info = new ShortcutInfo.Builder(this, "id" + i)
                     .setShortLabel(name[i % 4])
-                    .setLongLabel("联系人:" + name[i % 4])
+                    .setLongLabel("功能:" + name[i % 4])
                     .setIcon(Icon.createWithResource(this, R.drawable.icon))
                     .setIntent(intent)
                     .build();
             infos.add(info);
-//            manager.addDynamicShortcuts(Arrays.asList(info));
         }
 
         mShortcutManager.setDynamicShortcuts(infos);
