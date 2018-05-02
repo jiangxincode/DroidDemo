@@ -92,7 +92,7 @@ public class ShowInfoActivity extends AppCompatActivity {
 
 
         PackageManager packageManager = getPackageManager();
-        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(packageManager.GET_UNINSTALLED_PACKAGES | packageManager.GET_ACTIVITIES);
+        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_ACTIVITIES);
         for (PackageInfo packageInfo : packageInfos) {
             ApplicationInfo applicationInfo = packageInfo.applicationInfo;
             Intent startIntent = new Intent(Intent.ACTION_MAIN, null);

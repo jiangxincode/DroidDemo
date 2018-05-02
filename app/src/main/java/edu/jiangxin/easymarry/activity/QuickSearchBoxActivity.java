@@ -28,16 +28,16 @@ public class QuickSearchBoxActivity extends Activity implements OnClickListener 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
-        mBtnInsert = (Button) findViewById(R.id.btnInsert);
+        mBtnInsert = findViewById(R.id.btnInsert);
         mBtnInsert.setOnClickListener(QuickSearchBoxActivity.this);
 
-        mBtnQuery = (Button) findViewById(R.id.btnQuery);
+        mBtnQuery = findViewById(R.id.btnQuery);
         mBtnQuery.setOnClickListener(QuickSearchBoxActivity.this);
 
-        mBtnDelete = (Button) findViewById(R.id.btnDelete);
+        mBtnDelete = findViewById(R.id.btnDelete);
         mBtnDelete.setOnClickListener(QuickSearchBoxActivity.this);
 
-        mBtnUpdate = (Button) findViewById(R.id.btnUpdate);
+        mBtnUpdate = findViewById(R.id.btnUpdate);
         mBtnUpdate.setOnClickListener(QuickSearchBoxActivity.this);
     }
 

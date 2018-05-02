@@ -1,7 +1,13 @@
 package edu.jiangxin.easymarry.activity;
 
+import android.content.Intent;
+import android.content.pm.ShortcutInfo;
+import android.content.pm.ShortcutManager;
+import android.graphics.drawable.Icon;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
@@ -10,6 +16,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.adapter.MainActivityViewPagerAdapter;
@@ -24,7 +33,10 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView navigation;
     private MainActivityViewPagerAdapter adapter;
 
+    private ShortcutManager mShortcutManager;
+
     @Override
+    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
@@ -96,6 +108,10 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new DashboardFragment());
         adapter.addFragment(new NotificationsFragment());
         mainActivityViewPager.setAdapter(adapter);
+
+        setupShortcuts();
+
+
     }
 
     @Override
@@ -168,6 +184,30 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onCreateOptionsMenu(menu);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
+    private void setupShortcuts() {
+        mShortcutManager = getSystemService(ShortcutManager.class);
+
+        List<ShortcutInfo> infos = new ArrayList<>();
+        String[] name = {"找车", "找饭店", "找宾馆", "买车票"};
+        for (int i = 0; i < mShortcutManager.getMaxShortcutCountPerActivity(); i++) {
+            Intent intent = new Intent(this, MessageActivity.class);
+            intent.setAction(Intent.ACTION_VIEW);
+            intent.putExtra("msg", "我和" + name[i % 4] + "的对话");
+
+            ShortcutInfo info = new ShortcutInfo.Builder(this, "id" + i)
+                    .setShortLabel(name[i % 4])
+                    .setLongLabel("联系人:" + name[i % 4])
+                    .setIcon(Icon.createWithResource(this, R.drawable.icon))
+                    .setIntent(intent)
+                    .build();
+            infos.add(info);
+//            manager.addDynamicShortcuts(Arrays.asList(info));
+        }
+
+        mShortcutManager.setDynamicShortcuts(infos);
     }
 
 

@@ -35,9 +35,9 @@ public class SpannableStringActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spannable_string);
-        tv1 = (TextView) this.findViewById(R.id.textView1);
-        tv2 = (TextView) this.findViewById(R.id.textView2);
-        tv3 = (TextView) this.findViewById(R.id.textView3);
+        tv1 = this.findViewById(R.id.textView1);
+        tv2 = this.findViewById(R.id.textView2);
+        tv3 = this.findViewById(R.id.textView3);
         //创建一个SpannableString对象
         sStr = new SpannableString("最是那一低头的温柔，像一朵水莲花不胜凉风的娇羞，道一声珍重，道一声珍重，那一声珍重里有蜜甜的忧愁");
         //设置字体(default,default-bold,monospace,serif,sans-serif)
