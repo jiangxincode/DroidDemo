@@ -56,26 +56,10 @@ public class AppListActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_app_list);
 		mContext = AppListActivity.this;
-		// 初始化操作
-		initViews();
-		initValues();
-		initListeners();
-	}
-
-	/**
-	 * 初始化控件
-	 */
-	private void initViews() {
 		am_hint_tv = this.findViewById(R.id.am_hint_tv);
 		am_listview = this.findViewById(R.id.am_listview);
-	}
-
-	/**
-	 * 初始化数据
-	 */
-	private void initValues() {
 		// 字体加粗
-		TextPaint tp = am_hint_tv.getPaint(); 
+		TextPaint tp = am_hint_tv.getPaint();
 		tp.setFakeBoldText(true);
 		// 初始化
 		pManager = mContext.getPackageManager();
@@ -84,12 +68,6 @@ public class AppListActivity extends Activity implements OnClickListener {
 		// 初始化适配器,并绑定
 		aAdapter = new AppAdapter();
 		am_listview.setAdapter(aAdapter);
-	}
-
-	/**
-	 * 初始化事件
-	 */
-	private void initListeners() {
 		am_listview.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> vAdapter, View view, int position,long id) {
@@ -98,7 +76,7 @@ public class AppListActivity extends Activity implements OnClickListener {
 					PackageInfo oPInfo = listPInfos.get(position);
 					// 获取包名
 					String packName = oPInfo.applicationInfo.packageName;
-					
+
 					Intent intent = new Intent(mContext,SignaturesActivity.class);
 					intent.putExtra("packName", packName);
 					mContext.startActivity(intent);
@@ -109,7 +87,7 @@ public class AppListActivity extends Activity implements OnClickListener {
 			}
 		});
 	}
-	
+
 	
 
 	/**
