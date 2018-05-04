@@ -102,6 +102,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="全局搜索样例" />
+
+            <Button
+                android:id="@+id/btnImageViewEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ImageView样例" />
         </LinearLayout>
     </ScrollView>
 

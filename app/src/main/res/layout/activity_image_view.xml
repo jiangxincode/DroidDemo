@@ -1,0 +1,163 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 从左上角开始绘制，若原图大于ImageView，多余部分剪裁掉。若原图小于ImageView，则原图显示在左上角 -->
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:adjustViewBounds="false"
+                android:background="#ffaa77"
+                android:scaleType="matrix"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:adjustViewBounds="false"
+                android:background="#aa99cc"
+                android:scaleType="matrix"
+                android:src="@drawable/small" />
+
+            <!-- fitXY表示不按比例缩放图片，目标是填充整个ImageView-->
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:background="#ffaa77"
+                android:scaleType="fitXY"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="128dp"
+                android:background="#aa99cc"
+                android:scaleType="fitXY"
+                android:src="@drawable/small" />
+
+            <!-- 将图片按比例缩放至View的宽度或者高度（看具体情况），然后居上或者居左显示（与前面缩放至宽还是高有关） -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="256dp"
+                android:background="#ffaa77"
+                android:scaleType="fitStart"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="128dp"
+                android:background="#aa99cc"
+                android:scaleType="fitStart"
+                android:src="@drawable/small" />
+
+            <!-- 将图片按比例缩放至View的宽度或者高度（取宽度和高度的最小值），然后居中显示（与前面缩放至宽还是高有关） -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="256dp"
+                android:background="#ffaa77"
+                android:scaleType="fitCenter"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="48dp"
+                android:background="#aa99cc"
+                android:scaleType="fitCenter"
+                android:src="@drawable/small" />
+
+            <!-- 将图片按比例缩放至View的宽度或者高度（取宽度和高度的最小值），然后居下或者居右显示（与前面缩放至宽还是高有关） -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="256dp"
+                android:background="#ffaa77"
+                android:scaleType="fitEnd"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="48dp"
+                android:background="#aa99cc"
+                android:scaleType="fitEnd"
+                android:src="@drawable/small" />
+
+            <!-- 将原图按照原来的大小居中显示，如果原图的大小超过了ImageView的大小，那么剪裁掉多余部分，只显示中间一部分图像 -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="256dp"
+                android:background="#ffaa77"
+                android:scaleType="center"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="24dp"
+                android:background="#aa99cc"
+                android:scaleType="center"
+                android:src="@drawable/small" />
+
+            <!-- centerCrop的目标是将ImageView填充满，故按比例缩放原图，使得可以将ImageView填充满，同时将多余的宽或者高剪裁掉 -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="256dp"
+                android:background="#ffaa77"
+                android:scaleType="centerCrop"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="48dp"
+                android:background="#aa99cc"
+                android:scaleType="centerCrop"
+                android:src="@drawable/small" />
+
+            <!-- centerInside的目标是将原图完整的显示出来，故按比例缩放原图，使得ImageView可以将原图完整显示 -->
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="256dp"
+                android:background="#ffaa77"
+                android:scaleType="centerInside"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="256dp"
+                android:layout_height="48dp"
+                android:background="#aa99cc"
+                android:scaleType="centerInside"
+                android:src="@drawable/small" />
+
+            <!-- 默认情况 -->
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:adjustViewBounds="false"
+                android:background="#ffaa77"
+                android:src="@drawable/big" />
+
+            <ImageView
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:adjustViewBounds="false"
+                android:background="#aa99cc"
+                android:src="@drawable/small" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

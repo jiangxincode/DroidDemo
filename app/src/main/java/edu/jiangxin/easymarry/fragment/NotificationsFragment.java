@@ -16,6 +16,7 @@ import edu.jiangxin.easymarry.activity.DecorViewActivity;
 import edu.jiangxin.easymarry.activity.DialogActivity;
 import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.FriendsListActivity;
+import edu.jiangxin.easymarry.activity.ImageViewActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
 import edu.jiangxin.easymarry.activity.QuickSearchBoxActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
@@ -35,7 +36,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance;
     private View root;
 
 
@@ -194,6 +195,17 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), QuickSearchBoxActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnImageViewEntrance = root.findViewById(R.id.btnImageViewEntrance);
+        mBtnImageViewEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ImageViewActivity.class);
                 startActivity(intent);
             }
         });

@@ -116,7 +116,8 @@
         <activity android:name=".activity.various.LoadPictureToMemActivity" />
         <activity android:name=".activity.various.LoadBigPictureToMemActivity" />
         <activity android:name=".activity.ShowInfoActivity" />
-        <activity android:name=".activity.MessageActivity"></activity>
+        <activity android:name=".activity.MessageActivity" />
+        <activity android:name=".activity.ImageViewActivity"></activity>
     </application>
 
 </manifest>
