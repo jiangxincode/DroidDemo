@@ -31,4 +31,12 @@
         android:background="@drawable/bg_dialog_shape"
         android:text="这是一个长对话，bg_dialog_shape.xml实现，效果还不错" />
 
+    <TextView
+        android:id="@+id/tv_tint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_dialog_shape"
+        android:text="这是一个长对话，bg_dialog_shape.xml实现，效果还不错，注意我修改了颜色" />
+
 </LinearLayout>
