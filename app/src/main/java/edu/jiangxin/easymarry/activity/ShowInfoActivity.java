@@ -14,7 +14,6 @@ import android.os.Process;
 import android.os.UserHandle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -87,22 +86,21 @@ public class ShowInfoActivity extends AppCompatActivity {
         sb03.append("Screen densityDpi(dpi): " + metric.densityDpi).append("\n"); // 屏幕密度DPI（120 / 160 / 240）
         sb03.append("Screen width(inch): " + (float) metric.widthPixels / metric.densityDpi).append("\n");
         sb03.append("Screen height(inch): " + (float) metric.heightPixels / metric.densityDpi).append("\n");
+        sb03.append("Screen width(dp): " + (float) metric.widthPixels / metric.density).append("\n");
+        sb03.append("Screen height(dp): " + (float) metric.heightPixels / metric.density).append("\n");
 
         menuList.add(new ShowInfoContent("显示屏幕信息", sb03.toString()));
 
 
         PackageManager packageManager = getPackageManager();
-        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES | PackageManager.GET_ACTIVITIES);
-        for (PackageInfo packageInfo : packageInfos) {
-            ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-            Intent startIntent = new Intent(Intent.ACTION_MAIN, null);
-            startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-            List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(startIntent, 0);
-            for (ResolveInfo resolveInfo : resolveInfos) {
-                ActivityInfo activityInfo = resolveInfo.activityInfo;
-            }
-        }
-
+        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
+        PackageInfo packageInfo = packageInfos.get(0);
+        ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+        Intent startIntent = new Intent(Intent.ACTION_MAIN, null);
+        startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(startIntent, 0);
+        ResolveInfo resolveInfo = resolveInfos.get(0);
+        ActivityInfo activityInfo = resolveInfo.activityInfo;
 
         lv = findViewById(R.id.lv_show_info);
 

@@ -1,6 +1,7 @@
 package edu.jiangxin.easymarry.activity;
 
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -9,6 +10,8 @@ import android.renderscript.Element;
 import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.support.annotation.IntRange;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.SeekBar;
@@ -17,6 +20,8 @@ import android.widget.TextView;
 import edu.jiangxin.easymarry.R;
 
 public class BlurActivity extends Activity {
+
+    public static final String TAG = "BlurActivity";
 
     private RenderScript renderScript;
 
@@ -27,6 +32,7 @@ public class BlurActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.i(TAG, "onCreate");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         renderScript = RenderScript.create(BlurActivity.this);
@@ -34,6 +40,7 @@ public class BlurActivity extends Activity {
         setContentView(R.layout.activity_blur);
 
         imageView = findViewById(R.id.imageView);
+
         textView = findViewById(R.id.textView);
         seekBar = findViewById(R.id.seekBar);
         seekBar.setMax(25);
@@ -60,10 +67,82 @@ public class BlurActivity extends Activity {
                 // 如果需要对整个layout进行高斯模糊，可能会用到Layout类中的setDrawingCacheEnabled和setDrawingCacheQuality方法：
             }
         });
-
     }
 
-    public Bitmap gaussianBlur(@IntRange(from = 1, to = 25) int radius, Bitmap original) {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, "onDestroy");
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        Log.i(TAG, "onConfigurationChanged");
+    }
+
+    //Activity生命周期中，onStart, onResume, onCreate都不是真正visible的时间点，真正的visible时间点是onWindowFocusChanged
+    //从onWindowFocusChanged被执行起，用户可以与应用进行交互了，而这之前，对用户的操作需要做一点限制
+    //使用一个view的getWidth/getHeight方法来获取该view的宽和高，返回的值为0
+    //如果这个view的长宽很确定不为0的话，很可能是过早的调用这些方法，也就是说在这个view被加入到rootview之前你就调用了这些方法，返回的值自然为0
+    //解决该问题的方法有很多，主要就是延后调用这些方法。可以试着在onWindowFocusChanged里面调用这些方法
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        Log.i(TAG, "onWindowFocusChanged");
+    }
+
+    @Override
+    public void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        Log.i(TAG, "onAttachedToWindow");
+    }
+
+    //在三星，OPPO等机型上，当用户触摸“返回键“时没有进入重写的onBackPressed方法
+    //可以通过覆写dispatchKeyEvent方法，从该方法中拦截返回键再做处理
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Log.i(TAG, "onBackPressed");
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        Log.i(TAG, "dispatchKeyEvent: " + event.toString());
+        return super.dispatchKeyEvent(event);
+    }
+
+    private Bitmap gaussianBlur(@IntRange(from = 1, to = 25) int radius, Bitmap original) {
         Allocation input = Allocation.createFromBitmap(renderScript, original);
         Allocation output = Allocation.createTyped(renderScript, input.getType());
         ScriptIntrinsicBlur scriptIntrinsicBlur = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript));

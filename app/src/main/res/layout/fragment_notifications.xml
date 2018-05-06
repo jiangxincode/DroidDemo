@@ -59,7 +59,7 @@
                 android:id="@+id/btnBlurEntrance"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/button_blur_entrance" />
+                android:text="高斯模糊以及Activity生命周期展示" />
 
             <Button
                 android:id="@+id/btnForbidScreenShotEntrance"

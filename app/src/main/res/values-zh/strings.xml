@@ -14,7 +14,6 @@
     <string name="s8">SYSTEM_UI_FLAG_LOW_PROFILE</string>
     <string name="button_dialog_entrance">对话框背景</string>
     <string name="button_ripple_entrance">水波动效</string>
-    <string name="button_blur_entrance">高斯模糊</string>
     <string name="button_forbid_screenshot_entrance">禁止录屏</string>
     <string name="button_app_list_entrance">应用列表</string>
     <string name="button_various_notification_entrance">各种通知</string>
