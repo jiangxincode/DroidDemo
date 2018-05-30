@@ -1,4 +1,4 @@
-package com.example.music59.service;
+package edu.jiangxin.easymusic.service;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -18,8 +18,8 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.widget.Toast;
 
-import com.example.music59.conf.Constants;
-import com.example.music59.utils.MediaUtils;
+import edu.jiangxin.easymusic.conf.Constants;
+import edu.jiangxin.easymusic.utils.MediaUtils;
 
 public class MusicService extends Service implements OnErrorListener, OnPreparedListener, OnCompletionListener,
 		OnAudioFocusChangeListener {

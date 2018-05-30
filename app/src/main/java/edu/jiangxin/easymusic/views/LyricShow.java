@@ -1,4 +1,4 @@
-package com.example.music59.views;
+package edu.jiangxin.easymusic.views;
 
 import java.util.Vector;
 
@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 
-import com.example.music59.utils.LrcUtil.Timelrc;
+import edu.jiangxin.easymusic.utils.LrcUtil.Timelrc;
 
 /**
  * 

@@ -1,4 +1,4 @@
-package com.example.music59;
+package edu.jiangxin.easymusic;
 
 import java.io.File;
 import java.util.Random;
@@ -31,14 +31,14 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.music59.adapter.MyAdapter;
-import com.example.music59.conf.Constants;
-import com.example.music59.service.MusicService;
-import com.example.music59.utils.LrcUtil;
-import com.example.music59.utils.MediaUtils;
-import com.example.music59.views.LyricShow;
-import com.example.music59.views.ScrollableViewGroup;
-import com.example.music59.views.ScrollableViewGroup.OnCurrentViewChangedListener;
+import edu.jiangxin.easymusic.adapter.MyAdapter;
+import edu.jiangxin.easymusic.conf.Constants;
+import edu.jiangxin.easymusic.service.MusicService;
+import edu.jiangxin.easymusic.utils.LrcUtil;
+import edu.jiangxin.easymusic.utils.MediaUtils;
+import edu.jiangxin.easymusic.views.LyricShow;
+import edu.jiangxin.easymusic.views.ScrollableViewGroup;
+import edu.jiangxin.easymusic.views.ScrollableViewGroup.OnCurrentViewChangedListener;
 
 public class MainActivity extends Activity implements OnClickListener {
 

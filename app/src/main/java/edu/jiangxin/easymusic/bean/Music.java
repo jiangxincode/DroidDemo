@@ -1,4 +1,4 @@
-package com.example.music59.bean;
+package edu.jiangxin.easymusic.bean;
 
 public class Music {
 	public String title;//歌曲名

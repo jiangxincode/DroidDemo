@@ -1,4 +1,4 @@
-package com.example.music59.views;
+package edu.jiangxin.easymusic.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

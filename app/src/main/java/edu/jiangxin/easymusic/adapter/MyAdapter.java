@@ -1,11 +1,10 @@
-package com.example.music59.adapter;
+package edu.jiangxin.easymusic.adapter;
 
-import com.example.music59.R;
-import com.example.music59.bean.Music;
-import com.example.music59.utils.MediaUtils;
+import edu.jiangxin.easymusic.R;
+import edu.jiangxin.easymusic.bean.Music;
+import edu.jiangxin.easymusic.utils.MediaUtils;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;

@@ -1,4 +1,4 @@
-package com.example.music59.utils;
+package edu.jiangxin.easymusic.utils;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -9,8 +9,8 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.provider.MediaStore;
 
-import com.example.music59.bean.Music;
-import com.example.music59.conf.Constants;
+import edu.jiangxin.easymusic.bean.Music;
+import edu.jiangxin.easymusic.conf.Constants;
 
 public class MediaUtils {
 	public static List<Music> songList = new ArrayList<Music>();

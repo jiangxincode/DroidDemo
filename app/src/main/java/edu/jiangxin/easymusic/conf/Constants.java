@@ -1,4 +1,4 @@
-package com.example.music59.conf;
+package edu.jiangxin.easymusic.conf;
 
 public class Constants {
 	public static final int STATE_STOP = 1001;//停止状态,默认情况

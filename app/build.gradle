@@ -5,7 +5,7 @@ android {
     buildToolsVersion "27.0.3"
 
     defaultConfig {
-        applicationId "com.example.music59"
+        applicationId "edu.jiangxin.easymusic"
         minSdkVersion 13
         targetSdkVersion 17
     }

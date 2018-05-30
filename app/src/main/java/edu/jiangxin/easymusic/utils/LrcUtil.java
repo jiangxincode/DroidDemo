@@ -1,4 +1,4 @@
-package com.example.music59.utils;
+package edu.jiangxin.easymusic.utils;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Vector;
 
-import com.example.music59.MainActivity;
+import edu.jiangxin.easymusic.MainActivity;
 
 /**
  * 
