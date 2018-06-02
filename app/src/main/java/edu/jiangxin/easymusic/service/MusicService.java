@@ -30,12 +30,11 @@ public class MusicService extends Service implements OnErrorListener, OnPrepared
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO
 		return null;
 	}
 
 	@Override
-	public void onCreate() {//多次启动service执行一次
+	public void onCreate() {
 		mPlayer = new MediaPlayer();
 		//设置监听器
 		mPlayer.setOnErrorListener(this);//设置资源的时候出错了

@@ -3,20 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="50dp"
     android:layout_alignParentBottom="true"
-    android:background="@drawable/img_playback_bg" >
-
-    <!-- 具体的按钮 -->
+    android:background="@drawable/img_playback_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
-
-        <!-- 第一个item -->
+        android:layout_height="match_parent">
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/ib_bottom_model"
@@ -31,12 +27,11 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/icon_playmode_normal" />
         </RelativeLayout>
-        <!-- 第2个item -->
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/ib_bottom_last"
@@ -50,12 +45,11 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/img_playback_bt_last" />
         </RelativeLayout>
-        <!-- 第3个item -->
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/ib_bottom_play"
@@ -70,12 +64,11 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/img_playback_bt_play" />
         </RelativeLayout>
-        <!-- 第4个item -->
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/ib_bottom_next"
@@ -89,12 +82,11 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/img_playback_bt_next" />
         </RelativeLayout>
-        <!-- 第5个item -->
 
         <RelativeLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1" >
+            android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/ib_bottom_update"

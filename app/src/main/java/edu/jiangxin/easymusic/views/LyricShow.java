@@ -219,7 +219,7 @@ public class LyricShow extends TextView {
 					if (tempY < 0) {
 						break;
 					}
-					Log.i(TAG, "onDraw--句子-" + lrclist.get(i).getLrcString());
+					//Log.i(TAG, "onDraw--句子-" + lrclist.get(i).getLrcString());
 					canvas.drawText(lrclist.get(i).getLrcString(), width / 2, tempY, NotCurrentPaint);
 					// canvas.translate(0, TextHeight);
 				}

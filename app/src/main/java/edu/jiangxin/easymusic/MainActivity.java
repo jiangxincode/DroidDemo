@@ -1,8 +1,5 @@
 package edu.jiangxin.easymusic;
 
-import java.io.File;
-import java.util.Random;
-
 import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -30,6 +27,9 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.File;
+import java.util.Random;
 
 import edu.jiangxin.easymusic.adapter.MyAdapter;
 import edu.jiangxin.easymusic.conf.Constants;
@@ -118,7 +118,6 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Toast.makeText(getApplicationContext(), "oncreat", 0).show();
 		setContentView(R.layout.activity_main);
 		mInstance = this;//当前activity的引用
 		initView();
@@ -232,101 +231,100 @@ public class MainActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.ib_top_play:
-			mSvg_main.setCurrentView(0);//mSvg_main显示第一个孩子
-			setTopSelected(R.id.ib_top_play);
-			break;
-		case R.id.ib_top_list:
-			mSvg_main.setCurrentView(1);//mSvg_main显示第二个孩子
-			setTopSelected(R.id.ib_top_list);
-			break;
-		case R.id.ib_top_lrc:
-			mSvg_main.setCurrentView(2);//mSvg_main显示第三个孩子
-			setTopSelected(R.id.ib_top_lrc);
+			case R.id.ib_top_play:
+				mSvg_main.setCurrentView(0);
+				setTopSelected(R.id.ib_top_play);
+				break;
+			case R.id.ib_top_list:
+				mSvg_main.setCurrentView(1);
+				setTopSelected(R.id.ib_top_list);
+				break;
+			case R.id.ib_top_lrc:
+				mSvg_main.setCurrentView(2);
+				setTopSelected(R.id.ib_top_lrc);
+				break;
+			case R.id.ib_bottom_play://播放按钮,点击同一个按钮.有两个操作.需要定义一个变量进行控制
+				//启动服务.而且让服务播放音乐
+				if (MediaUtils.CURSTATE == Constants.STATE_STOP) {//默认是停止,点击就变播放
+					startMediaService("播放", MediaUtils.songList.get(MediaUtils.CURPOSITION).path);
+					//修改图标
+					mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
+				} else if (MediaUtils.CURSTATE == Constants.STATE_PLAY) {//第二次点击的时候.当前的状态是播放
+					startMediaService("暂停");
+					//修改图标
+					mIv_bottom_play.setImageResource(R.drawable.img_playback_bt_play);
+				} else if (MediaUtils.CURSTATE == Constants.STATE_PAUSE) {//第三次点击的时候.当前的状态是暂停
+					startMediaService("继续");
+					//修改图标
+					mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
+				}
 
-			break;
-		case R.id.ib_bottom_play://播放按钮,点击同一个按钮.有两个操作.需要定义一个变量进行控制
-			//启动服务.而且让服务播放音乐
-			if (MediaUtils.CURSTATE == Constants.STATE_STOP) {//默认是停止,点击就变播放
-				startMediaService("播放", MediaUtils.songList.get(MediaUtils.CURPOSITION).path);
-				//修改图标
-				mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
-			} else if (MediaUtils.CURSTATE == Constants.STATE_PLAY) {//第二次点击的时候.当前的状态是播放
-				startMediaService("暂停");
-				//修改图标
-				mIv_bottom_play.setImageResource(R.drawable.img_playback_bt_play);
-			} else if (MediaUtils.CURSTATE == Constants.STATE_PAUSE) {//第三次点击的时候.当前的状态是暂停
-				startMediaService("继续");
-				//修改图标
-				mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
-			}
+				break;
+			case R.id.ib_bottom_last:
+				if (MediaUtils.CURPOSITION > 0) {
+					changeColorWhite();
+					MediaUtils.CURPOSITION--;
+					changeColorGreen();
+					//2.播放
+					startMediaService("播放", MediaUtils.songList.get(MediaUtils.CURPOSITION).path);
+					//3.修改图标
+					mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
+				}
+				break;
+			case R.id.ib_bottom_next:
 
-			break;
-		case R.id.ib_bottom_last:
-			if (MediaUtils.CURPOSITION > 0) {
-				changeColorWhite();
-				MediaUtils.CURPOSITION--;
-				changeColorGreen();
-				//2.播放
-				startMediaService("播放", MediaUtils.songList.get(MediaUtils.CURPOSITION).path);
-				//3.修改图标
-				mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
-			}
-			break;
-		case R.id.ib_bottom_next:
+				if (MediaUtils.CURPOSITION < MediaUtils.songList.size() - 1) {//MediaUtils.songList.size() - 1
+					changeColorWhite();
+					MediaUtils.CURPOSITION++;
+					changeColorGreen();
+					//2.播放
+					startMediaService("播放", MediaUtils.songList.get(MediaUtils.CURPOSITION).path);
+					//3.修改图标
+					mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
 
-			if (MediaUtils.CURPOSITION < MediaUtils.songList.size() - 1) {//MediaUtils.songList.size() - 1
-				changeColorWhite();
-				MediaUtils.CURPOSITION++;
-				changeColorGreen();
-				//2.播放
-				startMediaService("播放", MediaUtils.songList.get(MediaUtils.CURPOSITION).path);
-				//3.修改图标
-				mIv_bottom_play.setImageResource(R.drawable.appwidget_pause);
+				}
 
-			}
+				break;
+			case R.id.ib_bottom_model:
+				if (MediaUtils.CURMODEL == Constants.MODEL_NORMAL) {//当前是顺序播放
+					MediaUtils.CURMODEL = Constants.MODEL_RANDOM;//切换成随机播放
+					//更新ui
+					mIv_bottom_model.setImageResource(R.drawable.icon_playmode_shuffle);
+					//提示
+					Toast.makeText(getApplicationContext(), "随机播放", 0).show();
+				} else if (MediaUtils.CURMODEL == Constants.MODEL_RANDOM) {//当前是随机播放
+					MediaUtils.CURMODEL = Constants.MODEL_REPEAT;//切换成重复播放
+					//更新ui
+					mIv_bottom_model.setImageResource(R.drawable.icon_playmode_repeat);
+					//提示
+					Toast.makeText(getApplicationContext(), "重复播放", 0).show();
+				} else if (MediaUtils.CURMODEL == Constants.MODEL_REPEAT) {//当前是重复播放
+					MediaUtils.CURMODEL = Constants.MODEL_SINGLE;//切换成单曲循环
+					//更新ui
+					mIv_bottom_model.setImageResource(R.drawable.icon_playmode_single);
+					//提示
+					Toast.makeText(getApplicationContext(), "单曲循环", 0).show();
+				} else if (MediaUtils.CURMODEL == Constants.MODEL_SINGLE) {//当前是单曲循环
+					MediaUtils.CURMODEL = Constants.MODEL_NORMAL;//切换成顺序播放
+					//更新ui
+					mIv_bottom_model.setImageResource(R.drawable.icon_playmode_normal);
+					//提示
+					Toast.makeText(getApplicationContext(), "顺序播放", 0).show();
+				}
+				break;
+			case R.id.ib_bottom_update:
+				reflash();
+				break;
+			case R.id.ib_top_volumn:
+				AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
+				//音乐可以设置的最大音量
+				int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
+				//设置音量
+				audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume / 2, AudioManager.FLAG_PLAY_SOUND);
+				break;
 
-			break;
-		case R.id.ib_bottom_model:
-			if (MediaUtils.CURMODEL == Constants.MODEL_NORMAL) {//当前是顺序播放
-				MediaUtils.CURMODEL = Constants.MODEL_RANDOM;//切换成随机播放
-				//更新ui
-				mIv_bottom_model.setImageResource(R.drawable.icon_playmode_shuffle);
-				//提示
-				Toast.makeText(getApplicationContext(), "随机播放", 0).show();
-			} else if (MediaUtils.CURMODEL == Constants.MODEL_RANDOM) {//当前是随机播放
-				MediaUtils.CURMODEL = Constants.MODEL_REPEAT;//切换成重复播放
-				//更新ui
-				mIv_bottom_model.setImageResource(R.drawable.icon_playmode_repeat);
-				//提示
-				Toast.makeText(getApplicationContext(), "重复播放", 0).show();
-			} else if (MediaUtils.CURMODEL == Constants.MODEL_REPEAT) {//当前是重复播放
-				MediaUtils.CURMODEL = Constants.MODEL_SINGLE;//切换成单曲循环
-				//更新ui
-				mIv_bottom_model.setImageResource(R.drawable.icon_playmode_single);
-				//提示
-				Toast.makeText(getApplicationContext(), "单曲循环", 0).show();
-			} else if (MediaUtils.CURMODEL == Constants.MODEL_SINGLE) {//当前是单曲循环
-				MediaUtils.CURMODEL = Constants.MODEL_NORMAL;//切换成顺序播放
-				//更新ui
-				mIv_bottom_model.setImageResource(R.drawable.icon_playmode_normal);
-				//提示
-				Toast.makeText(getApplicationContext(), "顺序播放", 0).show();
-			}
-			break;
-		case R.id.ib_bottom_update:
-			reflash();
-			break;
-		case R.id.ib_top_volumn:
-			AudioManager audioManager = (AudioManager) getSystemService(AUDIO_SERVICE);
-			//音乐可以设置的最大音量
-			int maxVolume = audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC);
-			//设置音量
-			audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, maxVolume / 2, AudioManager.FLAG_PLAY_SOUND);
-			break;
-
-		default:
-			break;
+			default:
+				break;
 		}
 	}
 

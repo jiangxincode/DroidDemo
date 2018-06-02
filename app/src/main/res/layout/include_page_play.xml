@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edu.jiangxin.easymusic.views.ViewGroupHook xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:background="@drawable/img_playinfo_bg"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/tv_minilrc"
@@ -24,9 +24,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" >
-
-                <!-- 1. left textview -->
+                android:layout_height="match_parent">
 
                 <TextView
                     android:id="@+id/tv_curduration"
@@ -36,7 +34,6 @@
                     android:layout_marginLeft="2dp"
                     android:text="00:00"
                     android:textColor="#ffffff" />
-                <!-- 2. right textview -->
 
                 <TextView
                     android:id="@+id/tv_totalduration"
@@ -47,7 +44,6 @@
                     android:layout_marginRight="2dp"
                     android:text="00:00"
                     android:textColor="#ffffff" />
-                <!-- 3. seekbar -->
 
                 <SeekBar
                     android:id="@+id/sk_duration"
