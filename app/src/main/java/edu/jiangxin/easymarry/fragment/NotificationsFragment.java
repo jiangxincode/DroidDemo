@@ -11,6 +11,8 @@ import android.widget.Button;
 
 import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.activity.AppListActivity;
+import edu.jiangxin.easymarry.activity.AudioFxHistogramActivity;
+import edu.jiangxin.easymarry.activity.AudioFxOscillogramActivity;
 import edu.jiangxin.easymarry.activity.BlurActivity;
 import edu.jiangxin.easymarry.activity.DecorViewActivity;
 import edu.jiangxin.easymarry.activity.DialogActivity;
@@ -18,12 +20,14 @@ import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.FriendsListActivity;
 import edu.jiangxin.easymarry.activity.ImageViewActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
+import edu.jiangxin.easymarry.activity.NetMusicActivity;
 import edu.jiangxin.easymarry.activity.QuickSearchBoxActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
+import edu.jiangxin.easymarry.activity.VideoViewActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
 
 /**
@@ -36,7 +40,8 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance;
+            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
+            mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance;
     private View root;
 
 
@@ -206,6 +211,50 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ImageViewActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnAudioFxDemoOscillogramEntrance = root.findViewById(R.id.btnAudioFxDemoOscillogramEntrance);
+        mBtnAudioFxDemoOscillogramEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), AudioFxOscillogramActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnAudioFxDemoHistogramEntrance = root.findViewById(R.id.btnAudioFxDemoHistogramEntrance);
+        mBtnAudioFxDemoHistogramEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), AudioFxHistogramActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnNetMusicEntrance = root.findViewById(R.id.btnNetMusicEntrance);
+        mBtnNetMusicEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), NetMusicActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnVideoViewEntrance = root.findViewById(R.id.btnVideoViewEntrance);
+        mBtnVideoViewEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), VideoViewActivity.class);
                 startActivity(intent);
             }
         });
