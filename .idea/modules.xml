@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/googlePlay_8.iml" filepath="$PROJECT_DIR$/googlePlay_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/googlePlay_8/googlePlay_8-googlePlay_8.iml" filepath="$PROJECT_DIR$/googlePlay_8/googlePlay_8-googlePlay_8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pagerSlidingTabStrip/pagerSlidingTabStrip.iml" filepath="$PROJECT_DIR$/pagerSlidingTabStrip/pagerSlidingTabStrip.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xutils_lib/xutils_lib.iml" filepath="$PROJECT_DIR$/xutils_lib/xutils_lib.iml" />
+    </modules>
+  </component>
+</project>

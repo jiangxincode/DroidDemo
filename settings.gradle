@@ -1,0 +1,3 @@
+include ':pagerSlidingTabStrip'
+include ':xutils_lib'
+include ':googlePlay_8'
