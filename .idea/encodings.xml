@@ -3,9 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/activity/FriendsListActivity.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/CharacterParser.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/ClearEditText.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/GroupMemberBean.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/common/SortGroupMemberAdapter.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/app/src/main/java/edu/jiangxin/easymarry/view/IndexableListView.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/jni/Android.mk" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/jni/hello.c" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jni/Android.mk" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/jni/hello.c" charset="GBK" />
   </component>
 </project>

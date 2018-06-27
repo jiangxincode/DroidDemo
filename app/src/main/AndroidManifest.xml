@@ -9,7 +9,6 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
@@ -129,6 +128,7 @@
         <activity android:name=".activity.AudioFxHistogramActivity" />
         <activity android:name=".activity.NetMusicActivity" />
         <activity android:name=".activity.VideoViewActivity" />
+        <activity android:name=".activity.JNIActivity"></activity>
     </application>
 
 </manifest>

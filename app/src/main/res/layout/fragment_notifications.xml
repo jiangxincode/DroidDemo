@@ -133,6 +133,14 @@
                 android:layout_height="wrap_content"
                 android:text="播放视频" />
 
+            <Button
+                android:id="@+id/btnJNIEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="JNI" />
+
+
+
         </LinearLayout>
     </ScrollView>
 
