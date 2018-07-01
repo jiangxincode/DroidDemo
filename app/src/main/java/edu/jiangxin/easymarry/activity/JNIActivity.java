@@ -23,13 +23,13 @@ public class JNIActivity extends Activity {
 
     public native String helloFromC();
 
-    /*public native int result_from_c(int a,int b);*/
+    public native int resultFromC(int a,int b); 
 
     public void click1(View view){
         Toast.makeText(this, helloFromC(), Toast.LENGTH_LONG).show();
     }
 
-    /*public void click2(View view){
-        Toast.makeText(this, "3 + 5 = " + result_from_c(3, 5), Toast.LENGTH_LONG).show();
-    }*/
+    public void click2(View view){
+        Toast.makeText(this, "3 + 5 = " + resultFromC(3, 5), Toast.LENGTH_LONG).show();
+    }
 }

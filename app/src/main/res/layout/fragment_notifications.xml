@@ -139,6 +139,11 @@
                 android:layout_height="wrap_content"
                 android:text="JNI" />
 
+            <Button
+                android:id="@+id/btnActivityTrackerEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="ActivityTracker" />
 
 
         </LinearLayout>

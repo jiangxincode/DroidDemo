@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import edu.jiangxin.easymarry.R;
+import edu.jiangxin.easymarry.activity.ActivityTrackerActivity;
 import edu.jiangxin.easymarry.activity.AppListActivity;
 import edu.jiangxin.easymarry.activity.AudioFxHistogramActivity;
 import edu.jiangxin.easymarry.activity.AudioFxOscillogramActivity;
@@ -43,7 +44,7 @@ public class NotificationsFragment extends Fragment {
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
-            mBtnJNIEntrance;
+            mBtnJNIEntrance, mBtnActivityTrackerEntrance;
     private View root;
 
 
@@ -268,6 +269,17 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), JNIActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnActivityTrackerEntrance = root.findViewById(R.id.btnActivityTrackerEntrance);
+        mBtnActivityTrackerEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ActivityTrackerActivity.class);
                 startActivity(intent);
             }
         });

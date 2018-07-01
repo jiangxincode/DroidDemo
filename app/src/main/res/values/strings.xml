@@ -54,4 +54,6 @@
     <string name="serialnumber_hint_s">证书机器码</string>
 
     <string name="exchange_txt_hint"><Data><![CDATA[请使用<font color="#ff0000"><b>%1$s</b></font>牛兑换<font color="#00ff00"><b>%2$s</b></font>%3$s 上网时长]]></Data></string>
+
+    <string name="accessibility_service_description">开启功能, 以跟踪栈顶 Activity</string>
 </resources>

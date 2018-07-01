@@ -18,3 +18,9 @@ jstring Java_edu_jiangxin_easymarry_activity_JNIActivity_helloFromC(JNIEnv *env,
 	// 把C字符串转化为java中字符串
 	return (*env)->NewStringUTF(env,"hello world");
 }
+
+jint Java_edu_jiangxin_easymarry_activity_JNIActivity_resultFromC(JNIEnv *env,
+															 jobject obj, jint a, jint b) {
+
+	return a + b;
+}
