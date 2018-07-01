@@ -145,6 +145,14 @@
                 android:layout_height="wrap_content"
                 android:text="ActivityTracker" />
 
+            <Button
+                android:id="@+id/btnSoundEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="铃声设置" />
+
+
+
 
         </LinearLayout>
     </ScrollView>
