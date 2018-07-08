@@ -4,10 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.File;
 
@@ -17,6 +20,10 @@ import edu.jiangxin.easymarry.R;
  * Setting sound of ringtone/alarm/notification
  */
 public class RingtoneSettingActivity extends Activity {
+    private static final String TAG = "RingtoneSettingActivity";
+
+    private static final int REQUEST_CODE_PERMISSIONS = 1;
+
     private Button mButtonRingtone;
     private Button mButtonAlarm;
     private Button mButtonNotification;
@@ -38,6 +45,7 @@ public class RingtoneSettingActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ringtone_setting);
+        checkWriteSettingPermission();
         mButtonRingtone = (Button) findViewById(R.id.buttonRingtone);
         mButtonAlarm = (Button) findViewById(R.id.buttonAlarm);
         mButtonNotification = (Button) findViewById(R.id.buttonNotification);
@@ -86,19 +94,24 @@ public class RingtoneSettingActivity extends Activity {
         // get picked ringtone uri
         Uri pickedUri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
         if (pickedUri != null) {
-            switch (requestCode) {
-                case REQUEST_CODE_RINGSTONE:
-                    RingtoneManager.setActualDefaultRingtoneUri(this,
-                            RingtoneManager.TYPE_RINGTONE, pickedUri);
-                    break;
-                case REQUEST_CODE_ALARM:
-                    RingtoneManager.setActualDefaultRingtoneUri(this,
-                            RingtoneManager.TYPE_ALARM, pickedUri);
-                    break;
-                case REQUEST_CODE_NOTIFICATION:
-                    RingtoneManager.setActualDefaultRingtoneUri(this,
-                            RingtoneManager.TYPE_NOTIFICATION, pickedUri);
-                    break;
+            try {
+                switch (requestCode) {
+                    case REQUEST_CODE_RINGSTONE:
+                        RingtoneManager.setActualDefaultRingtoneUri(this,
+                                RingtoneManager.TYPE_RINGTONE, pickedUri);
+                        break;
+                    case REQUEST_CODE_ALARM:
+                        RingtoneManager.setActualDefaultRingtoneUri(this,
+                                RingtoneManager.TYPE_ALARM, pickedUri);
+                        break;
+                    case REQUEST_CODE_NOTIFICATION:
+                        RingtoneManager.setActualDefaultRingtoneUri(this,
+                                RingtoneManager.TYPE_NOTIFICATION, pickedUri);
+                        break;
+                }
+            } catch (SecurityException ex) {
+                Toast toast = Toast.makeText(this, ex.getLocalizedMessage(), Toast.LENGTH_SHORT);
+                toast.show();
             }
         }
     }
@@ -110,4 +123,17 @@ public class RingtoneSettingActivity extends Activity {
         }
         return false;
     }
+
+    private void checkWriteSettingPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            // 判断是否有WRITE_SETTINGS权限if(!Settings.System.canWrite(this))
+            if (!Settings.System.canWrite(this)) {
+                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
+                        Uri.parse("package:" + getPackageName()));
+                startActivityForResult(intent, REQUEST_CODE_PERMISSIONS);
+            }
+        }
+    }
+
+
 }

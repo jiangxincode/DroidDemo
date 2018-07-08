@@ -40,6 +40,8 @@
 4. Push to the branch(`git push origin my-new-feature`)
 5. Create new Pull Request
 
+sign info:jiangxin
+
 ## License
 
 + The MIT License (MIT) <http://mit-license.org/>
