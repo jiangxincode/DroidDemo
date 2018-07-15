@@ -83,7 +83,7 @@ public class AudioFxHistogramActivity extends Activity {
         // Make sure the visualizer is enabled only when you actually want to
         // receive data, and
         // when it makes sense to receive data.
-        mVisualizer.setEnabled(true);
+        mVisualizer. setEnabled(true);
 
         // When the stream ends, we don't need to collect any more data. We
         // don't do this in
