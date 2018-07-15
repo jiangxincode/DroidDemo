@@ -25,10 +25,11 @@ import edu.jiangxin.easymarry.activity.MessengerActivity;
 import edu.jiangxin.easymarry.activity.NetMusicActivity;
 import edu.jiangxin.easymarry.activity.QuickSearchBoxActivity;
 import edu.jiangxin.easymarry.activity.RingtoneSetting1Activity;
+import edu.jiangxin.easymarry.activity.RingtoneSettingActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
+import edu.jiangxin.easymarry.activity.SettingActivity;
 import edu.jiangxin.easymarry.activity.ShowInfoActivity;
-import edu.jiangxin.easymarry.activity.RingtoneSettingActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.VideoViewActivity;
@@ -46,7 +47,7 @@ public class NotificationsFragment extends Fragment {
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
-            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1;
+            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance;
     private View root;
 
 
@@ -304,6 +305,17 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), RingtoneSetting1Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnPreferenceEntrance = root.findViewById(R.id.btnPreferenceEntrance);
+        mBtnPreferenceEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), SettingActivity.class);
                 startActivity(intent);
             }
         });

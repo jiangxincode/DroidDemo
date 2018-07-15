@@ -144,7 +144,9 @@
         <activity android:name=".activity.JNIActivity" />
         <activity android:name=".activity.ActivityTrackerActivity" />
         <activity android:name=".activity.RingtoneSettingActivity" />
-        <activity android:name=".activity.RingtoneSetting1Activity"></activity>
+        <activity android:name=".activity.RingtoneSetting1Activity" />
+        <activity android:name=".activity.SettingActivity" >
+        </activity>
     </application>
 
 </manifest>
