@@ -319,7 +319,6 @@ public class NotificationsFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
         return root;
     }
 }

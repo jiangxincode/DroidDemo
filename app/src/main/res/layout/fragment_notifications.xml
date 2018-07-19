@@ -163,10 +163,6 @@
                 android:layout_height="wrap_content"
                 android:text="Preference" />
 
-
-
-
-
         </LinearLayout>
     </ScrollView>
 
