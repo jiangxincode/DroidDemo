@@ -56,4 +56,6 @@
     <string name="exchange_txt_hint"><Data><![CDATA[请使用<font color="#ff0000"><b>%1$s</b></font>牛兑换<font color="#00ff00"><b>%2$s</b></font>%3$s 上网时长]]></Data></string>
 
     <string name="accessibility_service_description">开启功能, 以跟踪栈顶 Activity</string>
+
+    <string name="xuyan">序言:\n壬戌之秋，七月既望，\n苏子与客泛舟游于赤壁之下。\n清风徐来，水波不兴。\n举酒属客，诵明月之诗，歌窈窕之章。</string>
 </resources>

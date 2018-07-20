@@ -14,4 +14,8 @@
     <color name="colorBlack">#000000</color><!-- 黑色 -->
     <color name="colorLightBlack">#686868</color><!-- 淡黑色 -->
     <color name="colorShallowBlack">#999999</color><!-- 浅黑色 -->
+
+    <color name="day_titlebar">#197d96</color>
+    <color name="day_text">#819a9a</color>
+    <color name="night_titlebar">#2A2A2A</color>
 </resources>

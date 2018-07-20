@@ -12,11 +12,12 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
         tools:ignore="ProtectedPermissions" />
-    <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
-
 
     <application
         android:name=".ApplicationExt"
@@ -151,7 +152,8 @@
         <activity android:name=".activity.ActivityTrackerActivity" />
         <activity android:name=".activity.RingtoneSettingActivity" />
         <activity android:name=".activity.RingtoneSetting1Activity" />
-        <activity android:name=".activity.SettingActivity"></activity>
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.ThemeActivity"></activity>
     </application>
 
 </manifest>
