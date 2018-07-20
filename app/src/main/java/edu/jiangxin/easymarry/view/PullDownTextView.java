@@ -19,29 +19,41 @@ import android.widget.TextView;
 import edu.jiangxin.easymarry.R;
 
 /**
- * 用于显示长文本，可以展开的TextView
+ * An kind TextView for long text display.
+ *
  */
 public class PullDownTextView extends LinearLayout implements View.OnClickListener{
 
-    /** 位置大小相关属性 */
-    private int mTextViewPullHeight ;   //textView显示全部也就是下拉状态的高度
-    private int mTextViewNotPullHeight ;
-
-    private boolean isPull  ;           //是否处于展开状态。默认为隐藏
-    private boolean isReLayout ;        //当前布局是否重新绘制。
-    private boolean isAnimator ;        //是否处于动画当中
-    private boolean isMaxHeightMeasure;     //是否进行TextView最大行数的测量
-    private boolean isMinHeightMeasure;     //是否进行TexView可见行数的测量
-
-    private TextView mTextView ;
+    private TextView mTitleTextView;
+    private TextView mContentTextView;
     private ImageButton mImageButton;
 
-    /** ImageButton切换的两种图片 */
-    private Drawable mPullDownDrawable ;
-    private Drawable mUpDownDrawable ;
+    private Drawable mPullDownDrawable;
+    private Drawable mUpDownDrawable;
+
+    /** height of content TextView on pull state */
+    private int mContentTextViewPullHeight;
+
+    /** height of content TextView not on pull state */
+    private int mContentTextViewNotPullHeight;
+
+    /** flag of pull or not */
+    private boolean isPull;
+
+    /** flag of needing relayout */
+    private boolean isReLayout;
+
+    /** flag of in animation state */
+    private boolean isAnimator;
+
+    /** flag of needing measure max height */
+    private boolean isMaxHeightMeasure;
+
+    /** flag of needing measure min height */
+    private boolean isMinHeightMeasure;
 
     private int mTextVisibilityCount = 1;  //隐藏时 TextView可以显示的最大的行数
-    private int mAnimatorDuration = 400 ;
+    private int mAnimatorDuration = 400;
 
     /** TextView展开回调 */
     private OnTextViewPullListener mOnTextViewPullListener ;
@@ -70,9 +82,10 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
     protected void onFinishInflate() {
         super.onFinishInflate();
         initPullDownTextView();
-        mTextView = (TextView) this.getChildAt(0);
-        mImageButton = (ImageButton) this.getChildAt(1);
-        mImageButton.setOnClickListener(this);
+        mTitleTextView = (TextView) this.getChildAt(0);
+        mContentTextView = (TextView) this.getChildAt(1);
+        mImageButton = (ImageButton) this.getChildAt(2);
+        this.setOnClickListener(this);
         mImageButton.setImageDrawable(isPull ? mUpDownDrawable : mPullDownDrawable);
     }
 
@@ -86,35 +99,48 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
         }
 
         //有内容，但是内容比较短的时候，正常显示TextView，但是相应的隐藏ImageButton
-        if(getLineCount(mTextView.getText()) <= mTextVisibilityCount){
-            mTextView.setVisibility(View.VISIBLE);
+        if(getLineCount(mContentTextView.getText()) <= mTextVisibilityCount){
+            mContentTextView.setVisibility(View.VISIBLE);
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
             return ;
         }
 
         //有内容，并且显示的内容比较长的时候，这里我们显示TextView、ImageButton。
         mImageButton.setVisibility(View.VISIBLE);
-        if(!isMaxHeightMeasure && mTextViewPullHeight == 0){
-            mTextView.setMaxLines(Integer.MAX_VALUE);
+        if(!isMaxHeightMeasure && mContentTextViewPullHeight == 0){
+            mContentTextView.setMaxLines(Integer.MAX_VALUE);
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-            mTextViewPullHeight = mTextView.getMeasuredHeight() ;
+            mContentTextViewPullHeight = mContentTextView.getMeasuredHeight() ;
             isMaxHeightMeasure = true ;
         }
 
-        if(!isMinHeightMeasure && mTextViewNotPullHeight == 0){
-            mTextView.setMaxLines(mTextVisibilityCount);
+        if(!isMinHeightMeasure && mContentTextViewNotPullHeight == 0){
+            mContentTextView.setMaxLines(mTextVisibilityCount);
             super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-            mTextViewNotPullHeight = mTextView.getMeasuredHeight();
+            mContentTextViewNotPullHeight = mContentTextView.getMeasuredHeight();
             isMinHeightMeasure = true ;
         }
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
-    /** 设置文字字体的方法 */
-    public void setText(@Nullable CharSequence text) {
+    /**
+     * set content text
+     * @param content content
+     */
+    public void setContentText(@Nullable CharSequence content) {
         isReLayout = true;
-        mTextView.setText(text);
-        setVisibility(TextUtils.isEmpty(text) ? View.GONE : View.VISIBLE);
+        mContentTextView.setText(content);
+        setVisibility(TextUtils.isEmpty(content) ? View.GONE : View.VISIBLE);
+    }
+
+    /**
+     * set title text
+     * @param title title
+     */
+    public void setTitleText(@Nullable CharSequence title) {
+        isReLayout = true;
+        mTitleTextView.setText(title);
+        setVisibility(TextUtils.isEmpty(title) ? View.GONE : View.VISIBLE);
     }
 
     /** 设置动画时常的方法 */
@@ -160,8 +186,8 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
      * @return TextView的高度
      */
     private int getTextViewHeight(){
-        int textHeight = mTextView.getLayout().getLineTop(mTextView.getLineCount());
-        int padding = mTextView.getCompoundPaddingTop() + mTextView.getCompoundPaddingBottom() ;
+        int textHeight = mContentTextView.getLayout().getLineTop(mContentTextView.getLineCount());
+        int padding = mContentTextView.getCompoundPaddingTop() + mContentTextView.getCompoundPaddingBottom() ;
         return textHeight + padding ;
     }
 
@@ -175,17 +201,17 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
             return ;
         }
         if(isPull){
-            startAnimator(mTextView, mTextViewPullHeight, mTextViewNotPullHeight);
+            startAnimator(mContentTextView, mContentTextViewPullHeight, mContentTextViewNotPullHeight);
         } else {
-            startAnimator(mTextView, mTextViewNotPullHeight, mTextViewPullHeight);
+            startAnimator(mContentTextView, mContentTextViewNotPullHeight, mContentTextViewPullHeight);
         }
         //下拉，或者上拉的时候的回调
         if(this.mOnTextViewPullListener != null){
-            this.mOnTextViewPullListener.textViewPull(mTextView, isPull);
+            this.mOnTextViewPullListener.textViewPull(mContentTextView, isPull);
         }
         isPull = !isPull ;
         mImageButton.setImageDrawable(isPull ? mUpDownDrawable : mPullDownDrawable);
-        mTextView.getParent().requestLayout();
+        mContentTextView.getParent().requestLayout();
     }
 
     /**

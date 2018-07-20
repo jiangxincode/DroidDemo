@@ -29,9 +29,9 @@ public class PackageInfoRunable implements Runnable {
         List<android.content.pm.PackageInfo> packageInfos = packageManager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
         android.content.pm.PackageInfo packageInfo = packageInfos.get(0);
         ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-        stringBuilder.append(applicationInfo.packageName);
-        stringBuilder.append(applicationInfo.dataDir);
-        stringBuilder.append(applicationInfo.name);
+        stringBuilder.append(applicationInfo.packageName).append("\n");
+        stringBuilder.append(applicationInfo.dataDir).append("\n");
+        stringBuilder.append(applicationInfo.name).append("\n");
         Intent startIntent = new Intent(Intent.ACTION_MAIN, null);
         startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(startIntent, 0);

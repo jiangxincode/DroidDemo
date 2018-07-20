@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.format.DateFormat;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -24,20 +25,19 @@ public class StatInfoRunnable implements Runnable {
 
     @Override
     public void run() {
+        // 设置->安全->有权查看使用情况的应用 设置权限
         StringBuilder stringBuilder = new StringBuilder();
         Calendar calendar = Calendar.getInstance();
-        calendar.setTime(new Date());
-        long endt = calendar.getTimeInMillis();//结束时间
+        long endTime = calendar.getTimeInMillis();//结束时间
         calendar.add(Calendar.DAY_OF_MONTH, -1);//时间间隔为一个月
-        long statt = calendar.getTimeInMillis();//开始时间
+        long startTiem = calendar.getTimeInMillis();//开始时间
         UsageStatsManager usageStatsManager = (UsageStatsManager) ApplicationExt.getContext().getSystemService(Context.USAGE_STATS_SERVICE);
-        //获取一个月内的信息
-        // 设置->安全->有权查看使用情况的应用 设置权限
-        List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_MONTHLY, statt, endt);
+        // 获取一个月内的信息
+        List<UsageStats> queryUsageStats = usageStatsManager.queryUsageStats(UsageStatsManager.INTERVAL_MONTHLY, startTiem, endTime);
 
         if (queryUsageStats != null) {
             for (UsageStats usageStats : queryUsageStats) {
-                stringBuilder.append(usageStats.getPackageName()).append(":").append(usageStats.getLastTimeUsed()).append("\n");
+                stringBuilder.append(usageStats.getPackageName()).append(":").append(DateFormat.format("yyyy-MM-dd kk:mm", usageStats.getLastTimeUsed())).append("\n");
             }
         }
 
