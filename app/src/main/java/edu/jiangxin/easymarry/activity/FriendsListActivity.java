@@ -1,9 +1,9 @@
 package edu.jiangxin.easymarry.activity;
 
+import android.app.ActionBar;
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -35,7 +35,7 @@ import edu.jiangxin.easymarry.common.CharacterParser;
 import edu.jiangxin.easymarry.view.IndexableListView;
 import edu.jiangxin.easymarry.view.IndexableListView.OnTouchingLetterChangedListener;
 
-public class FriendsListActivity extends AppCompatActivity implements SectionIndexer {
+public class FriendsListActivity extends Activity implements SectionIndexer {
     private ListView sortedListView;
     private IndexableListView indexableListView;
     private TextView dialog;
@@ -64,7 +64,7 @@ public class FriendsListActivity extends AppCompatActivity implements SectionInd
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_friends);
-        ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getActionBar();
         titleLayout = findViewById(R.id.title_layout);
         title = this.findViewById(R.id.title_layout_catalog);
         tvNofriends = this

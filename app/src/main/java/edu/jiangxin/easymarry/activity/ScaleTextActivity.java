@@ -1,10 +1,10 @@
 package edu.jiangxin.easymarry.activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.widget.TextViewCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
@@ -16,7 +16,7 @@ import edu.jiangxin.easymarry.R;
  * 想对TextView的Autosizeing属性有更多了解建议阅读：
  * 文字太多？控件太小？试试 TextView 的新特性 Autosizeing 吧！https://www.cnblogs.com/plokmju/p/8268005.html
  */
-public class ScaleTextActivity extends AppCompatActivity {
+public class ScaleTextActivity extends Activity {
 
     private TextView tv_scale;
     private SeekBar sb_width;

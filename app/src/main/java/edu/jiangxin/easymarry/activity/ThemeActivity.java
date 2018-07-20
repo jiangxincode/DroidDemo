@@ -1,23 +1,9 @@
 package edu.jiangxin.easymarry.activity;
 
 import android.app.Activity;
-import android.app.usage.UsageEvents;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.EventLog;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
-import android.widget.ListView;
-import android.widget.PopupWindow;
 import android.widget.Toast;
 
 import edu.jiangxin.easymarry.ApplicationExt;

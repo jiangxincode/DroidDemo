@@ -1,12 +1,12 @@
 package edu.jiangxin.easymarry.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.WindowManager.LayoutParams;
 
 import edu.jiangxin.easymarry.R;
 
-public class ForbidScreenShotActivity extends AppCompatActivity {
+public class ForbidScreenShotActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

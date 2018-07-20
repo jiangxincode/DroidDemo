@@ -1,11 +1,11 @@
 package edu.jiangxin.easymarry.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 
 import edu.jiangxin.easymarry.R;
 
-public class ImageViewActivity extends AppCompatActivity {
+public class ImageViewActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

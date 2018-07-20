@@ -1,17 +1,17 @@
 package edu.jiangxin.easymarry.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Toast;
 
 import edu.jiangxin.easymarry.R;
 
-public class ActivityTrackerActivity extends AppCompatActivity {
+public class ActivityTrackerActivity extends Activity {
     private static final int REQUEST_CODE = 1;
 
     @Override

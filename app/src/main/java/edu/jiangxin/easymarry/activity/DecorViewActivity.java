@@ -1,13 +1,13 @@
 package edu.jiangxin.easymarry.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
 import edu.jiangxin.easymarry.R;
 
-public class DecorViewActivity extends AppCompatActivity {
+public class DecorViewActivity extends Activity {
 
     private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8;
     private View decorView;

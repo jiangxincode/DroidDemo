@@ -1,13 +1,13 @@
 package edu.jiangxin.easymarry.activity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import edu.jiangxin.easymarry.R;
 
-public class MessageActivity extends AppCompatActivity {
+public class MessageActivity extends Activity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

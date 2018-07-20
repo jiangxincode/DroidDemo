@@ -1,9 +1,9 @@
 package edu.jiangxin.easymarry.activity;
 
+import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -26,7 +26,7 @@ import android.widget.TextView;
 
 import edu.jiangxin.easymarry.R;
 
-public class SpannableStringActivity extends AppCompatActivity {
+public class SpannableStringActivity extends Activity {
 
     private TextView tv1, tv2, tv3;
     private SpannableString sStr, sStr2;
