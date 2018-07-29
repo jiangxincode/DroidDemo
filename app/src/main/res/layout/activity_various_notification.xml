@@ -23,13 +23,31 @@
                 android:id="@+id/btn1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="普通通知" />
+                android:text="IMPORTANCE_NONE" />
 
             <Button
                 android:id="@+id/btn2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:text="特殊通知" />
+                android:text="IMPORTANCE_MIN" />
+
+            <Button
+                android:id="@+id/btn3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="IMPORTANCE_LOW" />
+
+            <Button
+                android:id="@+id/btn4"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="IMPORTANCE_DEFAULT" />
+
+            <Button
+                android:id="@+id/btn5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="IMPORTANCE_HIGH" />
 
         </LinearLayout>
     </ScrollView>
