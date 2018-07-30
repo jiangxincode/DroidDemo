@@ -31,6 +31,7 @@ import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.SettingActivity;
 import edu.jiangxin.easymarry.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
+import edu.jiangxin.easymarry.activity.SpinnerActivity;
 import edu.jiangxin.easymarry.activity.ThemeActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.VideoViewActivity;
@@ -48,7 +49,7 @@ public class NotificationsFragment extends Fragment {
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
-            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance;
+            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance;
     private View root;
 
 
@@ -331,6 +332,18 @@ public class NotificationsFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        mBtnSpinnerEntrance = root.findViewById(R.id.btnSpinnerEntrance);
+        mBtnSpinnerEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), SpinnerActivity.class);
+                startActivity(intent);
+            }
+        });
+
         return root;
     }
 }

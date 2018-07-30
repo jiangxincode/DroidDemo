@@ -169,7 +169,11 @@
                 android:layout_height="wrap_content"
                 android:text="切换主题" />
 
-
+            <Button
+                android:id="@+id/btnSpinnerEntrance"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="Spinner" />
 
         </LinearLayout>
     </ScrollView>

@@ -53,4 +53,12 @@
         <item>Jack</item>
         <item>~夏先生</item>
     </string-array>
+
+    <string-array name="songs">
+        <item>没有人</item>
+        <item>我的快乐时代</item>
+        <item>黄金时代</item>
+        <item>习惯失恋</item>
+        <item>你来自哪颗星</item>
+    </string-array>
 </resources>

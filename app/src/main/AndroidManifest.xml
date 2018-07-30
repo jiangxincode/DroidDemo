@@ -153,7 +153,8 @@
         <activity android:name=".activity.RingtoneSettingActivity" />
         <activity android:name=".activity.RingtoneSetting1Activity" />
         <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.ThemeActivity"></activity>
+        <activity android:name=".activity.ThemeActivity" />
+        <activity android:name=".activity.SpinnerActivity"></activity>
     </application>
 
 </manifest>
