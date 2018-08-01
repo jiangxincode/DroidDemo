@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,8 @@ public class ShowInfoActivity extends Activity {
 
     private static final String TAG = "ShowInfoActivity";
 
+    private static final int ITEM_NUM = 6;
+
     public static final int UPDATE_MESSAGE = 1;
 
     private ListView lv;
@@ -38,20 +41,24 @@ public class ShowInfoActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_info);
-
-        menuList = new ArrayList<ShowInfoContent>();
-
-        new Thread(new StorageInfoRunnable(mHandler)).run();
-        new Thread(new OthersInfoRunnable(mHandler)).run();
-        new Thread(new ScreenInfoRunnable(mHandler, this)).run();
-        new Thread(new StatInfoRunnable(mHandler)).run();
-        new Thread(new UserInfoRunnable(mHandler)).run();
-        new Thread(new PackageInfoRunable(mHandler)).run();
-
         lv = findViewById(R.id.lv_show_info);
-
-        adapter = new ShowInfoAdapter(this, menuList);
+        menuList = new ArrayList<ShowInfoContent>();
+        adapter = new ShowInfoAdapter(this, menuList, ITEM_NUM);
         lv.setAdapter(adapter);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // do not invoke run method, use start instead
+        new Thread(new StorageInfoRunnable(mHandler)).start();
+        new Thread(new OthersInfoRunnable(mHandler)).start();
+        new Thread(new ScreenInfoRunnable(mHandler, this)).start();
+        new Thread(new StatInfoRunnable(mHandler)).start();
+        new Thread(new UserInfoRunnable(mHandler)).start();
+        new Thread(new PackageInfoRunable(mHandler)).start();
+        adapter.notifyDataSetChanged();
+
     }
 
     private Handler mHandler = new Handler() {
@@ -76,15 +83,17 @@ public class ShowInfoActivity extends Activity {
 
         private List<ShowInfoContent> mMenuList;
         private Context mContext;
+        private int mNum;
 
-        public ShowInfoAdapter(Context context, List<ShowInfoContent> mMenuList) {
+        public ShowInfoAdapter(Context context, List<ShowInfoContent> mMenuList, int num) {
             this.mContext = context;
             this.mMenuList = mMenuList;
+            this.mNum = num;
         }
 
         @Override
         public int getCount() {
-            return mMenuList.size();
+            return mNum;
         }
 
         @Override
@@ -99,19 +108,37 @@ public class ShowInfoActivity extends Activity {
 
         @Override
         public View getView(int position, View view, ViewGroup parent) {
-            PullDownTextView pullDownTextView;
+
+            Holder holder;
 
             if (view == null) {
                 view = LayoutInflater.from(mContext).inflate(R.layout.activity_show_info_item, null);
-                pullDownTextView = view.findViewById(R.id.expand_text_view);
-                view.setTag(pullDownTextView);
+                holder = new Holder();
+                holder.pullDownTextView = view.findViewById(R.id.expand_text_view);
+                holder.progressBar = view.findViewById(R.id.progressBar);
+                view.setTag(holder);
             } else {
-                pullDownTextView = (PullDownTextView) view.getTag();
+                holder = (Holder) view.getTag();
             }
-            pullDownTextView.setTitleText(mMenuList.get(position).title);
-            pullDownTextView.setContentText(mMenuList.get(position).content);
+            if (position >= mMenuList.size()) {
+                holder.progressBar.setVisibility(View.VISIBLE);
+                holder.pullDownTextView.setVisibility(View.GONE);
+            } else {
+                ShowInfoContent content = mMenuList.get(position);
+                holder.progressBar.setVisibility(View.GONE);
+                holder.pullDownTextView.setVisibility(View.VISIBLE);
+                holder.pullDownTextView.setTitleText(content.title);
+                holder.pullDownTextView.setContentText(content.content);
+            }
+
+
             return view;
         }
+    }
+
+    class Holder {
+        PullDownTextView pullDownTextView;
+        ProgressBar progressBar;
     }
 
     class ShowInfoContent {

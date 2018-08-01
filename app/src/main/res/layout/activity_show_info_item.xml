@@ -1,18 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="50"
+            android:secondaryProgress="80"
+            android:visibility="gone" />
+    </LinearLayout>
 
     <edu.jiangxin.easymarry.view.PullDownTextView
         android:id="@+id/expand_text_view"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="wrap_content"
         android:background="#FFF"
+        android:orientation="vertical"
         android:paddingLeft="10dip"
-        android:paddingRight="10dip"
-        android:layout_height="wrap_content">
+        android:paddingRight="10dip">
 
         <TextView
             android:id="@+id/pull_down_text_view_title"
@@ -22,23 +40,24 @@
             android:background="#FFF"
             android:padding="10dip"
             android:textColor="#000"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#FFF"
             android:layout_marginTop="10dip"
-            android:paddingRight="10dip"
+            android:background="#FFF"
+            android:lineSpacingExtra="8dip"
             android:paddingLeft="10dip"
-            android:lineSpacingExtra = "8dip"
+            android:paddingRight="10dip"
             android:textColor="#666666" />
+
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="#FFF"
+            android:layout_gravity="right|bottom"
             android:layout_marginRight="10dip"
-            android:layout_gravity="right|bottom"/>
+            android:background="#FFF" />
 
     </edu.jiangxin.easymarry.view.PullDownTextView>
 

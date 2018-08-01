@@ -8,6 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.SystemClock;
 
 import java.util.List;
 
@@ -37,6 +38,9 @@ public class PackageInfoRunable implements Runnable {
         List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(startIntent, 0);
         ResolveInfo resolveInfo = resolveInfos.get(0);
         ActivityInfo activityInfo = resolveInfo.activityInfo;
+
+        // difference between SystemClok#sleep and Thread#sleep
+        SystemClock.sleep(6000l);
 
         Message message = new Message();
         message.what = ShowInfoActivity.UPDATE_MESSAGE;
