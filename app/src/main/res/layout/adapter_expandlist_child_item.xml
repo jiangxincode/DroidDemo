@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:paddingLeft="16dp">
+    android:paddingStart="16dp">
 
     <com.makeramen.roundedimageview.RoundedImageView xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/iv_expandlist_child_avatar"
@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="vertical"
-        android:paddingLeft="12dp">
+        android:paddingStart="12dp">
 
         <TextView
             android:id="@+id/tv_expandlist_child_name"

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="50dp" android:gravity="center_vertical"
-    android:paddingLeft="12dp">
+    android:paddingStart="12dp">
 
     <ImageView
         android:id="@+id/iv_expandlist_group"
@@ -15,7 +15,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:gravity="center_vertical"
-        android:layout_marginLeft="12dp"
+        android:layout_marginStart="12dp"
         android:textColor="@color/colorBlack"
         android:textSize="20sp"/>
 

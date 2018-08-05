@@ -9,7 +9,7 @@
         android:id="@+id/am_hint_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:drawableLeft="@drawable/app_list_hint"
+        android:drawableStart="@drawable/app_list_hint"
         android:drawablePadding="10.0dip"
         android:ellipsize="end"
         android:gravity="fill"

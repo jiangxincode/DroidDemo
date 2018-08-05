@@ -8,7 +8,7 @@
         android:id="@+id/head"
         android:layout_width="48dp"
         android:layout_height="48dp"
-        android:paddingLeft="10dp" />
+        android:paddingStart="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,7 +19,7 @@
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:textColor="#f0f"
             android:textSize="20dp" />
 
@@ -28,7 +28,7 @@
             android:id="@+id/desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
+            android:paddingStart="10dp"
             android:textSize="14dp" />
 
     </LinearLayout>

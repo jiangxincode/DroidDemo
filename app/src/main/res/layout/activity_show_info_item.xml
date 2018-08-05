@@ -29,8 +29,8 @@
         android:layout_height="wrap_content"
         android:background="#FFF"
         android:orientation="vertical"
-        android:paddingLeft="10dip"
-        android:paddingRight="10dip">
+        android:paddingStart="10dip"
+        android:paddingEnd="10dip">
 
         <TextView
             android:id="@+id/pull_down_text_view_title"
@@ -48,15 +48,15 @@
             android:layout_marginTop="10dip"
             android:background="#FFF"
             android:lineSpacingExtra="8dip"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
+            android:paddingStart="10dip"
+            android:paddingEnd="10dip"
             android:textColor="#666666" />
 
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|bottom"
-            android:layout_marginRight="10dip"
+            android:layout_gravity="end|bottom"
+            android:layout_marginEnd="10dip"
             android:background="#FFF" />
 
     </edu.jiangxin.easymarry.quickshow.view.PullDownTextView>

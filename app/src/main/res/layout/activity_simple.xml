@@ -22,7 +22,7 @@
         <LinearLayout
             android:id="@+id/lt_dashboard_title_add"
             style="@style/ll_title_view1"
-            android:layout_alignParentRight="true">
+            android:layout_alignParentEnd="true">
 
             <ImageView
                 style="@style/iv_title_menu_add"
@@ -36,7 +36,7 @@
         android:layout_height="match_parent"
         android:divider="@color/colorBlack"
         android:dividerHeight="0.5dp"
-        android:paddingLeft="12dp" />
+        android:paddingStart="12dp" />
 
     <View
         android:layout_width="match_parent"

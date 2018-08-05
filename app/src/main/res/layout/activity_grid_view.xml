@@ -10,7 +10,7 @@
         <LinearLayout
             android:id="@+id/lt_grid_view_title_menu"
             style="@style/ll_title_view1"
-            android:layout_alignParentLeft="true">
+            android:layout_alignParentStart="true">
 
             <ImageView
                 android:id="@+id/iv_grid_view_title"

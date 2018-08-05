@@ -42,6 +42,11 @@
 
 sign info:jiangxin
 
+## Warning
+
++ Do not use `fill_parent` in layout files; Do not use `FILL_PARENT` in source files.
++ Must support RTL(use AS to check the source code)
+
 ## License
 
 + The MIT License (MIT) <http://mit-license.org/>

@@ -21,7 +21,7 @@
             android:id="@+id/title_layout_no_friends"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_gravity="right|top"
+            android:layout_gravity="end|top"
             android:background="#E0E0E0"
             android:gravity="center_vertical"
             android:text="没有匹配的联系人"
@@ -32,7 +32,7 @@
             android:id="@+id/title_layout"
             android:layout_width="match_parent"
             android:layout_height="30dp"
-            android:layout_gravity="right|top"
+            android:layout_gravity="end|top"
             android:background="#ff303030"
             android:orientation="vertical" >
 
@@ -42,7 +42,7 @@
                 android:layout_height="match_parent"
                 android:background="#E0E0E0"
                 android:paddingBottom="5dip"
-                android:paddingLeft="5dip"
+                android:paddingStart="5dip"
                 android:paddingTop="5dip"
                 android:textColor="#454545" />
         </LinearLayout>
@@ -62,7 +62,7 @@
             android:id="@+id/sidrbar"
             android:layout_width="30.0dip"
             android:layout_height="match_parent"
-            android:layout_gravity="right|center" />
+            android:layout_gravity="end|center" />
     </FrameLayout>
 
 </LinearLayout>
