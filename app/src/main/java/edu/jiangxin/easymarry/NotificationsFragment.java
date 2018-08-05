@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.fragment;
+package edu.jiangxin.easymarry;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -29,6 +29,7 @@ import edu.jiangxin.easymarry.activity.RingtoneSettingActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.SettingActivity;
+import edu.jiangxin.easymarry.fragment.FragmentActivity;
 import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.SpinnerActivity;
@@ -49,7 +50,7 @@ public class NotificationsFragment extends Fragment {
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
-            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance;
+            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance, mFragmentEntrance;
     private View root;
 
 
@@ -340,6 +341,17 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), SpinnerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mFragmentEntrance = root.findViewById(R.id.btnFragmentEntrance);
+        mFragmentEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), FragmentActivity.class);
                 startActivity(intent);
             }
         });

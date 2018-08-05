@@ -22,9 +22,9 @@ import java.util.List;
 
 import edu.jiangxin.easymarry.R;
 import edu.jiangxin.easymarry.adapter.MainActivityViewPagerAdapter;
-import edu.jiangxin.easymarry.fragment.DashboardFragment;
-import edu.jiangxin.easymarry.fragment.HomeFragment;
-import edu.jiangxin.easymarry.fragment.NotificationsFragment;
+import edu.jiangxin.easymarry.DashboardFragment;
+import edu.jiangxin.easymarry.HomeFragment;
+import edu.jiangxin.easymarry.NotificationsFragment;
 
 public class MainActivity extends AppCompatActivity {
 

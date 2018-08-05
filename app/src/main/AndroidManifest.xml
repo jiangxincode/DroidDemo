@@ -154,7 +154,9 @@
         <activity android:name=".activity.RingtoneSetting1Activity" />
         <activity android:name=".activity.SettingActivity" />
         <activity android:name=".activity.ThemeActivity" />
-        <activity android:name=".activity.SpinnerActivity"></activity>
+        <activity android:name=".activity.SpinnerActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".fragment.FragmentTest1Activity" />
     </application>
 
 </manifest>

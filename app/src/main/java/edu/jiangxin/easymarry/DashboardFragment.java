@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.fragment;
+package edu.jiangxin.easymarry;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

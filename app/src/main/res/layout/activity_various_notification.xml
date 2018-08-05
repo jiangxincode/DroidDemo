@@ -3,7 +3,7 @@
     android:id="@+id/content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="edu.jiangxin.easymarry.fragment.NotificationsFragment"
+    tools:context="edu.jiangxin.easymarry.NotificationsFragment"
     android:paddingTop="?android:attr/actionBarSize">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
