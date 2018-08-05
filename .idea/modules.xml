@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/SmartBJ.iml" filepath="$PROJECT_DIR$/SmartBJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/slidingMenu_library/slidingMenu_library.iml" filepath="$PROJECT_DIR$/slidingMenu_library/slidingMenu_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/smartBJ/smartBJ.iml" filepath="$PROJECT_DIR$/smartBJ/smartBJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewPageIndicator_library/viewPageIndicator_library.iml" filepath="$PROJECT_DIR$/viewPageIndicator_library/viewPageIndicator_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xutils_library/xutils_library.iml" filepath="$PROJECT_DIR$/xutils_library/xutils_library.iml" />
+    </modules>
+  </component>
+</project>

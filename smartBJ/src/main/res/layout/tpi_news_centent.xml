@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    
+
+    <com.itheima62.smartbj.view.RefreshListView
+        android:cacheColorHint="#00000000"
+        android:id="@+id/lv_tpi_news_listnews"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+    </com.itheima62.smartbj.view.RefreshListView>
+
+</LinearLayout>

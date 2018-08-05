@@ -1,0 +1,41 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.itheima62.smartbj"
+        minSdkVersion 8
+        targetSdkVersion 18
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile project(':slidingMenu_library')
+    compile project(':xutils_library')
+    compile project(':viewPageIndicator_library')
+    compile 'com.android.support:support-v4:19.1.0'
+    compile 'com.google.code.gson:gson:2.2.1'
+    compile files('libs/mframework.jar')
+    compile files('libs/ShareSDK-Core-2.5.1.jar')
+    compile files('libs/ShareSDK-Email-2.5.1.jar')
+    compile files('libs/ShareSDK-Facebook-2.5.1.jar')
+    compile files('libs/ShareSDK-QQ-2.5.1.jar')
+    compile files('libs/ShareSDK-QZone-2.5.1.jar')
+    compile files('libs/ShareSDK-ShortMessage-2.5.1.jar')
+    compile files('libs/ShareSDK-SinaWeibo-2.5.1.jar')
+    compile files('libs/ShareSDK-TencentWeibo-2.5.1.jar')
+    compile files('libs/ShareSDK-Twitter-2.5.1.jar')
+    compile files('libs/ShareSDK-Wechat-2.5.1.jar')
+    compile files('libs/ShareSDK-Wechat-Core-2.5.1.jar')
+    compile files('libs/ShareSDK-Wechat-Favorite-2.5.1.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-2.5.1.jar')
+}
