@@ -181,6 +181,11 @@
                 android:layout_height="wrap_content"
                 android:text="Fragment相关" />
 
+            <Button
+                android:id="@+id/btnSAFEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SAF相关" />
 
         </LinearLayout>
     </ScrollView>

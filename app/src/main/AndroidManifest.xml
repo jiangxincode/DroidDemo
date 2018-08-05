@@ -157,6 +157,7 @@
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".fragment.FragmentTest1Activity" />
+        <activity android:name=".saf.SAFActivity"></activity>
     </application>
 
 </manifest>
