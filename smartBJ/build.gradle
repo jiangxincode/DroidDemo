@@ -20,7 +20,6 @@ android {
 
 dependencies {
     compile project(':slidingMenu_library')
-    compile project(':xutils_library')
     compile project(':viewPageIndicator_library')
     compile 'com.android.support:support-v4:19.1.0'
     compile 'com.google.code.gson:gson:2.2.1'
@@ -38,4 +37,5 @@ dependencies {
     compile files('libs/ShareSDK-Wechat-Core-2.5.1.jar')
     compile files('libs/ShareSDK-Wechat-Favorite-2.5.1.jar')
     compile files('libs/ShareSDK-Wechat-Moments-2.5.1.jar')
+    compile files('libs/xUtils-2.6.14.jar')
 }
