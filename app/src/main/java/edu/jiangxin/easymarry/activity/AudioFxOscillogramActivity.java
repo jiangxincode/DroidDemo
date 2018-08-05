@@ -104,7 +104,7 @@ public class AudioFxOscillogramActivity extends Activity
 
             TextView freqTextView = new TextView(this);
             freqTextView.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.FILL_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT));
 
             freqTextView.setGravity(Gravity.CENTER_HORIZONTAL);
@@ -131,7 +131,7 @@ public class AudioFxOscillogramActivity extends Activity
             maxDbTextView.setText((maxEqualizer / 100) + " dB");
 
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
-                    ViewGroup.LayoutParams.FILL_PARENT,
+                    ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
 
             layoutParams.weight = 1;
@@ -179,7 +179,7 @@ public class AudioFxOscillogramActivity extends Activity
     {
         mVisualizerView = new VisualizerView(this);
         mVisualizerView.setLayoutParams(new ViewGroup.LayoutParams(
-                ViewGroup.LayoutParams.FILL_PARENT,
+                ViewGroup.LayoutParams.MATCH_PARENT,
                 (int) (VISUALIZER_HEIGHT_DIP * getResources()
                         .getDisplayMetrics().density)));
         mLayout.addView(mVisualizerView);

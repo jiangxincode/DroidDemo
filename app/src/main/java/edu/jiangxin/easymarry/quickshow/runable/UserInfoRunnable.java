@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.runable;
+package edu.jiangxin.easymarry.quickshow.runable;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -9,7 +9,7 @@ import android.os.UserHandle;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 
 public class UserInfoRunnable implements Runnable {
 

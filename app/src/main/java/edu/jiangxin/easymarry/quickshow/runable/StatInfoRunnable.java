@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.runable;
+package edu.jiangxin.easymarry.quickshow.runable;
 
 import android.app.usage.UsageStats;
 import android.app.usage.UsageStatsManager;
@@ -9,11 +9,10 @@ import android.os.Message;
 import android.text.format.DateFormat;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import edu.jiangxin.easymarry.ApplicationExt;
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 
 public class StatInfoRunnable implements Runnable {
 

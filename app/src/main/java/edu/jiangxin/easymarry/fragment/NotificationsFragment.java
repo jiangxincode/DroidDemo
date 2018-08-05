@@ -29,7 +29,7 @@ import edu.jiangxin.easymarry.activity.RingtoneSettingActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.SettingActivity;
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.SpinnerActivity;
 import edu.jiangxin.easymarry.activity.ThemeActivity;

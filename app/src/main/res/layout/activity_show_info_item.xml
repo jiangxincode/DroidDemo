@@ -2,17 +2,17 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="center"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
         android:orientation="horizontal">
 
         <ProgressBar
             android:id="@+id/progressBar"
+            android:layout_gravity="center_vertical"
             style="?android:attr/progressBarStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <edu.jiangxin.easymarry.view.PullDownTextView
+    <edu.jiangxin.easymarry.quickshow.view.PullDownTextView
         android:id="@+id/expand_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,6 +59,6 @@
             android:layout_marginRight="10dip"
             android:background="#FFF" />
 
-    </edu.jiangxin.easymarry.view.PullDownTextView>
+    </edu.jiangxin.easymarry.quickshow.view.PullDownTextView>
 
 </LinearLayout>

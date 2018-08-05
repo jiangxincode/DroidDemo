@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.runable;
+package edu.jiangxin.easymarry.quickshow.runable;
 
 import android.app.ActivityManager;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.os.StatFs;
 import android.text.format.Formatter;
 
 import edu.jiangxin.easymarry.ApplicationExt;
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 
 public class StorageInfoRunnable implements Runnable {
 

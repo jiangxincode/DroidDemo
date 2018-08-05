@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.runable;
+package edu.jiangxin.easymarry.quickshow.runable;
 
 import android.app.KeyguardManager;
 import android.content.Context;
@@ -16,9 +16,10 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.util.Enumeration;
+import java.util.Locale;
 
 import edu.jiangxin.easymarry.ApplicationExt;
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 
 public class OthersInfoRunnable implements Runnable {
 

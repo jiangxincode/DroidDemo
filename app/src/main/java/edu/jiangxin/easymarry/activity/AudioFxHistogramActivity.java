@@ -125,7 +125,7 @@ public class AudioFxHistogramActivity extends Activity {
             final short band = i;
 
             TextView freqTextView = new TextView(this);
-            freqTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            freqTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             freqTextView.setGravity(Gravity.CENTER_HORIZONTAL);
             freqTextView.setText((mEqualizer.getCenterFreq(band) / 1000) + " Hz");
             mLinearLayout.addView(freqTextView);
@@ -141,7 +141,7 @@ public class AudioFxHistogramActivity extends Activity {
             maxDbTextView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
             maxDbTextView.setText((maxEQLevel / 100) + " dB");
 
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT,
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                     ViewGroup.LayoutParams.WRAP_CONTENT);
             layoutParams.weight = 1;
             SeekBar bar = new SeekBar(this);
@@ -171,7 +171,7 @@ public class AudioFxHistogramActivity extends Activity {
 
     private void setupVisualizerFxAndUI() {
         mVisualizerView = new VisualizerView(this);
-        mVisualizerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, (int) (VISUALIZER_HEIGHT_DIP * getResources()
+        mVisualizerView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) (VISUALIZER_HEIGHT_DIP * getResources()
                 .getDisplayMetrics().density)));
         mLinearLayout.addView(mVisualizerView);
 

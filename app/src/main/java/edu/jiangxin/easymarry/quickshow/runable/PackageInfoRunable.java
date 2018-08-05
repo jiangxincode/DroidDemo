@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.runable;
+package edu.jiangxin.easymarry.quickshow.runable;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -13,7 +13,7 @@ import android.os.SystemClock;
 import java.util.List;
 
 import edu.jiangxin.easymarry.ApplicationExt;
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 
 public class PackageInfoRunable implements Runnable {
 

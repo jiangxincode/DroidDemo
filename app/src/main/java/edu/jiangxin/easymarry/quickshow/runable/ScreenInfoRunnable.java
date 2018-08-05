@@ -1,29 +1,31 @@
-package edu.jiangxin.easymarry.runable;
+package edu.jiangxin.easymarry.quickshow.runable;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.WindowManager;
 
-import edu.jiangxin.easymarry.activity.ShowInfoActivity;
+import edu.jiangxin.easymarry.ApplicationExt;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 
 public class ScreenInfoRunnable implements Runnable {
 
-    private Activity activity;
-
     private Handler handler;
 
-    public ScreenInfoRunnable(Handler mHandler, Activity activity) {
+    public ScreenInfoRunnable(Handler mHandler) {
         this.handler = mHandler;
-        this.activity = activity;
     }
 
     @Override
     public void run() {
         StringBuilder stringBuilder = new StringBuilder();
         DisplayMetrics metric = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(metric);
+        // if in a activity, use getWindowManager() instead.
+        WindowManager windowManager = (WindowManager)ApplicationExt.getContext().getSystemService(Context.WINDOW_SERVICE);
+        windowManager.getDefaultDisplay().getMetrics(metric);
         stringBuilder.append("Screen width(px): " + metric.widthPixels).append("\n"); // 屏幕宽度（像素）
         stringBuilder.append("Screen height(px): " + metric.heightPixels).append("\n"); // 屏幕高度（像素）
         stringBuilder.append("Screen density: " + metric.density).append("\n"); // 屏幕密度（0.75 / 1.0 / 1.5）

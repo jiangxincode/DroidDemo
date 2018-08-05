@@ -1,4 +1,4 @@
-package edu.jiangxin.easymarry.activity;
+package edu.jiangxin.easymarry.quickshow.activity;
 
 import android.app.Activity;
 import android.content.Context;
@@ -16,13 +16,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.jiangxin.easymarry.R;
-import edu.jiangxin.easymarry.runable.OthersInfoRunnable;
-import edu.jiangxin.easymarry.runable.PackageInfoRunable;
-import edu.jiangxin.easymarry.runable.ScreenInfoRunnable;
-import edu.jiangxin.easymarry.runable.StatInfoRunnable;
-import edu.jiangxin.easymarry.runable.StorageInfoRunnable;
-import edu.jiangxin.easymarry.runable.UserInfoRunnable;
-import edu.jiangxin.easymarry.view.PullDownTextView;
+import edu.jiangxin.easymarry.quickshow.runable.OthersInfoRunnable;
+import edu.jiangxin.easymarry.quickshow.runable.PackageInfoRunable;
+import edu.jiangxin.easymarry.quickshow.runable.ScreenInfoRunnable;
+import edu.jiangxin.easymarry.quickshow.runable.StatInfoRunnable;
+import edu.jiangxin.easymarry.quickshow.runable.StorageInfoRunnable;
+import edu.jiangxin.easymarry.quickshow.runable.UserInfoRunnable;
+import edu.jiangxin.easymarry.quickshow.view.PullDownTextView;
 
 public class ShowInfoActivity extends Activity {
 
@@ -53,7 +53,7 @@ public class ShowInfoActivity extends Activity {
         // do not invoke run method, use start instead
         new Thread(new StorageInfoRunnable(mHandler)).start();
         new Thread(new OthersInfoRunnable(mHandler)).start();
-        new Thread(new ScreenInfoRunnable(mHandler, this)).start();
+        new Thread(new ScreenInfoRunnable(mHandler)).start();
         new Thread(new StatInfoRunnable(mHandler)).start();
         new Thread(new UserInfoRunnable(mHandler)).start();
         new Thread(new PackageInfoRunable(mHandler)).start();
