@@ -64,7 +64,6 @@ public class LeftMenuFragment extends BaseFragment {
                     mainActivity.getMainMenuFragment().leftMenuClickSwitchPage(selectPosition);
                 }
 
-
                 //切换SlidingMenu的开关
                 mainActivity.getSlidingMenu().toggle();
 
@@ -114,19 +113,16 @@ public class LeftMenuFragment extends BaseFragment {
 
         @Override
         public int getCount() {
-            // TODO Auto-generated method stub
             return data.size();
         }
 
         @Override
         public Object getItem(int position) {
-            // TODO Auto-generated method stub
             return null;
         }
 
         @Override
         public long getItemId(int position) {
-            // TODO Auto-generated method stub
             return 0;
         }
 

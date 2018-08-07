@@ -114,15 +114,10 @@ public class MainContentFragment extends BaseFragment {
 
     @Override
     public void initData() {
-        // 首页
         pages.add(new HomeBaseTagPager(mainActivity));
-        // 首页
         pages.add(new NewCenterBaseTagPager(mainActivity));
-        // 首页
         pages.add(new SmartServiceBaseTagPager(mainActivity));
-        // 首页
         pages.add(new GovAffairsBaseTagPager(mainActivity));
-        // 首页
         pages.add(new SettingCenterBaseTagPager(mainActivity));
 
         MyAdapter adapter = new MyAdapter();
