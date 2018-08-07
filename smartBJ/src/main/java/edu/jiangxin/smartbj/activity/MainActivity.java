@@ -1,89 +1,82 @@
 package edu.jiangxin.smartbj.activity;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.Window;
 
-import edu.jiangxin.smartbj.R;
-import edu.jiangxin.smartbj.view.LeftMenuFragment;
-import edu.jiangxin.smartbj.view.MainContentFragment;
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.jeremyfeinstein.slidingmenu.lib.app.SlidingFragmentActivity;
 
-public class MainActivity extends SlidingFragmentActivity
-{
-	private static final String	LEFT_MUNE_TAG	= "LEFT_MUNE_TAG";
-	private static final String	MAIN_MUNE_TAG	= "MAIN_MUNE_TAG";
+import edu.jiangxin.smartbj.R;
+import edu.jiangxin.smartbj.view.LeftMenuFragment;
+import edu.jiangxin.smartbj.view.MainContentFragment;
 
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
-		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
-		initView();// 初始化界面
-		initData();// 初始化数据
-		
-	}
-	
-	/**
-	 * @return
-	 *    返回左侧菜单的fragment
-	 */
-	public LeftMenuFragment getLeftMenuFragment(){
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		LeftMenuFragment leftFragment = (LeftMenuFragment) fragmentManager.findFragmentByTag(LEFT_MUNE_TAG);
-		return leftFragment;
-	}
-	
-	/**
-	 * @return
-	 *    返回左侧菜单的fragment
-	 */
-	public MainContentFragment getMainMenuFragment(){
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		MainContentFragment leftFragment = (MainContentFragment) fragmentManager.findFragmentByTag(MAIN_MUNE_TAG);
-		return leftFragment;
-	}
+public class MainActivity extends SlidingFragmentActivity {
+    private static final String LEFT_MUNE_TAG = "LEFT_MUNE_TAG";
+    private static final String MAIN_MUNE_TAG = "MAIN_MUNE_TAG";
 
-	/**
-	 * 初始化数据
-	 */
-	private void initData() {
-		FragmentManager fragmentManager = getSupportFragmentManager();
-		// 1. 获取事物
-		FragmentTransaction transaction = fragmentManager.beginTransaction();
-		// 2. 完成替换
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);// 隐藏标题
+        initView();// 初始化界面
+        initData();// 初始化数据
 
-		// 完成左侧菜单界面的替换
-		transaction.replace(R.id.fl_left_menu, new LeftMenuFragment(),
-				LEFT_MUNE_TAG);
+    }
 
-		// 完成左侧菜单界面的替换
-		transaction.replace(R.id.fl_main_menu, new MainContentFragment(),
-				MAIN_MUNE_TAG);
+    /**
+     * @return 返回左侧菜单的fragment
+     */
+    public LeftMenuFragment getLeftMenuFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        LeftMenuFragment leftFragment = (LeftMenuFragment) fragmentManager.findFragmentByTag(LEFT_MUNE_TAG);
+        return leftFragment;
+    }
 
-		// 3.提交事物
-		transaction.commit();
-	}
+    /**
+     * @return 返回左侧菜单的fragment
+     */
+    public MainContentFragment getMainMenuFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        MainContentFragment leftFragment = (MainContentFragment) fragmentManager.findFragmentByTag(MAIN_MUNE_TAG);
+        return leftFragment;
+    }
 
-	private void initView() {
-		// 设置主界面
-		setContentView(R.layout.fragment_content_tag);
+    /**
+     * 初始化数据
+     */
+    private void initData() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
 
-		// 设置左侧菜单界面
-		setBehindContentView(R.layout.fragment_left);
+        // 完成左侧菜单界面的替换
+        transaction.replace(R.id.fl_left_menu, new LeftMenuFragment(),
+                LEFT_MUNE_TAG);
 
-		// 设置滑动模式
-		SlidingMenu sm = getSlidingMenu();
-		sm.setMode(SlidingMenu.LEFT);// 只设置左侧可以滑动
+        // 完成左侧菜单界面的替换
+        transaction.replace(R.id.fl_main_menu, new MainContentFragment(),
+                MAIN_MUNE_TAG);
 
-		// 设置滑动位置为全屏
-		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+        transaction.commit();
+    }
 
-		// 设置主界面左侧滑动后剩余的空间位置
-		sm.setBehindOffset(200);// 设置主界面剩余的位置
+    private void initView() {
+        // 设置主界面
+        setContentView(R.layout.fragment_content_tag);
 
-	}
+        // 设置左侧菜单界面
+        setBehindContentView(R.layout.fragment_left);
+
+        // 设置滑动模式
+        SlidingMenu sm = getSlidingMenu();
+        sm.setMode(SlidingMenu.LEFT);// 只设置左侧可以滑动
+
+        // 设置滑动位置为全屏
+        sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+
+        // 设置主界面左侧滑动后剩余的空间位置
+        sm.setBehindOffset(200);// 设置主界面剩余的位置
+
+    }
 }

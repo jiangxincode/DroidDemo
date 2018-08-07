@@ -50,7 +50,6 @@ public class GuideActivity extends Activity {
         //监听布局完成 ，触发的结果
         v_redpoint.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
 
-
             @Override
             public void onGlobalLayout() {
                 //取消注册 界面变化而发生的回调结果
@@ -70,8 +69,7 @@ public class GuideActivity extends Activity {
                 SpTools.setBoolean(getApplicationContext(), MyConstants.ISSETUP, true);//保存设置完成的状态
                 //进入主界面
                 Intent main = new Intent(GuideActivity.this, MainActivity.class);
-                startActivity(main);//启动主界面
-                //关闭自己
+                startActivity(main);
                 finish();
             }
         });
