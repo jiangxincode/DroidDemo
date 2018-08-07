@@ -1,4 +1,3 @@
 include ':slidingMenu_library'
 include ':viewPageIndicator_library'
-include ':xutils_library'
 include ':smartBJ'
