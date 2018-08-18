@@ -1,8 +1,10 @@
 package edu.jiangxin.easymarry.quickshow.runable;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
@@ -27,20 +29,35 @@ public class PackageInfoRunable implements Runnable {
     public void run() {
         StringBuilder stringBuilder = new StringBuilder();
         PackageManager packageManager = ApplicationExt.getContext().getPackageManager();
-        List<android.content.pm.PackageInfo> packageInfos = packageManager.getInstalledPackages(PackageManager.GET_UNINSTALLED_PACKAGES);
-        android.content.pm.PackageInfo packageInfo = packageInfos.get(0);
-        ApplicationInfo applicationInfo = packageInfo.applicationInfo;
-        stringBuilder.append(applicationInfo.packageName).append("\n");
-        stringBuilder.append(applicationInfo.dataDir).append("\n");
-        stringBuilder.append(applicationInfo.name).append("\n");
-        Intent startIntent = new Intent(Intent.ACTION_MAIN, null);
-        startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(startIntent, 0);
-        ResolveInfo resolveInfo = resolveInfos.get(0);
+        List<PackageInfo> packageInfos = packageManager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES);
+        for (PackageInfo packageInfo : packageInfos) {
+            if (packageInfo.packageName.equals(ApplicationExt.getContext().getPackageName())) {
+                ApplicationInfo applicationInfo = packageInfo.applicationInfo;
+                stringBuilder.append(applicationInfo.packageName).append("\n");
+                stringBuilder.append(applicationInfo.dataDir).append("\n");
+                stringBuilder.append(applicationInfo.name).append("\n");
+                break;
+            }
+        }
+        stringBuilder.append("=============================================\n");
+        Intent intent = new Intent(Intent.ACTION_MAIN, null);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER);
+        List<ResolveInfo> resolveInfos = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+        for (ResolveInfo resolveInfo : resolveInfos) {
+            ActivityInfo activityInfo = resolveInfo.activityInfo;
+            stringBuilder.append(activityInfo.name).append("\n");
+        }
+        stringBuilder.append("=============================================\n");
+
+        intent = new Intent("edu.jiangxin.easymarry.action.SHOWINFO", null);
+        intent.addCategory("android.intent.category.SHOWINFO");
+        ResolveInfo resolveInfo = packageManager.resolveActivity(intent, PackageManager.MATCH_DEFAULT_ONLY);
         ActivityInfo activityInfo = resolveInfo.activityInfo;
+        stringBuilder.append(activityInfo.name).append("\n");
+        stringBuilder.append("=============================================\n");
 
         // difference between SystemClok#sleep and Thread#sleep
-        SystemClock.sleep(6000l);
+        SystemClock.sleep(1000l);
 
         Message message = new Message();
         message.what = ShowInfoActivity.UPDATE_MESSAGE;

@@ -141,7 +141,13 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".quickshow.activity.ShowInfoActivity" />
+        <activity android:name=".quickshow.activity.ShowInfoActivity" >
+            <intent-filter>
+                <action android:name="edu.jiangxin.easymarry.action.SHOWINFO" />
+                <category android:name="android.intent.category.SHOWINFO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".activity.MessageActivity" />
         <activity android:name=".activity.ImageViewActivity" />
         <activity android:name=".activity.AudioFxOscillogramActivity" />

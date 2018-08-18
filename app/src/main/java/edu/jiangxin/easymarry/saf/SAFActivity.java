@@ -1,7 +1,6 @@
 package edu.jiangxin.easymarry.saf;
 
 import android.app.Activity;
-import android.app.FragmentManager;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -20,6 +19,7 @@ import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Calendar;
 
 import edu.jiangxin.easymarry.R;
 
@@ -28,7 +28,7 @@ import edu.jiangxin.easymarry.R;
  */
 public class SAFActivity extends Activity implements OnClickListener {
 
-    public final static int REQUEST_CODE = 11;
+    public final static int REQUEST_CODE_SHOW_IMAGE = 11;
     public final static int WRITE_REQUEST_CODE = 44;
     public final static int EDIT_REQUEST_CODE = 41;
     private Button showImage;
@@ -37,8 +37,7 @@ public class SAFActivity extends Activity implements OnClickListener {
     private Button alterFile;
     private Bitmap image;
     private Bitmap newimage;
-    private RetainedFragment dataFragment;
-    private Uri tmpUri = null;
+    private Uri tmpUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,26 +51,28 @@ public class SAFActivity extends Activity implements OnClickListener {
         deleteFile.setOnClickListener(this);
         alterFile = (Button) findViewById(R.id.btn_alter_file);
         alterFile.setOnClickListener(this);
-
-        FragmentManager fm = getFragmentManager();
-        dataFragment = (RetainedFragment) fm.findFragmentByTag("data");
-
-        if (dataFragment == null) {
-            dataFragment = new RetainedFragment();
-            fm.beginTransaction().add(dataFragment, "data").commit();
-        } else {
-            findViewById(R.id.rlyt_bg).setBackground(new BitmapDrawable(dataFragment.getBitmap()));
-        }
     }
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
             case R.id.btn_show_image:
-                showImage();
+                intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("image/*");
+                if (intent.resolveActivity(getPackageManager()) != null) {
+                    startActivityForResult(intent, REQUEST_CODE_SHOW_IMAGE);
+                } else {
+                    Toast.makeText(getApplicationContext(), "No Activity to handle the intent", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.btn_create_file:
-                createFile("text/plain", "test.txt");
+                intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TITLE, "test.txt");
+                startActivityForResult(intent, WRITE_REQUEST_CODE);
                 break;
             case R.id.btn_delete_file:// 只是删除document 也就是content
                 // provider中的，存储设备上面的没有删除掉
@@ -103,19 +104,10 @@ public class SAFActivity extends Activity implements OnClickListener {
 
     }
 
-
-    @Override
-    protected void onDestroy() {
-        if (newimage != null) {
-            dataFragment.setBitmap(newimage);
-        }
-        super.onDestroy();
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (resultCode == Activity.RESULT_OK) {
-            if (requestCode == REQUEST_CODE) {
+            if (requestCode == REQUEST_CODE_SHOW_IMAGE) {
                 Uri uri = null;
                 if (data != null) {
                     uri = data.getData();
@@ -128,18 +120,15 @@ public class SAFActivity extends Activity implements OnClickListener {
                     }
                 }
             } else if (requestCode == WRITE_REQUEST_CODE) {
-                Uri uri = null;
                 if (data != null) {
-                    String abc = "2014-9-18 18:54:29";
-                    uri = data.getData();
                     try {
-                        tmpUri = uri;
+                        tmpUri = data.getData();
                         ParcelFileDescriptor pfd = SAFActivity.this
-                                .getContentResolver().openFileDescriptor(uri,
+                                .getContentResolver().openFileDescriptor(tmpUri,
                                         "w");
                         FileOutputStream fos = new FileOutputStream(
                                 pfd.getFileDescriptor());
-                        fos.write(abc.getBytes());
+                        fos.write(Calendar.getInstance().toString().getBytes());
                         fos.flush();
                         fos.close();
                         pfd.close();
@@ -152,26 +141,12 @@ public class SAFActivity extends Activity implements OnClickListener {
 
                 }
             } else if (requestCode == EDIT_REQUEST_CODE) {
-                Uri uri = null;
                 if (data != null) {
-                    uri = data.getData();
-                    tmpUri = uri;
-                    alterDocument(uri);
+                    alterDocument(data.getData());
                 }
             }
         }
         super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void showImage() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("image/*");
-        if (intent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(intent, REQUEST_CODE);
-        } else {
-            Toast.makeText(getApplicationContext(), "No Activity to handle the intent", Toast.LENGTH_SHORT).show();
-        }
     }
 
     private Bitmap getBitmapFromUri(Uri uri) throws IOException {
@@ -208,14 +183,6 @@ public class SAFActivity extends Activity implements OnClickListener {
         if (image != null && !image.isRecycled()) {
             image.recycle();
         }
-    }
-
-    private void createFile(String mimeType, String fileName) {
-        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType(mimeType);
-        intent.putExtra(Intent.EXTRA_TITLE, fileName);
-        startActivityForResult(intent, WRITE_REQUEST_CODE);
     }
 
     /**
