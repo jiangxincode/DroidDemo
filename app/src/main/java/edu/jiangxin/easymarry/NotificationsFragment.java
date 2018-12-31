@@ -21,6 +21,7 @@ import edu.jiangxin.easymarry.activity.ForbidScreenShotActivity;
 import edu.jiangxin.easymarry.activity.FriendsListActivity;
 import edu.jiangxin.easymarry.activity.ImageViewActivity;
 import edu.jiangxin.easymarry.activity.JNIActivity;
+import edu.jiangxin.easymarry.activity.LoaderDemoActivity;
 import edu.jiangxin.easymarry.activity.MessengerActivity;
 import edu.jiangxin.easymarry.activity.NetMusicActivity;
 import edu.jiangxin.easymarry.activity.QuickSearchBoxActivity;
@@ -29,6 +30,7 @@ import edu.jiangxin.easymarry.activity.RingtoneSettingActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.SettingActivity;
+import edu.jiangxin.easymarry.activity.ThreadDemoActivity;
 import edu.jiangxin.easymarry.fragment.FragmentActivity;
 import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
@@ -52,7 +54,7 @@ public class NotificationsFragment extends Fragment {
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
-            mFragmentEntrance, mSAFEntrance;
+            mFragmentEntrance, mSAFEntrance, mThreadEntrance, mLoaderDemoEntrance;
     private View root;
 
 
@@ -365,6 +367,28 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), SAFActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mThreadEntrance = root.findViewById(R.id.btnThreadEntrance);
+        mThreadEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), ThreadDemoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mLoaderDemoEntrance = root.findViewById(R.id.btnLoaderDemoEntrance);
+        mLoaderDemoEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), LoaderDemoActivity.class);
                 startActivity(intent);
             }
         });

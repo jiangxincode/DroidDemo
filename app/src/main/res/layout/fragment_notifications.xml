@@ -187,6 +187,19 @@
                 android:layout_height="wrap_content"
                 android:text="SAF相关" />
 
+            <Button
+                android:id="@+id/btnThreadEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="线程相关" />
+
+            <Button
+                android:id="@+id/btnLoaderDemoEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loader相关" />
+
+
         </LinearLayout>
     </ScrollView>
 
