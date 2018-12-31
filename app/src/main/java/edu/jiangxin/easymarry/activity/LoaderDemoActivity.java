@@ -30,12 +30,10 @@ import edu.jiangxin.easymarry.R;
 
 /**
  * 使用加载器加载通话记录
- *
- * @author Administrator
  */
 public class LoaderDemoActivity extends Activity {
 
-    private static final String TAG = "dzt";
+    private static final String TAG = "LoaderDemoActivity";
     // 查询指定的条目
     private static final String[] CALLLOG_PROJECTION = new String[]{
             CallLog.Calls._ID, CallLog.Calls.NUMBER, CallLog.Calls.CACHED_NAME,
@@ -46,20 +44,18 @@ public class LoaderDemoActivity extends Activity {
     private static final int OUTCOMING = CallLog.Calls.OUTGOING_TYPE; // 拔号
     private static final int MISSED = CallLog.Calls.MISSED_TYPE; // 未接
     private ListView mListView;
-    private MyLoaderListener mLoader = new MyLoaderListener();
+    private MyLoaderCallbacks mLoaderCallback;
     private MyCursorAdapter mAdapter;
     private int mCallLogShowType = ALL;
-    private boolean m_FinishLoaderFlag = false; // 第一次加载完成
-
-    private static final int REQUEST_CODE = 1;
+    private boolean mFirstLoadingFinish = false; // 第一次加载完成
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loader_demo);
-
         initWidgets();
-        initMyLoader();
+        mLoaderCallback = new MyLoaderCallbacks();
+        getLoaderManager().initLoader(0, null, mLoaderCallback);
     }
 
     private void initWidgets() {
@@ -76,43 +72,30 @@ public class LoaderDemoActivity extends Activity {
         mListView.setAdapter(mAdapter);
     }
 
-    private void initMyLoader() {
-        getLoaderManager().initLoader(0, null, mLoader);
-    }
-
-    /**
-     * 实现一个加载器
-     *
-     * @author Administrator
-     */
-    private class MyLoaderListener implements
-            LoaderManager.LoaderCallbacks<Cursor> {
+    private class MyLoaderCallbacks implements LoaderManager.LoaderCallbacks<Cursor> {
 
         @Override
         public Loader<Cursor> onCreateLoader(int id, Bundle args) {
-            // TODO Auto-generated method stub
-            m_FinishLoaderFlag = false;
+            Log.i(TAG, "onCreateLoader");
+            mFirstLoadingFinish = false;
             CursorLoader cursor = new CursorLoader(LoaderDemoActivity.this,
                     CallLog.Calls.CONTENT_URI, CALLLOG_PROJECTION, null, null,
                     CallLog.Calls.DEFAULT_SORT_ORDER);
-            Log.d(TAG, "MyLoaderListener---------->onCreateLoader");
             return cursor;
         }
 
         @Override
         public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-            // TODO Auto-generated method stub
-            if (data == null)
+            if (data == null) {
                 return;
-            Cursor tempData = data;
-            if (tempData.getCount() == 0) {
-                Log.d(TAG,
-                        "MyLoaderListener---------->onLoadFinished count = 0");
+            }
+            Cursor tmpCursor = data;
+            if (tmpCursor.getCount() == 0) {
+                Log.i(TAG, "onLoadFinished count = 0");
                 mAdapter.swapCursor(null);
                 return;
             }
-            if (m_FinishLoaderFlag) {
-                tempData = null;
+            if (mFirstLoadingFinish) {
                 String selection = null;
                 String[] selectionArgs = null;
                 if (mCallLogShowType == INCOMING) {
@@ -125,22 +108,19 @@ public class LoaderDemoActivity extends Activity {
                     selection = CallLog.Calls.TYPE + "=?";
                     selectionArgs = new String[]{"3"};
                 }
-                tempData = getContentResolver().query(
+                tmpCursor = getContentResolver().query(
                         CallLog.Calls.CONTENT_URI, CALLLOG_PROJECTION,
                         selection, selectionArgs,
                         CallLog.Calls.DEFAULT_SORT_ORDER);
             }
-            mAdapter.swapCursor(tempData);
-            Log.d(TAG,
-                    "MyLoaderListener---------->onLoadFinished data count = "
-                            + data.getCount());
-            m_FinishLoaderFlag = true;
+            mAdapter.swapCursor(tmpCursor);
+            Log.i(TAG, "onLoadFinished count = " + data.getCount());
+            mFirstLoadingFinish = true;
         }
 
         @Override
         public void onLoaderReset(Loader<Cursor> loader) {
-            // TODO Auto-generated method stub
-            Log.d(TAG, "MyLoaderListener---------->onLoaderReset");
+            Log.d(TAG, "onLoaderReset");
             mAdapter.swapCursor(null);
         }
     }
@@ -149,7 +129,6 @@ public class LoaderDemoActivity extends Activity {
 
         @Override
         public void onClick(View v) {
-            // TODO Auto-generated method stub
             switch (v.getId()) {
                 case R.id.btn_all:
                     allCalllog();
@@ -212,38 +191,29 @@ public class LoaderDemoActivity extends Activity {
 
 class MyCursorAdapter extends CursorAdapter {
 
-    private static final String TAG = "dzt";
+    private static final String TAG = "MyCursorAdapter";
     private final Context mContext;
 
     public MyCursorAdapter(Context context, Cursor c) {
         this(context, c, true);
-        // TODO Auto-generated constructor stub
     }
 
     public MyCursorAdapter(Context context, Cursor c, boolean autoRequery) {
         super(context, c, autoRequery);
-        // TODO Auto-generated constructor stub
-        mContext = context;
-    }
-
-    public MyCursorAdapter(Context context, Cursor c, int flags) {
-        super(context, c, flags);
-        // TODO Auto-generated constructor stub
         mContext = context;
     }
 
     @Override
     public View newView(Context context, Cursor cursor, ViewGroup parent) {
-        // TODO Auto-generated method stub
         LayoutInflater inflater = LayoutInflater.from(context);
         return inflater.inflate(R.layout.loader_listview_item, parent, false);
     }
 
     @Override
     public void bindView(View view, Context context, Cursor cursor) {
-        // TODO Auto-generated method stub
-        if (cursor == null)
+        if (cursor == null) {
             return;
+        }
         final String id = cursor.getString(0);
         String number = cursor.getString(1);
         String name = cursor.getString(2);
@@ -258,7 +228,7 @@ class MyCursorAdapter extends CursorAdapter {
         }
         TextView numberCtrl = (TextView) view.findViewById(R.id.tv_number);
         numberCtrl.setText(number);
-        String value = ComputeDate(date);
+        String value = computeDate(date);
         TextView dateCtrl = (TextView) view.findViewById(R.id.tv_date);
         dateCtrl.setText(value);
         switch (type) {
@@ -284,7 +254,6 @@ class MyCursorAdapter extends CursorAdapter {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 // Intent.ACTION_CALL_PRIVILEGED 由于Intent中隐藏了，只能用字符串代替
                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.fromParts(
                         "tel", (String) v.getTag(), null));
@@ -299,7 +268,6 @@ class MyCursorAdapter extends CursorAdapter {
 
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 // 根据ID进行记录删除
                 String where = CallLog.Calls._ID + "=?";
                 String[] selectionArgs = new String[]{id};
@@ -310,16 +278,11 @@ class MyCursorAdapter extends CursorAdapter {
         });
     }
 
-    private String ComputeDate(String date) {
+    private String computeDate(String date) {
         long callTime = Long.parseLong(date);
-        long newTime = new Date().getTime();
-        long duration = (newTime - callTime) / (1000 * 60);
+        long nowTime = new Date().getTime();
+        long duration = (nowTime - callTime) / (1000 * 60);
         String value;
-        // SimpleDateFormat sfd = new
-        // SimpleDateFormat("yyyy-MM-dd HH:mm:ss",
-        // Locale.getDefault());
-        // String time = sfd.format(callTime);
-        // Log.d(TAG, "[MyCursorAdapter--ComputeDate] time = " + time);
         // 进行判断拨打电话的距离现在的时间，然后进行显示说明
         if (duration < 60) {
             value = duration + "分钟前";
@@ -327,8 +290,6 @@ class MyCursorAdapter extends CursorAdapter {
             SimpleDateFormat sdf = new SimpleDateFormat("HH:mm",
                     Locale.getDefault());
             value = sdf.format(new Date(callTime));
-
-            // value = (duration / 60) + "小时前";
         } else if (duration >= LoaderDemoActivity.DAY
                 && duration < LoaderDemoActivity.DAY * 2) {
             value = "昨天";
