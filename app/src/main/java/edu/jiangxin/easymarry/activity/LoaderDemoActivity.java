@@ -1,16 +1,13 @@
 package edu.jiangxin.easymarry.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.app.LoaderManager;
 import android.content.Context;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.util.Log;
@@ -26,9 +23,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import edu.jiangxin.easymarry.R;
@@ -37,15 +32,14 @@ import edu.jiangxin.easymarry.R;
  * 使用加载器加载通话记录
  *
  * @author Administrator
- *
  */
 public class LoaderDemoActivity extends Activity {
 
     private static final String TAG = "dzt";
     // 查询指定的条目
-    private static final String[] CALLLOG_PROJECTION = new String[] {
+    private static final String[] CALLLOG_PROJECTION = new String[]{
             CallLog.Calls._ID, CallLog.Calls.NUMBER, CallLog.Calls.CACHED_NAME,
-            CallLog.Calls.TYPE, CallLog.Calls.DATE };
+            CallLog.Calls.TYPE, CallLog.Calls.DATE};
     static final int DAY = 1440; // 一天的分钟值
     private static final int ALL = 0; // 默认显示所有
     private static final int INCOMING = CallLog.Calls.INCOMING_TYPE; // 来电
@@ -57,12 +51,13 @@ public class LoaderDemoActivity extends Activity {
     private int mCallLogShowType = ALL;
     private boolean m_FinishLoaderFlag = false; // 第一次加载完成
 
+    private static final int REQUEST_CODE = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loader_demo);
 
-        askPermission();
         initWidgets();
         initMyLoader();
     }
@@ -89,7 +84,6 @@ public class LoaderDemoActivity extends Activity {
      * 实现一个加载器
      *
      * @author Administrator
-     *
      */
     private class MyLoaderListener implements
             LoaderManager.LoaderCallbacks<Cursor> {
@@ -123,13 +117,13 @@ public class LoaderDemoActivity extends Activity {
                 String[] selectionArgs = null;
                 if (mCallLogShowType == INCOMING) {
                     selection = CallLog.Calls.TYPE + "=?";
-                    selectionArgs = new String[] { "1" };
+                    selectionArgs = new String[]{"1"};
                 } else if (mCallLogShowType == OUTCOMING) {
                     selection = CallLog.Calls.TYPE + "=?";
-                    selectionArgs = new String[] { "2" };
+                    selectionArgs = new String[]{"2"};
                 } else if (mCallLogShowType == MISSED) {
                     selection = CallLog.Calls.TYPE + "=?";
-                    selectionArgs = new String[] { "3" };
+                    selectionArgs = new String[]{"3"};
                 }
                 tempData = getContentResolver().query(
                         CallLog.Calls.CONTENT_URI, CALLLOG_PROJECTION,
@@ -188,7 +182,7 @@ public class LoaderDemoActivity extends Activity {
     private void incomingCalllog() {
         mCallLogShowType = INCOMING;
         String selection = CallLog.Calls.TYPE + "=?";
-        String[] selectionArgs = new String[] { "1" };
+        String[] selectionArgs = new String[]{"1"};
         Cursor incomingCursor = getContentResolver().query(
                 CallLog.Calls.CONTENT_URI, CALLLOG_PROJECTION, selection,
                 selectionArgs, CallLog.Calls.DEFAULT_SORT_ORDER);
@@ -198,7 +192,7 @@ public class LoaderDemoActivity extends Activity {
     private void outcomingCalllog() {
         mCallLogShowType = OUTCOMING;
         String selection = CallLog.Calls.TYPE + "=?";
-        String[] selectionArgs = new String[] { "2" };
+        String[] selectionArgs = new String[]{"2"};
         Cursor outcomingCursor = getContentResolver().query(
                 CallLog.Calls.CONTENT_URI, CALLLOG_PROJECTION, selection,
                 selectionArgs, CallLog.Calls.DEFAULT_SORT_ORDER);
@@ -208,35 +202,11 @@ public class LoaderDemoActivity extends Activity {
     private void missedCalllog() {
         mCallLogShowType = MISSED;
         String selection = CallLog.Calls.TYPE + "=?";
-        String[] selectionArgs = new String[] { "3" };
+        String[] selectionArgs = new String[]{"3"};
         Cursor missedCursor = getContentResolver().query(
                 CallLog.Calls.CONTENT_URI, CALLLOG_PROJECTION, selection,
                 selectionArgs, CallLog.Calls.DEFAULT_SORT_ORDER);
         mAdapter.swapCursor(missedCursor);
-    }
-
-
-    List<String> permissions = new ArrayList<String>();
-
-    private boolean askPermission() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission( Manifest.permission.READ_CALL_LOG ) != PackageManager.PERMISSION_GRANTED) {
-                permissions.add(Manifest.permission.READ_CALL_LOG);
-            }
-
-            if (checkSelfPermission( Manifest.permission.WRITE_CALL_LOG ) != PackageManager.PERMISSION_GRANTED) {
-                permissions.add(Manifest.permission.WRITE_CALL_LOG);
-            }
-
-            if (!permissions.isEmpty()) {
-                requestPermissions(permissions.toArray(new String[permissions.size()]), 1);
-            } else
-                return false;
-        } else
-            return false;
-        return true;
-
     }
 }
 
@@ -332,7 +302,7 @@ class MyCursorAdapter extends CursorAdapter {
                 // TODO Auto-generated method stub
                 // 根据ID进行记录删除
                 String where = CallLog.Calls._ID + "=?";
-                String[] selectionArgs = new String[] { id };
+                String[] selectionArgs = new String[]{id};
                 int result = mContext.getContentResolver().delete(
                         CallLog.Calls.CONTENT_URI, where, selectionArgs);
                 Log.d(TAG, "11result = " + result);
@@ -374,7 +344,6 @@ class MyCursorAdapter extends CursorAdapter {
         }
         return value;
     }
-
 
 
 }

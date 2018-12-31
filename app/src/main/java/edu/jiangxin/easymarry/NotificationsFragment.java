@@ -1,15 +1,25 @@
 package edu.jiangxin.easymarry;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
-import edu.jiangxin.easymarry.R;
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.jiangxin.easymarry.activity.ActivityTrackerActivity;
 import edu.jiangxin.easymarry.activity.AppListActivity;
 import edu.jiangxin.easymarry.activity.AudioFxHistogramActivity;
@@ -30,24 +40,29 @@ import edu.jiangxin.easymarry.activity.RingtoneSettingActivity;
 import edu.jiangxin.easymarry.activity.RippleActivity;
 import edu.jiangxin.easymarry.activity.ScaleTextActivity;
 import edu.jiangxin.easymarry.activity.SettingActivity;
-import edu.jiangxin.easymarry.activity.ThreadDemoActivity;
-import edu.jiangxin.easymarry.fragment.FragmentActivity;
-import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.activity.SpannableStringActivity;
 import edu.jiangxin.easymarry.activity.SpinnerActivity;
 import edu.jiangxin.easymarry.activity.ThemeActivity;
+import edu.jiangxin.easymarry.activity.ThreadDemoActivity;
 import edu.jiangxin.easymarry.activity.VariousNotificationActivity;
 import edu.jiangxin.easymarry.activity.VideoViewActivity;
 import edu.jiangxin.easymarry.activity.listview.ListViewActivity;
+import edu.jiangxin.easymarry.fragment.FragmentActivity;
+import edu.jiangxin.easymarry.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.easymarry.saf.SAFActivity;
 
 /**
  * Created by jiang on 2018/1/21.
  */
-
 public class NotificationsFragment extends Fragment {
 
     private static final String TAG = "NotificationsFragment";
+
+    private static final int REQUEST_CODE_CALL_LOG = 10001;
+    private static final int REQUEST_CODE_RECORD_AUDIO_1 = 10011;
+    private static final int REQUEST_CODE_RECORD_AUDIO_2 = 10012;
+    private static final int REQUEST_CODE_OVERLAY = 10002;
+    private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
     private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
@@ -233,9 +248,20 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), AudioFxOscillogramActivity.class);
-                startActivity(intent);
+                List<String> permissions = new ArrayList<String>();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.RECORD_AUDIO);
+                    }
+
+                    if (permissions.isEmpty()) {
+                        startAudioFxOscillogramActivity();
+                    } else {
+                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_1);
+                    }
+                } else {
+                    startAudioFxOscillogramActivity();
+                }
             }
         });
 
@@ -244,9 +270,20 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), AudioFxHistogramActivity.class);
-                startActivity(intent);
+                List<String> permissions = new ArrayList<String>();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.RECORD_AUDIO);
+                    }
+
+                    if (permissions.isEmpty()) {
+                        startAudioFxHistogramActivity();
+                    } else {
+                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_2);
+                    }
+                } else {
+                    startAudioFxHistogramActivity();
+                }
             }
         });
 
@@ -288,9 +325,16 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ActivityTrackerActivity.class);
-                startActivity(intent);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getActivity())) {
+                    startActivityForResult(
+                            new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()))
+                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                            REQUEST_CODE_OVERLAY
+                    );
+                } else {
+                    startTrackerActivity();
+                }
+
             }
         });
 
@@ -387,12 +431,148 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), LoaderDemoActivity.class);
-                startActivity(intent);
+
+                List<String> permissions = new ArrayList<String>();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (getActivity().checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.READ_CALL_LOG);
+                    }
+
+                    if (getActivity().checkSelfPermission(Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.WRITE_CALL_LOG);
+                    }
+
+                    if (permissions.isEmpty()) {
+                        startLoaderDemoActivity();
+                    } else {
+                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_CALL_LOG);
+                    }
+                } else {
+                    startLoaderDemoActivity();
+                }
+
             }
         });
 
         return root;
     }
+
+
+    private void startAudioFxOscillogramActivity() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), AudioFxOscillogramActivity.class);
+        startActivity(intent);
+    }
+
+    private void startAudioFxHistogramActivity() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), AudioFxHistogramActivity.class);
+        startActivity(intent);
+    }
+
+    private void startTrackerActivity() {
+        if (isAccessibilitySettingsOn(this.getContext())) {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ActivityTrackerActivity.class);
+            startActivity(intent);
+        } else {
+            // 引导至辅助功能设置页面
+            startActivityForResult(
+                    new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
+                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), REQUEST_CODE_ACCESSIBILITY
+            );
+        }
+
+    }
+
+    private void startLoaderDemoActivity() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), LoaderDemoActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_CODE_CALL_LOG:
+                if (checkPermissionRequested(grantResults)) {
+                    startLoaderDemoActivity();
+                } else {
+                    Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            case REQUEST_CODE_RECORD_AUDIO_1:
+                if (checkPermissionRequested(grantResults)) {
+                    startAudioFxOscillogramActivity();
+                } else {
+                    Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            case REQUEST_CODE_RECORD_AUDIO_2:
+                if (checkPermissionRequested(grantResults)) {
+                    startAudioFxHistogramActivity();
+                } else {
+                    Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_OVERLAY) {
+            if (Settings.canDrawOverlays(getActivity())) {
+                startTrackerActivity();
+                return;
+            } else {
+                Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                return;
+            }
+        } else if (requestCode == REQUEST_CODE_ACCESSIBILITY) {
+            if (isAccessibilitySettingsOn(getContext())) {
+                startTrackerActivity();
+                return;
+            } else {
+                Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                return;
+            }
+        }
+    }
+
+    private boolean checkPermissionRequested(int[] grantResults) {
+        for (int i = 0; i < grantResults.length; i++) {
+            if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private static boolean isAccessibilitySettingsOn(Context context) {
+        int accessibilityEnabled = 0;
+        try {
+            accessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(),
+                    Settings.Secure.ACCESSIBILITY_ENABLED);
+        } catch (Settings.SettingNotFoundException e) {
+            Log.i(TAG, "get setting failed: " + Settings.Secure.ACCESSIBILITY_ENABLED);
+            return true;
+        }
+
+        Log.i(TAG, "accessibilityEnabled : " + accessibilityEnabled);
+
+        if (accessibilityEnabled != 1) {
+            return false;
+        }
+
+        String services = Settings.Secure.getString(context.getContentResolver(),
+                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+
+        if (services == null) {
+            Log.e(TAG, "services is null");
+            return false;
+        }
+        return services.toLowerCase().contains(context.getPackageName().toLowerCase());
+    }
+
+
 }

@@ -1,9 +1,7 @@
 package edu.jiangxin.easymarry.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -14,7 +12,6 @@ import android.media.MediaPlayer.OnCompletionListener;
 import android.media.audiofx.Equalizer;
 import android.media.audiofx.Visualizer;
 import android.media.audiofx.Visualizer.OnDataCaptureListener;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -24,13 +21,9 @@ import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import edu.jiangxin.easymarry.R;
 
-public class AudioFxOscillogramActivity extends Activity
-{
+public class AudioFxOscillogramActivity extends Activity {
 
     private static final String TAG = "AudioFxActivity";
 
@@ -44,8 +37,7 @@ public class AudioFxOscillogramActivity extends Activity
     VisualizerView mVisualizerView;
     private TextView mStatusTextView;
 
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
@@ -57,18 +49,14 @@ public class AudioFxOscillogramActivity extends Activity
 
         mMediaPlayer = MediaPlayer.create(this, R.raw.z8806c);
 
-        askPermission();
-
         setupVisualizerFxAndUi();
         setupEqualizeFxAndUi();
 
         mVisualizer.setEnabled(true);
-        mMediaPlayer.setOnCompletionListener(new OnCompletionListener()
-        {
+        mMediaPlayer.setOnCompletionListener(new OnCompletionListener() {
 
             @Override
-            public void onCompletion(MediaPlayer mp)
-            {
+            public void onCompletion(MediaPlayer mp) {
                 // TODO Auto-generated method stub
                 mVisualizer.setEnabled(false);
             }
@@ -81,8 +69,7 @@ public class AudioFxOscillogramActivity extends Activity
     /**
      * 通过mMediaPlayer返回的AudioSessionId创建一个优先级为0均衡器对象 并且通过频谱生成相应的UI和对应的事件
      */
-    private void setupEqualizeFxAndUi()
-    {
+    private void setupEqualizeFxAndUi() {
         mEqualizer = new Equalizer(0, mMediaPlayer.getAudioSessionId());
         mEqualizer.setEnabled(true);// 启用均衡器
         TextView eqTextView = new TextView(this);
@@ -98,8 +85,7 @@ public class AudioFxOscillogramActivity extends Activity
         final short minEqualizer = mEqualizer.getBandLevelRange()[0];
         final short maxEqualizer = mEqualizer.getBandLevelRange()[1];
 
-        for (short i = 0; i < bands; i++)
-        {
+        for (short i = 0; i < bands; i++) {
             final short band = i;
 
             TextView freqTextView = new TextView(this);
@@ -141,23 +127,19 @@ public class AudioFxOscillogramActivity extends Activity
             seekbar.setMax(maxEqualizer - minEqualizer);
             seekbar.setProgress(mEqualizer.getBandLevel(band));
 
-            seekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener()
-            {
+            seekbar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
                 @Override
-                public void onStopTrackingTouch(SeekBar seekBar)
-                {
+                public void onStopTrackingTouch(SeekBar seekBar) {
                 }
 
                 @Override
-                public void onStartTrackingTouch(SeekBar seekBar)
-                {
+                public void onStartTrackingTouch(SeekBar seekBar) {
                 }
 
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress,
-                                              boolean fromUser)
-                {
+                                              boolean fromUser) {
                     // TODO Auto-generated method stub
                     mEqualizer.setBandLevel(band,
                             (short) (progress + minEqualizer));
@@ -175,8 +157,7 @@ public class AudioFxOscillogramActivity extends Activity
     /**
      * 生成一个VisualizerView对象，使音频频谱的波段能够反映到 VisualizerView上
      */
-    private void setupVisualizerFxAndUi()
-    {
+    private void setupVisualizerFxAndUi() {
         mVisualizerView = new VisualizerView(this);
         mVisualizerView.setLayoutParams(new ViewGroup.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
@@ -189,21 +170,18 @@ public class AudioFxOscillogramActivity extends Activity
         mVisualizer.setCaptureSize(Visualizer.getCaptureSizeRange()[1]);
 
         // 设置允许波形表示，并且捕获它
-        mVisualizer.setDataCaptureListener(new OnDataCaptureListener()
-        {
+        mVisualizer.setDataCaptureListener(new OnDataCaptureListener() {
 
             @Override
             public void onWaveFormDataCapture(Visualizer visualizer,
-                                              byte[] waveform, int samplingRate)
-            {
+                                              byte[] waveform, int samplingRate) {
                 // TODO Auto-generated method stub
                 mVisualizerView.updateVisualizer(waveform);
             }
 
             @Override
             public void onFftDataCapture(Visualizer visualizer, byte[] fft,
-                                         int samplingRate)
-            {
+                                         int samplingRate) {
                 // TODO Auto-generated method stub
 
             }
@@ -212,12 +190,10 @@ public class AudioFxOscillogramActivity extends Activity
     }
 
     @Override
-    protected void onPause()
-    {
+    protected void onPause() {
         // TODO Auto-generated method stub
         super.onPause();
-        if (isFinishing() && mMediaPlayer != null)
-        {
+        if (isFinishing() && mMediaPlayer != null) {
             mVisualizer.release();
             mMediaPlayer.release();
             mEqualizer.release();
@@ -225,8 +201,7 @@ public class AudioFxOscillogramActivity extends Activity
         }
     }
 
-    class VisualizerView extends View
-    {
+    class VisualizerView extends View {
 
         private byte[] mBytes;
         private float[] mPoints;
@@ -236,45 +211,38 @@ public class AudioFxOscillogramActivity extends Activity
         private Paint mPaint = new Paint();
 
         // 初始化画笔
-        private void init()
-        {
+        private void init() {
             mBytes = null;
             mPaint.setStrokeWidth(1f);
             mPaint.setAntiAlias(true);
             mPaint.setColor(Color.BLUE);
         }
 
-        public VisualizerView(Context context)
-        {
+        public VisualizerView(Context context) {
             super(context);
             init();
         }
 
-        public void updateVisualizer(byte[] mbyte)
-        {
+        public void updateVisualizer(byte[] mbyte) {
             mBytes = mbyte;
             invalidate();
         }
 
         @Override
-        protected void onDraw(Canvas canvas)
-        {
+        protected void onDraw(Canvas canvas) {
             // TODO Auto-generated method stub
             super.onDraw(canvas);
 
-            if (mBytes == null)
-            {
+            if (mBytes == null) {
                 return;
             }
-            if (mPoints == null || mPoints.length < mBytes.length * 4)
-            {
+            if (mPoints == null || mPoints.length < mBytes.length * 4) {
                 mPoints = new float[mBytes.length * 4];
             }
 
             mRect.set(0, 0, getWidth(), getHeight());
 
-            for (int i = 0; i < mBytes.length - 1; i++)
-            {
+            for (int i = 0; i < mBytes.length - 1; i++) {
                 mPoints[i * 4] = mRect.width() * i / (mBytes.length - 1);
                 mPoints[i * 4 + 1] = mRect.height() / 2
                         + ((byte) (mBytes[i] + 128)) * (mRect.height() / 2)
@@ -290,25 +258,4 @@ public class AudioFxOscillogramActivity extends Activity
 
         }
     }
-
-    List<String> permissions = new ArrayList<String>();
-
-    private boolean askPermission() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int RECORD_AUDIO = checkSelfPermission( Manifest.permission.RECORD_AUDIO );
-            if (RECORD_AUDIO != PackageManager.PERMISSION_GRANTED) {
-                permissions.add(Manifest.permission.RECORD_AUDIO);
-            }
-
-            if (!permissions.isEmpty()) {
-                requestPermissions(permissions.toArray(new String[permissions.size()]), 1);
-            } else
-                return false;
-        } else
-            return false;
-        return true;
-
-    }
-
 }

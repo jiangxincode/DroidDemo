@@ -16,10 +16,8 @@
 
 package edu.jiangxin.easymarry.activity;
 
-import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
-import android.content.pm.PackageManager;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -28,7 +26,6 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.media.audiofx.Equalizer;
 import android.media.audiofx.Visualizer;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -38,10 +35,6 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import edu.jiangxin.easymarry.R;
 
@@ -75,15 +68,13 @@ public class AudioFxHistogramActivity extends Activity {
         mMediaPlayer = MediaPlayer.create(this, R.raw.z8806c);
         Log.d(TAG, "MediaPlayer audio session ID: " + mMediaPlayer.getAudioSessionId());
 
-        askPermission();
-
         setupVisualizerFxAndUI();
         setupEqualizerFxAndUI();
 
         // Make sure the visualizer is enabled only when you actually want to
         // receive data, and
         // when it makes sense to receive data.
-        mVisualizer. setEnabled(true);
+        mVisualizer.setEnabled(true);
 
         // When the stream ends, we don't need to collect any more data. We
         // don't do this in
@@ -255,7 +246,7 @@ public class AudioFxHistogramActivity extends Activity {
             byte[] model = new byte[fft.length / 2 + 1];
 
             model[0] = (byte) Math.abs(fft[0]);
-            for (int i = 2, j = 1; j < mSpectrumNum * 2;) {
+            for (int i = 2, j = 1; j < mSpectrumNum * 2; ) {
                 model[j] = (byte) Math.hypot(fft[i], fft[i + 1]);
                 i += 2;
                 j++;
@@ -308,27 +299,5 @@ public class AudioFxHistogramActivity extends Activity {
 
             canvas.drawLines(mPoints, mForePaint);
         }
-    }
-
-
-
-    List<String> permissions = new ArrayList<String>();
-
-    private boolean askPermission() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            int RECORD_AUDIO = checkSelfPermission( Manifest.permission.RECORD_AUDIO );
-            if (RECORD_AUDIO != PackageManager.PERMISSION_GRANTED) {
-                permissions.add(Manifest.permission.RECORD_AUDIO);
-            }
-
-            if (!permissions.isEmpty()) {
-                requestPermissions(permissions.toArray(new String[permissions.size()]), 1);
-            } else
-                return false;
-        } else
-            return false;
-        return true;
-
     }
 }
