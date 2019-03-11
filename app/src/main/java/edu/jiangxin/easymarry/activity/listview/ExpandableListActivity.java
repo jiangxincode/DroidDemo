@@ -40,20 +40,20 @@ public class ExpandableListActivity extends Activity {
         childLogo = new ArrayList<List<Integer>>();
         addInfo("魏",
                 new String[]{"夏侯惇", "甄姬", "许褚", "郭嘉", "司马懿", "杨修"},
-                new Integer[]{R.drawable.el_xia_hou_dun, R.drawable.el_zhen_ji,
-                        R.drawable.el_xu_zhu, R.drawable.el_guo_jia,
-                        R.drawable.el_si_ma_yi, R.drawable.el_yang_xiu}
+                new Integer[]{R.drawable.el_guo_jia, R.drawable.el_guo_jia,
+                        R.drawable.el_guo_jia, R.drawable.el_guo_jia,
+                        R.drawable.el_guo_jia, R.drawable.el_guo_jia}
         );
         addInfo("蜀",
                 new String[]{"马超", "张飞", "刘备", "诸葛亮", "黄月英", "赵云"},
-                new Integer[]{R.drawable.el_ma_chao, R.drawable.el_zhang_fei,
-                        R.drawable.el_liu_bei, R.drawable.el_zhu_ge_liang,
-                        R.drawable.el_huang_yue_ying, R.drawable.el_zhao_yun}
+                new Integer[]{R.drawable.el_guo_jia, R.drawable.el_guo_jia,
+                        R.drawable.el_guo_jia, R.drawable.el_guo_jia,
+                        R.drawable.el_guo_jia, R.drawable.el_guo_jia}
         );
         addInfo("吴",
                 new String[]{"吕蒙", "陆逊", "孙权", "周瑜", "孙尚香"},
-                new Integer[]{R.drawable.el_lv_meng, R.drawable.el_lu_xun, R.drawable.el_sun_quan,
-                        R.drawable.el_zhou_yu, R.drawable.el_sun_shang_xiang}
+                new Integer[]{R.drawable.el_guo_jia, R.drawable.el_guo_jia, R.drawable.el_guo_jia,
+                        R.drawable.el_guo_jia, R.drawable.el_guo_jia}
         );
 
         adapter = new ExpandableListAdapter(this, group, childText, childLogo);

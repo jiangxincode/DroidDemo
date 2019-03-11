@@ -25,9 +25,9 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
     private LinearLayout lt_menu;
     private ImageView iv_menu;
     private GridView gridView;
-    private int[] itemLogo = {R.drawable.gv_baisheng, R.drawable.gv_caozheng, R.drawable.gv_chaijin,
-            R.drawable.gv_likui, R.drawable.gv_lizhong, R.drawable.gv_ruanxiaoer,
-            R.drawable.gv_shiqian, R.drawable.gv_wangying, R.drawable.gv_wuyong, R.drawable.gv_zhutong};
+    private int[] itemLogo = {R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng,
+            R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng,
+            R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng};
     private String[] itemName = {"白胜", "曹正", "柴进",
             "李逵", "李忠", "阮小二",
             "时迁", "王英", "吴用", "朱仝"};

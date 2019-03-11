@@ -65,7 +65,7 @@ public class AudioFxHistogramActivity extends Activity {
         setContentView(mLinearLayout);
 
         // Create the MediaPlayer
-        mMediaPlayer = MediaPlayer.create(this, R.raw.z8806c);
+        mMediaPlayer = MediaPlayer.create(this, R.raw.raw_test);
         Log.d(TAG, "MediaPlayer audio session ID: " + mMediaPlayer.getAudioSessionId());
 
         setupVisualizerFxAndUI();

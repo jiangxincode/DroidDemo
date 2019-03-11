@@ -16,10 +16,10 @@ public class ThemeActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if(ApplicationExt.getAppConfig().isNighTheme()){
+        if (ApplicationExt.getAppConfig().isNighTheme()) {
             this.setTheme(R.style.NightTheme);
-            isNight =  true;
-        }else{
+            isNight = true;
+        } else {
             this.setTheme(R.style.DayTheme);
             isNight = false;
         }
@@ -30,11 +30,11 @@ public class ThemeActivity extends Activity {
 
     public void changeTheme(View view) {
 
-        Toast.makeText(this,"正在切换主题",Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "正在切换主题", Toast.LENGTH_SHORT).show();
 
-        if(isNight){
+        if (isNight) {
             ApplicationExt.getAppConfig().setNightTheme(false);
-        }else{
+        } else {
             ApplicationExt.getAppConfig().setNightTheme(true);
         }
 

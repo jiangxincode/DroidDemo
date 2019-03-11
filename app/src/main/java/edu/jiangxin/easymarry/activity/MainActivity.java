@@ -3,6 +3,7 @@ package edu.jiangxin.easymarry.activity;
 import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
+import android.graphics.Color;
 import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.os.Bundle;
@@ -108,7 +109,6 @@ public class MainActivity extends AppCompatActivity {
         mainActivityViewPager.setAdapter(adapter);
 
         setupShortcuts();
-
 
     }
 

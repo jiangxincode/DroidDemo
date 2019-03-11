@@ -47,7 +47,7 @@ public class AudioFxOscillogramActivity extends Activity {
         mLayout.addView(mStatusTextView);
         setContentView(mLayout);
 
-        mMediaPlayer = MediaPlayer.create(this, R.raw.z8806c);
+        mMediaPlayer = MediaPlayer.create(this, R.raw.raw_test);
 
         setupVisualizerFxAndUi();
         setupEqualizeFxAndUi();

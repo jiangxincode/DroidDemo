@@ -61,6 +61,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_CALL_LOG = 10001;
     private static final int REQUEST_CODE_RECORD_AUDIO_1 = 10011;
     private static final int REQUEST_CODE_RECORD_AUDIO_2 = 10012;
+    private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
@@ -303,9 +304,21 @@ public class NotificationsFragment extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), VideoViewActivity.class);
-                startActivity(intent);
+                List<String> permissions = new ArrayList<String>();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+                    }
+
+                    if (permissions.isEmpty()) {
+                        startVideoViewActivity();
+                    } else {
+                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_VIDEO_VIEW);
+                    }
+                } else {
+                    startVideoViewActivity();
+                }
+
             }
         });
 
@@ -457,6 +470,12 @@ public class NotificationsFragment extends Fragment {
         return root;
     }
 
+    private void startVideoViewActivity() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), VideoViewActivity.class);
+        startActivity(intent);
+    }
+
 
     private void startAudioFxOscillogramActivity() {
         Intent intent = new Intent();
@@ -514,6 +533,15 @@ public class NotificationsFragment extends Fragment {
                 } else {
                     Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
                 }
+                break;
+            case REQUEST_CODE_VIDEO_VIEW:
+                if (checkPermissionRequested(grantResults)) {
+                    startVideoViewActivity();
+                } else {
+                    Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            default:
                 break;
         }
     }
