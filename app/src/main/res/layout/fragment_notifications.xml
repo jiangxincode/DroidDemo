@@ -1,0 +1,207 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="?android:attr/actionBarSize"
+    tools:context="edu.jiangxin.droiddemo.NotificationsFragment">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="vertical">
+
+            <Button
+                android:id="@+id/btnShowInfoEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="信息展示" />
+
+            <Button
+                android:id="@+id/btnDecorViewEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="状态栏/标题栏设置" />
+
+            <Button
+                android:id="@+id/btn13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Messanger" />
+
+            <Button
+                android:id="@+id/btn14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="各种ListView" />
+
+            <Button
+                android:id="@+id/btnDialogEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_dialog_entrance" />
+
+            <Button
+                android:id="@+id/btnRippleEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_ripple_entrance" />
+
+            <Button
+                android:id="@+id/btnBlurEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="高斯模糊以及Activity生命周期展示" />
+
+            <Button
+                android:id="@+id/btnForbidScreenShotEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_forbid_screenshot_entrance" />
+
+            <Button
+                android:id="@+id/btnAppListEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_app_list_entrance" />
+
+            <Button
+                android:id="@+id/btnVariousNotificationEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_various_notification_entrance" />
+
+            <Button
+                android:id="@+id/btnScaleTextEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_scale_text_entrance" />
+
+            <Button
+                android:id="@+id/btnSearchEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_search_entrance" />
+
+            <Button
+                android:id="@+id/btnSpannableStringEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/button_spannable_string_entrance" />
+
+            <Button
+                android:id="@+id/btnGlobalSearchEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="全局搜索样例" />
+
+            <Button
+                android:id="@+id/btnImageViewEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ImageView样例" />
+
+            <Button
+                android:id="@+id/btnAudioFxDemoOscillogramEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="频谱波形图样例" />
+
+            <Button
+                android:id="@+id/btnAudioFxDemoHistogramEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="频谱柱状图样例" />
+
+            <Button
+                android:id="@+id/btnNetMusicEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="播放网络音乐" />
+
+            <Button
+                android:id="@+id/btnVideoViewEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="播放视频" />
+
+            <Button
+                android:id="@+id/btnJNIEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="JNI" />
+
+            <Button
+                android:id="@+id/btnActivityTrackerEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ActivityTracker" />
+
+            <Button
+                android:id="@+id/btnSoundEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="铃声设置" />
+
+            <Button
+                android:id="@+id/btnSoundEntrance1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="铃声设置" />
+
+            <Button
+                android:id="@+id/btnPreferenceEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Preference" />
+
+            <Button
+                android:id="@+id/btnThemeEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="切换主题" />
+
+            <Button
+                android:id="@+id/btnSpinnerEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Spinner" />
+
+            <Button
+                android:id="@+id/btnFragmentEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fragment相关" />
+
+            <Button
+                android:id="@+id/btnSAFEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SAF相关" />
+
+            <Button
+                android:id="@+id/btnThreadEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="线程相关" />
+
+            <Button
+                android:id="@+id/btnLoaderDemoEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loader相关" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

@@ -1,0 +1,76 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DayTheme" parent="AppTheme">
+        <item name="titleBarColor">@color/day_titlebar</item>
+        <item name="textColor">@color/day_text</item>
+        <item name="textBackground">@android:color/white</item>
+        <item name="imageValue">@drawable/night</item>
+    </style>
+
+    <style name="NightTheme" parent="AppTheme" >
+        <item name="titleBarColor">@color/night_titlebar</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textBackground">@android:color/black</item>
+        <item name="imageValue">@drawable/day</item>
+    </style>
+
+    <style name="rt_title_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">45dip</item>
+        <item name="android:background">@color/colorTitleBackground</item>
+    </style>
+
+    <style name="tv_title_name">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">18.0sp</item>
+    </style>
+
+    <style name="tv_title_menu_left">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#6C7A80</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="lt_title_view">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="ll_title_view1">
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="iv_title_menu_add">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:contentDescription">@string/title_add</item>
+        <item name="android:src">@drawable/ic_add</item>
+    </style>
+
+    <!--带旋转动画的ImageView-->
+    <declare-styleable name="waterRipplesView">
+        <!--波的总个数-->
+        <attr name="waveCount" format="integer" />
+        <!--程序一开始就播放波纹涟漪动画-->
+        <attr name="waveOnLoad" format="boolean" />
+        <!--波的颜色-->
+        <attr name="waveColor" format="color" />
+    </declare-styleable>
+
+</resources>

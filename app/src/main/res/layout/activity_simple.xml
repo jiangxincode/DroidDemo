@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    android:orientation="vertical">
+
+    <RelativeLayout style="@style/rt_title_view">
+
+        <LinearLayout
+            android:id="@+id/lt_dashboard_title_menu"
+            style="@style/ll_title_view1">
+
+            <TextView
+                style="@style/tv_title_menu_left"
+                android:text="@string/title_dashboard_menu_left" />
+        </LinearLayout>
+
+        <TextView
+            style="@style/tv_title_name"
+            android:text="@string/tv_listview_title" />
+
+        <LinearLayout
+            android:id="@+id/lt_dashboard_title_add"
+            style="@style/ll_title_view1"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+                style="@style/iv_title_menu_add"
+                android:contentDescription="@string/title_left" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <edu.jiangxin.droiddemo.view.swipemenulistview.SwipeMenuListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/colorBlack"
+        android:dividerHeight="0.5dp"
+        android:paddingStart="12dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/colorBlack" />
+
+</LinearLayout>

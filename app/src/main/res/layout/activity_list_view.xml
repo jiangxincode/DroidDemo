@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:background="@color/colorShallowGray">
+
+    <RelativeLayout style="@style/rt_title_view">
+        <TextView style="@style/tv_title_name" android:text="@string/tv_list_view_title" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_menu_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:dividerHeight="1.0dp">
+
+    </ListView>
+
+</LinearLayout>

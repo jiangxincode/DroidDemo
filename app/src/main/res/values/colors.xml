@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="colorRed">#ff0000</color><!-- 红色 -->
+
+    <color name="colorTitleBackground">#66ccff</color><!-- 标题背景颜色 -->
+
+    <color name="colorWhite">#ffffff</color><!-- 白色 -->
+    <color name="colorShallowGray">#f2f2f2</color><!-- 背景颜色 （灰色 ）-->
+
+    <color name="colorBlack">#000000</color><!-- 黑色 -->
+    <color name="colorLightBlack">#686868</color><!-- 淡黑色 -->
+    <color name="colorShallowBlack">#999999</color><!-- 浅黑色 -->
+
+    <color name="day_titlebar">#197d96</color>
+    <color name="day_text">#819a9a</color>
+    <color name="night_titlebar">#2A2A2A</color>
+</resources>

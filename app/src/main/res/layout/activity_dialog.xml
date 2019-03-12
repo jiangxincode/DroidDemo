@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- draw9patch -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog"
+        android:text="短对话" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog"
+        android:text="这是一个长对话，使用bg_dialog.9.png实现，效果还不错" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_dialog_big"
+        android:text="这是个长对话，使用bg_dialog_big.png实现，效果很差" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_dialog_shape"
+        android:text="这是一个长对话，bg_dialog_shape.xml实现，效果还不错" />
+
+    <TextView
+        android:id="@+id/tv_tint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_dialog_shape"
+        android:text="这是一个长对话，bg_dialog_shape.xml实现，效果还不错，注意我修改了颜色" />
+
+</LinearLayout>
