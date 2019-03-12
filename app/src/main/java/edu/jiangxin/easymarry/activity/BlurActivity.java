@@ -1,10 +1,13 @@
 package edu.jiangxin.easymarry.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.renderscript.Allocation;
 import android.renderscript.Element;
 import android.renderscript.RenderScript;
@@ -17,17 +20,26 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import java.io.FileDescriptor;
+import java.io.FileNotFoundException;
+
 import edu.jiangxin.easymarry.R;
 
 public class BlurActivity extends Activity {
 
-    public static final String TAG = "BlurActivity";
+    private static final String TAG = "BlurActivity";
+
+    private static final int REQUEST_CODE_GET_IMAGE = 1001;
 
     private RenderScript renderScript;
 
     private ImageView imageView;
+
     private SeekBar seekBar;
+
     private TextView textView;
+
+    private Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +73,16 @@ public class BlurActivity extends Activity {
                 if (radius < 1) {
                     radius = 1;
                 }
-                Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.blur_picture);
                 imageView.setImageBitmap(gaussianBlur(radius, bitmap));
 
                 // 如果需要对整个layout进行高斯模糊，可能会用到Layout类中的setDrawingCacheEnabled和setDrawingCacheQuality方法：
             }
         });
+
+        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("image/*");
+        startActivityForResult(intent, REQUEST_CODE_GET_IMAGE);
     }
 
     @Override
@@ -143,13 +159,35 @@ public class BlurActivity extends Activity {
     }
 
     private Bitmap gaussianBlur(@IntRange(from = 1, to = 25) int radius, Bitmap original) {
+        Bitmap.Config config = original.getConfig() != null ? original.getConfig() : Bitmap.Config.ARGB_8888;
+        Bitmap result = original.copy(config, false);
         Allocation input = Allocation.createFromBitmap(renderScript, original);
         Allocation output = Allocation.createTyped(renderScript, input.getType());
         ScriptIntrinsicBlur scriptIntrinsicBlur = ScriptIntrinsicBlur.create(renderScript, Element.U8_4(renderScript));
         scriptIntrinsicBlur.setRadius(radius);
         scriptIntrinsicBlur.setInput(input);
         scriptIntrinsicBlur.forEach(output);
-        output.copyTo(original);
-        return original;
+        output.copyTo(result);
+        return result;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode,
+                                 Intent resultData) {
+        if (requestCode == REQUEST_CODE_GET_IMAGE && resultCode == Activity.RESULT_OK) {
+            if (resultData != null) {
+                Uri uri = resultData.getData();
+                ParcelFileDescriptor parcelFileDescriptor = null;
+                try {
+                    parcelFileDescriptor = getContentResolver()
+                            .openFileDescriptor(uri, "r");
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
+                bitmap = BitmapFactory.decodeFileDescriptor(fileDescriptor);
+                imageView.setImageBitmap(bitmap);
+            }
+        }
     }
 }

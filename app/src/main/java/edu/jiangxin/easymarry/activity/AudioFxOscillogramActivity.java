@@ -57,7 +57,6 @@ public class AudioFxOscillogramActivity extends Activity {
 
             @Override
             public void onCompletion(MediaPlayer mp) {
-                // TODO Auto-generated method stub
                 mVisualizer.setEnabled(false);
             }
         });
