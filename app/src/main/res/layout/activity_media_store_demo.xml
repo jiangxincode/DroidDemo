@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="horizontal"
+android:layout_width = "fill_parent"
+android:layout_height = "fill_parent"
+>
+        <ImageButton 
+	    android:id="@+id/myphoto"
+	    android:background="@drawable/photo"
+    	android:layout_width="80.0dip"
+    	android:layout_height="80.0dip"
+    	android:layout_margin="10dp"
+    	
+	    />
+          <ImageButton 
+	    android:id="@+id/mymusic"
+	    android:background="@drawable/music"
+    	android:layout_width="80.0dip"
+    	android:layout_height="80.0dip"
+    	android:layout_margin="10dp"
+    	
+    	
+	    />
+        <ImageButton 
+	    android:id="@+id/mymovie"
+	    android:background="@drawable/movie"
+    	android:layout_width="80.0dip"
+    	android:layout_height="80.0dip"
+    	android:layout_margin="10dp"
+    	
+	    />
+
+</LinearLayout>

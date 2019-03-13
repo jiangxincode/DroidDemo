@@ -185,7 +185,13 @@
                 android:id="@+id/btnSAFEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SAF相关" />
+                android:text="Storage Access Framework" />
+
+            <Button
+                android:id="@+id/btnMediaStoreEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="MediaStore" />
 
             <Button
                 android:id="@+id/btnThreadEntrance"

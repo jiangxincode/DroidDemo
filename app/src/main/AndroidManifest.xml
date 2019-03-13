@@ -171,6 +171,10 @@
         <activity android:name="edu.jiangxin.droiddemo.fragment.FragmentActivity" />
         <activity android:name="edu.jiangxin.droiddemo.fragment.FragmentTest1Activity" />
         <activity android:name="edu.jiangxin.droiddemo.saf.SAFActivity" />
+        <activity android:name="edu.jiangxin.droiddemo.mediastore.MediaStoreActivity"></activity>
+        <activity android:name="edu.jiangxin.droiddemo.mediastore.MyPhoto"></activity>
+        <activity android:name="edu.jiangxin.droiddemo.mediastore.MyMusic"></activity>
+        <activity android:name="edu.jiangxin.droiddemo.mediastore.MyMovie"></activity>
         <activity android:name="edu.jiangxin.droiddemo.activity.ThreadDemoActivity" />
         <activity android:name="edu.jiangxin.droiddemo.activity.LoaderDemoActivity"></activity>
     </application>

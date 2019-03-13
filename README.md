@@ -1,6 +1,4 @@
-# EasyMarry
-
-[![Build Status](https://travis-ci.org/jiangxincode/EasyMarry.svg?branch=master)](https://travis-ci.org/jiangxincode/EasyMarry)
+# DroidDemo
 
 ## Authors
 
@@ -19,18 +17,6 @@
 ## UpdateInfo
 
 ## Snapshot
-
-* ExpandableListView
-
-![ExpandableListView](https://raw.githubusercontent.com/wiki/jiangxincode/EasyMarry/gif/ExpandableListView.gif)
-
-* RipplesView
-
-![RipplesView](https://raw.githubusercontent.com/wiki/jiangxincode/EasyMarry/gif/RipplesView.gif)
-
-* ScaleTextView
-
-![ScaleTextView](https://raw.githubusercontent.com/wiki/jiangxincode/EasyMarry/gif/ScaleTextView.gif)
 
 ## Contributing
 

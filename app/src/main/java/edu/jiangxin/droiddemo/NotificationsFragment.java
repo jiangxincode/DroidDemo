@@ -36,8 +36,8 @@ import edu.jiangxin.droiddemo.activity.ThreadDemoActivity;
 import edu.jiangxin.droiddemo.activity.VideoViewActivity;
 import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
+import edu.jiangxin.droiddemo.mediastore.MediaStoreActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
-import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.activity.ActivityTrackerActivity;
 import edu.jiangxin.droiddemo.activity.AppListActivity;
 import edu.jiangxin.droiddemo.activity.DecorViewActivity;
@@ -63,6 +63,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_RECORD_AUDIO_1 = 10011;
     private static final int REQUEST_CODE_RECORD_AUDIO_2 = 10012;
     private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
+    private static final int REQUEST_CODE_MEDIA_STORE = 10021;
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
@@ -71,7 +72,7 @@ public class NotificationsFragment extends Fragment {
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
-            mFragmentEntrance, mSAFEntrance, mThreadEntrance, mLoaderDemoEntrance;
+            mFragmentEntrance, mSAFEntrance, mMediaStoreEntrance, mThreadEntrance, mLoaderDemoEntrance;
     private View root;
 
 
@@ -429,6 +430,30 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+        mMediaStoreEntrance = root.findViewById(R.id.btnMediaStoreEntrance);
+        mMediaStoreEntrance.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                List<String> permissions = new ArrayList<String>();
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+                    }
+
+                    if (permissions.isEmpty()) {
+                        startMediaStoreActivity();
+                    } else {
+                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
+                    }
+                } else {
+                    startMediaStoreActivity();
+                }
+
+            }
+        });
+
         mThreadEntrance = root.findViewById(R.id.btnThreadEntrance);
         mThreadEntrance.setOnClickListener(new View.OnClickListener() {
 
@@ -469,6 +494,12 @@ public class NotificationsFragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void startMediaStoreActivity() {
+        Intent intent = new Intent();
+        intent.setClass(getContext(), MediaStoreActivity.class);
+        startActivity(intent);
     }
 
     private void startVideoViewActivity() {
@@ -538,6 +569,13 @@ public class NotificationsFragment extends Fragment {
             case REQUEST_CODE_VIDEO_VIEW:
                 if (checkPermissionRequested(grantResults)) {
                     startVideoViewActivity();
+                } else {
+                    Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
+                }
+                break;
+            case REQUEST_CODE_MEDIA_STORE:
+                if (checkPermissionRequested(grantResults)) {
+                    startMediaStoreActivity();
                 } else {
                     Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
                 }
