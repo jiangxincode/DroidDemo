@@ -20,36 +20,36 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.jiangxin.droiddemo.activity.ActivityTrackerActivity;
+import edu.jiangxin.droiddemo.activity.AppListActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxHistogramActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxOscillogramActivity;
 import edu.jiangxin.droiddemo.activity.BlurActivity;
+import edu.jiangxin.droiddemo.activity.DecorViewActivity;
+import edu.jiangxin.droiddemo.activity.DialogActivity;
 import edu.jiangxin.droiddemo.activity.ForbidScreenShotActivity;
 import edu.jiangxin.droiddemo.activity.FriendsListActivity;
 import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
 import edu.jiangxin.droiddemo.activity.MessengerActivity;
-import edu.jiangxin.droiddemo.activity.RingtoneSetting1Activity;
-import edu.jiangxin.droiddemo.activity.RippleActivity;
-import edu.jiangxin.droiddemo.activity.ScaleTextActivity;
-import edu.jiangxin.droiddemo.activity.ThreadDemoActivity;
-import edu.jiangxin.droiddemo.activity.VideoViewActivity;
-import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
-import edu.jiangxin.droiddemo.fragment.FragmentActivity;
-import edu.jiangxin.droiddemo.mediastore.MediaStoreActivity;
-import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
-import edu.jiangxin.droiddemo.activity.ActivityTrackerActivity;
-import edu.jiangxin.droiddemo.activity.AppListActivity;
-import edu.jiangxin.droiddemo.activity.DecorViewActivity;
-import edu.jiangxin.droiddemo.activity.DialogActivity;
 import edu.jiangxin.droiddemo.activity.NetMusicActivity;
 import edu.jiangxin.droiddemo.activity.QuickSearchBoxActivity;
+import edu.jiangxin.droiddemo.activity.RingtoneSetting1Activity;
 import edu.jiangxin.droiddemo.activity.RingtoneSettingActivity;
+import edu.jiangxin.droiddemo.activity.RippleActivity;
+import edu.jiangxin.droiddemo.activity.ScaleTextActivity;
 import edu.jiangxin.droiddemo.activity.SettingActivity;
 import edu.jiangxin.droiddemo.activity.SpannableStringActivity;
 import edu.jiangxin.droiddemo.activity.SpinnerActivity;
 import edu.jiangxin.droiddemo.activity.ThemeActivity;
+import edu.jiangxin.droiddemo.activity.ThreadDemoActivity;
 import edu.jiangxin.droiddemo.activity.VariousNotificationActivity;
+import edu.jiangxin.droiddemo.activity.VideoViewActivity;
+import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
+import edu.jiangxin.droiddemo.fragment.FragmentActivity;
+import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
+import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.saf.SAFActivity;
 
 /**
@@ -72,7 +72,7 @@ public class NotificationsFragment extends Fragment {
             mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
-            mFragmentEntrance, mSAFEntrance, mMediaStoreEntrance, mThreadEntrance, mLoaderDemoEntrance;
+            mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance;
     private View root;
 
 
@@ -430,8 +430,8 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
-        mMediaStoreEntrance = root.findViewById(R.id.btnMediaStoreEntrance);
-        mMediaStoreEntrance.setOnClickListener(new View.OnClickListener() {
+        mMediaStoreDemoEntrance = root.findViewById(R.id.btnMediaStoreDemoEntrance);
+        mMediaStoreDemoEntrance.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -443,12 +443,12 @@ public class NotificationsFragment extends Fragment {
                     }
 
                     if (permissions.isEmpty()) {
-                        startMediaStoreActivity();
+                        startMediaStoreDemoActivity();
                     } else {
                         requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
                     }
                 } else {
-                    startMediaStoreActivity();
+                    startMediaStoreDemoActivity();
                 }
 
             }
@@ -496,9 +496,9 @@ public class NotificationsFragment extends Fragment {
         return root;
     }
 
-    private void startMediaStoreActivity() {
+    private void startMediaStoreDemoActivity() {
         Intent intent = new Intent();
-        intent.setClass(getContext(), MediaStoreActivity.class);
+        intent.setClass(getContext(), MediaStoreDemoActivity.class);
         startActivity(intent);
     }
 
@@ -575,7 +575,7 @@ public class NotificationsFragment extends Fragment {
                 break;
             case REQUEST_CODE_MEDIA_STORE:
                 if (checkPermissionRequested(grantResults)) {
-                    startMediaStoreActivity();
+                    startMediaStoreDemoActivity();
                 } else {
                     Toast.makeText(this.getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
                 }

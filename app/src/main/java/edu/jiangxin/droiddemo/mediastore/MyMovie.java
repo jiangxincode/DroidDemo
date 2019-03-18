@@ -63,14 +63,11 @@ public class MyMovie extends Activity{
 
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 					long arg3) {
-				// TODO Auto-generated method stub
-				
 			}
 		});
 		movieListView.setAdapter(movieAdapter);
 	}
 	private String getcover_url(int id) {
-		// TODO Auto-generated method stub
 		String cover_url =null;
 		String selection = MediaStore.Video.Thumbnails.VIDEO_ID+"=?";
 		String[] selectionArgs = new String[]{
