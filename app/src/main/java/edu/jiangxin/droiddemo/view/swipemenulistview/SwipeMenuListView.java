@@ -150,8 +150,9 @@ public class SwipeMenuListView extends ListView {
 
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
-        if (ev.getAction() != MotionEvent.ACTION_DOWN && mTouchView == null)
+        if (ev.getAction() != MotionEvent.ACTION_DOWN && mTouchView == null) {
             return super.onTouchEvent(ev);
+        }
         int action = ev.getAction();
         switch (action) {
             case MotionEvent.ACTION_DOWN:

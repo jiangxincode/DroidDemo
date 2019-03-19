@@ -59,6 +59,7 @@ public class MediaStoreDemoActivity extends Activity {
 
         mPhotoImageButton.setOnClickListener(new OnClickListener() {
 
+            @Override
             public void onClick(View v) {
                 mSecondActivityIntent = new Intent();
                 mSecondActivityIntent.setClass(MediaStoreDemoActivity.this, MyPhoto.class);
@@ -68,6 +69,7 @@ public class MediaStoreDemoActivity extends Activity {
 
         mMusicImageButton.setOnClickListener(new OnClickListener() {
 
+            @Override
             public void onClick(View v) {
                 mSecondActivityIntent = new Intent();
                 mSecondActivityIntent.setClass(MediaStoreDemoActivity.this, MyMusic.class);
@@ -77,6 +79,7 @@ public class MediaStoreDemoActivity extends Activity {
 
         mMovieImageButton.setOnClickListener(new OnClickListener() {
 
+            @Override
             public void onClick(View v) {
                 mSecondActivityIntent = new Intent();
                 mSecondActivityIntent.setClass(MediaStoreDemoActivity.this, MyMovie.class);
@@ -90,6 +93,7 @@ public class MediaStoreDemoActivity extends Activity {
 
         mSaveToFileButton.setOnClickListener(new OnClickListener() {
 
+            @Override
             public void onClick(View v) {
                 Drawable drawable = mImageView.getDrawable();
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
@@ -98,6 +102,7 @@ public class MediaStoreDemoActivity extends Activity {
             }
         });
         mSaveToMediaStoreButton.setOnClickListener(new OnClickListener() {
+            @Override
             public void onClick(View v) {
                 Drawable drawable = mImageView.getDrawable();
                 BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;

@@ -274,6 +274,7 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 	/**
 	 * 重写返回键
 	 */
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			SignaturesActivity.this.finish();

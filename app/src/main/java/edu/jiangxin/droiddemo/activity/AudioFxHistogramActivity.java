@@ -82,6 +82,7 @@ public class AudioFxHistogramActivity extends Activity {
         // non-Visualizer related code
         // in this callback.
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
                 mVisualizer.setEnabled(false);
                 getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
@@ -141,13 +142,16 @@ public class AudioFxHistogramActivity extends Activity {
             bar.setProgress(mEqualizer.getBandLevel(band));
 
             bar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+                @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                     mEqualizer.setBandLevel(band, (short) (progress + minEQLevel));
                 }
 
+                @Override
                 public void onStartTrackingTouch(SeekBar seekBar) {
                 }
 
+                @Override
                 public void onStopTrackingTouch(SeekBar seekBar) {
                 }
             });
@@ -189,10 +193,12 @@ public class AudioFxHistogramActivity extends Activity {
         mVisualizer = new Visualizer(mMediaPlayer.getAudioSessionId());
         mVisualizer.setCaptureSize(256);
         mVisualizer.setDataCaptureListener(new Visualizer.OnDataCaptureListener() {
+            @Override
             public void onWaveFormDataCapture(Visualizer visualizer, byte[] bytes, int samplingRate) {
                 mVisualizerView.updateVisualizer(bytes);
             }
 
+            @Override
             public void onFftDataCapture(Visualizer visualizer, byte[] fft, int samplingRate) {
                 mVisualizerView.updateVisualizer(fft);
             }

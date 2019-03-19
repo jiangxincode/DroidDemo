@@ -61,8 +61,9 @@ public class MyMovie extends Activity{
 		movieAdapter = new MovieListViewAdapter(movielist,MyMovie.this);
 		movieListView.setOnItemClickListener(new OnItemClickListener() {
 
+			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 			}
 		});
 		movieListView.setAdapter(movieAdapter);

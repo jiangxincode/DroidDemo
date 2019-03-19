@@ -21,6 +21,7 @@ import java.net.URL;
 
 public class NetStatReceiver extends BroadcastReceiver {
     private  static  final String TAG = "NetStatReceiver";
+    @Override
     public void onReceive(Context context, Intent intent) {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);

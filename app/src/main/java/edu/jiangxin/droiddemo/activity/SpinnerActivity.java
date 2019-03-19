@@ -49,11 +49,13 @@ public class SpinnerActivity extends Activity {
 
     //使用数组形式操作
     class SpinnerSelectedListener implements AdapterView.OnItemSelectedListener {
+        @Override
         public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2,
                                    long arg3) {
             text.setText("我的名字是：" + name[arg2]);
         }
 
+        @Override
         public void onNothingSelected(AdapterView<?> arg0) {
         }
     }

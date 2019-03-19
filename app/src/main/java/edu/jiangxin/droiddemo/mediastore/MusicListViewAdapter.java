@@ -26,22 +26,26 @@ public class MusicListViewAdapter extends BaseAdapter{
 		inflater = LayoutInflater.from(context);
 	}
 
-	public int getCount() {
+	@Override
+    public int getCount() {
 		// TODO Auto-generated method stub
 		return musicinfo.size();
 	}
 
-	public Object getItem(int arg0) {
+	@Override
+    public Object getItem(int arg0) {
 		// TODO Auto-generated method stub
 		return musicinfo.get(arg0);
 	}
 
-	public long getItemId(int position) {
+	@Override
+    public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return position;
 	}
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+	@Override
+    public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		convertView = inflater.inflate(R.layout.musiclistviewitem, null);
 		

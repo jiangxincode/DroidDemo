@@ -48,9 +48,9 @@ public class SettingActivity extends PreferenceActivity implements Preference.On
 
     @Override
     public boolean onPreferenceChange(Preference preference, Object newValue) {
-        if (preference.getKey().equals("boolean_value")) {
+        if ("boolean_value".equals(preference.getKey())) {
             mCheckBoxPreference.setChecked((boolean)newValue);
-        } else if (preference.getKey().equals("string_value")) {
+        } else if ("string_value".equals(preference.getKey())) {
             mEditTextPreference.setText((String)newValue);
         }
         baseAdapter.notifyDataSetChanged();

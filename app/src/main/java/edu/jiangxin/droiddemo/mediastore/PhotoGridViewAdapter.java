@@ -26,22 +26,26 @@ public class PhotoGridViewAdapter extends BaseAdapter{
 		this.inflater = LayoutInflater.from(ctx);
 	}
 
-	public int getCount() {
+	@Override
+    public int getCount() {
 		// TODO Auto-generated method stub
 		return photolist.size();
 	}
 
-	public Object getItem(int position) {
+	@Override
+    public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return photolist.get(position);
 	}
 
-	public long getItemId(int position) {
+	@Override
+    public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return position;
 	}
 
-	@SuppressWarnings("deprecation")
+	@Override
+    @SuppressWarnings("deprecation")
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		convertView = inflater.inflate(R.layout.photogridviewitem, null);

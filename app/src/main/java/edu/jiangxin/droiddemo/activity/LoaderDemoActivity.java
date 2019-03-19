@@ -280,7 +280,7 @@ class MyCursorAdapter extends CursorAdapter {
 
     private String computeDate(String date) {
         long callTime = Long.parseLong(date);
-        long nowTime = new Date().getTime();
+        long nowTime = System.currentTimeMillis();
         long duration = (nowTime - callTime) / (1000 * 60);
         String value;
         // 进行判断拨打电话的距离现在的时间，然后进行显示说明

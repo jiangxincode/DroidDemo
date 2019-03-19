@@ -27,22 +27,26 @@ public class MovieListViewAdapter extends BaseAdapter{
 		inflater = LayoutInflater.from(context);
 	}
 
-	public int getCount() {
+	@Override
+    public int getCount() {
 		// TODO Auto-generated method stub
 		return movieinfo.size();
 	}
 
-	public Object getItem(int position) {
+	@Override
+    public Object getItem(int position) {
 		// TODO Auto-generated method stub
 		return movieinfo.get(position);
 	}
 
-	public long getItemId(int position) {
+	@Override
+    public long getItemId(int position) {
 		// TODO Auto-generated method stub
 		return position;
 	}
 
-	public View getView(int position, View convertView, ViewGroup parent) {
+	@Override
+    public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		
 		   ViewHolder holder = null;  

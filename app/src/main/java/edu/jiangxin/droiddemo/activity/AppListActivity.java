@@ -102,6 +102,7 @@ public class AppListActivity extends Activity implements OnClickListener {
 	/**
 	 * 重写返回键
 	 */
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			AppListActivity.this.finish();
@@ -258,8 +259,9 @@ class SignaturesMsg {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("MD5");
 			if (signatures != null) {
-				for (Signature s : signatures)
+				for (Signature s : signatures) {
 					digest.update(s.toByteArray());
+				}
 			}
 			return toHexString(digest.digest());
 		} catch (Exception e) {
@@ -274,8 +276,9 @@ class SignaturesMsg {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-1");
 			if (signatures != null) {
-				for (Signature s : signatures)
+				for (Signature s : signatures) {
 					digest.update(s.toByteArray());
+				}
 			}
 			return toHexString(digest.digest());
 		} catch (Exception e) {
@@ -290,8 +293,9 @@ class SignaturesMsg {
 		try {
 			MessageDigest digest = MessageDigest.getInstance("SHA-256");
 			if (signatures != null) {
-				for (Signature s : signatures)
+				for (Signature s : signatures) {
 					digest.update(s.toByteArray());
+				}
 			}
 			return toHexString(digest.digest());
 		} catch (Exception e) {

@@ -75,11 +75,11 @@ public class FriendsListActivity extends Activity implements SectionIndexer {
         comparator = new Comparator<GroupMemberBean>() {
             @Override
             public int compare(GroupMemberBean o1, GroupMemberBean o2) {
-                if (o1.getSortLetters().equals("@")
-                        || o2.getSortLetters().equals("#")) {
+                if ("@".equals(o1.getSortLetters())
+                        || "#".equals(o2.getSortLetters())) {
                     return -1;
-                } else if (o1.getSortLetters().equals("#")
-                        || o2.getSortLetters().equals("@")) {
+                } else if ("#".equals(o1.getSortLetters())
+                        || "@".equals(o2.getSortLetters())) {
                     return 1;
                 } else {
                     return o1.getSortLetters().compareTo(o2.getSortLetters());
@@ -205,6 +205,7 @@ public class FriendsListActivity extends Activity implements SectionIndexer {
     /**
      * 根据ListView的当前位置获取分类的首字母的Char ascii值
      */
+    @Override
     public int getSectionForPosition(int position) {
         return sourceDataList.get(position).getSortLetters().charAt(0);
     }
@@ -212,6 +213,7 @@ public class FriendsListActivity extends Activity implements SectionIndexer {
     /**
      * 根据分类的首字母的Char ascii值获取其第一次出现该首字母的位置
      */
+    @Override
     public int getPositionForSection(int section) {
         for (int i = 0; i < sourceDataList.size(); i++) {
             String sortStr = sourceDataList.get(i).getSortLetters();
@@ -262,18 +264,22 @@ public class FriendsListActivity extends Activity implements SectionIndexer {
             this.list = list;
         }
 
+        @Override
         public int getCount() {
             return this.list.size();
         }
 
+        @Override
         public Object getItem(int position) {
             return list.get(position);
         }
 
+        @Override
         public long getItemId(int position) {
             return position;
         }
 
+        @Override
         public View getView(final int position, View view, ViewGroup arg2) {
             ViewHolder viewHolder = null;
             final GroupMemberBean mContent = list.get(position);
@@ -308,6 +314,7 @@ public class FriendsListActivity extends Activity implements SectionIndexer {
         /**
          * 根据ListView的当前位置获取分类的首字母的Char ascii值
          */
+        @Override
         public int getSectionForPosition(int position) {
             return list.get(position).getSortLetters().charAt(0);
         }
@@ -315,6 +322,7 @@ public class FriendsListActivity extends Activity implements SectionIndexer {
         /**
          * 根据分类的首字母的Char ascii值获取其第一次出现该首字母的位置
          */
+        @Override
         public int getPositionForSection(int section) {
             for (int i = 0; i < getCount(); i++) {
                 String sortStr = list.get(i).getSortLetters();

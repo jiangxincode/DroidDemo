@@ -42,15 +42,18 @@ public class MyMusic extends Activity{
 		c.moveToFirst();
 		int totalmusic = c.getCount();
 		
-		if(totalmusic>0)
+		if(totalmusic>0) {
 			initmusiclist(c,totalmusic);
-		else
+		} else {
 			Toast.makeText(MyMusic.this, "there is no music on your phone", Toast.LENGTH_LONG).show();
+		}
 		
 		musicListView.setOnItemClickListener(new OnItemClickListener() {
 
+			@Override
+			@SuppressWarnings("AliMissingOverrideAnnotation")
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 				// TODO Auto-generated method stub
 				
 			}

@@ -56,7 +56,7 @@ public class PackageInfoRunable implements Runnable {
         stringBuilder.append("=============================================\n");
 
         // difference between SystemClok#sleep and Thread#sleep
-        SystemClock.sleep(1000l);
+        SystemClock.sleep(1000L);
 
         Message message = new Message();
         message.what = ShowInfoActivity.UPDATE_MESSAGE;

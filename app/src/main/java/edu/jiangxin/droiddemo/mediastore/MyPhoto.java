@@ -50,8 +50,9 @@ public class MyPhoto extends Activity{
 		photoadapter = new PhotoGridViewAdapter(photolist, MyPhoto.this);
         mGridView.setOnItemClickListener(new OnItemClickListener() {
 
+			@Override
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
-					long arg3) {
+									long arg3) {
 				Toast.makeText(MyPhoto.this, "you select: "+arg2, Toast.LENGTH_LONG).show();
 			}
 		});

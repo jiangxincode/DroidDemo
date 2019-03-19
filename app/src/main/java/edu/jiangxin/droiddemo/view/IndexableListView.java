@@ -45,7 +45,8 @@ public class IndexableListView extends View {
 	/**
 	 * 重写这个方法
 	 */
-	protected void onDraw(Canvas canvas) {
+	@Override
+    protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
 		// 获取焦点改变背景颜色.
 		int height = getHeight();// 获取对应高度

@@ -38,6 +38,7 @@ public class MessengerActivity extends Activity {
     }
 
     private ServiceConnection mConnection = new ServiceConnection() {
+        @Override
         public void onServiceConnected(ComponentName className, IBinder service) {
             mService = new Messenger(service);
             Log.d(TAG, "bind service");
@@ -53,6 +54,7 @@ public class MessengerActivity extends Activity {
             }
         }
 
+        @Override
         public void onServiceDisconnected(ComponentName className) {
         }
     };
