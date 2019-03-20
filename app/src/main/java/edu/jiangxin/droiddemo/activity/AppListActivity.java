@@ -9,10 +9,8 @@ import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.TextPaint;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -33,11 +31,9 @@ import javax.security.auth.x500.X500Principal;
 
 import edu.jiangxin.droiddemo.R;
 
-public class AppListActivity extends Activity implements OnClickListener {
+public class AppListActivity extends Activity {
 
-	// 当前上下文
 	private Context mContext;
-	// ================ 控件View ================
 	// HintTv
 	private TextView am_hint_tv;
 	// 显示App信息
@@ -49,8 +45,7 @@ public class AppListActivity extends Activity implements OnClickListener {
 	private AppAdapter aAdapter;
 	// 获取图片、应用名、包名  
 	private PackageManager pManager;
-	
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -88,64 +83,9 @@ public class AppListActivity extends Activity implements OnClickListener {
 		});
 	}
 
-	
-
-	/**
-	 * 点击事件
-	 */
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		}
-	}
-
-	/**
-	 * 重写返回键
-	 */
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			AppListActivity.this.finish();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
-
-	@Override
-	protected void onStart() {
-		super.onStart();
-	}
-
-	@Override
-	protected void onRestart() {
-		super.onRestart();
-	}
-
-	@Override
-	protected void onResume() {
-		super.onResume();
-	}
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-	}
-
-	@Override
-	protected void onDestroy() {
-		super.onDestroy();
-	}
-
-	// =============================  其他操作  =============================
 	/**
 	 * 获取全部app信息
 	 */
-	@SuppressWarnings("static-access")
 	public void getAllApps() {
 		this.listPInfos.clear(); // 清空旧数据
 		// 管理应用程序包
@@ -158,7 +98,6 @@ public class AppListActivity extends Activity implements OnClickListener {
         }
 	}
 	
-	// =============================  适配器    =============================
 	class AppAdapter extends BaseAdapter{
 
 		@Override
@@ -180,13 +119,12 @@ public class AppListActivity extends Activity implements OnClickListener {
 		public View getView(int position, View convertView, ViewGroup parent) {
 			ViewHolder holder = null;
 			if (convertView == null) {
-				// 导入XML
 				convertView = LayoutInflater.from(mContext).inflate(R.layout.activity_app_list_item, null);
 				holder = new ViewHolder();
 				convertView.setTag(holder);
-				holder.ai_igview = convertView.findViewById(R.id.ai_igview);
-				holder.ai_name_tv = convertView.findViewById(R.id.ai_name_tv);
-				holder.ai_pack_tv = convertView.findViewById(R.id.ai_pack_tv);
+				holder.iv_icon = convertView.findViewById(R.id.ai_igview);
+				holder.tv_label = convertView.findViewById(R.id.ai_name_tv);
+				holder.tv_pkgname = convertView.findViewById(R.id.ai_pack_tv);
 			} else {
 				holder = (ViewHolder) convertView.getTag();
 			}
@@ -199,20 +137,19 @@ public class AppListActivity extends Activity implements OnClickListener {
 			// app图标
 			Drawable aIcon = pManager.getApplicationIcon(pInfo.applicationInfo);
             // 设置显示信息
-			holder.ai_igview.setImageDrawable(aIcon); // 设置图标
-			holder.ai_name_tv.setText(aName); // 设置app名
-			holder.ai_pack_tv.setText(aPack); // 设置pack名
+			holder.iv_icon.setImageDrawable(aIcon); // 设置图标
+			holder.tv_label.setText(aName); // 设置app名
+			holder.tv_pkgname.setText(aPack); // 设置pack名
 			return convertView;
 		}
 		
 		class ViewHolder {
-			ImageView ai_igview;
-			TextView ai_name_tv;
-			TextView ai_pack_tv;
+			ImageView iv_icon;
+			TextView tv_label;
+			TextView tv_pkgname;
 		}
 	}
 	
-	// =================== 显示Dialog =====================
 	private Toast mToast;
 	private void showToast(String hint){
 		if (mToast != null) {
@@ -304,28 +241,6 @@ class SignaturesMsg {
 	}
 
 	/**
-	 * 判断签名是debug签名还是release签名
-	 * @return true = 开发(debug.keystore)，false = 上线发布（非.android默认debug.keystore）
-	 */
-	public static boolean isDebuggable(Signature[] signatures) {
-		// 判断是否默认key(默认是)
-		boolean debuggable = true;
-		try {
-			for (int i = 0, c = signatures.length; i < c; i++) {
-				CertificateFactory cf = CertificateFactory.getInstance("X.509");
-				ByteArrayInputStream stream = new ByteArrayInputStream(signatures[i].toByteArray());
-				X509Certificate cert = (X509Certificate) cf.generateCertificate(stream);
-				debuggable = cert.getSubjectX500Principal().equals(DEBUG_DN);
-				if (debuggable) {
-					break;
-				}
-			}
-		} catch (Exception e) {
-		}
-		return debuggable;
-	}
-
-	/**
 	 * 获取App 证书对象
 	 */
 	public static X509Certificate getX509Certificate(Signature[] signatures){
@@ -338,26 +253,4 @@ class SignaturesMsg {
 		}
 		return null;
 	}
-
-	public static String signatureName(Signature[] signatures){
-		try {
-			for (int i = 0, c = signatures.length; i < c; i++) {
-				CertificateFactory cf = CertificateFactory.getInstance("X.509");
-				ByteArrayInputStream stream = new ByteArrayInputStream(signatures[i].toByteArray());
-				X509Certificate cert = (X509Certificate) cf.generateCertificate(stream);
-
-				String pubKey = cert.getPublicKey().toString();   //公钥
-				String signNumber = cert.getSerialNumber().toString();
-				System.out.println("signName:" + cert.getSigAlgName());//算法名
-				System.out.println("pubKey:" + pubKey);
-				System.out.println("signNumber:" + signNumber);//证书序列编号
-				System.out.println("subjectDN:"+cert.getSubjectDN().toString());
-
-				System.out.println(cert.getNotAfter() + "--" + cert.getNotBefore());
-			}
-		} catch (Exception e) {
-		}
-		return "";
-	}
 }
-

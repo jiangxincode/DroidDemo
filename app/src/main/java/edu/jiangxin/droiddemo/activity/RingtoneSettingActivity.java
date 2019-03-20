@@ -32,14 +32,14 @@ public class RingtoneSettingActivity extends Activity {
     public static final int REQUEST_CODE_ALARM = 1;
     public static final int REQUEST_CODE_NOTIFICATION = 2;
 
-    private static final String systemRingtonePath = "/system/media/audio/ringtones"; //system
-    private static final String userRingtonePath = "/sdcard/music/ringtones"; //user-defined
+    private static final String SYSTEM_RINGTONE_PATH = "/system/media/audio/ringtones"; //system
+    private static final String USER_RINGTONE_PATH = "/sdcard/music/ringtones"; //user-defined
 
-    private static final String systemAlarmPath = "/system/media/audio/alarms"; //system
-    private static final String userAlarmPath = "/sdcard/music/alarms"; //user-defined
+    private static final String SYSTEM_ALARM_PATH = "/system/media/audio/alarms"; //system
+    private static final String USER_ALARM_PATH = "/sdcard/music/alarms"; //user-defined
 
-    private static final String systemNotificationPath = "/system/media/audio/notifications"; //system
-    private static final String userNotificationPath = "/sdcard/music/notifications"; //user-defined
+    private static final String SYSTEM_NOTIFICATION_PATH = "/system/media/audio/notifications"; //system
+    private static final String USER_NOTIFICATION_PATH = "/sdcard/music/notifications"; //user-defined
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,7 +53,7 @@ public class RingtoneSettingActivity extends Activity {
         mButtonRingtone.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (exist(systemRingtonePath) || exist(userRingtonePath)) {
+                if (exist(SYSTEM_RINGTONE_PATH) || exist(USER_RINGTONE_PATH)) {
                     Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
                     intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_RINGTONE);
                     intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "设置来电铃声");
@@ -64,7 +64,7 @@ public class RingtoneSettingActivity extends Activity {
         mButtonAlarm.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (exist(systemAlarmPath) || exist(userAlarmPath)) {
+                if (exist(SYSTEM_ALARM_PATH) || exist(USER_ALARM_PATH)) {
                     Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
                     intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_ALARM);
                     intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "设置闹钟铃声");
@@ -75,7 +75,7 @@ public class RingtoneSettingActivity extends Activity {
         mButtonNotification.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (exist(systemNotificationPath) || exist(userNotificationPath)) {
+                if (exist(SYSTEM_NOTIFICATION_PATH) || exist(USER_NOTIFICATION_PATH)) {
                     Intent intent = new Intent(RingtoneManager.ACTION_RINGTONE_PICKER);
                     intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TYPE, RingtoneManager.TYPE_NOTIFICATION);
                     intent.putExtra(RingtoneManager.EXTRA_RINGTONE_TITLE, "设置通知铃声");
