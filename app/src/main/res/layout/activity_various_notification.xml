@@ -20,34 +20,52 @@
             android:scrollbars="vertical">
 
             <Button
-                android:id="@+id/btn1"
+                android:id="@+id/btnNoneImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_NONE" />
 
             <Button
-                android:id="@+id/btn2"
+                android:id="@+id/btnMinImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_MIN" />
 
             <Button
-                android:id="@+id/btn3"
+                android:id="@+id/btnLowImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_LOW" />
 
             <Button
-                android:id="@+id/btn4"
+                android:id="@+id/btnDefaultImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_DEFAULT" />
 
             <Button
-                android:id="@+id/btn5"
+                android:id="@+id/btnHighImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_HIGH" />
+
+            <Button
+                android:id="@+id/btnEnableVibrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ENABLE_VIBRATE" />
+
+            <Button
+                android:id="@+id/btnDisableVibrate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DISABLE_VIBRATE" />
+
+            <Button
+                android:id="@+id/btnOthers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Others" />
 
         </LinearLayout>
     </ScrollView>

@@ -122,7 +122,6 @@
             android:excludeFromRecents="true"
             android:launchMode="singleTask"
             android:taskAffinity=".testLaunchMode" />
-        <activity android:name="edu.jiangxin.droiddemo.activity.FriendsListActivity" />
         <activity android:name="edu.jiangxin.droiddemo.activity.SpannableStringActivity" />
         <activity android:name="edu.jiangxin.droiddemo.activity.QuickSearchBoxActivity">
             <intent-filter>

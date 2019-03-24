@@ -39,6 +39,12 @@ public class StorageInfoRunnable implements Runnable {
             stringBuilder.append("No External Storage").append("\n");
         }
 
+        stringBuilder.append("DIRECTORY_PICTURES: ").append(ApplicationExt.getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES)).append("\n");;
+        stringBuilder.append("DIRECTORY_DCIM: ").append(ApplicationExt.getContext().getExternalFilesDir(Environment.DIRECTORY_DCIM)).append("\n");;
+        stringBuilder.append("DIRECTORY_DOWNLOADS: ").append(ApplicationExt.getContext().getExternalFilesDir(Environment.DIRECTORY_DOWNLOADS)).append("\n");;
+        stringBuilder.append("DIRECTORY_MUSIC: ").append(ApplicationExt.getContext().getExternalFilesDir(Environment.DIRECTORY_MUSIC)).append("\n");;
+        stringBuilder.append("DIRECTORY_MOVIES: ").append(ApplicationExt.getContext().getExternalFilesDir(Environment.DIRECTORY_MOVIES)).append("\n");;
+
         Message message = new Message();
         message.what = ShowInfoActivity.UPDATE_MESSAGE;
         Bundle bundle = new Bundle();
