@@ -4,6 +4,16 @@
     android:layout_height="wrap_content"
     android:padding="10.0dip" >
 
+    <TextView
+        android:id="@+id/catalog"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="#E0E0E0"
+        android:paddingBottom="5dip"
+        android:paddingStart="5dip"
+        android:paddingTop="5dip"
+        android:textColor="#454545" />
+
     <ImageView
         android:id="@+id/ai_igview"
         android:layout_width="50.0dip"

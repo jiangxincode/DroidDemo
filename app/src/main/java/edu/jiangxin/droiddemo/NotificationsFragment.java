@@ -28,7 +28,6 @@ import edu.jiangxin.droiddemo.activity.BlurActivity;
 import edu.jiangxin.droiddemo.activity.DecorViewActivity;
 import edu.jiangxin.droiddemo.activity.DialogActivity;
 import edu.jiangxin.droiddemo.activity.ForbidScreenShotActivity;
-import edu.jiangxin.droiddemo.activity.FriendsListActivity;
 import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
@@ -69,7 +68,7 @@ public class NotificationsFragment extends Fragment {
 
     private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSearchEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
+            mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
             mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance;
@@ -198,17 +197,6 @@ public class NotificationsFragment extends Fragment {
             public void onClick(View v) {
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ScaleTextActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtnSearchEntrance = root.findViewById(R.id.btnSearchEntrance);
-        mBtnSearchEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), FriendsListActivity.class);
                 startActivity(intent);
             }
         });

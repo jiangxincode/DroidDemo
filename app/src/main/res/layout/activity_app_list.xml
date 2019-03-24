@@ -5,25 +5,64 @@
     android:background="@android:color/white"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/am_hint_tv"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/app_list_hint"
-        android:drawablePadding="10.0dip"
-        android:ellipsize="end"
-        android:gravity="fill"
-        android:maxLines="1"
-        android:padding="15.0dip"
-        android:text="@string/hint_s"
-        android:textSize="15.0sp" />
+        android:layout_height="match_parent" >
 
-    <ListView
-        android:id="@+id/am_listview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:listSelector="@drawable/listview_item_selector" >
-    </ListView>
+        <ListView
+            android:id="@+id/am_listview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            android:listSelector="@drawable/listview_item_selector" >
+        </ListView>
+
+        <TextView
+            android:id="@+id/title_layout_no_friends"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="end|top"
+            android:background="#E0E0E0"
+            android:gravity="center_vertical"
+            android:text="没有匹配的联系人"
+            android:textColor="#454545"
+            android:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="end|top"
+            android:background="#ff303030"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/title_layout_catalog"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#E0E0E0"
+                android:paddingBottom="5dip"
+                android:paddingStart="5dip"
+                android:paddingTop="5dip"
+                android:textColor="#454545" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dialog"
+            android:layout_width="80.0dip"
+            android:layout_height="80.0dip"
+            android:layout_gravity="center"
+            android:background="@drawable/show_head_toast_bg"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="30.0dip"
+            android:visibility="invisible" />
+
+        <edu.jiangxin.droiddemo.view.IndexableListView
+            android:id="@+id/sidrbar"
+            android:layout_width="30.0dip"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center" />
+    </FrameLayout>
 
 </LinearLayout>
