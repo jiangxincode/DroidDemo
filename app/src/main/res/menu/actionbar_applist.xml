@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_search"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/action_search"
+        app:actionViewClass="android.widget.SearchView"
+        app:showAsAction="ifRoom|collapseActionView" />
+
+    <item
+        android:id="@+id/action_show_desktop"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="桌面应用"/>
+
+    <item
+        android:id="@+id/action_show_nosystem"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="非系统应用"/>
+
+    <item
+        android:id="@+id/action_show_all"
+        android:orderInCategory="101"
+        app:showAsAction="never"
+        android:title="所有应用"/>
+
+</menu>
