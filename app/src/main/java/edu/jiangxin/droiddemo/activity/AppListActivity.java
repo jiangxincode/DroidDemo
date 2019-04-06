@@ -32,6 +32,8 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.promeg.pinyinhelper.Pinyin;
+
 import java.io.ByteArrayInputStream;
 import java.security.MessageDigest;
 import java.security.cert.CertificateFactory;
@@ -44,7 +46,6 @@ import java.util.List;
 import javax.security.auth.x500.X500Principal;
 
 import edu.jiangxin.droiddemo.R;
-import edu.jiangxin.droiddemo.common.CharacterParser;
 import edu.jiangxin.droiddemo.view.IndexableListView;
 
 public class AppListActivity extends AppCompatActivity implements SectionIndexer {
@@ -69,10 +70,6 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
      * 上次第一个可见元素，用于滚动时记录标识。
      */
     private int lastFirstVisibleItem = -1;
-    /**
-     * 汉字转换成拼音的类
-     */
-    private CharacterParser mCharacterParser;
 
     /**
      * 根据拼音来排列ListView里面的数据类
@@ -125,9 +122,6 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                 }
             }
         };
-
-        // 实例化汉字转拼音类
-        mCharacterParser = CharacterParser.getInstance();
 
         mProgressBarView = findViewById(R.id.progress_bar_layout);
         mProgressBarView.setVisibility(View.VISIBLE);
@@ -239,7 +233,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                 AppInfo appInfo = new AppInfo();
                 appInfo.mPkgName = packageInfo.packageName;
                 appInfo.mLabel = packageInfo.applicationInfo.loadLabel(getPackageManager()).toString();
-                String pinyin = mCharacterParser.getSpelling(appInfo.mLabel);
+                String pinyin = Pinyin.toPinyin(appInfo.mLabel, "-");
                 String sortString = pinyin.substring(0, 1).toUpperCase();
                 if (sortString.matches("[A-Z]")) {
                     appInfo.mSortLetter = sortString.toUpperCase();
@@ -502,7 +496,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                         for (AppInfo appInfo : mSelectedAppInfoList) {
                             String name = appInfo.mLabel;
                             if (name.indexOf(constraint.toString()) != -1
-                                    || mCharacterParser.getSpelling(name).startsWith(
+                                    || Pinyin.toPinyin(name, "-").startsWith(
                                     constraint.toString())) {
                                 filterDateList.add(appInfo);
                             }
