@@ -1,21 +1,38 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical" >
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/progress_bar_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="50"
+            android:secondaryProgress="80" />
+    </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent">
 
         <ListView
             android:id="@+id/am_listview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white"
-            android:listSelector="@drawable/listview_item_selector" >
-        </ListView>
+            android:listSelector="@drawable/listview_item_selector" />
 
         <TextView
             android:id="@+id/title_layout_no_friends"
@@ -24,7 +41,7 @@
             android:layout_gravity="end|top"
             android:background="#E0E0E0"
             android:gravity="center_vertical"
-            android:text="没有匹配的联系人"
+            android:text="没有匹配的应用"
             android:textColor="#454545"
             android:visibility="gone" />
 
@@ -34,16 +51,16 @@
             android:layout_height="30dp"
             android:layout_gravity="end|top"
             android:background="#ff303030"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title_layout_catalog"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#E0E0E0"
-                android:paddingBottom="5dip"
                 android:paddingStart="5dip"
                 android:paddingTop="5dip"
+                android:paddingBottom="5dip"
                 android:textColor="#454545" />
         </LinearLayout>
 
@@ -55,7 +72,7 @@
             android:background="@drawable/show_head_toast_bg"
             android:gravity="center"
             android:textColor="#ffffffff"
-            android:textSize="30.0dip"
+            android:textSize="30sp"
             android:visibility="invisible" />
 
         <edu.jiangxin.droiddemo.view.IndexableListView

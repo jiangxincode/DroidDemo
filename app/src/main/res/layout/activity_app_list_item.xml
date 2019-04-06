@@ -1,53 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="10.0dip" >
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/catalog"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:background="#E0E0E0"
-        android:paddingBottom="5dip"
         android:paddingStart="5dip"
         android:paddingTop="5dip"
+        android:paddingBottom="5dip"
         android:textColor="#454545" />
 
-    <ImageView
-        android:id="@+id/ai_igview"
-        android:layout_width="50.0dip"
-        android:layout_height="50.0dip"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:src="@mipmap/ic_launcher" />
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50.0dip"
-        android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="10.0dip"
-        android:layout_toEndOf="@+id/ai_igview"
-        android:orientation="vertical" >
+        android:layout_height="wrap_content"
+        android:padding="10.0dip">
+        <ImageView
+            android:id="@+id/ai_igview"
+            android:layout_width="50.0dip"
+            android:layout_height="50.0dip"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_launcher" />
 
-        <TextView
-            android:id="@+id/ai_name_tv"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:gravity="fill"
-            android:maxLines="1" />
+            android:layout_height="50.0dip"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10.0dip"
+            android:layout_toEndOf="@+id/ai_igview"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/ai_pack_tv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:ellipsize="end"
-            android:gravity="fill"
-            android:maxLines="1" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/ai_name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="fill"
+                android:maxLines="1" />
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/ai_pack_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="fill"
+                android:maxLines="1" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

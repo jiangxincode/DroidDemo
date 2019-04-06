@@ -7,7 +7,10 @@ import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
@@ -47,17 +50,20 @@ import edu.jiangxin.droiddemo.view.IndexableListView;
 public class AppListActivity extends AppCompatActivity implements SectionIndexer {
 
     private Context mContext;
+    private View mProgressBarView;
     private ListView mAppListView;
     private List<AppInfo> mAllAppInfoList = new ArrayList<>();
-    private ArrayList<AppInfo> mAppInfoList = new ArrayList<>();
+    private ArrayList<AppInfo> mSelectedAppInfoList = new ArrayList<>();
     private IndexableListView mIndexableListView;
-    private TextView dialog;
-    private AppAdapter adapter;
-    private LinearLayout titleLayout;
-    private TextView title;
-    private TextView tvNofriends;
+    private TextView mDialog;
+    private AppAdapter mAdapter;
+    private LinearLayout mTitleLayout;
+    private TextView mTitle;
+    private TextView mNoContentTextView;
 
     private MenuItem mSearchItem;
+
+    private AppInfoLoadTask mTask;
 
     /**
      * 上次第一个可见元素，用于滚动时记录标识。
@@ -71,21 +77,41 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     /**
      * 根据拼音来排列ListView里面的数据类
      */
-    private Comparator comparator;
+    private Comparator mComparator;
+
+    private static final String TAG = "AppListActivity";
+
+    private static final int EMPTY_LIST = 1;
+
+    private static final int NON_EMPTY_LIST = 2;
+
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case EMPTY_LIST:
+                    mNoContentTextView.setVisibility(View.VISIBLE);
+                    mAdapter.notifyDataSetChanged();
+                    break;
+                case NON_EMPTY_LIST:
+                    mNoContentTextView.setVisibility(View.GONE);
+                    mAdapter.notifyDataSetChanged();
+                    break;
+                default:
+                    break;
+            }
+            super.handleMessage(msg);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_list);
-        mContext = AppListActivity.this;
+        mContext = this;
 
-        titleLayout = findViewById(R.id.title_layout);
-        title = this.findViewById(R.id.title_layout_catalog);
-        tvNofriends = findViewById(R.id.title_layout_no_friends);
-        // 实例化汉字转拼音类
-        mCharacterParser = CharacterParser.getInstance();
-
-        comparator = new Comparator<AppInfo>() {
+        mComparator = new Comparator<AppInfo>() {
             @Override
             public int compare(AppInfo o1, AppInfo o2) {
                 if ("@".equals(o1.mSortLetter)
@@ -100,9 +126,19 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             }
         };
 
+        // 实例化汉字转拼音类
+        mCharacterParser = CharacterParser.getInstance();
+
+        mProgressBarView = findViewById(R.id.progress_bar_layout);
+        mProgressBarView.setVisibility(View.VISIBLE);
+
+        mTitleLayout = findViewById(R.id.title_layout);
+        mTitle = findViewById(R.id.title_layout_catalog);
+        mNoContentTextView = findViewById(R.id.title_layout_no_friends);
+
         mIndexableListView = findViewById(R.id.sidrbar);
-        dialog = findViewById(R.id.dialog);
-        mIndexableListView.setTextView(dialog);
+        mDialog = findViewById(R.id.dialog);
+        mIndexableListView.setTextView(mDialog);
 
         // 设置右侧触摸监听
         mIndexableListView.setOnTouchingLetterChangedListener(new IndexableListView.OnTouchingLetterChangedListener() {
@@ -110,7 +146,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             @Override
             public void onTouchingLetterChanged(String s) {
                 // 该字母首次出现的位置
-                int position = adapter.getPositionForSection(s.charAt(0));
+                int position = mAdapter.getPositionForSection(s.charAt(0));
                 if (position != -1) {
                     mAppListView.setSelection(position);
                 }
@@ -118,16 +154,12 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             }
         });
 
-        mAppListView = this.findViewById(R.id.am_listview);
-        // 初始化APP数据
-        getAllApps();
-        mAppInfoList.clear();
-        mAppInfoList.addAll(mAllAppInfoList);
+        mAppListView = findViewById(R.id.am_listview);
         mAppListView.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> vAdapter, View view, int position, long id) {
                 try {
-                    AppInfo appInfo = mAppInfoList.get(position);
+                    AppInfo appInfo = mSelectedAppInfoList.get(position);
                     Intent intent = new Intent(mContext, SignaturesActivity.class);
                     intent.putExtra("packName", appInfo.mPkgName);
                     mContext.startActivity(intent);
@@ -137,10 +169,9 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             }
         });
 
-        // 根据a-z进行排序源数据
-        Collections.sort(mAppInfoList, comparator);
-        adapter = new AppAdapter(this, mAppInfoList);
-        mAppListView.setAdapter(adapter);
+
+        mAdapter = new AppAdapter(mContext, mSelectedAppInfoList);
+        mAppListView.setAdapter(mAdapter);
         mAppListView.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView view, int scrollState) {
@@ -149,32 +180,35 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             @Override
             public void onScroll(AbsListView view, int firstVisibleItem,
                                  int visibleItemCount, int totalItemCount) {
+                if (firstVisibleItem >= mSelectedAppInfoList.size()) {
+                    return;
+                }
                 int section = getSectionForPosition(firstVisibleItem);
                 int nextSection = getSectionForPosition(firstVisibleItem + 1);
                 int nextSecPosition = getPositionForSection(+nextSection);
                 if (firstVisibleItem != lastFirstVisibleItem) {
-                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) titleLayout
+                    ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) mTitleLayout
                             .getLayoutParams();
                     params.topMargin = 0;
-                    titleLayout.setLayoutParams(params);
-                    title.setText(mAppInfoList.get(
+                    mTitleLayout.setLayoutParams(params);
+                    mTitle.setText(mSelectedAppInfoList.get(
                             getPositionForSection(section)).mSortLetter);
                 }
                 if (nextSecPosition == firstVisibleItem + 1) {
                     View childView = view.getChildAt(0);
                     if (childView != null) {
-                        int titleHeight = titleLayout.getHeight();
+                        int titleHeight = mTitleLayout.getHeight();
                         int bottom = childView.getBottom();
-                        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) titleLayout
+                        ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) mTitleLayout
                                 .getLayoutParams();
                         if (bottom < titleHeight) {
                             float pushedDistance = bottom - titleHeight;
                             params.topMargin = (int) pushedDistance;
-                            titleLayout.setLayoutParams(params);
+                            mTitleLayout.setLayoutParams(params);
                         } else {
                             if (params.topMargin != 0) {
                                 params.topMargin = 0;
-                                titleLayout.setLayoutParams(params);
+                                mTitleLayout.setLayoutParams(params);
                             }
                         }
                     }
@@ -184,23 +218,58 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
         });
     }
 
-    private void getAllApps() {
-        mAllAppInfoList.clear();
-        PackageManager pManager = mContext.getPackageManager();
-        List<PackageInfo> packageInfos = pManager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES);
-        for (PackageInfo packageInfo : packageInfos) {
-            AppInfo appInfo = new AppInfo();
-            appInfo.mPkgName = packageInfo.packageName;
-            appInfo.mLabel = packageInfo.applicationInfo.loadLabel(getPackageManager()).toString();
-            String pinyin = mCharacterParser.getSpelling(appInfo.mLabel);
-            String sortString = pinyin.substring(0, 1).toUpperCase();
-            if (sortString.matches("[A-Z]")) {
-                appInfo.mSortLetter = sortString.toUpperCase();
-            } else {
-                appInfo.mSortLetter = "#";
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mTask = new AppInfoLoadTask();
+        mTask.execute();
+    }
+
+    private class AppInfoLoadTask extends AsyncTask<String, Integer, List<AppInfo>> {
+        @Override
+        protected void onPreExecute() {
+        }
+
+        @Override
+        protected List<AppInfo> doInBackground(String... params) {
+            List<AppInfo> appInfos = new ArrayList<>();
+            PackageManager pManager = mContext.getPackageManager();
+            List<PackageInfo> packageInfos = pManager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES);
+            for (PackageInfo packageInfo : packageInfos) {
+                AppInfo appInfo = new AppInfo();
+                appInfo.mPkgName = packageInfo.packageName;
+                appInfo.mLabel = packageInfo.applicationInfo.loadLabel(getPackageManager()).toString();
+                String pinyin = mCharacterParser.getSpelling(appInfo.mLabel);
+                String sortString = pinyin.substring(0, 1).toUpperCase();
+                if (sortString.matches("[A-Z]")) {
+                    appInfo.mSortLetter = sortString.toUpperCase();
+                } else {
+                    appInfo.mSortLetter = "#";
+                }
+                appInfo.mIcon = pManager.getApplicationIcon(packageInfo.applicationInfo);
+                appInfos.add(appInfo);
             }
-            appInfo.mIcon = pManager.getApplicationIcon(packageInfo.applicationInfo);
-            mAllAppInfoList.add(appInfo);
+            return appInfos;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... progresses) {
+        }
+
+        @Override
+        protected void onPostExecute(List<AppInfo> result) {
+            mAllAppInfoList = result;
+            mSelectedAppInfoList.clear();
+            mSelectedAppInfoList.addAll(mAllAppInfoList);
+
+            Collections.sort(mSelectedAppInfoList, mComparator);
+
+            mProgressBarView.setVisibility(View.GONE);
+            mAdapter.notifyDataSetChanged();
+        }
+
+        @Override
+        protected void onCancelled() {
         }
     }
 
@@ -214,7 +283,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
      */
     @Override
     public int getSectionForPosition(int position) {
-        return mAppInfoList.get(position).mSortLetter.charAt(0);
+        return mSelectedAppInfoList.get(position).mSortLetter.charAt(0);
     }
 
     /**
@@ -222,8 +291,8 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
      */
     @Override
     public int getPositionForSection(int section) {
-        for (int i = 0; i < mAppInfoList.size(); i++) {
-            String sortStr = mAppInfoList.get(i).mSortLetter;
+        for (int i = 0; i < mSelectedAppInfoList.size(); i++) {
+            String sortStr = mSelectedAppInfoList.get(i).mSortLetter;
             char firstChar = sortStr.toUpperCase().charAt(0);
             if (firstChar == section) {
                 return i;
@@ -235,7 +304,6 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.actionbar_applist, menu);
-
         mSearchItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) mSearchItem.getActionView();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -246,19 +314,13 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                // 这个时候不需要挤压效果 就把他隐藏掉
-                titleLayout.setVisibility(View.GONE);
-
                 // below code committed will lead to a popup window when entering
                 // search word, use the next line to work around the problem.
                 // mMaterialListView.setFilterText(newText.toString());
-                adapter.getFilter().filter(newText);
-
-
+                mAdapter.getFilter().filter(newText);
                 return true;
             }
         });
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -266,30 +328,33 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_show_desktop:
-                mAppInfoList.clear();
+                mSelectedAppInfoList.clear();
                 List<String> desktopApps = getDesktopApps();
                 for (AppInfo appInfo : mAllAppInfoList) {
                     if (desktopApps.contains(appInfo.mPkgName)) {
-                        mAppInfoList.add(appInfo);
+                        mSelectedAppInfoList.add(appInfo);
                     }
                 }
-                adapter.notifyDataSetChanged();
+                Collections.sort(mSelectedAppInfoList, mComparator);
+                mAdapter.notifyDataSetChanged();
                 break;
 
             case R.id.action_show_all:
-                mAppInfoList.clear();
-                mAppInfoList.addAll(mAllAppInfoList);
-                adapter.notifyDataSetChanged();
+                mSelectedAppInfoList.clear();
+                mSelectedAppInfoList.addAll(mAllAppInfoList);
+                Collections.sort(mSelectedAppInfoList, mComparator);
+                mAdapter.notifyDataSetChanged();
                 break;
             case R.id.action_show_nosystem:
-                mAppInfoList.clear();
+                mSelectedAppInfoList.clear();
                 List<String> systemApps = getSystemApps();
                 for (AppInfo appInfo : mAllAppInfoList) {
                     if (!systemApps.contains(appInfo.mPkgName)) {
-                        mAppInfoList.add(appInfo);
+                        mSelectedAppInfoList.add(appInfo);
                     }
                 }
-                adapter.notifyDataSetChanged();
+                Collections.sort(mSelectedAppInfoList, mComparator);
+                mAdapter.notifyDataSetChanged();
             default:
                 break;
         }
@@ -318,22 +383,22 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
     class AppAdapter extends BaseAdapter implements SectionIndexer, Filterable {
 
-        private List<AppInfo> list = null;
+        private List<AppInfo> appInfoList;
         private Context mContext;
 
-        public AppAdapter(Context mContext, List<AppInfo> list) {
+        public AppAdapter(Context mContext, List<AppInfo> appInfoList) {
             this.mContext = mContext;
-            this.list = list;
+            this.appInfoList = appInfoList;
         }
 
         @Override
         public int getCount() {
-            return list.size();
+            return appInfoList.size();
         }
 
         @Override
         public AppInfo getItem(int position) {
-            return list.get(position);
+            return appInfoList.get(position);
         }
 
         @Override
@@ -380,7 +445,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
          */
         @Override
         public int getSectionForPosition(int position) {
-            return list.get(position).mSortLetter.charAt(0);
+            return appInfoList.get(position).mSortLetter.charAt(0);
         }
 
         /**
@@ -389,7 +454,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
         @Override
         public int getPositionForSection(int section) {
             for (int i = 0; i < getCount(); i++) {
-                String sortStr = list.get(i).mSortLetter;
+                String sortStr = appInfoList.get(i).mSortLetter;
                 char firstChar = sortStr.toUpperCase().charAt(0);
                 if (firstChar == section) {
                     return i;
@@ -431,25 +496,26 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                     List<AppInfo> filterDateList = new ArrayList<AppInfo>();
 
                     if (TextUtils.isEmpty(constraint)) {
-                        filterDateList = mAppInfoList;
-                        tvNofriends.setVisibility(View.GONE);
+                        filterDateList = mSelectedAppInfoList;
                     } else {
                         filterDateList.clear();
-                        for (AppInfo sortModel : mAppInfoList) {
-                            String name = sortModel.mPkgName;
+                        for (AppInfo appInfo : mSelectedAppInfoList) {
+                            String name = appInfo.mLabel;
                             if (name.indexOf(constraint.toString()) != -1
                                     || mCharacterParser.getSpelling(name).startsWith(
                                     constraint.toString())) {
-                                filterDateList.add(sortModel);
+                                filterDateList.add(appInfo);
                             }
                         }
                     }
 
                     // 根据a-z进行排序
-                    Collections.sort(filterDateList, comparator);
+                    Collections.sort(filterDateList, mComparator);
 
                     if (filterDateList.size() == 0) {
-                        tvNofriends.setVisibility(View.VISIBLE);
+                        mHandler.sendEmptyMessage(EMPTY_LIST);
+                    } else {
+                        mHandler.sendEmptyMessage(NON_EMPTY_LIST);
                     }
 
                     result.values = filterDateList; // 将得到的集合保存到FilterResults的value变量中
@@ -461,9 +527,8 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
                 @Override
                 protected void publishResults(CharSequence constraint, FilterResults results) {
-                    list = (List<AppInfo>) results.values;
+                    appInfoList = (List<AppInfo>) results.values;
                     notifyDataSetChanged();
-
                 }
             };
         }
