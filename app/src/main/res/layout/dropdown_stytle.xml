@@ -8,5 +8,4 @@
     android:textSize="15sp"
     android:textColor="#f77718"
     android:gravity="start"
-    android:background="#aa33ac"
-    android:id="@+id/textView3333" />
+    android:background="#aa33ac" />

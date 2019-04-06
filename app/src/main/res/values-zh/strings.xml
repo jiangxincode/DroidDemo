@@ -18,7 +18,6 @@
     <string name="button_app_list_entrance">应用列表</string>
     <string name="button_various_notification_entrance">各种通知</string>
     <string name="button_scale_text_entrance">自动缩放TextView</string>
-    <string name="button_search_entrance">搜索与索引条</string>
     <string name="button_spannable_string_entrance">SpannableString示例</string>
 
 
@@ -37,7 +36,6 @@
     <string name="tv_listview_title">Test ListView</string>
     <string name="tv_list_view_title">ListView</string>
 
-    <string name="hint_s">点击Item获取详细信息(MD5签名等)</string>
     <string name="md5_hint_s">APP_MD5</string>
     <string name="sha1_hint_s">SHA1</string>
     <string name="sha256_hint_s">SHA256</string>

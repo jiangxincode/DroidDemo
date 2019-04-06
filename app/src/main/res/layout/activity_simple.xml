@@ -6,9 +6,7 @@
 
     <RelativeLayout style="@style/rt_title_view">
 
-        <LinearLayout
-            android:id="@+id/lt_dashboard_title_menu"
-            style="@style/ll_title_view1">
+        <LinearLayout style="@style/ll_title_view1">
 
             <TextView
                 style="@style/tv_title_menu_left"
@@ -20,7 +18,6 @@
             android:text="@string/tv_listview_title" />
 
         <LinearLayout
-            android:id="@+id/lt_dashboard_title_add"
             style="@style/ll_title_view1"
             android:layout_alignParentEnd="true">
 

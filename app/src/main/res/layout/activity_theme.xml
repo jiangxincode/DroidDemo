@@ -23,7 +23,6 @@
 
         <ImageButton
             android:background="@null"
-            android:id="@+id/imagebtn"
             android:padding="14dp"
             android:src="?attr/imageValue"
             android:onClick="changeTheme"

@@ -33,7 +33,6 @@
         android:paddingEnd="10dip">
 
         <TextView
-            android:id="@+id/pull_down_text_view_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
