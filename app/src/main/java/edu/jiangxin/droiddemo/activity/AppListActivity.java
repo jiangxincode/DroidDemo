@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -34,16 +33,10 @@ import android.widget.Toast;
 
 import com.github.promeg.pinyinhelper.Pinyin;
 
-import java.io.ByteArrayInputStream;
-import java.security.MessageDigest;
-import java.security.cert.CertificateFactory;
-import java.security.cert.X509Certificate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-
-import javax.security.auth.x500.X500Principal;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.view.IndexableListView;
@@ -534,102 +527,6 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             TextView tvLetter;
         }
     }
-}
-
-/**
- * 签名信息
- */
-class SignaturesMsg {
-
-    // 如需要小写则把ABCDEF改成小写
-    private static final char HEX_DIGITS[] = {'0', '1', '2', '3', '4', '5',
-            '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-
-    /**
-     * 检测应用程序是否是用"CN=Android Debug,O=Android,C=US"的debug信息来签名的
-     * 判断签名是debug签名还是release签名
-     */
-    private final static X500Principal DEBUG_DN = new X500Principal(
-            "CN=Android Debug,O=Android,C=US");
-
-    /**
-     * 进行转换
-     */
-    public static String toHexString(byte[] bData) {
-        StringBuilder sb = new StringBuilder(bData.length * 2);
-        for (int i = 0; i < bData.length; i++) {
-            sb.append(HEX_DIGITS[(bData[i] & 0xf0) >>> 4]);
-            sb.append(HEX_DIGITS[bData[i] & 0x0f]);
-        }
-        return sb.toString();
-    }
-
-    /**
-     * 返回MD5
-     */
-    public static String signatureMD5(Signature[] signatures) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("MD5");
-            if (signatures != null) {
-                for (Signature s : signatures) {
-                    digest.update(s.toByteArray());
-                }
-            }
-            return toHexString(digest.digest());
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    /**
-     * SHA1
-     */
-    public static String signatureSHA1(Signature[] signatures) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-1");
-            if (signatures != null) {
-                for (Signature s : signatures) {
-                    digest.update(s.toByteArray());
-                }
-            }
-            return toHexString(digest.digest());
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    /**
-     * SHA256
-     */
-    public static String signatureSHA256(Signature[] signatures) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            if (signatures != null) {
-                for (Signature s : signatures) {
-                    digest.update(s.toByteArray());
-                }
-            }
-            return toHexString(digest.digest());
-        } catch (Exception e) {
-            return "";
-        }
-    }
-
-    /**
-     * 获取App 证书对象
-     */
-    public static X509Certificate getX509Certificate(Signature[] signatures) {
-        try {
-            CertificateFactory cf = CertificateFactory.getInstance("X.509");
-            ByteArrayInputStream stream = new ByteArrayInputStream(signatures[0].toByteArray());
-            X509Certificate cert = (X509Certificate) cf.generateCertificate(stream);
-            return cert;
-        } catch (Exception e) {
-        }
-        return null;
-    }
-
-
 }
 
 class AppInfo {
