@@ -31,13 +31,25 @@
                 android:text="状态栏/标题栏设置" />
 
             <Button
+                android:id="@+id/btn12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service Demo(Local Binder)" />
+
+            <Button
                 android:id="@+id/btn13"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Messanger" />
+                android:text="Service Demo(Messanger)" />
 
             <Button
                 android:id="@+id/btn14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service Demo(AIDL)" />
+
+            <Button
+                android:id="@+id/btnListViewEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="各种ListView" />

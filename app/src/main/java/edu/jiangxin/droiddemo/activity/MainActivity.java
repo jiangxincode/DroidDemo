@@ -187,12 +187,12 @@ public class MainActivity extends AppCompatActivity {
     private void setupShortcuts() {
         ShortcutManager mShortcutManager = getSystemService(ShortcutManager.class);
 
-        List<ShortcutInfo> infos = new ArrayList<>();
+        List<ShortcutInfo> shortcutInfos = new ArrayList<>();
         String[] name = {"找车", "找饭店", "找宾馆", "买车票"};
         for (int i = 0; i < mShortcutManager.getMaxShortcutCountPerActivity(); i++) {
-            Intent intent = new Intent(this, MessageActivity.class);
+            Intent intent = new Intent(this, ShortcutTargetActivity.class);
             intent.setAction(Intent.ACTION_VIEW);
-            intent.putExtra("msg", name[i % 4]);
+            intent.putExtra("shortcutItem", name[i % 4]);
 
             ShortcutInfo info = new ShortcutInfo.Builder(this, "id" + i)
                     .setShortLabel(name[i % 4])
@@ -200,10 +200,10 @@ public class MainActivity extends AppCompatActivity {
                     .setIcon(Icon.createWithResource(this, R.drawable.icon))
                     .setIntent(intent)
                     .build();
-            infos.add(info);
+            shortcutInfos.add(info);
         }
 
-        mShortcutManager.setDynamicShortcuts(infos);
+        mShortcutManager.setDynamicShortcuts(shortcutInfos);
     }
 
 

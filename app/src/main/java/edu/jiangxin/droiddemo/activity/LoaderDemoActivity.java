@@ -40,9 +40,13 @@ public class LoaderDemoActivity extends Activity {
             CallLog.Calls.TYPE, CallLog.Calls.DATE};
     static final int DAY = 1440; // 一天的分钟值
     private static final int ALL = 0; // 默认显示所有
-    private static final int INCOMING = CallLog.Calls.INCOMING_TYPE; // 来电
-    private static final int OUTCOMING = CallLog.Calls.OUTGOING_TYPE; // 拔号
-    private static final int MISSED = CallLog.Calls.MISSED_TYPE; // 未接
+
+    private static final int INCOMING = CallLog.Calls.INCOMING_TYPE;
+
+    private static final int OUTCOMING = CallLog.Calls.OUTGOING_TYPE;
+
+    private static final int MISSED = CallLog.Calls.MISSED_TYPE;
+
     private ListView mListView;
     private MyLoaderCallbacks mLoaderCallback;
     private MyCursorAdapter mAdapter;

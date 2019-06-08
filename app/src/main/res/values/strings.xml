@@ -21,8 +21,6 @@
     <string name="button_scale_text_entrance">自动缩放TextView</string>
     <string name="button_spannable_string_entrance">SpannableString示例</string>
 
-
-    <string name="title_activity_messenger">MessengerActivity</string>
     <string name="hello_world">Hello world!</string>
 
     <string name="title_dashboard_menu_left">Menu</string>

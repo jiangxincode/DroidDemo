@@ -31,7 +31,9 @@ import edu.jiangxin.droiddemo.activity.ForbidScreenShotActivity;
 import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
-import edu.jiangxin.droiddemo.activity.MessengerActivity;
+import edu.jiangxin.droiddemo.service.aidl.AIDLActivity;
+import edu.jiangxin.droiddemo.service.localbinder.LocalBinderActivity;
+import edu.jiangxin.droiddemo.service.messanger.MessengerActivity;
 import edu.jiangxin.droiddemo.activity.NetMusicActivity;
 import edu.jiangxin.droiddemo.activity.QuickSearchBoxActivity;
 import edu.jiangxin.droiddemo.activity.RingtoneSetting1Activity;
@@ -66,7 +68,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
-    private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn13, mBtn14, mBtnDialogEntrance,
+    private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn12, mBtn13, mBtn14, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -102,6 +104,17 @@ public class NotificationsFragment extends Fragment {
             }
         });
 
+        mBtn12 = root.findViewById(R.id.btn12);
+        mBtn12.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), LocalBinderActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mBtn13 = root.findViewById(R.id.btn13);
         mBtn13.setOnClickListener(new View.OnClickListener() {
 
@@ -115,6 +128,17 @@ public class NotificationsFragment extends Fragment {
 
         mBtn14 = root.findViewById(R.id.btn14);
         mBtn14.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setClass(getContext(), AIDLActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        mBtnListViewEntrance = root.findViewById(R.id.btnListViewEntrance);
+        mBtnListViewEntrance.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {

@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.service;
+package edu.jiangxin.droiddemo.service.messanger;
 
 import android.app.Service;
 import android.content.Intent;
@@ -21,14 +21,15 @@ public class MessengerService extends Service {
         public void handleMessage(Message msg) {
             switch (msg.what) {
                 case Constant.MSG_FROM_CLIENT:
-                    Log.i(TAG, "receive msg from Client:" + msg.getData().getString("msg"));
-                    Messenger client = msg.replyTo;
+                    String message = msg.getData().getString("msg");
+                    Log.i(TAG, "receive message from client:" + message);
+                    Messenger messenger = msg.replyTo;
                     Message relpyMessage = Message.obtain(null, Constant.MSG_FROM_SERVICE);
                     Bundle bundle = new Bundle();
-                    bundle.putString("reply", "嗯，你的消息我已经收到，稍后会回复你。");
+                    bundle.putString("msg", "hello, this is service.");
                     relpyMessage.setData(bundle);
                     try {
-                        client.send(relpyMessage);
+                        messenger.send(relpyMessage);
                     } catch (RemoteException e) {
                         e.printStackTrace();
                     }
@@ -39,20 +40,33 @@ public class MessengerService extends Service {
         }
     }
 
-    private final Messenger mMessenger = new Messenger(new MessengerHandler());
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return mMessenger.getBinder();
-    }
-
     @Override
     public void onCreate() {
+        Log.i(TAG, "onCreate");
         super.onCreate();
     }
 
     @Override
+    public void onDestroy() {
+        Log.i(TAG, "onDestroy");
+        super.onDestroy();
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        Log.i(TAG, "onBind");
+        return new Messenger(new MessengerHandler()).getBinder();
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.i(TAG, "onUnbind");
+        return super.onUnbind(intent);
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG, "onStartCommand");
         return super.onStartCommand(intent, flags, startId);
     }
 
