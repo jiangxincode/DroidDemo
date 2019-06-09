@@ -8,15 +8,16 @@ import android.widget.Button;
 
 import edu.jiangxin.droiddemo.R;
 
+/**
+ * @author jiangxin
+ */
 public class CommonServiceActivity extends Activity {
-
-    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_common_service);
-        button = findViewById(R.id.startCommonService);
+        Button button = findViewById(R.id.startCommonService);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -24,15 +25,5 @@ public class CommonServiceActivity extends Activity {
                 startService(intent);
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
     }
 }

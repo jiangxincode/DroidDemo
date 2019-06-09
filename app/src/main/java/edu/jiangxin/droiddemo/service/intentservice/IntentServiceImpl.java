@@ -4,18 +4,12 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 
-public class IntentServiceService extends IntentService {
+public class IntentServiceImpl extends IntentService {
 
-    private static final String TAG = "IntentServiceService";
+    private static final String TAG = "IntentServiceImpl";
 
-    public IntentServiceService() {
+    public IntentServiceImpl() {
         super(TAG);
-        //构造方法
-    }
-
-    public IntentServiceService(String name) {
-        super(name);
-        //构造方法
     }
 
     @Override

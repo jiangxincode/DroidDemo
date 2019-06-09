@@ -59,7 +59,7 @@
             android:exported="true"
             android:process=":remote" />
         <service
-            android:name=".service.intentservice.IntentServiceService"
+            android:name=".service.intentservice.IntentServiceImpl"
             android:exported="true"
             android:process=":remote" />
         <service
