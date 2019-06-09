@@ -12,7 +12,6 @@ import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -61,20 +60,17 @@ public class MessengerActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messenger);
         button = findViewById(R.id.notifyService);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Message msg = Message.obtain(null, Constant.MSG_FROM_CLIENT);
-                Bundle data = new Bundle();
-                data.putString("msg", "hello, this is client.");
-                msg.setData(data);
-                msg.replyTo = new Messenger(new MessengerHandler());
-                try {
-                    Log.i(TAG, "send message to service");
-                    mService.send(msg);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
+        button.setOnClickListener(view -> {
+            Message msg = Message.obtain(null, Constant.MSG_FROM_CLIENT);
+            Bundle data = new Bundle();
+            data.putString("msg", "hello, this is client.");
+            msg.setData(data);
+            msg.replyTo = new Messenger(new MessengerHandler());
+            try {
+                Log.i(TAG, "send message to service");
+                mService.send(msg);
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         });
         Intent intent = new Intent();

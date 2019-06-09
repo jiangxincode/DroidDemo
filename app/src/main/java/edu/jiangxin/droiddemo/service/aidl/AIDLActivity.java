@@ -9,7 +9,6 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -36,28 +35,25 @@ public class AIDLActivity extends AppCompatActivity {
         setContentView(R.layout.activity_aidl);
 
         button = findViewById(R.id.addBook);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //如果与服务端的连接处于未连接状态，则尝试连接
-                if (!mBound) {
-                    attemptToBindService();
-                    Toast.makeText(AIDLActivity.this, "当前与服务端处于未连接状态，正在尝试重连，请稍后再试", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (mBookManager == null) {
-                    return;
-                }
+        button.setOnClickListener(view -> {
+            //如果与服务端的连接处于未连接状态，则尝试连接
+            if (!mBound) {
+                attemptToBindService();
+                Toast.makeText(AIDLActivity.this, "当前与服务端处于未连接状态，正在尝试重连，请稍后再试", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (mBookManager == null) {
+                return;
+            }
 
-                Book book = new Book();
-                book.setName("APP研发录In");
-                book.setPrice(30);
-                try {
-                    mBookManager.addBook(book);
-                    Log.i(getLocalClassName(), book.toString());
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
+            Book book = new Book();
+            book.setName("APP研发录In");
+            book.setPrice(30);
+            try {
+                mBookManager.addBook(book);
+                Log.i(getLocalClassName(), book.toString());
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         });
     }
