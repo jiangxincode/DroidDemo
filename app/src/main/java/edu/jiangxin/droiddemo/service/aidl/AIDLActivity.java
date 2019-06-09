@@ -17,12 +17,6 @@ import java.util.List;
 
 import edu.jiangxin.droiddemo.R;
 
-/**
- * 客户端的AIDLActivity.java
- * 由于测试机的无用debug信息太多，故log都是用的e
- * <p/>
- * Created by lypeer on 2016/7/17.
- */
 public class AIDLActivity extends AppCompatActivity {
 
     //由AIDL文件生成的Java类

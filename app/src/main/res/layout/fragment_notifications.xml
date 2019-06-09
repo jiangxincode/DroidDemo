@@ -31,6 +31,18 @@
                 android:text="状态栏/标题栏设置" />
 
             <Button
+                android:id="@+id/btn10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service Demo(CommonService)" />
+
+            <Button
+                android:id="@+id/btn11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Service Demo(IntentService)" />
+
+            <Button
                 android:id="@+id/btn12"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
