@@ -2,7 +2,7 @@ package edu.jiangxin.droiddemo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
