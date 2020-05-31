@@ -79,6 +79,12 @@
                 android:text="@string/button_ripple_entrance" />
 
             <Button
+                android:id="@+id/btnAnimationEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="动画大世界" />
+
+            <Button
                 android:id="@+id/btnBlurEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
