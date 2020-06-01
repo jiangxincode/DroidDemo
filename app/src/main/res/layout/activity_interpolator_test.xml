@@ -4,48 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="10dp"
     tools:context="edu.jiangxin.droiddemo.animation.InterpolatorTestActivity">
-
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dip"
-        android:layout_marginTop="10dip"
-        android:text="Select an animation:"/>
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:spinnerMode="dropdown"/>
 
     <ImageView
         android:id="@+id/target"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
         android:src="@mipmap/ball"/>
-
-    <Button
-        android:id="@+id/start_ani_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginRight="20dp"
-        android:text="Start"
-        android:textSize="22sp"/>
 
     <RelativeLayout
         android:id="@+id/testInterpolator"
         android:layout_marginLeft="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="100dp"
+            android:text="Select an animation:"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginLeft="100dp"
+            android:spinnerMode="dropdown"/>
 
         <TextView
             android:id="@+id/distance_y"
@@ -62,7 +49,7 @@
             android:id="@+id/total_y"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="230dp"
             android:layout_marginTop="100dp"
             android:singleLine="true"
             android:text="0"
@@ -114,7 +101,7 @@
             android:id="@+id/total_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="250dp"
+            android:layout_marginLeft="230dp"
             android:layout_marginTop="250dp"
             android:singleLine="true"
             android:text="0"
@@ -144,6 +131,7 @@
             android:textSize="18sp"/>
 
         <TextView
+            android:id="@+id/formula"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
@@ -159,7 +147,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="520dp"
-            android:text="Pause"
+            android:text="Start"
             android:textSize="22sp"/>
     </RelativeLayout>
 

@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.animation;
+package edu.jiangxin.droiddemo.animation.view;
 
 
 import android.annotation.TargetApi;

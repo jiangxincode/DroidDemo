@@ -116,13 +116,13 @@
         <activity android:name=".activity.BlurActivity" />
         <activity android:name=".activity.RippleActivity" />
         <activity android:name=".animation.VariousAnimationActivity" />
-        <activity android:name=".animation.AlphaTestActivity" />
-        <activity android:name=".animation.ScaleTestActivity" />
-        <activity android:name=".animation.TranslateTestActivity" />
-        <activity android:name=".animation.RotateTestActivity" />
-        <activity android:name=".animation.SetTestActivity" />
+        <activity android:name=".animation.view.AlphaTestActivity" />
+        <activity android:name=".animation.view.ScaleTestActivity" />
+        <activity android:name=".animation.view.TranslateTestActivity" />
+        <activity android:name=".animation.view.RotateTestActivity" />
+        <activity android:name=".animation.view.SetTestActivity" />
         <activity android:name=".animation.InterpolatorTestActivity" />
-        <activity android:name=".animation.PropertyTestActivity" />
+        <activity android:name=".animation.PropertyAnimatorActivity" />
         <activity android:name=".activity.DecorViewActivity" />
         <activity android:name=".activity.ForbidScreenShotActivity" />
         <activity

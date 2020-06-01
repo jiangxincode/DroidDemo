@@ -1,11 +1,9 @@
-package edu.jiangxin.droiddemo.animation;
+package edu.jiangxin.droiddemo.animation.view;
 
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 

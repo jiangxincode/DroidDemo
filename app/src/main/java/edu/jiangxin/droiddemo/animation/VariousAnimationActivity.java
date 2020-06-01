@@ -7,6 +7,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.animation.view.AlphaTestActivity;
+import edu.jiangxin.droiddemo.animation.view.RotateTestActivity;
+import edu.jiangxin.droiddemo.animation.view.ScaleTestActivity;
+import edu.jiangxin.droiddemo.animation.view.SetTestActivity;
+import edu.jiangxin.droiddemo.animation.view.TranslateTestActivity;
 
 public class VariousAnimationActivity extends Activity implements View.OnClickListener {
 
@@ -57,7 +62,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 enterTestActivity(InterpolatorTestActivity.class);
                 break;
             case R.id.tv_property:
-                enterTestActivity(PropertyTestActivity.class);
+                enterTestActivity(PropertyAnimatorActivity.class);
                 break;
             default:
                 break;

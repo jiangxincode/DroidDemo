@@ -1,10 +1,6 @@
-package edu.jiangxin.droiddemo.animation;
+package edu.jiangxin.droiddemo.animation.interpolator;
 
 import android.view.animation.Interpolator;
-
-/**
- * user： pzm    date： 2017/9/10
- */
 
 public class HesitateInterpolator implements Interpolator {
 
