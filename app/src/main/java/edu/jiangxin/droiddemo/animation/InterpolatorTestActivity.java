@@ -20,21 +20,19 @@ import android.widget.TextView;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.animation.interpolator.EaseCubicInterpolator;
 import edu.jiangxin.droiddemo.animation.interpolator.HesitateInterpolator;
-import edu.jiangxin.droiddemo.animation.interpolator.MyAccelerateInterpolator;
 
 
 public class InterpolatorTestActivity extends Activity implements AdapterView.OnItemSelectedListener {
     private static final String TAG = "InterpolatorTestActivity";
 
     private static final String[] INTERPOLATORS = {
-            "Test MyAccelerate/Decelerate",
             "Accelerate", "Decelerate", "Accelerate/Decelerate",
             "Anticipate", "Overshoot", "Anticipate/Overshoot",
             "Linear", "Bounce", "CycleInterpolator", "HesitateInterpolator//自定义",
             "FastOutLinearInInterpolator", "LinearOutSlowInInterpolator", "FastOutSlowInInterpolator",
             "阻尼曲线", "急缓曲线", "锐利曲线", "节奏曲线", "平滑曲线"};
 
-    private Interpolator mInterpolator = new MyAccelerateInterpolator();
+    private Interpolator mInterpolator = new AccelerateInterpolator();
 
     private static final int mTotalTime = 3000;
 
@@ -121,63 +119,60 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
 
         switch (position) {
             case 0:
-                mInterpolator = new MyAccelerateInterpolator();
-                break;
-            case 1:
                 mInterpolator = new AccelerateInterpolator();
                 break;
-            case 2:
+            case 1:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.decelerate_interpolator);
                 break;
-            case 3:
+            case 2:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.accelerate_decelerate_interpolator);
                 break;
-            case 4:
+            case 3:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.anticipate_interpolator);
                 break;
-            case 5:
+            case 4:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.overshoot_interpolator);
                 break;
-            case 6:
+            case 5:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.anticipate_overshoot_interpolator);
                 break;
-            case 7:
+            case 6:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.linear_interpolator);
                 break;
-            case 8:
+            case 7:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.bounce_interpolator);
                 break;
-            case 9:
+            case 8:
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.anim.cycle_interpolator);
                 break;
-            case 10:
+            case 9:
                 mInterpolator = new HesitateInterpolator();
                 break;
-            case 11:
+            case 10:
                 // FastOutLinearInInterpolator 先加速然后匀速，和Accelerate  Interpolator类似
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.interpolator.fast_out_linear_in);
                 break;
-            case 12:
+            case 11:
                 // LinearOutSlowInInterpolator 先匀速再减速，和和Decelerate Interpolator类似
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.interpolator.linear_out_slow_in); //减速
                 break;
-            case 13:
+            case 12:
                 // FastOutSlowInInterpolator 加速然后减速，和Accelerate Decelerate Interpolator类似，又叫做标准曲线
                 mInterpolator = AnimationUtils.loadInterpolator(this, android.R.interpolator.fast_out_slow_in);
                 break;
-            case 14:
+            case 13:
                 mInterpolator = new EaseCubicInterpolator(0.2f, 0f, 0.2f, 1f);
                 break;
-            case 15:
+            case 14:
                 mInterpolator = new EaseCubicInterpolator(0f, 0f, 0f, 1f);
                 break;
-            case 16:
+            case 15:
                 mInterpolator = new EaseCubicInterpolator(0.33f, 0f, 0.67f, 1f);
                 break;
-            case 17:
+            case 16:
                 mInterpolator = new EaseCubicInterpolator(0.7f, 0f, 0.2f, 1f);
                 break;
-            case 18:
+            case 17:
                 mInterpolator = new EaseCubicInterpolator(0.4f, 0f, 0.4f, 1f);
                 break;
         }

@@ -18,18 +18,20 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
     private TextView mTvAlpha, mTvScale, mTvTranslate, mTvRotate, mTvSet;
     private TextView mTvInterpolator;
     private TextView mTvProperty;
+    private TextView mTvPhysicsAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_various_animation);
-        mTvAlpha = (TextView) findViewById(R.id.tv_alpha);
-        mTvScale = (TextView) findViewById(R.id.tv_scale);
-        mTvTranslate = (TextView) findViewById(R.id.tv_translate);
-        mTvRotate = (TextView) findViewById(R.id.tv_rotate);
-        mTvSet = (TextView) findViewById(R.id.tv_set);
-        mTvInterpolator = (TextView) findViewById(R.id.tv_interpolator);
-        mTvProperty = (TextView) findViewById(R.id.tv_property);
+        mTvAlpha = findViewById(R.id.tv_alpha);
+        mTvScale = findViewById(R.id.tv_scale);
+        mTvTranslate = findViewById(R.id.tv_translate);
+        mTvRotate = findViewById(R.id.tv_rotate);
+        mTvSet = findViewById(R.id.tv_set);
+        mTvInterpolator = findViewById(R.id.tv_interpolator);
+        mTvProperty = findViewById(R.id.tv_property);
+        mTvPhysicsAnimation = findViewById(R.id.tv_physics_animation);
 
         mTvAlpha.setOnClickListener(this);
         mTvScale.setOnClickListener(this);
@@ -38,6 +40,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvSet.setOnClickListener(this);
         mTvInterpolator.setOnClickListener(this);
         mTvProperty.setOnClickListener(this);
+        mTvPhysicsAnimation.setOnClickListener(this);
     }
 
     @Override
@@ -63,6 +66,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 break;
             case R.id.tv_property:
                 enterTestActivity(PropertyAnimatorActivity.class);
+                break;
+            case R.id.tv_physics_animation:
+                enterTestActivity(PhysicsAnimationActivity.class);
                 break;
             default:
                 break;

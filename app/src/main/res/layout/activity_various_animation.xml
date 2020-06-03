@@ -78,4 +78,14 @@
         android:background="@android:color/holo_orange_dark"
         android:textSize="28sp"/>
 
+    <TextView
+        android:id="@+id/tv_physics_animation"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="PhysicsAnimation"
+        android:background="@android:color/holo_blue_dark"
+        android:textSize="28sp"/>
+
 </LinearLayout>

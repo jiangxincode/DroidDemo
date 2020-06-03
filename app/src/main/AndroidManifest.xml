@@ -3,27 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="edu.jiangxin.droiddemo">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
-    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
-    <uses-permission android:name="android.permission.READ_CALL_LOG" />
-    <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission
-        android:name="android.permission.WRITE_SETTINGS"
-        tools:ignore="ProtectedPermissions" />
-    <uses-permission
-        android:name="android.permission.PACKAGE_USAGE_STATS"
-        tools:ignore="ProtectedPermissions" />
-
     <application
         android:name=".ApplicationExt"
         android:allowBackup="true"
@@ -32,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".service.commonservice.CommonServiceActivity"></activity>
+        <activity android:name=".animation.PhysicsAnimationActivity"></activity>
+        <activity android:name=".service.commonservice.CommonServiceActivity" />
         <activity
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
@@ -43,17 +23,121 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".service.intentservice.IntentServiceActivity" /> <!-- 由于PowerManager的限制，SCREEN_ON和SCREEN_OFF两个action必须要通过代码注册的方式才能使用，这里使用USER_PRESENT捕获解锁广播 -->
+        <activity android:name=".service.localbinder.LocalBinderActivity" />
+
+        <activity android:name=".service.messanger.MessengerActivity" />
+        <activity android:name=".service.aidl.AIDLActivity" />
+        <activity
+            android:name=".activity.listview.ListViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.listview.SlideListViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.listview.GridViewActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.listview.ExpandableListActivity"
+            android:screenOrientation="unspecified"
+            android:windowSoftInputMode="adjustPan" />
+
+        <activity
+            android:name=".activity.listview.ViewFlipperActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan" />
+        <activity android:name=".activity.DialogActivity" />
+        <activity android:name=".activity.BlurActivity" />
+        <activity android:name=".activity.RippleActivity" /> <!-- ListView 下拉 -->
+        <activity android:name=".animation.VariousAnimationActivity" /> <!-- ListView 侧滑 -->
+        <activity android:name=".animation.view.AlphaTestActivity" /> <!-- GridView 下拉、收缩 -->
+        <activity android:name=".animation.view.ScaleTestActivity" />
+        <activity android:name=".animation.view.TranslateTestActivity" />
+        <activity android:name=".animation.view.RotateTestActivity" />
+        <activity android:name=".animation.view.SetTestActivity" />
+        <activity android:name=".animation.InterpolatorTestActivity" />
+        <activity android:name=".animation.PropertyAnimatorActivity" />
+        <activity android:name=".activity.DecorViewActivity" />
+        <activity android:name=".activity.ForbidScreenShotActivity" />
+        <activity
+            android:name=".activity.AppListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SignaturesActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".activity.VariousNotificationActivity" />
+        <activity
+            android:name=".activity.ScaleTextActivity"
+            android:excludeFromRecents="true"
+            android:launchMode="singleTask"
+            android:taskAffinity=".testLaunchMode" />
+        <activity android:name=".activity.SpannableStringActivity" />
+        <activity android:name=".activity.QuickSearchBoxActivity">
+            <intent-filter>
+                <action android:name="edu.jiangxin.droiddemo.action.Search" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+        </activity>
+        <activity android:name=".quickshow.activity.ShowInfoActivity">
+            <intent-filter>
+                <action android:name="edu.jiangxin.droiddemo.action.SHOWINFO" />
+
+                <category android:name="android.intent.category.SHOWINFO" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.ShortcutTargetActivity" />
+        <activity android:name=".activity.ImageViewActivity" />
+        <activity android:name=".activity.AudioFxOscillogramActivity" />
+        <activity android:name=".activity.AudioFxHistogramActivity" /> <!-- 只有当这个Activity是处于任务栈根部的时候android:excludeFromRecents="true"才会起作用，这个属性通常只于android.intent.category.LAUNCHER或者与singleTask/singleInstance一起使用 -->
+        <activity android:name=".activity.NetMusicActivity" />
+        <activity android:name=".activity.VideoViewActivity" />
+        <activity android:name=".activity.JNIActivity" />
+
+        <activity android:name=".activity.ActivityTrackerActivity" />
+
+        <activity android:name=".activity.RingtoneSettingActivity" />
+        <activity android:name=".activity.RingtoneSetting1Activity" />
+        <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.ThemeActivity" />
+        <activity android:name=".activity.SpinnerActivity" />
+        <activity android:name=".fragment.FragmentActivity" />
+        <activity android:name=".fragment.FragmentTest1Activity" />
+        <activity android:name=".saf.SAFActivity" />
+        <activity android:name=".mediastore.MediaStoreDemoActivity" />
+        <activity android:name=".mediastore.MyPhoto" />
+        <activity android:name=".mediastore.MyMusic" />
+        <activity android:name=".mediastore.MyMovie" />
+        <activity android:name=".activity.ThreadDemoActivity" />
+        <activity android:name=".activity.LoaderDemoActivity" />
+        <provider
+            android:name=".provider.QuickSearchBoxProvider"
+            android:authorities="edu.jiangxin.droiddemo.SEARCH_AUTHORITY"
+            android:enabled="true"
+            android:exported="true" />
         <receiver android:name=".broadcastreceiver.NetStatReceiver">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
-        </receiver> <!-- 由于PowerManager的限制，SCREEN_ON和SCREEN_OFF两个action必须要通过代码注册的方式才能使用，这里使用USER_PRESENT捕获解锁广播 -->
+        </receiver>
         <receiver android:name=".broadcastreceiver.ScreenOnReceiver">
             <intent-filter android:priority="90000">
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
         </receiver>
-
         <service
             android:name=".service.commonservice.CommonService"
             android:exported="true"
@@ -87,110 +171,27 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_service_config" />
         </service>
-
-        <activity android:name=".service.intentservice.IntentServiceActivity" />
-        <activity android:name=".service.localbinder.LocalBinderActivity" />
-        <activity android:name=".service.messanger.MessengerActivity" />
-        <activity android:name=".service.aidl.AIDLActivity" /> <!-- ListView 下拉 -->
-        <activity
-            android:name=".activity.listview.ListViewActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" /> <!-- ListView 侧滑 -->
-        <activity
-            android:name=".activity.listview.SlideListViewActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" /> <!-- GridView 下拉、收缩 -->
-        <activity
-            android:name=".activity.listview.GridViewActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activity.listview.ExpandableListActivity"
-            android:screenOrientation="unspecified"
-            android:windowSoftInputMode="adjustPan" />
-        <activity
-            android:name=".activity.listview.ViewFlipperActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".activity.DialogActivity" />
-        <activity android:name=".activity.BlurActivity" />
-        <activity android:name=".activity.RippleActivity" />
-        <activity android:name=".animation.VariousAnimationActivity" />
-        <activity android:name=".animation.view.AlphaTestActivity" />
-        <activity android:name=".animation.view.ScaleTestActivity" />
-        <activity android:name=".animation.view.TranslateTestActivity" />
-        <activity android:name=".animation.view.RotateTestActivity" />
-        <activity android:name=".animation.view.SetTestActivity" />
-        <activity android:name=".animation.InterpolatorTestActivity" />
-        <activity android:name=".animation.PropertyAnimatorActivity" />
-        <activity android:name=".activity.DecorViewActivity" />
-        <activity android:name=".activity.ForbidScreenShotActivity" />
-        <activity
-            android:name=".activity.AppListActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".activity.SignaturesActivity"
-            android:screenOrientation="portrait" />
-        <activity android:name=".activity.VariousNotificationActivity" /> <!-- 只有当这个Activity是处于任务栈根部的时候android:excludeFromRecents="true"才会起作用，这个属性通常只于android.intent.category.LAUNCHER或者与singleTask/singleInstance一起使用 -->
-        <activity
-            android:name=".activity.ScaleTextActivity"
-            android:excludeFromRecents="true"
-            android:launchMode="singleTask"
-            android:taskAffinity=".testLaunchMode" />
-        <activity android:name=".activity.SpannableStringActivity" />
-        <activity android:name=".activity.QuickSearchBoxActivity">
-            <intent-filter>
-                <action android:name="edu.jiangxin.droiddemo.action.Search" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEARCH" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-
-            <meta-data
-                android:name="android.app.searchable"
-                android:resource="@xml/searchable" />
-        </activity>
-
-        <provider
-            android:name=".provider.QuickSearchBoxProvider"
-            android:authorities="edu.jiangxin.droiddemo.SEARCH_AUTHORITY"
-            android:enabled="true"
-            android:exported="true" />
-
-        <activity android:name=".quickshow.activity.ShowInfoActivity">
-            <intent-filter>
-                <action android:name="edu.jiangxin.droiddemo.action.SHOWINFO" />
-
-                <category android:name="android.intent.category.SHOWINFO" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity.ShortcutTargetActivity" />
-        <activity android:name=".activity.ImageViewActivity" />
-        <activity android:name=".activity.AudioFxOscillogramActivity" />
-        <activity android:name=".activity.AudioFxHistogramActivity" />
-        <activity android:name=".activity.NetMusicActivity" />
-        <activity android:name=".activity.VideoViewActivity" />
-        <activity android:name=".activity.JNIActivity" />
-        <activity android:name=".activity.ActivityTrackerActivity" />
-        <activity android:name=".activity.RingtoneSettingActivity" />
-        <activity android:name=".activity.RingtoneSetting1Activity" />
-        <activity android:name=".activity.SettingActivity" />
-        <activity android:name=".activity.ThemeActivity" />
-        <activity android:name=".activity.SpinnerActivity" />
-        <activity android:name=".fragment.FragmentActivity" />
-        <activity android:name=".fragment.FragmentTest1Activity" />
-        <activity android:name=".saf.SAFActivity" />
-        <activity android:name=".mediastore.MediaStoreDemoActivity" />
-        <activity android:name=".mediastore.MyPhoto" />
-        <activity android:name=".mediastore.MyMusic" />
-        <activity android:name=".mediastore.MyMovie" />
-        <activity android:name=".activity.ThreadDemoActivity" />
-        <activity android:name=".activity.LoaderDemoActivity" />
     </application>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions" />
 
 </manifest>
