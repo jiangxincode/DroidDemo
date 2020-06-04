@@ -46,9 +46,9 @@ public class RingtoneSettingActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ringtone_setting);
         checkWriteSettingPermission();
-        mButtonRingtone = (Button) findViewById(R.id.buttonRingtone);
-        mButtonAlarm = (Button) findViewById(R.id.buttonAlarm);
-        mButtonNotification = (Button) findViewById(R.id.buttonNotification);
+        mButtonRingtone = findViewById(R.id.buttonRingtone);
+        mButtonAlarm = findViewById(R.id.buttonAlarm);
+        mButtonNotification = findViewById(R.id.buttonNotification);
 
         mButtonRingtone.setOnClickListener(new OnClickListener() {
             @Override
@@ -118,10 +118,7 @@ public class RingtoneSettingActivity extends Activity {
 
     private boolean exist(String path) {
         File file = new File(path);
-        if (file.exists()) {
-            return true;
-        }
-        return false;
+        return file.exists();
     }
 
     private void checkWriteSettingPermission() {

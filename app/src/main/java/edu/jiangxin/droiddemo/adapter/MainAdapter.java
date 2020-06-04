@@ -22,11 +22,6 @@ import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
 
-/**
- * @author 1900<br>
- *         2014-4-8 下午2:43:17
- */
-
 @SuppressLint({ "NewApi", "UseSparseArrays" })
 public class MainAdapter extends BaseAdapter {
 
@@ -123,8 +118,8 @@ public class MainAdapter extends BaseAdapter {
 
         public ViewHolder(View v) {
             /* 组件初始化 */
-            this.tv = (TextView) v.findViewById(R.id.select_imagebtn_ring_tv);
-            this.iv = (ImageView) v.findViewById(R.id.select_imagebtn_btn);
+            this.tv = v.findViewById(R.id.select_imagebtn_ring_tv);
+            this.iv = v.findViewById(R.id.select_imagebtn_btn);
         }
 
     }

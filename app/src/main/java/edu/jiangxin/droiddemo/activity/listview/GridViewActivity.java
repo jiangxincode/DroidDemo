@@ -52,7 +52,7 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(GridViewActivity.this, "您点击了" + list.get(position).getTitleName().toString(),
+                Toast.makeText(GridViewActivity.this, "您点击了" + list.get(position).getTitleName(),
                         Toast.LENGTH_SHORT).show();
             }
         });

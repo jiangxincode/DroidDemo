@@ -49,9 +49,9 @@ public class MusicListViewAdapter extends BaseAdapter{
 		// TODO Auto-generated method stub
 		convertView = inflater.inflate(R.layout.musiclistviewitem, null);
 		
-		ImageView iv = (ImageView)convertView.findViewById(R.id.album_cover);
-		TextView title = (TextView)convertView.findViewById(R.id.music_title);
-		TextView artist = (TextView)convertView.findViewById(R.id.music_artist);
+		ImageView iv = convertView.findViewById(R.id.album_cover);
+		TextView title = convertView.findViewById(R.id.music_title);
+		TextView artist = convertView.findViewById(R.id.music_artist);
 		iv.setImageDrawable(musicinfo.get(position).getAlbum_cover());
 		title.setText(musicinfo.get(position).getName());
 		artist.setText(musicinfo.get(position).getArtist());

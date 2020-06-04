@@ -33,9 +33,9 @@ public class FloatingView extends LinearLayout {
 
     private void initView() {
         inflate(mContext, R.layout.layout_floating, this);
-        mTvPackageName = (TextView) findViewById(R.id.tv_package_name);
-        mTvClassName = (TextView) findViewById(R.id.tv_class_name);
-        mIvClose = (ImageView) findViewById(R.id.iv_close);
+        mTvPackageName = findViewById(R.id.tv_package_name);
+        mTvClassName = findViewById(R.id.tv_class_name);
+        mIvClose = findViewById(R.id.iv_close);
 
         mIvClose.setOnClickListener(new OnClickListener() {
             @Override

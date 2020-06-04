@@ -196,7 +196,7 @@ public class NotificationsFragment extends Fragment {
         });
 
         mBtnAnimationEntrance = root.findViewById(R.id.btnAnimationEntrance);
-        mBtnAnimationEntrance.setOnClickListener((View.OnClickListener) v -> {
+        mBtnAnimationEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousAnimationActivity.class);
             startActivity(intent);

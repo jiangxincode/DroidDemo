@@ -30,7 +30,7 @@ public class MyPhoto extends Activity{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.myphoto);
-		mGridView = (GridView)findViewById(R.id.gvphoto);
+		mGridView = findViewById(R.id.gvphoto);
 		photolist = new ArrayList<PhotoInfo>();
 		Context ctx = MyPhoto.this;
 		ContentResolver resolver = ctx.getContentResolver();

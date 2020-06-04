@@ -63,14 +63,14 @@ public class LoaderDemoActivity extends Activity {
     }
 
     private void initWidgets() {
-        mListView = (ListView) findViewById(R.id.lv_list);
-        Button btn = (Button) findViewById(R.id.btn_all);
+        mListView = findViewById(R.id.lv_list);
+        Button btn = findViewById(R.id.btn_all);
         btn.setOnClickListener(new buttonListener());
-        btn = (Button) findViewById(R.id.btn_incoming);
+        btn = findViewById(R.id.btn_incoming);
         btn.setOnClickListener(new buttonListener());
-        btn = (Button) findViewById(R.id.btn_outcoming);
+        btn = findViewById(R.id.btn_outcoming);
         btn.setOnClickListener(new buttonListener());
-        btn = (Button) findViewById(R.id.btn_missed);
+        btn = findViewById(R.id.btn_missed);
         btn.setOnClickListener(new buttonListener());
         mAdapter = new MyCursorAdapter(LoaderDemoActivity.this, null);
         mListView.setAdapter(mAdapter);
@@ -223,17 +223,17 @@ class MyCursorAdapter extends CursorAdapter {
         String name = cursor.getString(2);
         int type = cursor.getInt(3);
         String date = cursor.getString(4);
-        ImageView TypeView = (ImageView) view.findViewById(R.id.bt_icon);
-        TextView nameCtrl = (TextView) view.findViewById(R.id.tv_name);
+        ImageView TypeView = view.findViewById(R.id.bt_icon);
+        TextView nameCtrl = view.findViewById(R.id.tv_name);
         if (name == null) {
             nameCtrl.setText(mContext.getString(R.string.name_unknown));
         } else {
             nameCtrl.setText(name);
         }
-        TextView numberCtrl = (TextView) view.findViewById(R.id.tv_number);
+        TextView numberCtrl = view.findViewById(R.id.tv_number);
         numberCtrl.setText(number);
         String value = computeDate(date);
-        TextView dateCtrl = (TextView) view.findViewById(R.id.tv_date);
+        TextView dateCtrl = view.findViewById(R.id.tv_date);
         dateCtrl.setText(value);
         switch (type) {
             case CallLog.Calls.INCOMING_TYPE:
@@ -252,7 +252,7 @@ class MyCursorAdapter extends CursorAdapter {
                 break;
         }
 
-        ImageButton dailBtn = (ImageButton) view.findViewById(R.id.btn_call);
+        ImageButton dailBtn = view.findViewById(R.id.btn_call);
         dailBtn.setTag(number);
         dailBtn.setOnClickListener(new OnClickListener() {
 
@@ -266,7 +266,7 @@ class MyCursorAdapter extends CursorAdapter {
             }
         });
 
-        ImageButton deleteBtn = (ImageButton) view
+        ImageButton deleteBtn = view
                 .findViewById(R.id.btn_delete);
         deleteBtn.setOnClickListener(new OnClickListener() {
 

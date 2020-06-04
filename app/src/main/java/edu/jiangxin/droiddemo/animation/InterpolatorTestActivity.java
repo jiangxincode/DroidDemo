@@ -61,18 +61,18 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
         target = findViewById(R.id.target);
         targetParent = (View) target.getParent();
 
-        distance_y = (TextView) findViewById(R.id.distance_y);
-        total_y = (TextView) findViewById(R.id.total_y);
-        distance_y_percent = (TextView) findViewById(R.id.distance_y_percent);
-        interpolator_y = (TextView) findViewById(R.id.interpolator_y);
+        distance_y = findViewById(R.id.distance_y);
+        total_y = findViewById(R.id.total_y);
+        distance_y_percent = findViewById(R.id.distance_y_percent);
+        interpolator_y = findViewById(R.id.interpolator_y);
 
-        distance_time = (TextView) findViewById(R.id.distance_time);
-        total_time = (TextView) findViewById(R.id.total_time);
-        distance_time_percent = (TextView) findViewById(R.id.distance_time_percent);
-        interpolator_t = (TextView) findViewById(R.id.interpolator_t);
-        formula = (TextView) findViewById(R.id.formula);
+        distance_time = findViewById(R.id.distance_time);
+        total_time = findViewById(R.id.total_time);
+        distance_time_percent = findViewById(R.id.distance_time_percent);
+        interpolator_t = findViewById(R.id.interpolator_t);
+        formula = findViewById(R.id.formula);
 
-        pause = (Button) findViewById(R.id.pause);
+        pause = findViewById(R.id.pause);
         pause.setOnClickListener(v -> {
             if (objectAnimator != null) {
                 if (objectAnimator.isPaused()) {
@@ -89,7 +89,7 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
 
         });
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, INTERPOLATORS);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);

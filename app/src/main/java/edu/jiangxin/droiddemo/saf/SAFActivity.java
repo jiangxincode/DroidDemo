@@ -43,13 +43,13 @@ public class SAFActivity extends Activity implements OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saf);
-        showImage = (Button) findViewById(R.id.btn_show_image);
+        showImage = findViewById(R.id.btn_show_image);
         showImage.setOnClickListener(this);
-        createFile = (Button) findViewById(R.id.btn_create_file);
+        createFile = findViewById(R.id.btn_create_file);
         createFile.setOnClickListener(this);
-        deleteFile = (Button) findViewById(R.id.btn_delete_file);
+        deleteFile = findViewById(R.id.btn_delete_file);
         deleteFile.setOnClickListener(this);
-        alterFile = (Button) findViewById(R.id.btn_alter_file);
+        alterFile = findViewById(R.id.btn_alter_file);
         alterFile.setOnClickListener(this);
     }
 

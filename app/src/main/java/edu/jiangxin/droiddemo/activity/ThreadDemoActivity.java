@@ -37,7 +37,7 @@ public class ThreadDemoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_demo);
 
-        execute = (Button) findViewById(R.id.execute);
+        execute = findViewById(R.id.execute);
         execute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +49,7 @@ public class ThreadDemoActivity extends Activity {
                 cancel.setEnabled(true);
             }
         });
-        cancel = (Button) findViewById(R.id.cancel);
+        cancel = findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,8 +57,8 @@ public class ThreadDemoActivity extends Activity {
                 mTask.cancel(true);
             }
         });
-        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
-        textView = (TextView) findViewById(R.id.text_view);
+        progressBar = findViewById(R.id.progress_bar);
+        textView = findViewById(R.id.text_view);
 
     }
 

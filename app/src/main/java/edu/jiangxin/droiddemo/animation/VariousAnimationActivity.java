@@ -2,6 +2,7 @@ package edu.jiangxin.droiddemo.animation;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -17,8 +18,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
 
     private TextView mTvAlpha, mTvScale, mTvTranslate, mTvRotate, mTvSet;
     private TextView mTvInterpolator;
-    private TextView mTvProperty;
+    private TextView mTvPropertyAnimator;
     private TextView mTvPhysicsAnimation;
+    private TextView mTvVectorDrawableAnimator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,8 +32,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvRotate = findViewById(R.id.tv_rotate);
         mTvSet = findViewById(R.id.tv_set);
         mTvInterpolator = findViewById(R.id.tv_interpolator);
-        mTvProperty = findViewById(R.id.tv_property);
+        mTvPropertyAnimator = findViewById(R.id.tv_property);
         mTvPhysicsAnimation = findViewById(R.id.tv_physics_animation);
+        mTvVectorDrawableAnimator = findViewById(R.id.tv_vector_drawable_animator);
 
         mTvAlpha.setOnClickListener(this);
         mTvScale.setOnClickListener(this);
@@ -39,8 +42,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvRotate.setOnClickListener(this);
         mTvSet.setOnClickListener(this);
         mTvInterpolator.setOnClickListener(this);
-        mTvProperty.setOnClickListener(this);
+        mTvPropertyAnimator.setOnClickListener(this);
         mTvPhysicsAnimation.setOnClickListener(this);
+        mTvVectorDrawableAnimator.setOnClickListener(this);
     }
 
     @Override
@@ -69,6 +73,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 break;
             case R.id.tv_physics_animation:
                 enterTestActivity(PhysicsAnimationActivity.class);
+                break;
+            case R.id.tv_vector_drawable_animator:
+                enterTestActivity(VectorDrawableAnimatorActivity.class);
                 break;
             default:
                 break;

@@ -156,7 +156,7 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
                 objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mTarget, propertyValuesHolder1, propertyValuesHolder2);
                 break;
             case R.id.textView3:
-                // 可以通过TypeEvaluator处理特殊类型
+                // 可以通过TypeEvaluator处理特殊类型：https://www.jianshu.com/p/6ea5e89f6f39
                 objectAnimator = ObjectAnimator.ofObject(mTarget, "rotation", new FloatEvaluator(), 0f, 360f);
                 break;
             case R.id.textView4:

@@ -53,8 +53,8 @@ public class MovieListViewAdapter extends BaseAdapter{
            if(convertView == null){  
                holder = new ViewHolder();  
                convertView = LayoutInflater.from(context).inflate(R.layout.movielistviewitem, null);
-               holder.thumbImage = (ImageView)convertView.findViewById(R.id.movie_cover);
-               holder.titleText = (TextView)convertView.findViewById(R.id.movie_title); 
+               holder.thumbImage = convertView.findViewById(R.id.movie_cover);
+               holder.titleText = convertView.findViewById(R.id.movie_title);
                convertView.setTag(holder);  
            }else{  
                holder = (ViewHolder)convertView.getTag();  

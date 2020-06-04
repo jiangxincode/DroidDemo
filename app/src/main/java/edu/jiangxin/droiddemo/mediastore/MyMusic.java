@@ -34,7 +34,7 @@ public class MyMusic extends Activity{
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.mymusic);
-		musicListView = (ListView)findViewById(R.id.musiclistview);
+		musicListView = findViewById(R.id.musiclistview);
 		musiclist = new ArrayList<MusicInfo>();
 		Context ctx = MyMusic.this;
 		ContentResolver resolver = ctx.getContentResolver();
@@ -104,7 +104,7 @@ public class MyMusic extends Activity{
 		String mUriAlbums = "content://media/external/audio/albums";  
 	    String[] projection = new String[] { "album_art" };  
 	    Cursor cur = this.getContentResolver().query(  
-	            Uri.parse(mUriAlbums + "/" + Integer.toString(album_id)),  
+	            Uri.parse(mUriAlbums + "/" + album_id),
 	            projection, null, null, null);  
 	    String album_art = null;  
 	    if (cur.getCount() > 0 && cur.getColumnCount() > 0) {  

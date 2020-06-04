@@ -26,9 +26,9 @@ public class SpinnerActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_spinner);
-        text = (TextView) findViewById(R.id.textView);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        text = findViewById(R.id.textView);
+        spinner = findViewById(R.id.spinner);
+        spinner2 = findViewById(R.id.spinner2);
         //将可选内容与ArrayAdapter连接起来，simple_spinner_item是android系统自带样式
         adapter = ArrayAdapter.createFromResource(this, R.array.songs, android.R.layout.simple_spinner_item);
         //设置下拉列表的风格,simple_spinner_dropdown_item是android系统自带的样式，等会自定义修改

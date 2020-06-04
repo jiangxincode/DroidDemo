@@ -28,7 +28,7 @@ public class SoundFragment extends Fragment {
         // 之前 为了将 layout 文件转换为 view 对象时, 调用的是
         // View.inflate(context, resource, root)
         View view = inflater.inflate(R.layout.soundfragment, null);
-        btn = (Button) view.findViewById(R.id.bbtn);
+        btn = view.findViewById(R.id.bbtn);
         btn.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -36,7 +36,7 @@ public class SoundFragment extends Fragment {
 
                 //所以, 以后 如果 需要acitvity 和fragment 之间传输 数据, 可以 使用  getActivity 来获得
                 // 当前 fragment 所在的 acitvity 的实例
-                EditText ed_text = (EditText) getActivity().findViewById(R.id.ed_text);
+                EditText ed_text = getActivity().findViewById(R.id.ed_text);
                 String value = ed_text.getText().toString().trim();
                 Toast.makeText(getActivity(), " value :" + value, Toast.LENGTH_SHORT).show();
             }

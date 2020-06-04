@@ -36,15 +36,15 @@ public class RingtoneSetting1Activity extends Activity {
         spe = sp.edit();
 
         /*初始化listView*/
-        listView = (ListView) findViewById(R.id.ring_lv);
+        listView = findViewById(R.id.ring_lv);
         mAdapter = new MainAdapter(this, sp.getInt("ring", 0));
         listView.setAdapter(mAdapter);
         listView.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
         listView.setOnItemClickListener(mOnItemClickListener);
 
         /*初始化返回按钮和保存按钮*/
-        Button backBtn = (Button) findViewById(R.id.back_btn);
-        sureBtn = (Button) findViewById(R.id.sure_btn);
+        Button backBtn = findViewById(R.id.back_btn);
+        sureBtn = findViewById(R.id.sure_btn);
         backBtn.setOnClickListener(mOnClickListener);
         sureBtn.setOnClickListener(mOnClickListener);
 

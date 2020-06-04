@@ -22,9 +22,9 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
         mContext = getApplicationContext();
-        mImage = (ImageView) findViewById(R.id.iv_test);
-        mBtn1 = (Button) findViewById(R.id.button1);
-        mBtn2 = (Button) findViewById(R.id.button2);
+        mImage = findViewById(R.id.iv_test);
+        mBtn1 = findViewById(R.id.button1);
+        mBtn2 = findViewById(R.id.button2);
 
         mBtn1.setOnClickListener(this);
         mBtn2.setOnClickListener(this);

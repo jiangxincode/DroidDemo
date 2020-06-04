@@ -29,7 +29,7 @@ public class MyMovie extends Activity{
 		setContentView(R.layout.mymovie);
 		
 		movielist = new ArrayList<MovieInfo>();
-		movieListView = (ListView)findViewById(R.id.movielistview);
+		movieListView = findViewById(R.id.movielistview);
 		Context ctx = MyMovie.this;
 		ContentResolver resolver = ctx.getContentResolver();
 		Cursor c = resolver.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, null);
