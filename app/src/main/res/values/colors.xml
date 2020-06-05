@@ -18,4 +18,15 @@
     <color name="day_titlebar">#197d96</color>
     <color name="day_text">#819a9a</color>
     <color name="night_titlebar">#2A2A2A</color>
+
+    <color name="primary">#2196F3</color>
+    <color name="primary_dark">#1976D2</color>
+    <color name="primary_light">#BBDEFB</color>
+    <color name="accent">#00BCD4</color>
+    <color name="primary_text">#212121</color>
+    <color name="icons">#FFFFFF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="super_light_grey">#FAFAFA</color>
+    <color name="line_grey">#D7D7D7</color>
+    <color name="black_87pc">#DD000000</color>
 </resources>

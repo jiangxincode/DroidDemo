@@ -11,7 +11,7 @@ import android.view.animation.ScaleAnimation;
 
 import edu.jiangxin.droiddemo.R;
 
-public class SetTestActivity extends BaseActivity {
+public class AnimationSetActivity extends BaseActivity {
 
     @Override
     protected void starXmlAnimation() {

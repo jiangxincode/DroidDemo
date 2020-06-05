@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".animation.VectorDrawableAnimatorActivity"></activity>
+        <activity android:name=".animation.FrameAnimationActivity"></activity>
+        <activity android:name=".animation.VectorDrawableAnimatorActivity" />
         <activity android:name=".animation.PhysicsAnimationActivity" />
         <activity android:name=".service.commonservice.CommonServiceActivity" />
         <activity
@@ -51,13 +52,18 @@
         <activity android:name=".activity.BlurActivity" />
         <activity android:name=".activity.RippleActivity" />
         <activity android:name=".animation.VariousAnimationActivity" />
-        <activity android:name=".animation.view.AlphaTestActivity" />
-        <activity android:name=".animation.view.ScaleTestActivity" />
-        <activity android:name=".animation.view.TranslateTestActivity" />
-        <activity android:name=".animation.view.RotateTestActivity" />
-        <activity android:name=".animation.view.SetTestActivity" />
+        <activity android:name=".animation.view.AlphaAnimationActivity" />
+        <activity android:name=".animation.view.ScaleAnimationActivity" />
+        <activity android:name=".animation.view.TranslateAnimationActivity" />
+        <activity android:name=".animation.view.RotateAnimationActivity" />
+        <activity android:name=".animation.view.AnimationSetActivity" />
         <activity android:name=".animation.InterpolatorTestActivity" />
         <activity android:name=".animation.PropertyAnimatorActivity" />
+        <activity android:name=".animation.activity.TransitionSecondActivity"/>
+        <activity android:name=".animation.activity.TransitionFirstActivity" />
+        <activity android:name=".animation.layout.LayoutAnimationActivity" />
+        <activity android:name=".animation.layout.GridLayoutAnimationActivity" />
+        <activity android:name=".animation.layout.LayoutChangesActivity" />
         <activity android:name=".activity.DecorViewActivity" />
         <activity android:name=".activity.ForbidScreenShotActivity" />
         <activity

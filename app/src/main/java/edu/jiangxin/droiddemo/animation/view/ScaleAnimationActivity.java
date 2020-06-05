@@ -9,7 +9,7 @@ import android.view.animation.ScaleAnimation;
 
 import edu.jiangxin.droiddemo.R;
 
-public class ScaleTestActivity extends BaseActivity {
+public class ScaleAnimationActivity extends BaseActivity {
 
     /**
      *  使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件

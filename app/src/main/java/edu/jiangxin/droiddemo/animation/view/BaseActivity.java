@@ -20,7 +20,7 @@ public abstract class BaseActivity extends Activity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_animation);
         mContext = getApplicationContext();
         mImage = findViewById(R.id.iv_test);
         mBtn1 = findViewById(R.id.button1);

@@ -61,6 +61,9 @@ dependencies {
     implementation 'com.github.promeg:tinypinyin:2.0.3'
     implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
 
+    implementation 'com.zhy:base-rvadapter:3.0.3'
+    implementation 'com.zhy:base-adapter:3.0.3'
+
     testImplementation 'junit:junit:4.12'
 
     androidTestImplementation 'androidx.test:runner:1.1.0'

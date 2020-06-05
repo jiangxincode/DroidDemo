@@ -11,7 +11,6 @@ import edu.jiangxin.droiddemo.R;
 
 public class VectorDrawableAnimatorActivity extends Activity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +18,6 @@ public class VectorDrawableAnimatorActivity extends Activity {
     }
 
     public void doClick(View view) {
-
         Drawable[] drawables = ((TextView) view).getCompoundDrawables();
         ((Animatable) drawables[1]).start();
     }

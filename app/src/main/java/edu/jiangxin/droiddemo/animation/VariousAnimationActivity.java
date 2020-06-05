@@ -2,73 +2,89 @@ package edu.jiangxin.droiddemo.animation;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.drawable.VectorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
-import edu.jiangxin.droiddemo.animation.view.AlphaTestActivity;
-import edu.jiangxin.droiddemo.animation.view.RotateTestActivity;
-import edu.jiangxin.droiddemo.animation.view.ScaleTestActivity;
-import edu.jiangxin.droiddemo.animation.view.SetTestActivity;
-import edu.jiangxin.droiddemo.animation.view.TranslateTestActivity;
+import edu.jiangxin.droiddemo.animation.activity.TransitionFirstActivity;
+import edu.jiangxin.droiddemo.animation.layout.GridLayoutAnimationActivity;
+import edu.jiangxin.droiddemo.animation.layout.LayoutAnimationActivity;
+import edu.jiangxin.droiddemo.animation.layout.LayoutChangesActivity;
+import edu.jiangxin.droiddemo.animation.view.AlphaAnimationActivity;
+import edu.jiangxin.droiddemo.animation.view.RotateAnimationActivity;
+import edu.jiangxin.droiddemo.animation.view.ScaleAnimationActivity;
+import edu.jiangxin.droiddemo.animation.view.AnimationSetActivity;
+import edu.jiangxin.droiddemo.animation.view.TranslateAnimationActivity;
 
 public class VariousAnimationActivity extends Activity implements View.OnClickListener {
 
-    private TextView mTvAlpha, mTvScale, mTvTranslate, mTvRotate, mTvSet;
+    private TextView mTvAlphaAnimation, mTvScaleAnimation, mTvTranslateAnimation, mTvRotateAnimation, mTvAnimationSet;
     private TextView mTvInterpolator;
     private TextView mTvPropertyAnimator;
     private TextView mTvPhysicsAnimation;
     private TextView mTvVectorDrawableAnimator;
+    private TextView mTvFrameAnimation;
+    private TextView mTvActivityTransition;
+    private TextView mTvLayoutChanges, mTvLayoutAnimation, mTvGridLayoutAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_various_animation);
-        mTvAlpha = findViewById(R.id.tv_alpha);
-        mTvScale = findViewById(R.id.tv_scale);
-        mTvTranslate = findViewById(R.id.tv_translate);
-        mTvRotate = findViewById(R.id.tv_rotate);
-        mTvSet = findViewById(R.id.tv_set);
+        mTvAlphaAnimation = findViewById(R.id.tv_alpha_animation);
+        mTvScaleAnimation = findViewById(R.id.tv_scale_animation);
+        mTvTranslateAnimation = findViewById(R.id.tv_translate_animation);
+        mTvRotateAnimation = findViewById(R.id.tv_rotate_animation);
+        mTvAnimationSet = findViewById(R.id.tv_animation_set);
         mTvInterpolator = findViewById(R.id.tv_interpolator);
-        mTvPropertyAnimator = findViewById(R.id.tv_property);
+        mTvPropertyAnimator = findViewById(R.id.tv_property_animator);
         mTvPhysicsAnimation = findViewById(R.id.tv_physics_animation);
         mTvVectorDrawableAnimator = findViewById(R.id.tv_vector_drawable_animator);
+        mTvFrameAnimation = findViewById(R.id.tv_frame_animation);
+        mTvActivityTransition = findViewById(R.id.tv_activity_transition);
+        mTvLayoutChanges = findViewById(R.id.tv_layout_changes);
+        mTvLayoutAnimation = findViewById(R.id.tv_layout_animation);
+        mTvGridLayoutAnimation = findViewById(R.id.tv_layout_transition);
 
-        mTvAlpha.setOnClickListener(this);
-        mTvScale.setOnClickListener(this);
-        mTvTranslate.setOnClickListener(this);
-        mTvRotate.setOnClickListener(this);
-        mTvSet.setOnClickListener(this);
+        mTvAlphaAnimation.setOnClickListener(this);
+        mTvScaleAnimation.setOnClickListener(this);
+        mTvTranslateAnimation.setOnClickListener(this);
+        mTvRotateAnimation.setOnClickListener(this);
+        mTvAnimationSet.setOnClickListener(this);
         mTvInterpolator.setOnClickListener(this);
         mTvPropertyAnimator.setOnClickListener(this);
         mTvPhysicsAnimation.setOnClickListener(this);
         mTvVectorDrawableAnimator.setOnClickListener(this);
+        mTvFrameAnimation.setOnClickListener(this);
+        mTvActivityTransition.setOnClickListener(this);
+        mTvLayoutChanges.setOnClickListener(this);
+        mTvLayoutAnimation.setOnClickListener(this);
+        mTvGridLayoutAnimation.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tv_alpha:
-                enterTestActivity(AlphaTestActivity.class);
+            case R.id.tv_alpha_animation:
+                enterTestActivity(AlphaAnimationActivity.class);
                 break;
-            case R.id.tv_scale:
-                enterTestActivity(ScaleTestActivity.class);
+            case R.id.tv_scale_animation:
+                enterTestActivity(ScaleAnimationActivity.class);
                 break;
-            case R.id.tv_translate:
-                enterTestActivity(TranslateTestActivity.class);
+            case R.id.tv_translate_animation:
+                enterTestActivity(TranslateAnimationActivity.class);
                 break;
-            case R.id.tv_rotate:
-                enterTestActivity(RotateTestActivity.class);
+            case R.id.tv_rotate_animation:
+                enterTestActivity(RotateAnimationActivity.class);
                 break;
-            case R.id.tv_set:
-                enterTestActivity(SetTestActivity.class);
+            case R.id.tv_animation_set:
+                enterTestActivity(AnimationSetActivity.class);
                 break;
             case R.id.tv_interpolator:
                 enterTestActivity(InterpolatorTestActivity.class);
                 break;
-            case R.id.tv_property:
+            case R.id.tv_property_animator:
                 enterTestActivity(PropertyAnimatorActivity.class);
                 break;
             case R.id.tv_physics_animation:
@@ -76,6 +92,21 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 break;
             case R.id.tv_vector_drawable_animator:
                 enterTestActivity(VectorDrawableAnimatorActivity.class);
+                break;
+            case R.id.tv_frame_animation:
+                enterTestActivity(FrameAnimationActivity.class);
+                break;
+            case R.id.tv_activity_transition:
+                enterTestActivity(TransitionFirstActivity.class);
+                break;
+            case R.id.tv_layout_changes:
+                enterTestActivity(LayoutChangesActivity.class);
+                break;
+            case R.id.tv_layout_animation:
+                enterTestActivity(LayoutAnimationActivity.class);
+                break;
+            case R.id.tv_layout_transition:
+                enterTestActivity(GridLayoutAnimationActivity.class);
                 break;
             default:
                 break;
