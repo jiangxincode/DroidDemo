@@ -93,7 +93,7 @@ public class PhysicsAnimationActivity extends Activity {
     SpringAnimation createSpringAnimation(View view,
                                           DynamicAnimation.ViewProperty property,
                                           Float finalPosition,
-                                          @FloatRange(from = 0.0) Float stiffness,
+                                          @FloatRange(from = 0.0, fromInclusive = false) Float stiffness,
                                           @FloatRange(from = 0.0) Float dampingRatio) {
         //创建弹性动画类SpringAnimation
         SpringAnimation animation = new SpringAnimation(view, property);

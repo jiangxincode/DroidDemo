@@ -6,4 +6,4 @@
     android:searchSuggestSelection=" ? "
     android:searchSettingsDescription="testtest"
     android:searchSuggestAuthority="edu.jiangxin.droiddemo.SEARCH_AUTHORITY"
-    android:searchSuggestIntentAction="edu.jiangxin.droiddemo.action.Search"></searchable>
+    android:searchSuggestIntentAction="edu.jiangxin.droiddemo.action.Search" />

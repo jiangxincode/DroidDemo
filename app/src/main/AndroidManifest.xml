@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".animation.FrameAnimationActivity"></activity>
+        <activity android:name=".animation.FrameAnimationActivity" />
         <activity android:name=".animation.VectorDrawableAnimatorActivity" />
         <activity android:name=".animation.PhysicsAnimationActivity" />
         <activity android:name=".service.commonservice.CommonServiceActivity" />

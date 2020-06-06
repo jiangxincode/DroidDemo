@@ -3,10 +3,10 @@ android:orientation="horizontal"
 android:layout_width = "fill_parent"
 android:layout_height = "fill_parent"
 >
+
    <ListView
        android:id="@+id/movielistview"
-       android:layout_width="fill_parent" 
-       android:layout_height="wrap_content"
-       ></ListView>
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content" />
 
 </LinearLayout>

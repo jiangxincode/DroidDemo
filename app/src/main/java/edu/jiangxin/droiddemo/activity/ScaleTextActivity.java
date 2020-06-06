@@ -27,7 +27,7 @@ public class ScaleTextActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scale_text);
 
-        tv_scale = findViewById(R.id.tv_scale_animation);
+        tv_scale = findViewById(R.id.tv_scale);
         sb_width = findViewById(R.id.sb_width);
         sb_height = findViewById(R.id.sb_height);
 
