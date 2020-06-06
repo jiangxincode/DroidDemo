@@ -97,6 +97,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 enterTestActivity(FrameAnimationActivity.class);
                 break;
             case R.id.tv_activity_transition:
+                // see also https://github.com/lgvalle/Material-Animations
                 enterTestActivity(TransitionFirstActivity.class);
                 break;
             case R.id.tv_layout_changes:
