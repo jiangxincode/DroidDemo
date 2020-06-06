@@ -9,12 +9,12 @@ import android.widget.TextView;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.animation.activity.TransitionFirstActivity;
 import edu.jiangxin.droiddemo.animation.layout.GridLayoutAnimationActivity;
-import edu.jiangxin.droiddemo.animation.layout.LayoutAnimationActivity;
-import edu.jiangxin.droiddemo.animation.layout.LayoutChangesActivity;
+import edu.jiangxin.droiddemo.animation.layout.LayoutAnimationAndLayoutTransitionActivity;
+import edu.jiangxin.droiddemo.animation.layout.LayoutTransitionByXmlActivity;
 import edu.jiangxin.droiddemo.animation.view.AlphaAnimationActivity;
+import edu.jiangxin.droiddemo.animation.view.AnimationSetActivity;
 import edu.jiangxin.droiddemo.animation.view.RotateAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.ScaleAnimationActivity;
-import edu.jiangxin.droiddemo.animation.view.AnimationSetActivity;
 import edu.jiangxin.droiddemo.animation.view.TranslateAnimationActivity;
 
 public class VariousAnimationActivity extends Activity implements View.OnClickListener {
@@ -100,10 +100,10 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 enterTestActivity(TransitionFirstActivity.class);
                 break;
             case R.id.tv_layout_changes:
-                enterTestActivity(LayoutChangesActivity.class);
+                enterTestActivity(LayoutTransitionByXmlActivity.class);
                 break;
             case R.id.tv_layout_animation:
-                enterTestActivity(LayoutAnimationActivity.class);
+                enterTestActivity(LayoutAnimationAndLayoutTransitionActivity.class);
                 break;
             case R.id.tv_layout_transition:
                 enterTestActivity(GridLayoutAnimationActivity.class);

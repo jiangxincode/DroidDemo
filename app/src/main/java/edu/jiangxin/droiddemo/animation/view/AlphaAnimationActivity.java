@@ -14,7 +14,7 @@ import edu.jiangxin.droiddemo.R;
 public class AlphaAnimationActivity extends BaseActivity {
 
     /**
-     *  使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件
+     * 使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件
      */
     @Override
     protected void starXmlAnimation() {

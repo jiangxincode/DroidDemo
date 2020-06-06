@@ -8,6 +8,7 @@
 app/debug
 app/release
 *.jks
+.cxx
 
 # IntelliJ
 *.iml

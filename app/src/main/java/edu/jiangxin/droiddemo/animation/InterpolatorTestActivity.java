@@ -31,11 +31,8 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
             "Linear", "Bounce", "CycleInterpolator", "HesitateInterpolator//自定义",
             "FastOutLinearInInterpolator", "LinearOutSlowInInterpolator", "FastOutSlowInInterpolator",
             "阻尼曲线", "急缓曲线", "锐利曲线", "节奏曲线", "平滑曲线"};
-
-    private Interpolator mInterpolator = new AccelerateInterpolator();
-
     private static final int mTotalTime = 3000;
-
+    private Interpolator mInterpolator = new AccelerateInterpolator();
     private ObjectAnimator objectAnimator;
 
     private View target;

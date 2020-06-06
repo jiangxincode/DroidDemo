@@ -43,7 +43,15 @@ import edu.jiangxin.droiddemo.activity.MainActivity;
  * <p>In this sample, the user can add rows to and remove rows from a vertical
  * {@link android.widget.LinearLayout}.</p>
  */
-public class LayoutChangesActivity extends AppCompatActivity {
+public class LayoutTransitionByXmlActivity extends AppCompatActivity {
+    /**
+     * A static list of country names.
+     */
+    private static final String[] COUNTRIES = new String[]{
+            "Belgium", "France", "Italy", "Germany", "Spain",
+            "Austria", "Russia", "Poland", "Croatia", "Greece",
+            "Ukraine",
+    };
     /**
      * The container view which has layout change animations turned on. In this sample, this view
      * is a {@link android.widget.LinearLayout}.
@@ -55,7 +63,7 @@ public class LayoutChangesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_layout_changes);
 
-        mContainerView = (ViewGroup) findViewById(R.id.container);
+        mContainerView = findViewById(R.id.container);
     }
 
     @Override
@@ -114,16 +122,6 @@ public class LayoutChangesActivity extends AppCompatActivity {
         mContainerView.addView(newView, 0);
     }
 
-    /**
-     * A static list of country names.
-     */
-    private static final String[] COUNTRIES = new String[]{
-            "Belgium", "France", "Italy", "Germany", "Spain",
-            "Austria", "Russia", "Poland", "Croatia", "Greece",
-            "Ukraine",
-    };
-
-
     @Override
     public void setContentView(@LayoutRes int layoutResID) {
         super.setContentView(layoutResID);
@@ -145,7 +143,9 @@ public class LayoutChangesActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) actionBar.setDisplayHomeAsUpEnabled(true);
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override

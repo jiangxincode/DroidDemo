@@ -4,7 +4,8 @@ import android.view.animation.Interpolator;
 
 public class HesitateInterpolator implements Interpolator {
 
-    public HesitateInterpolator() {}
+    public HesitateInterpolator() {
+    }
 
     /**
      * 横坐标为传入的值，表示当前的时间，纵坐标为返回的值，表示动画的进度。

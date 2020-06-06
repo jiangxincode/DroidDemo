@@ -171,7 +171,6 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
     }
 
 
-
     private void initAnimatorListener(Animator animator) {
         animator.addListener(new Animator.AnimatorListener() {
             @Override
@@ -206,7 +205,7 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
         });
 
         if (animator instanceof ValueAnimator) {
-            ValueAnimator valueAnimator = (ValueAnimator)animator;
+            ValueAnimator valueAnimator = (ValueAnimator) animator;
             valueAnimator.addUpdateListener(animation -> {
             });
         }

@@ -9,7 +9,6 @@ import edu.jiangxin.droiddemo.R;
 
 /**
  * 旋转动画
- *
  */
 public class RotateAnimationActivity extends BaseActivity {
 
@@ -29,7 +28,7 @@ public class RotateAnimationActivity extends BaseActivity {
     @Override
     protected void starCodeAnimation() {
         mImage.clearAnimation();
-        RotateAnimation rotateAnimation = new RotateAnimation(0,180);
+        RotateAnimation rotateAnimation = new RotateAnimation(0, 180);
         rotateAnimation.setDuration(3000);
         mImage.startAnimation(rotateAnimation);
     }

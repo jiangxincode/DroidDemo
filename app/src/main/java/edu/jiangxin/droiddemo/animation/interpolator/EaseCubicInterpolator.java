@@ -9,12 +9,9 @@ import android.view.animation.Interpolator;
 
 public class EaseCubicInterpolator implements Interpolator {
     private final static int ACCURACY = 4096;
-
-    private int mLastI = 0;
-
     private final PointF mControlPoint1 = new PointF();
-
     private final PointF mControlPoint2 = new PointF();
+    private int mLastI = 0;
 
     /**
      * 设置中间两个控制点.
@@ -24,26 +21,6 @@ public class EaseCubicInterpolator implements Interpolator {
         mControlPoint1.y = y1;
         mControlPoint2.x = x2;
         mControlPoint2.y = y2;
-    }
-
-    @Override
-    public float getInterpolation(float input) {
-        float t = input;
-        // 近似求解t的值[0,1]
-        for (int i = mLastI; i < ACCURACY; i++) {
-            t = 1.0f * i / ACCURACY;
-            double x = cubicCurves(t, 0, mControlPoint1.x, mControlPoint2.x, 1);
-            if (x >= input) {
-                mLastI = i;
-                break;
-            }
-        }
-        double value = cubicCurves(t, 0, mControlPoint1.y, mControlPoint2.y, 1);
-        if (value > 0.999d) {
-            value = 1;
-            mLastI = 0;
-        }
-        return (float) value;
     }
 
     /**
@@ -65,5 +42,25 @@ public class EaseCubicInterpolator implements Interpolator {
         value += 3 * u * tt * value2;
         value += ttt * value3;
         return value;
+    }
+
+    @Override
+    public float getInterpolation(float input) {
+        float t = input;
+        // 近似求解t的值[0,1]
+        for (int i = mLastI; i < ACCURACY; i++) {
+            t = 1.0f * i / ACCURACY;
+            double x = cubicCurves(t, 0, mControlPoint1.x, mControlPoint2.x, 1);
+            if (x >= input) {
+                mLastI = i;
+                break;
+            }
+        }
+        double value = cubicCurves(t, 0, mControlPoint1.y, mControlPoint2.y, 1);
+        if (value > 0.999d) {
+            value = 1;
+            mLastI = 0;
+        }
+        return (float) value;
     }
 }

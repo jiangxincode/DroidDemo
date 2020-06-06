@@ -25,7 +25,7 @@ public class TranslateAnimationActivity extends BaseActivity {
     @Override
     protected void starCodeAnimation() {
         mImage.clearAnimation();
-        TranslateAnimation translateAnimation = new TranslateAnimation(0,180,0,180,Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+        TranslateAnimation translateAnimation = new TranslateAnimation(0, 180, 0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
 //        TranslateAnimation translateAnimation = new TranslateAnimation(Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.5f,Animation.RELATIVE_TO_PARENT,0,Animation.RELATIVE_TO_PARENT,0.5f);
         translateAnimation.setDuration(3000);
         translateAnimation.setFillAfter(true);

@@ -15,7 +15,8 @@ public class TransitionSecondActivity extends Activity {
     ImageView mTargetImageView;
     ImageView mTargetChromeImageView;
 
-    @Override protected void onCreate(@Nullable Bundle savedInstanceState) {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityoptions_layout_target);
         mTargetTextView = findViewById(R.id.target_textView);

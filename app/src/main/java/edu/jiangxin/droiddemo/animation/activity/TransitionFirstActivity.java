@@ -53,9 +53,9 @@ public class TransitionFirstActivity extends Activity {
     }
 
     private void sceneTransitionAnimation() {
-        Pair<View, String> imagePair = Pair.create((View) mOriginalImageView, getString(R.string.transitionImageName));
-        Pair<View, String> chromePair = Pair.create((View) mChromeImageView, getString(R.string.transitionChromeName));
-        Pair<View, String> textPair = Pair.create((View) mOriginalTextView, getString(R.string.transitionTextName));
+        Pair<View, String> imagePair = Pair.create(mOriginalImageView, getString(R.string.transitionImageName));
+        Pair<View, String> chromePair = Pair.create(mChromeImageView, getString(R.string.transitionChromeName));
+        Pair<View, String> textPair = Pair.create(mOriginalTextView, getString(R.string.transitionTextName));
 
         ActivityOptionsCompat compat = ActivityOptionsCompat
                 .makeSceneTransitionAnimation(this, imagePair, textPair, chromePair);

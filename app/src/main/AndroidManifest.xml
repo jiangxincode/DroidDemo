@@ -61,9 +61,9 @@
         <activity android:name=".animation.PropertyAnimatorActivity" />
         <activity android:name=".animation.activity.TransitionSecondActivity"/>
         <activity android:name=".animation.activity.TransitionFirstActivity" />
-        <activity android:name=".animation.layout.LayoutAnimationActivity" />
+        <activity android:name=".animation.layout.LayoutAnimationAndLayoutTransitionActivity" />
         <activity android:name=".animation.layout.GridLayoutAnimationActivity" />
-        <activity android:name=".animation.layout.LayoutChangesActivity" />
+        <activity android:name=".animation.layout.LayoutTransitionByXmlActivity" />
         <activity android:name=".activity.DecorViewActivity" />
         <activity android:name=".activity.ForbidScreenShotActivity" />
         <activity
