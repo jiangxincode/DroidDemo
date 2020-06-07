@@ -13,13 +13,14 @@ import edu.jiangxin.droiddemo.animation.layout.LayoutAnimationAndLayoutTransitio
 import edu.jiangxin.droiddemo.animation.layout.LayoutTransitionByXmlActivity;
 import edu.jiangxin.droiddemo.animation.view.AlphaAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.AnimationSetActivity;
+import edu.jiangxin.droiddemo.animation.view.CustomAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.RotateAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.ScaleAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.TranslateAnimationActivity;
 
 public class VariousAnimationActivity extends Activity implements View.OnClickListener {
 
-    private TextView mTvAlphaAnimation, mTvScaleAnimation, mTvTranslateAnimation, mTvRotateAnimation, mTvAnimationSet;
+    private TextView mTvAlphaAnimation, mTvScaleAnimation, mTvTranslateAnimation, mTvRotateAnimation, mTvCustomAnimation, mTvAnimationSet;
     private TextView mTvInterpolator;
     private TextView mTvPropertyAnimator;
     private TextView mTvPhysicsAnimation;
@@ -36,6 +37,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvScaleAnimation = findViewById(R.id.tv_scale_animation);
         mTvTranslateAnimation = findViewById(R.id.tv_translate_animation);
         mTvRotateAnimation = findViewById(R.id.tv_rotate_animation);
+        mTvCustomAnimation = findViewById(R.id.tv_custom_animation);
         mTvAnimationSet = findViewById(R.id.tv_animation_set);
         mTvInterpolator = findViewById(R.id.tv_interpolator);
         mTvPropertyAnimator = findViewById(R.id.tv_property_animator);
@@ -51,6 +53,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvScaleAnimation.setOnClickListener(this);
         mTvTranslateAnimation.setOnClickListener(this);
         mTvRotateAnimation.setOnClickListener(this);
+        mTvCustomAnimation.setOnClickListener(this);
         mTvAnimationSet.setOnClickListener(this);
         mTvInterpolator.setOnClickListener(this);
         mTvPropertyAnimator.setOnClickListener(this);
@@ -78,6 +81,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
             case R.id.tv_rotate_animation:
                 enterTestActivity(RotateAnimationActivity.class);
                 break;
+            case R.id.tv_custom_animation:
+                enterTestActivity(CustomAnimationActivity.class);
+                break;
             case R.id.tv_animation_set:
                 enterTestActivity(AnimationSetActivity.class);
                 break;
@@ -97,7 +103,6 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 enterTestActivity(FrameAnimationActivity.class);
                 break;
             case R.id.tv_activity_transition:
-                // see also https://github.com/lgvalle/Material-Animations
                 enterTestActivity(TransitionFirstActivity.class);
                 break;
             case R.id.tv_layout_changes:

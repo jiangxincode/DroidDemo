@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".animation.view.CustomAnimationActivity"></activity>
         <activity android:name=".animation.FrameAnimationActivity" />
         <activity android:name=".animation.VectorDrawableAnimatorActivity" />
         <activity android:name=".animation.PhysicsAnimationActivity" />
@@ -59,7 +60,7 @@
         <activity android:name=".animation.view.AnimationSetActivity" />
         <activity android:name=".animation.InterpolatorTestActivity" />
         <activity android:name=".animation.PropertyAnimatorActivity" />
-        <activity android:name=".animation.activity.TransitionSecondActivity"/>
+        <activity android:name=".animation.activity.TransitionSecondActivity" />
         <activity android:name=".animation.activity.TransitionFirstActivity" />
         <activity android:name=".animation.layout.LayoutAnimationAndLayoutTransitionActivity" />
         <activity android:name=".animation.layout.GridLayoutAnimationActivity" />
