@@ -9,6 +9,7 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.graphics.Path;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -160,9 +161,10 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
                 objectAnimator = ObjectAnimator.ofObject(mTarget, "rotation", new FloatEvaluator(), 0f, 360f);
                 break;
             case R.id.textView4:
-                PropertyValuesHolder propertyValuesHolder3 = PropertyValuesHolder.ofObject("translationX", new FloatEvaluator(), 0f, 200f, 0f);
-                PropertyValuesHolder propertyValuesHolder4 = PropertyValuesHolder.ofObject("translationY", new FloatEvaluator(), 0f, 200f, 0f);
-                objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mTarget, propertyValuesHolder3, propertyValuesHolder4);
+                Path path = new Path();
+                path.rLineTo(200, 200);
+                path.rLineTo(-200, -200);
+                objectAnimator = ObjectAnimator.ofFloat(mTarget, "translationX", "translationY", path);
                 break;
 
         }
