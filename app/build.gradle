@@ -54,6 +54,8 @@ dependencies {
     implementation 'androidx.vectordrawable:vectordrawable:1.0.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha01'
 
+    implementation 'org.rajawali3d:rajawali:1.0.325@aar'
+
     implementation 'org.apache.httpcomponents:httpclient:4.5.6'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'de.greenrobot:eventbus:2.4.0'

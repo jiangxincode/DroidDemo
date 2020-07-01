@@ -32,6 +32,7 @@ import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
+import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
 import edu.jiangxin.droiddemo.service.aidl.AIDLActivity;
 import edu.jiangxin.droiddemo.service.commonservice.CommonServiceActivity;
 import edu.jiangxin.droiddemo.service.intentservice.IntentServiceActivity;
@@ -72,7 +73,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
     private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn10, mBtn11, mBtn12, mBtn13, mBtn14, mBtnListViewEntrance, mBtnDialogEntrance,
-            mBtnRippleEntrance, mBtnAnimationEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
+            mBtnRippleEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
@@ -199,6 +200,13 @@ public class NotificationsFragment extends Fragment {
         mBtnAnimationEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousAnimationActivity.class);
+            startActivity(intent);
+        });
+
+        mBtnGraphicsEntrance = root.findViewById(R.id.btnGraphicsEntrance);
+        mBtnGraphicsEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), VariousGraphicsActivity.class);
             startActivity(intent);
         });
 

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context="edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity">
+
+    <TextView
+        android:id="@+id/tv_rajawali"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rajawali Demo"
+        android:background="@android:color/holo_blue_bright"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:id="@+id/tv_opengl"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OpenGL ES Demo"
+        android:background="@android:color/holo_blue_dark"
+        android:textSize="28sp"/>
+
+</LinearLayout>

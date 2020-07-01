@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".animation.view.CustomAnimationActivity"></activity>
+        <activity android:name=".graphics.rajawali.RajawaliDemoActivity" />
+        <activity android:name=".graphics.opengles.OpenGLDemoActivity" />
+        <activity android:name=".graphics.VariousGraphicsActivity" />
+        <activity android:name=".animation.view.CustomAnimationActivity" />
         <activity android:name=".animation.FrameAnimationActivity" />
         <activity android:name=".animation.VectorDrawableAnimatorActivity" />
         <activity android:name=".animation.PhysicsAnimationActivity" />
@@ -178,7 +181,6 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
     </application>
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
