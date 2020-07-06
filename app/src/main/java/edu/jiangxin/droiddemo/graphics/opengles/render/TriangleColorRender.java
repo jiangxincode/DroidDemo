@@ -11,16 +11,6 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-/**
- * <pre>
- *     author : Administrator (Jacket)
- *     e-mail : 378315764@qq.com
- *     time   : 2018/03/26
- *     desc   :
- *     version: 3.2
- * </pre>
- */
-
 public class TriangleColorRender extends BaseRenderer implements GLSurfaceView.Renderer {
     private FloatBuffer vertexBuffer,colorBuffer;
     private final String vertexShaderCode =
@@ -43,7 +33,7 @@ public class TriangleColorRender extends BaseRenderer implements GLSurfaceView.R
     private int mProgram;
 
     static final int COORDS_PER_VERTEX = 3;
-    static float triangleCoords[] = {
+    static float[] triangleCoords = {
             0.5f,  0.5f, 0.0f, // top
             -0.5f, 0.5f, 0.0f, // bottom left
             0.5f, -0.5f, 0.0f  // bottom right
@@ -64,7 +54,7 @@ public class TriangleColorRender extends BaseRenderer implements GLSurfaceView.R
     private int mMatrixHandler;
 
     //设置颜色
-    float color[] = {
+    float[] color = {
             0.0f, 1.0f, 0.0f, 1.0f ,
             1.0f, 0.0f, 0.0f, 1.0f,
             0.0f, 0.0f, 1.0f, 1.0f

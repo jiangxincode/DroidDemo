@@ -12,16 +12,6 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-/**
- * <pre>
- *     author : Administrator (Jacket)
- *     e-mail : 378315764@qq.com
- *     time   : 2018/03/19
- *     desc   :
- *     version: 3.2
- * </pre>
- */
-
 public class Square extends BaseRenderer implements GLSurfaceView.Renderer {
 
     private FloatBuffer vertexBuffer;
@@ -43,14 +33,14 @@ public class Square extends BaseRenderer implements GLSurfaceView.Renderer {
     private int mProgram;
 
     static final int COORDS_PER_VERTEX = 3;
-    static float triangleCoords[] = {
+    static float[] triangleCoords = {
             -0.5f,  0.5f, 0.0f, // top left
             -0.5f, -0.5f, 0.0f, // bottom left
             0.5f, -0.5f, 0.0f, // bottom right
             0.5f,  0.5f, 0.0f  // top right
     };
 
-    static short index[]={
+    static short[] index ={
             0,1,2,0,2,3
     };
 
@@ -69,7 +59,7 @@ public class Square extends BaseRenderer implements GLSurfaceView.Renderer {
     private int mMatrixHandler;
 
     //设置颜色，依次为红绿蓝和透明通道
-    float color[] = { 1.0f, 0f, 0f, 1.0f };
+    float[] color = { 1.0f, 0f, 0f, 1.0f };
 
 
     @Override

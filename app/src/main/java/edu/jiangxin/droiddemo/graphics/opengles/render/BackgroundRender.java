@@ -6,16 +6,6 @@ import android.opengl.GLSurfaceView;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-/**
- * <pre>
- *     author : Administrator (Jacket)
- *     e-mail : 378315764@qq.com
- *     time   : 2018/03/26
- *     desc   :
- *     version: 3.2
- * </pre>
- */
-
 public class BackgroundRender extends BaseRenderer implements GLSurfaceView.Renderer {
 
     private String TAG = BackgroundRender.class.getSimpleName();

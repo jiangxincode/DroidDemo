@@ -1,7 +1,5 @@
 package edu.jiangxin.droiddemo.animation.view;
 
-;
-
 public class CustomAnimationActivity extends BaseActivity {
 
     @Override

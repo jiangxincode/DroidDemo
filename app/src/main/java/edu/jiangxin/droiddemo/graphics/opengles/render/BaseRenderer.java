@@ -2,16 +2,6 @@ package edu.jiangxin.droiddemo.graphics.opengles.render;
 
 import android.opengl.GLES20;
 
-/**
- * <pre>
- *     author : Administrator (Jacket)
- *     e-mail : 378315764@qq.com
- *     time   : 2018/03/26
- *     desc   :
- *     version: 3.2
- * </pre>
- */
-
 public class BaseRenderer {
 
     public int loadShader(int type, String shaderCode){

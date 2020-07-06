@@ -7,9 +7,6 @@ import android.widget.Button;
 
 import edu.jiangxin.droiddemo.R;
 
-/**
- * @author jiangxin
- */
 public class IntentServiceActivity extends Activity {
 
     @Override

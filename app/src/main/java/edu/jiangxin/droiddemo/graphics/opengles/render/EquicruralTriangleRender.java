@@ -11,16 +11,6 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-/**
- * <pre>
- *     author : Administrator (Jacket)
- *     e-mail : 378315764@qq.com
- *     time   : 2018/03/02
- *     desc   :
- *     version: 3.2
- * </pre>
- */
-
 public class EquicruralTriangleRender extends BaseRenderer implements GLSurfaceView.Renderer {
 
     private FloatBuffer vertexBuffer;
@@ -41,7 +31,7 @@ public class EquicruralTriangleRender extends BaseRenderer implements GLSurfaceV
     private int mProgram;
 
     static final int COORDS_PER_VERTEX = 3;
-    static float triangleCoords[] = {
+    static float[] triangleCoords = {
             0.5f,  0.5f, 0.0f, // top
             -0.5f, -0.5f, 0.0f, // bottom left
             0.5f, -0.5f, 0.0f  // bottom right
@@ -62,7 +52,7 @@ public class EquicruralTriangleRender extends BaseRenderer implements GLSurfaceV
     private int mMatrixHandler;
 
     //设置颜色，依次为红绿蓝和透明通道
-    float color[] = { 1.0f, 0f, 0f, 1.0f };
+    float[] color = { 1.0f, 0f, 0f, 1.0f };
 
     @Override
     public void onSurfaceCreated(GL10 gl10, EGLConfig eglConfig) {

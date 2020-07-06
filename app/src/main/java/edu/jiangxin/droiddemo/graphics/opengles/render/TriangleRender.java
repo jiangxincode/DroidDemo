@@ -10,16 +10,6 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-/**
- * <pre>
- *     author : Administrator (Jacket)
- *     e-mail : 378315764@qq.com
- *     time   : 2018/03/02
- *     desc   :
- *     version: 3.2
- * </pre>
- */
-
 public class TriangleRender extends BaseRenderer implements GLSurfaceView.Renderer {
 
     private int mProgram;
@@ -38,14 +28,14 @@ public class TriangleRender extends BaseRenderer implements GLSurfaceView.Render
                     "  gl_FragColor = vColor;" +
                     "}";
 
-    static float triangleCoords[] = {
+    static float[] triangleCoords = {
             0.5f,  0.5f, 0.0f, // top
             -0.5f, -0.5f, 0.0f, // bottom left
             0.5f, -0.5f, 0.0f  // bottom right
     };
 
     //设置颜色，依次为红绿蓝和透明通道
-    float color[] = { 1.0f, 0f, 0f, 1.0f };
+    float[] color = { 1.0f, 0f, 0f, 1.0f };
     static final int COORDS_PER_VERTEX = 3;
 
     private int mPositionHandle;

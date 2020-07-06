@@ -11,9 +11,6 @@ import android.os.Process;
 import android.util.Log;
 import android.widget.Toast;
 
-/**
- * @author jiangxin
- */
 public class CommonService extends Service {
     private static final String TAG = "CommonService";
     private ServiceHandler mServiceHandler;
