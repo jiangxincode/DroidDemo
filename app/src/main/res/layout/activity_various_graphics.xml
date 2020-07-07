@@ -9,15 +9,6 @@
     tools:context="edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity">
 
     <TextView
-        android:id="@+id/tv_rajawali"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rajawali Demo"
-        android:background="@android:color/holo_blue_bright"
-        android:textSize="28sp"/>
-
-    <TextView
         android:id="@+id/tv_opengl"
         android:gravity="center"
         android:layout_width="match_parent"
@@ -25,30 +16,45 @@
         android:text="OpenGL ES Demo"
         android:background="@android:color/holo_blue_dark"
         android:textSize="28sp"/>
-
-    <TextView
-        android:id="@+id/tv_Example6_3"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Example6_3"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_Example6_6"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Example6_6"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
     <TextView
         android:id="@+id/tv_HelloTriangle"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="HelloTriangle"
+        android:background="@android:color/holo_orange_dark"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_VertexWithoutBuffer"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VertexWithoutBuffer"
+        android:background="@android:color/holo_red_light"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_VertexBufferObjects"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VertexBufferObjects"
+        android:background="@android:color/holo_purple"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_SeparateVboPerAttribute"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SeparateVboPerAttribute"
         android:background="@android:color/holo_red_dark"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_VertexArrayObjects"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VertexArrayObjects"
+        android:background="@android:color/holo_orange_light"
         android:textSize="28sp"/>
     <TextView
         android:id="@+id/tv_MapBuffers"
@@ -56,31 +62,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="MapBuffers"
-        android:background="@android:color/holo_red_dark"
+        android:background="@android:color/holo_green_dark"
         android:textSize="28sp"/>
     <TextView
-        android:id="@+id/tv_Mipmap2D"
+        android:id="@+id/tv_SimpleVetexShader"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Mipmap2D"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_MultiTexture"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MultiTexture"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_ParticleSystem"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ParticleSystem"
-        android:background="@android:color/holo_red_dark"
+        android:text="SimpleVetexShader"
+        android:background="@android:color/holo_orange_dark"
         android:textSize="28sp"/>
     <TextView
         android:id="@+id/tv_SimpleTexture2D"
@@ -88,7 +78,23 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="SimpleTexture2D"
-        android:background="@android:color/holo_red_dark"
+        android:background="@android:color/holo_red_light"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_Mipmap2D"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Mipmap2D"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_TextureWrap"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextureWrap"
+        android:background="@android:color/holo_orange_dark"
         android:textSize="28sp"/>
     <TextView
         android:id="@+id/tv_SimpleTextureCubeMap"
@@ -99,36 +105,27 @@
         android:background="@android:color/holo_red_dark"
         android:textSize="28sp"/>
     <TextView
-        android:id="@+id/tv_SimpleVetexShader"
+        android:id="@+id/tv_MultiTexture"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SimpleVetexShader"
-        android:background="@android:color/holo_red_dark"
+        android:text="MultiTexture"
+        android:background="@android:color/holo_blue_light"
         android:textSize="28sp"/>
     <TextView
-        android:id="@+id/tv_TextureWrap"
+        android:id="@+id/tv_ParticleSystem"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="TextureWrap"
-        android:background="@android:color/holo_red_dark"
+        android:text="ParticleSystem"
+        android:background="@android:color/holo_blue_dark"
         android:textSize="28sp"/>
     <TextView
-        android:id="@+id/tv_VertexArrayObjects"
+        android:id="@+id/tv_rajawali"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VertexArrayObjects"
-        android:background="@android:color/holo_red_dark"
+        android:text="Rajawali Demo"
+        android:background="@android:color/holo_blue_bright"
         android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_VertexBufferObjects"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VertexBufferObjects"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
-
 </LinearLayout>
