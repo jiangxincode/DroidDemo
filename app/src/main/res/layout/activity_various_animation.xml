@@ -1,160 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context="edu.jiangxin.droiddemo.animation.VariousAnimationActivity">
+    tools:context="edu.jiangxin.droiddemo.NotificationsFragment">
 
-    <TextView
-        android:id="@+id/tv_alpha_animation"
-        android:gravity="center"
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Alpha Animation"
-        android:background="@android:color/holo_blue_bright"
-        android:textSize="28sp"/>
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical">
 
-    <TextView
-        android:id="@+id/tv_scale_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Scale Animation"
-        android:background="@android:color/holo_green_light"
-        android:textSize="28sp"/>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp"
+            tools:context="edu.jiangxin.droiddemo.animation.VariousAnimationActivity">
+
+            <TextView
+                android:id="@+id/tv_alpha_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_bright"
+                android:gravity="center"
+                android:text="Alpha Animation"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_scale_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="Scale Animation"
+                android:textSize="28sp" />
 
 
-    <TextView
-        android:id="@+id/tv_translate_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Translate Animation"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/holo_orange_light"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_translate_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="Translate Animation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_rotate_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Rotate Animation"
-        android:background="@android:color/holo_purple"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_rotate_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_purple"
+                android:gravity="center"
+                android:text="Rotate Animation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_custom_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Custom Animation"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_custom_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="Custom Animation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_animation_set"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Animation Set"
-        android:background="@android:color/holo_red_light"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_animation_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="Animation Set"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_interpolator"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Interpolator"
-        android:background="@android:color/holo_green_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_interpolator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:text="Interpolator"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_property_animator"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="PropertyAnimation"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_property_animator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="PropertyAnimation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_physics_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="PhysicsAnimation"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_physics_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="PhysicsAnimation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_vector_drawable_animator"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="VectorDrawableAnimator"
-        android:background="@android:color/holo_blue_light"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_vector_drawable_animator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="VectorDrawableAnimator"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_frame_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="FrameAnimation"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_frame_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:text="FrameAnimation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_activity_transition"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="ActivityTransition"
-        android:background="@android:color/holo_red_light"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_activity_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="ActivityTransition"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_layout_changes"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="LayoutChanges"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_layout_changes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="LayoutChanges"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_layout_animation"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="LayoutAnimation"
-        android:background="@android:color/holo_orange_light"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_layout_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="LayoutAnimation"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_layout_transition"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="LayoutTransition"
-        android:background="@android:color/holo_purple"
-        android:textSize="28sp"/>
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_layout_transition"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_purple"
+                android:gravity="center"
+                android:text="LayoutTransition"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_svga_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:text="SVGA Animation"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_lottie_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="LOTTIE Animation"
+                android:textSize="28sp" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

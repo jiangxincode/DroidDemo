@@ -20,6 +20,7 @@ import edu.jiangxin.droiddemo.graphics.opengles.book.texture.SimpleTexture2D;
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.SimpleTextureCubemap;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vertexshader.SimpleVertexShader;
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.TextureWrap;
+import edu.jiangxin.droiddemo.graphics.opengles.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.simple.OpenGLDemoActivity;
 import edu.jiangxin.droiddemo.graphics.rajawali.RajawaliDemoActivity;
 
@@ -31,6 +32,7 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
     private TextView mTvSimpleVetexShader;
     private TextView mTvSimpleTexture2D, mTvMipmap2D, mTvTextureWrap, mTvSimpleTextureCubeMap;
     private TextView mTvMultiTexture, mTvParticleSystem;
+    private TextView mTvPBuffer;
     private TextView mTvRajaWaliDemo;
 
     @Override
@@ -59,6 +61,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
 
         mTvParticleSystem = findViewById(R.id.tv_ParticleSystem);
 
+        mTvPBuffer = findViewById(R.id.tv_PBuffer);
+
         mTvRajaWaliDemo = findViewById(R.id.tv_rajawali);
 
         mTvOpenGLDemo.setOnClickListener(this);
@@ -81,6 +85,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         mTvMultiTexture.setOnClickListener(this);
 
         mTvParticleSystem.setOnClickListener(this);
+
+        mTvPBuffer.setOnClickListener(this);
 
         mTvRajaWaliDemo.setOnClickListener(this);
     }
@@ -129,6 +135,9 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
                 break;
             case R.id.tv_ParticleSystem:
                 enterTestActivity(ParticleSystem.class);
+                break;
+            case R.id.tv_PBuffer:
+                enterTestActivity(PBufferActivity.class);
                 break;
             case R.id.tv_rajawali:
                 enterTestActivity(RajawaliDemoActivity.class);

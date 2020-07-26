@@ -121,6 +121,14 @@
         android:background="@android:color/holo_blue_dark"
         android:textSize="28sp"/>
     <TextView
+        android:id="@+id/tv_PBuffer"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PBuffer"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="28sp"/>
+    <TextView
         android:id="@+id/tv_rajawali"
         android:gravity="center"
         android:layout_width="match_parent"
