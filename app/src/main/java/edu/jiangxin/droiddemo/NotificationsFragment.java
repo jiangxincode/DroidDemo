@@ -31,6 +31,7 @@ import edu.jiangxin.droiddemo.activity.ForbidScreenShotActivity;
 import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
+import edu.jiangxin.droiddemo.activity.SimpleLayoutActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
 import edu.jiangxin.droiddemo.service.aidl.AIDLActivity;
@@ -72,7 +73,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
-    private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtn10, mBtn11, mBtn12, mBtn13, mBtn14, mBtnListViewEntrance, mBtnDialogEntrance,
+    private Button mBtnShowInfoEntrance, mBtnSimpleLayoutEntrance, mBtnDecorViewEntrance, mBtn10, mBtn11, mBtn12, mBtn13, mBtn14, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -87,14 +88,17 @@ public class NotificationsFragment extends Fragment {
         root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
         mBtnShowInfoEntrance = root.findViewById(R.id.btnShowInfoEntrance);
-        mBtnShowInfoEntrance.setOnClickListener(new View.OnClickListener() {
+        mBtnShowInfoEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ShowInfoActivity.class);
+            startActivity(intent);
+        });
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ShowInfoActivity.class);
-                startActivity(intent);
-            }
+        mBtnSimpleLayoutEntrance = root.findViewById(R.id.btnSimpleLayoutEntrance);
+        mBtnSimpleLayoutEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SimpleLayoutActivity.class);
+            startActivity(intent);
         });
 
         mBtnDecorViewEntrance = root.findViewById(R.id.btnDecorViewEntrance);
