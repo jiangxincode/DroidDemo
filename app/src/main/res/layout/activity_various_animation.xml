@@ -170,6 +170,16 @@
                 android:textSize="28sp" />
 
             <TextView
+                android:id="@+id/tv_overlay_animation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="OverlayAnimation"
+                android:textSize="28sp" />
+
+            <TextView
                 android:id="@+id/tv_svga_animation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

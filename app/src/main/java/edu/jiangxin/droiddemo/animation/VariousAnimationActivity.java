@@ -28,6 +28,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
     private TextView mTvFrameAnimation;
     private TextView mTvActivityTransition;
     private TextView mTvLayoutChanges, mTvLayoutAnimation, mTvGridLayoutAnimation;
+    private TextView mTvOverlayAnimation;
     private TextView mTvSVGAAnimation;
     private TextView mTvLottieAnimation;
 
@@ -50,6 +51,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvLayoutChanges = findViewById(R.id.tv_layout_changes);
         mTvLayoutAnimation = findViewById(R.id.tv_layout_animation);
         mTvGridLayoutAnimation = findViewById(R.id.tv_layout_transition);
+        mTvOverlayAnimation = findViewById(R.id.tv_overlay_animation);
         mTvSVGAAnimation = findViewById(R.id.tv_svga_animation);
         mTvLottieAnimation = findViewById(R.id.tv_lottie_animation);
 
@@ -68,6 +70,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvLayoutChanges.setOnClickListener(this);
         mTvLayoutAnimation.setOnClickListener(this);
         mTvGridLayoutAnimation.setOnClickListener(this);
+        mTvOverlayAnimation.setOnClickListener(this);
         mTvSVGAAnimation.setOnClickListener(this);
         mTvLottieAnimation.setOnClickListener(this);
     }
@@ -119,6 +122,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
                 break;
             case R.id.tv_layout_transition:
                 enterTestActivity(GridLayoutAnimationActivity.class);
+                break;
+            case R.id.tv_overlay_animation:
+                enterTestActivity(OverlayAnimationActivity.class);
                 break;
             case R.id.tv_svga_animation:
                 enterTestActivity(SvgaAnimationActivity.class);
