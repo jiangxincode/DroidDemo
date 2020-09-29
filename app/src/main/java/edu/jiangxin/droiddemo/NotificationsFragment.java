@@ -34,6 +34,7 @@ import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
 import edu.jiangxin.droiddemo.activity.SimpleLayoutActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
+import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
 import edu.jiangxin.droiddemo.service.aidl.AIDLActivity;
 import edu.jiangxin.droiddemo.service.commonservice.CommonServiceActivity;
 import edu.jiangxin.droiddemo.service.intentservice.IntentServiceActivity;
@@ -74,7 +75,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
     private Button mBtnShowInfoEntrance, mBtnSimpleLayoutEntrance, mBtnDecorViewEntrance, mBtn10, mBtn11, mBtn12, mBtn13, mBtn14, mBtnListViewEntrance, mBtnDialogEntrance,
-            mBtnRippleEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
+            mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
@@ -190,14 +191,17 @@ public class NotificationsFragment extends Fragment {
         });
 
         mBtnRippleEntrance = root.findViewById(R.id.btnRippleEntrance);
-        mBtnRippleEntrance.setOnClickListener(new View.OnClickListener() {
+        mBtnRippleEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), RippleActivity.class);
+            startActivity(intent);
+        });
 
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), RippleActivity.class);
-                startActivity(intent);
-            }
+        mBtnRoundCornerEntrance = root.findViewById(R.id.btnRoundCornerEntrance);
+        mBtnRoundCornerEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), VariousRoundCornerActivity.class);
+            startActivity(intent);
         });
 
         mBtnAnimationEntrance = root.findViewById(R.id.btnAnimationEntrance);

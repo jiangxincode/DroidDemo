@@ -6,4 +6,13 @@
     <attr name="textBackground" format="color" />
     <attr name="imageValue" format="reference"/>
 
+    <!--圆角LinearLayout-->
+    <declare-styleable name="CornersLinearLayout">
+        <attr name="corner" format="dimension" />
+        <attr name="leftTopCorner" format="dimension" />
+        <attr name="rightTopCorner" format="dimension" />
+        <attr name="leftBottomCorner" format="dimension" />
+        <attr name="rightBottomCorner" format="dimension" />
+    </declare-styleable>
+
 </resources>

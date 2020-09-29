@@ -78,4 +78,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.yyued:SVGAPlayer-Android:2.5.3'
     implementation 'com.airbnb.android:lottie:1.0.1'
+    implementation 'com.facebook.fresco:fresco:0.10.0'
 }
