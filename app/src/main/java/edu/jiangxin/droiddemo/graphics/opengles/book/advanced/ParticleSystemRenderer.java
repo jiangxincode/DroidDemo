@@ -96,7 +96,6 @@ public class ParticleSystemRenderer implements GLSurfaceView.Renderer {
         for (int i = 0; i < (NUM_PARTICLES * PARTICLE_SIZE); i += PARTICLE_SIZE) {
             // Lifetime of particle
             mParticleData[i + 0] = ((float) ((int) (Math.random() * 10000) % 10000) / 10000.0f);
-            ;
 
             // End position of particle
             mParticleData[i + 1] = ((float) ((int) (Math.random() * 10000) % 10000) / 5000.0f) - 1.0f;

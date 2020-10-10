@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".roundcorner.draweeview.DraweeViewActivity"></activity>
+        <activity android:name=".service.VariousServiceActivity" />
+        <activity android:name=".roundcorner.draweeview.DraweeViewActivity" />
         <activity android:name=".roundcorner.VariousRoundCornerActivity" />
         <activity android:name=".roundcorner.viewoutlineprovider.ViewOutlineProviderActivity" />
         <activity android:name=".roundcorner.cardview.CardViewActivity" />

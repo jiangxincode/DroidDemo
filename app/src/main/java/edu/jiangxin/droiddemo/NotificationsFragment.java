@@ -8,14 +8,15 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,15 +32,6 @@ import edu.jiangxin.droiddemo.activity.ForbidScreenShotActivity;
 import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
-import edu.jiangxin.droiddemo.activity.SimpleLayoutActivity;
-import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
-import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
-import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
-import edu.jiangxin.droiddemo.service.aidl.AIDLActivity;
-import edu.jiangxin.droiddemo.service.commonservice.CommonServiceActivity;
-import edu.jiangxin.droiddemo.service.intentservice.IntentServiceActivity;
-import edu.jiangxin.droiddemo.service.localbinder.LocalBinderActivity;
-import edu.jiangxin.droiddemo.service.messanger.MessengerActivity;
 import edu.jiangxin.droiddemo.activity.NetMusicActivity;
 import edu.jiangxin.droiddemo.activity.QuickSearchBoxActivity;
 import edu.jiangxin.droiddemo.activity.RingtoneSetting1Activity;
@@ -47,6 +39,7 @@ import edu.jiangxin.droiddemo.activity.RingtoneSettingActivity;
 import edu.jiangxin.droiddemo.activity.RippleActivity;
 import edu.jiangxin.droiddemo.activity.ScaleTextActivity;
 import edu.jiangxin.droiddemo.activity.SettingActivity;
+import edu.jiangxin.droiddemo.activity.SimpleLayoutActivity;
 import edu.jiangxin.droiddemo.activity.SpannableStringActivity;
 import edu.jiangxin.droiddemo.activity.SpinnerActivity;
 import edu.jiangxin.droiddemo.activity.ThemeActivity;
@@ -54,10 +47,14 @@ import edu.jiangxin.droiddemo.activity.ThreadDemoActivity;
 import edu.jiangxin.droiddemo.activity.VariousNotificationActivity;
 import edu.jiangxin.droiddemo.activity.VideoViewActivity;
 import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
+import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
+import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
+import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
 import edu.jiangxin.droiddemo.saf.SAFActivity;
+import edu.jiangxin.droiddemo.service.VariousServiceActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -74,7 +71,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
-    private Button mBtnShowInfoEntrance, mBtnSimpleLayoutEntrance, mBtnDecorViewEntrance, mBtn10, mBtn11, mBtn12, mBtn13, mBtn14, mBtnListViewEntrance, mBtnDialogEntrance,
+    private Button mBtnShowInfoEntrance, mBtnSimpleLayoutEntrance, mBtnDecorViewEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -103,69 +100,17 @@ public class NotificationsFragment extends Fragment {
         });
 
         mBtnDecorViewEntrance = root.findViewById(R.id.btnDecorViewEntrance);
-        mBtnDecorViewEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), DecorViewActivity.class);
-                startActivity(intent);
-            }
+        mBtnDecorViewEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), DecorViewActivity.class);
+            startActivity(intent);
         });
 
-        mBtn10 = root.findViewById(R.id.btn10);
-        mBtn10.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), CommonServiceActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtn11 = root.findViewById(R.id.btn11);
-        mBtn11.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), IntentServiceActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtn12 = root.findViewById(R.id.btn12);
-        mBtn12.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), LocalBinderActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtn13 = root.findViewById(R.id.btn13);
-        mBtn13.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), MessengerActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        mBtn14 = root.findViewById(R.id.btn14);
-        mBtn14.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), AIDLActivity.class);
-                startActivity(intent);
-            }
+        mBtnVariousServiceEntrance = root.findViewById(R.id.btnVariousServiceEntrance);
+        mBtnVariousServiceEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), VariousServiceActivity.class);
+            startActivity(intent);
         });
 
         mBtnListViewEntrance = root.findViewById(R.id.btnListViewEntrance);

@@ -28,7 +28,7 @@ public class TestRenderer extends GLRenderer {
      * @return 顶点Buffer
      */
     private FloatBuffer getVertices() {
-        float vertices[] = {
+        float[] vertices = {
                 0.0f, 0.5f,
                 -0.5f, -0.5f,
                 0.5f, -0.5f,

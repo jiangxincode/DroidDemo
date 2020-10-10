@@ -40,7 +40,7 @@ public class NetMusicActivity extends Activity implements OnPreparedListener {
 
     @Override
     public void onPrepared(MediaPlayer mp) {//如果使用prepareAsync,应该把start()方法放到这个地方
-        Toast.makeText(getApplicationContext(), "准备好了", 0).show();
+        Toast.makeText(getApplicationContext(), "准备好了", Toast.LENGTH_SHORT).show();
         mMediaPlayer.start();
     }
 

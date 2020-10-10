@@ -92,7 +92,7 @@ public class PBufferActivity extends Activity {
      * @return bitmap
      */
     private static Bitmap frameToBitmap(int width, int height, IntBuffer ib) {
-        int pixs[] = ib.array();
+        int[] pixs = ib.array();
         // 扫描转置(OpenGl:左上->右下 Bitmap:左下->右上)
         for (int y = 0; y < height / 2; y++) {
             for (int x = 0; x < width; x++) {

@@ -37,34 +37,10 @@
                 android:text="状态栏/标题栏设置" />
 
             <Button
-                android:id="@+id/btn10"
+                android:id="@+id/btnVariousServiceEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Service Demo(CommonService)" />
-
-            <Button
-                android:id="@+id/btn11"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Service Demo(IntentService)" />
-
-            <Button
-                android:id="@+id/btn12"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Service Demo(Local Binder)" />
-
-            <Button
-                android:id="@+id/btn13"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Service Demo(Messanger)" />
-
-            <Button
-                android:id="@+id/btn14"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Service Demo(AIDL)" />
+                android:text="各种Service" />
 
             <Button
                 android:id="@+id/btnListViewEntrance"
