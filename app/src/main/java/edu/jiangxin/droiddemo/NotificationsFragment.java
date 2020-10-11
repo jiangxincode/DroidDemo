@@ -39,7 +39,7 @@ import edu.jiangxin.droiddemo.activity.RingtoneSettingActivity;
 import edu.jiangxin.droiddemo.activity.RippleActivity;
 import edu.jiangxin.droiddemo.activity.ScaleTextActivity;
 import edu.jiangxin.droiddemo.activity.SettingActivity;
-import edu.jiangxin.droiddemo.activity.SimpleLayoutActivity;
+import edu.jiangxin.droiddemo.layout.SimpleLayoutActivity;
 import edu.jiangxin.droiddemo.activity.SpannableStringActivity;
 import edu.jiangxin.droiddemo.activity.SpinnerActivity;
 import edu.jiangxin.droiddemo.activity.ThemeActivity;
@@ -50,6 +50,7 @@ import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
 import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
+import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
@@ -71,7 +72,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
-    private Button mBtnShowInfoEntrance, mBtnSimpleLayoutEntrance, mBtnDecorViewEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
+    private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -92,10 +93,10 @@ public class NotificationsFragment extends Fragment {
             startActivity(intent);
         });
 
-        mBtnSimpleLayoutEntrance = root.findViewById(R.id.btnSimpleLayoutEntrance);
-        mBtnSimpleLayoutEntrance.setOnClickListener(v -> {
+        mBtnVariousLayoutEntrance = root.findViewById(R.id.btnVariousLayoutEntrance);
+        mBtnVariousLayoutEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
-            intent.setClass(getContext(), SimpleLayoutActivity.class);
+            intent.setClass(getContext(), VariousLayoutActivity.class);
             startActivity(intent);
         });
 

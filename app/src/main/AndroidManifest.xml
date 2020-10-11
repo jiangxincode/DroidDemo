@@ -11,6 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".layout.ContraintLayoutActivity"></activity>
+        <activity android:name=".layout.VariousLayoutActivity" />
         <activity android:name=".service.VariousServiceActivity" />
         <activity android:name=".roundcorner.draweeview.DraweeViewActivity" />
         <activity android:name=".roundcorner.VariousRoundCornerActivity" />
@@ -20,7 +22,7 @@
         <activity android:name=".roundcorner.gradientdrawable.GradientDrawableActivity" />
         <activity android:name=".roundcorner.xmlshape.XmlShapeActivity" />
         <activity android:name=".animation.OverlayAnimationActivity" />
-        <activity android:name=".activity.SimpleLayoutActivity" />
+        <activity android:name=".layout.SimpleLayoutActivity" />
         <activity android:name=".animation.LottieAnimationActivity" />
         <activity android:name=".animation.SvgaAnimationActivity" />
         <activity android:name=".graphics.rajawali.RajawaliDemoActivity" />

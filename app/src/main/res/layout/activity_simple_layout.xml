@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:background="#FF0000"
     android:orientation="vertical"
-    tools:context=".activity.SimpleLayoutActivity">
+    tools:context=".layout.SimpleLayoutActivity">
 
     <LinearLayout
         android:layout_width="wrap_content"

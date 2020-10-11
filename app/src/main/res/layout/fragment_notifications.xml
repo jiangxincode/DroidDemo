@@ -25,10 +25,10 @@
                 android:text="信息展示" />
 
             <Button
-                android:id="@+id/btnSimpleLayoutEntrance"
+                android:id="@+id/btnVariousLayoutEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="SimpleLayout" />
+                android:text="各种Layout" />
 
             <Button
                 android:id="@+id/btnDecorViewEntrance"

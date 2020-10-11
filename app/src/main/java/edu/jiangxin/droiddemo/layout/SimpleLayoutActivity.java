@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.activity;
+package edu.jiangxin.droiddemo.layout;
 
 import androidx.appcompat.app.AppCompatActivity;
 
