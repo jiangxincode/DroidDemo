@@ -20,6 +20,7 @@ import edu.jiangxin.droiddemo.graphics.opengles.book.texture.SimpleTexture2D;
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.SimpleTextureCubemap;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vertexshader.SimpleVertexShader;
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.TextureWrap;
+import edu.jiangxin.droiddemo.graphics.opengles.matrix.OpenGLMatrixActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.simple.OpenGLDemoActivity;
 import edu.jiangxin.droiddemo.graphics.rajawali.RajawaliDemoActivity;
@@ -27,6 +28,7 @@ import edu.jiangxin.droiddemo.graphics.rajawali.RajawaliDemoActivity;
 public class VariousGraphicsActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvOpenGLDemo;
+    private TextView mTvMatrix;
     private TextView mTvHelloTriangle;
     private TextView mTvVertexWithoutBuffer, mTvVertexBufferObjects, mTvSeparateVboPerAttribute, mTvVertexArrayObjects, mTvMapBuffers;
     private TextView mTvSimpleVetexShader;
@@ -41,6 +43,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         setContentView(R.layout.activity_various_graphics);
 
         mTvOpenGLDemo = findViewById(R.id.tv_opengl);
+
+        mTvMatrix = findViewById(R.id.tv_matrix);
 
         mTvHelloTriangle = findViewById(R.id.tv_HelloTriangle);
 
@@ -66,6 +70,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         mTvRajaWaliDemo = findViewById(R.id.tv_rajawali);
 
         mTvOpenGLDemo.setOnClickListener(this);
+
+        mTvMatrix.setOnClickListener(this);
 
         mTvHelloTriangle.setOnClickListener(this);
 
@@ -96,6 +102,9 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         switch (view.getId()) {
             case R.id.tv_opengl:
                 enterTestActivity(OpenGLDemoActivity.class);
+                break;
+            case R.id.tv_matrix:
+                enterTestActivity(OpenGLMatrixActivity.class);
                 break;
             case R.id.tv_HelloTriangle:
                 enterTestActivity(HelloTriangle.class);

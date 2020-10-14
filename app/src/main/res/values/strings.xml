@@ -84,4 +84,16 @@
     <string name="camera">Camera</string>
     <string name="camera_value">Leica M Typ 240</string>
     <string name="singapore">Singapore</string>
+
+
+    <string name="sample_0">着色器(Shader)</string>
+    <string name="sample_1">纹理数组(Texture Array)</string>
+    <string name="sample_2">二进制GL程序(Binary GL Program)</string>
+    <string name="sample_3">栅栏(Fence)</string>
+    <string name="sample_4">多重目标渲染(Multiple Render Target)</string>
+    <string name="sample_5">VBO和IBO(VBO and IBO)</string>
+    <string name="sample_6">EGL(EGL)</string>
+    <string name="sample_7">矩阵变换(Matrix Transform)</string>
+    <string name="sample_8">颜色混合(Color Blend)</string>
+    <string name="sample_9">光照(Lighting)</string>
 </resources>
