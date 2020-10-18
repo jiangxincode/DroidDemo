@@ -40,7 +40,6 @@ public class OpenGLMatrixActivity extends AppCompatActivity {
                 getResources().getString(R.string.sample_2),
                 getResources().getString(R.string.sample_3),
                 getResources().getString(R.string.sample_4),
-                getResources().getString(R.string.sample_5),
                 getResources().getString(R.string.sample_6),
                 getResources().getString(R.string.sample_7),
                 getResources().getString(R.string.sample_8),

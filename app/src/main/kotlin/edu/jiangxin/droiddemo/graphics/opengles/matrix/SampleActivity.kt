@@ -25,7 +25,6 @@ class SimpleActivity : AppCompatActivity() {
                 SampleBinaryProgram(),
                 SampleFenceSync(),
                 SampleMultiRenderTarget(),
-                SampleVBOAndIBO(),
                 SampleEGL(),
                 SampleMatrixTransform(),
                 SampleColorBlend(),

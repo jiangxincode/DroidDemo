@@ -27,6 +27,15 @@
         android:textSize="28sp"/>
 
     <TextView
+        android:id="@+id/tv_ball"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OpenGL Ball"
+        android:background="@android:color/holo_green_dark"
+        android:textSize="28sp"/>
+
+    <TextView
         android:id="@+id/tv_HelloTriangle"
         android:gravity="center"
         android:layout_width="match_parent"

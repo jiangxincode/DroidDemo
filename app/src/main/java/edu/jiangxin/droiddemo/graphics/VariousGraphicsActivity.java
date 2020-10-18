@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.graphics.opengles.ball.BallActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.MapBuffers;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexArrayObjects;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexBufferObjects;
@@ -29,6 +30,7 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
 
     private TextView mTvOpenGLDemo;
     private TextView mTvMatrix;
+    private TextView mTvBall;
     private TextView mTvHelloTriangle;
     private TextView mTvVertexWithoutBuffer, mTvVertexBufferObjects, mTvSeparateVboPerAttribute, mTvVertexArrayObjects, mTvMapBuffers;
     private TextView mTvSimpleVetexShader;
@@ -45,6 +47,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         mTvOpenGLDemo = findViewById(R.id.tv_opengl);
 
         mTvMatrix = findViewById(R.id.tv_matrix);
+
+        mTvBall = findViewById(R.id.tv_ball);
 
         mTvHelloTriangle = findViewById(R.id.tv_HelloTriangle);
 
@@ -72,6 +76,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         mTvOpenGLDemo.setOnClickListener(this);
 
         mTvMatrix.setOnClickListener(this);
+
+        mTvBall.setOnClickListener(this);
 
         mTvHelloTriangle.setOnClickListener(this);
 
@@ -105,6 +111,9 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
                 break;
             case R.id.tv_matrix:
                 enterTestActivity(OpenGLMatrixActivity.class);
+                break;
+            case R.id.tv_ball:
+                enterTestActivity(BallActivity.class);
                 break;
             case R.id.tv_HelloTriangle:
                 enterTestActivity(HelloTriangle.class);

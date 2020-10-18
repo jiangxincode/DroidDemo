@@ -11,6 +11,9 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
+/**
+ * OpenGL ES 画圆: https://blog.csdn.net/wkk_ly/article/details/81198779
+ */
 public class CircleRender extends BaseRenderer implements GLSurfaceView.Renderer {
     private final int POSITION_CONMONENT_COUNT = 2;
     private final int FLOAT_PER_BYTE = 4;

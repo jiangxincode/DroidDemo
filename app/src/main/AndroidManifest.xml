@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".graphics.opengles.matrix.OpenGLMatrixActivity" />
+        <activity android:name=".graphics.opengles.ball.BallActivity" />
         <activity android:name="edu.jiangxin.droiddemo.graphics.opengles.matrix.SimpleActivity"/>
         <activity android:name=".layout.ContraintLayoutActivity" />
         <activity android:name=".layout.VariousLayoutActivity" />
