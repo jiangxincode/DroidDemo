@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import edu.jiangxin.droiddemo.R;
 
 
 public class RipplesView extends View {
+    private String TAG = "RipplesView";
     private Paint paint;//用于绘制水波的画笔
     private boolean isStarting = true;
     private List<Circle> circles = new ArrayList<Circle>();
@@ -61,6 +63,7 @@ public class RipplesView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
+        Log.i(TAG, "onDraw isHardwareAccelerated: " + canvas.isHardwareAccelerated());
 
         float alphaSpeed;
         float radiusSpeed;

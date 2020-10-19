@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.graphics.camera.CameraAnimationActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.ball.BallActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.MapBuffers;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexArrayObjects;
@@ -38,6 +39,7 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
     private TextView mTvMultiTexture, mTvParticleSystem;
     private TextView mTvPBuffer;
     private TextView mTvRajaWaliDemo;
+    private TextView mTvCameraAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
 
         mTvRajaWaliDemo = findViewById(R.id.tv_rajawali);
 
+        mTvCameraAnimation = findViewById(R.id.tv_camera_animation);
+
         mTvOpenGLDemo.setOnClickListener(this);
 
         mTvMatrix.setOnClickListener(this);
@@ -101,6 +105,8 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         mTvPBuffer.setOnClickListener(this);
 
         mTvRajaWaliDemo.setOnClickListener(this);
+
+        mTvCameraAnimation.setOnClickListener(this);
     }
 
     @Override
@@ -159,6 +165,9 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
                 break;
             case R.id.tv_rajawali:
                 enterTestActivity(RajawaliDemoActivity.class);
+                break;
+            case R.id.tv_camera_animation:
+                enterTestActivity(CameraAnimationActivity.class);
                 break;
             default:
                 break;

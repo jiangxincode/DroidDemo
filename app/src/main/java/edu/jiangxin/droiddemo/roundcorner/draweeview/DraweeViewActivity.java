@@ -23,4 +23,10 @@ public class DraweeViewActivity extends AppCompatActivity {
 
         simpleDraweeView = (SimpleDraweeView) findViewById(R.id.simpleDraweeView);
     }
+
+    @Override
+    protected void onDestroy() {
+        Fresco.shutDown();
+        super.onDestroy();
+    }
 }
