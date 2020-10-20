@@ -9,14 +9,7 @@ import androidx.fragment.app.Fragment
 import edu.jiangxin.droiddemo.R
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
- *      这是一个使用EGL的例子
- *      This is a sample of using EGL
- *
+ * OpenGL ES 高级进阶：EGL及GL线程: https://juejin.im/post/6844903858380996616
  **/
 
 class SampleEGL : Fragment() {

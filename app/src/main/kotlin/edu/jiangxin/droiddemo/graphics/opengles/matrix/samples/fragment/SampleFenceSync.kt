@@ -10,14 +10,8 @@ import edu.jiangxin.droiddemo.R
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.renderer.SampleFenceSyncRenderer
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个使用栅栏做GL命令同步的例子
  *      This is a sample of using fence to synchronize the GL commands
- *
  **/
 
 class SampleFenceSync : Fragment() {

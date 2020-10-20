@@ -15,14 +15,8 @@ import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.renderer.lighting
 import kotlinx.android.synthetic.main.fragment_sample_lighting.*
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      光照例子，包括平行光、点光、聚光和法向图
  *      Lighting samples, including directional light, point light, spot light and bumped
- *
  **/
 
 class SampleLighting : Fragment() {

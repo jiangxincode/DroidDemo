@@ -100,7 +100,7 @@ public class Ball {
         }
         vCount = alVertix.size() / 3;// 顶点的数量为坐标值数量的1/3，因为一个顶点有3个坐标
         // 将alVertix中的坐标值转存到一个float数组中
-        float vertices[] = new float[vCount * 3];
+        float[] vertices = new float[vCount * 3];
         for (int i = 0; i < alVertix.size(); i++) {
             vertices[i] = alVertix.get(i);
         }

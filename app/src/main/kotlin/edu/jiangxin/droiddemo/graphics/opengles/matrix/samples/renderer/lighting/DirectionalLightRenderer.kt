@@ -4,14 +4,8 @@ import android.opengl.GLES30
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      平行光光照例子
  *      Directional light sample
- *
  **/
 
 class DirectionalLightRenderer : LightingRenderer("lighting/directionallight.vs", "lighting/directionallight.fs") {

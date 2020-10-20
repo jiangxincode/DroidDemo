@@ -4,14 +4,8 @@ import android.opengl.GLES30
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      聚光例子
  *      Spot light sample
- *
  **/
 
 class SpotLightRenderer : LightingRenderer("lighting/spotlight.vs", "lighting/spotlightsoftedge.fs") {

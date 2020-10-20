@@ -11,14 +11,8 @@ import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      光照例子基类
  *      Base class of lighting samples
- *
  **/
 
 open class LightingRenderer(private val vertexShaderPath: String, private val fragmentShaderPath: String) : GLSurfaceView.Renderer {

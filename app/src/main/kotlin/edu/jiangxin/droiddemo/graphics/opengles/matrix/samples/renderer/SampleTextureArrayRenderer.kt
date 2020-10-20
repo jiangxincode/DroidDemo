@@ -10,14 +10,8 @@ import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个纹理数组的例子，通用使用sampler2DArray将一组纹理传给fragment shader
  *      This sample demonstrates the usage of texture array. In the fragment shader, we use sampler2DArray to hold an array of texture.
- *
  **/
 
 class SampleTextureArrayRenderer : GLSurfaceView.Renderer {

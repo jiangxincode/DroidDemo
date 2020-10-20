@@ -4,14 +4,8 @@ import android.opengl.GLES30
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      点光例子
  *      Point light sample
- *
  **/
 
 class PointLightRenderer : LightingRenderer("lighting/pointlight.vs", "lighting/pointlight.fs") {

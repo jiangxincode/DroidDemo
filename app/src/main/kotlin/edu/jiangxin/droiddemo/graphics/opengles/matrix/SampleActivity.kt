@@ -6,14 +6,8 @@ import edu.jiangxin.droiddemo.R
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.fragment.*
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      Sample展示类
  *      This sample activity
- *
  **/
 
 class SimpleActivity : AppCompatActivity() {

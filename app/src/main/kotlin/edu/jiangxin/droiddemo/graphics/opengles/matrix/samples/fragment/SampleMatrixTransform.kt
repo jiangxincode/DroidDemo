@@ -15,14 +15,7 @@ import kotlinx.android.synthetic.main.fragment_sample_matrix_transform.view.*
 import kotlinx.android.synthetic.main.item_parameter_list.view.*
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
- *      这是一个演示矩阵变换的例子，包括模型矩阵、视图矩阵和投影矩阵
- *      This sample demonstrates matrix transform, including model matrix, view matrix and project matrix
- *
+ * OpenGL 3D渲染技术：坐标系及矩阵变换: https://juejin.im/post/6844903862973759496
  **/
 
 class SampleMatrixTransform : Fragment() {

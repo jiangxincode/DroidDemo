@@ -10,14 +10,8 @@ import javax.microedition.khronos.opengles.GL10
 import kotlin.math.sqrt
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      法向图例子
  *      Bumped sample
- *
  **/
 
 class BumpedLightRenderer : LightingRenderer("lighting/bumpedlighting.vs", "lighting/bumpedlighting.fs") {

@@ -7,15 +7,6 @@ import android.opengl.GLES30
 import android.util.Log
 import java.nio.charset.Charset
 
-/**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
- *
- **/
-
 class Util {
 
     companion object {

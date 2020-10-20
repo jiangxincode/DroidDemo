@@ -13,14 +13,8 @@ import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个使用栅栏做GL命令同步的例子
  *      This is a sample of using fence to synchronize the GL commands
- *
  **/
 
 class SampleFenceSyncRenderer(val imageView : ImageView) : GLSurfaceView.Renderer {

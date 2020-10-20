@@ -10,14 +10,8 @@ import edu.jiangxin.droiddemo.R
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.renderer.SampleShaderRenderer
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个演示OpenGL 3.0 shader的例子，主要演示其中的location字段的作用
  *      This sample demonstrates the usage of location in OpenGL 3.0 shader
- *
  **/
 
 class SampleShader : Fragment() {

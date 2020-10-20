@@ -1,11 +1,6 @@
 package edu.jiangxin.droiddemo.graphics.opengles.matrix
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      全局常量
  *      Global constants
  **/

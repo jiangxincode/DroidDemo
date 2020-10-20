@@ -10,14 +10,8 @@ import edu.jiangxin.droiddemo.R
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.renderer.SampleBinaryProgramRenderer
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个使用二进制GL program的例子，演示将link好的GL Program以文件的方式保存，以及读取GL program文件并加载
  *      This sample demonstrates the usage of binary GL program. We can save the linked GL program to file and load a binary GL program from file.
- *
  **/
 
 class SampleBinaryProgram : Fragment() {

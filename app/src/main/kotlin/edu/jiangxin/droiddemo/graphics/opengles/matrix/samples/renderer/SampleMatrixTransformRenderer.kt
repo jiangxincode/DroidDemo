@@ -10,17 +10,6 @@ import java.nio.FloatBuffer
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
-/**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
- *      这是一个演示矩阵变换的例子，包括模型矩阵、视图矩阵和投影矩阵
- *      This sample demonstrates matrix transform, including model matrix, view matrix and project matrix
- *
- **/
-
 class SampleMatrixTransformRenderer : GLSurfaceView.Renderer, OnParameterChangeCallback {
     
     private val vertexShaderCode =

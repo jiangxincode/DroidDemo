@@ -10,14 +10,8 @@ import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个演示OpenGL 3.0 shader的例子，主要演示其中的location字段的作用
  *      This sample demonstrates the usage of location in OpenGL 3.0 shader
- *
  **/
 
 class SampleShaderRenderer : GLSurfaceView.Renderer {

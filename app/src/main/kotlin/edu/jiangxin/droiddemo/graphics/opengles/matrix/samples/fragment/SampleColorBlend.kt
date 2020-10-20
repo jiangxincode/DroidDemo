@@ -10,14 +10,8 @@ import edu.jiangxin.droiddemo.R
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.renderer.SampleColorBlendRenderer
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是一个使用颜色混合的例子
  *      This sample demonstrates color blend
- *
  **/
 
 class SampleColorBlend : Fragment() {

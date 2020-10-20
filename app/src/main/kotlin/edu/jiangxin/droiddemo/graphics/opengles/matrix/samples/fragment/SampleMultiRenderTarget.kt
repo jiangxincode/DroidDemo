@@ -10,14 +10,8 @@ import edu.jiangxin.droiddemo.R
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.samples.renderer.SampleMultiRenderTargetRenderer
 
 /**
- *
- *      Coded by kenney
- *
- *      http://www.github.com/kenneycode
- *
  *      这是多渲染目标的例子，可以一次渲染到多个纹理上
  *      This is a sample of multiple render targets, with which we can render to multiple textures at a time
- *
  **/
 
 class SampleMultiRenderTarget : Fragment() {
