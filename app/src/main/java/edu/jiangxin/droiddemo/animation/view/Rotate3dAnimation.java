@@ -1,11 +1,11 @@
-package edu.jiangxin.droiddemo.graphics.camera;
+package edu.jiangxin.droiddemo.animation.view;
 
 import android.graphics.Camera;
 import android.graphics.Matrix;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 
-public class Rotate3DAnimation extends Animation {
+public class Rotate3dAnimation extends Animation {
     private final float mFromDegrees;
     private final float mToDegrees;
     private final float mCenterX;
@@ -34,7 +34,7 @@ public class Rotate3DAnimation extends Animation {
      * @param reverse
      *            true if the translation should be reversed, false otherwise
      */
-    public Rotate3DAnimation(float fromDegrees, float toDegrees, float centerX, float centerY, float depthZ,
+    public Rotate3dAnimation(float fromDegrees, float toDegrees, float centerX, float centerY, float depthZ,
                              boolean reverse) {
         mFromDegrees = fromDegrees;
         mToDegrees = toDegrees;
@@ -51,13 +51,13 @@ public class Rotate3DAnimation extends Animation {
     }
 
     @Override
-    protected void applyTransformation(float interpolatedTime, Transformation t) {
+    protected void applyTransformation(float interpolatedTime, Transformation transformation) {
         final float fromDegrees = mFromDegrees;
         float degrees = fromDegrees + ((mToDegrees - fromDegrees) * interpolatedTime);
         final float centerX = mCenterX;
         final float centerY = mCenterY;
         final Camera camera = mCamera;
-        final Matrix matrix = t.getMatrix();
+        final Matrix matrix = transformation.getMatrix();
         // 将当前的摄像头位置保存下来，以便变换进行完成后恢复成原位，
         camera.save();
         // camera.translate，这个方法接受3个参数，分别是x,y,z三个轴的偏移量，我们这里只将z轴进行了偏移，

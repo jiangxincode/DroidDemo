@@ -10,7 +10,7 @@ import edu.jiangxin.droiddemo.R;
 /**
  * 旋转动画
  */
-public class RotateAnimationActivity extends BaseActivity {
+public class RotateAnimationActivity extends BaseViewAnimationActivity {
 
     /**
      * 使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件

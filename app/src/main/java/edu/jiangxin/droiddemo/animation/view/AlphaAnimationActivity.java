@@ -11,7 +11,7 @@ import edu.jiangxin.droiddemo.R;
  * 透明度动画
  */
 
-public class AlphaAnimationActivity extends BaseActivity {
+public class AlphaAnimationActivity extends BaseViewAnimationActivity {
 
     /**
      * 使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件

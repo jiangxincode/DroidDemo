@@ -10,9 +10,9 @@ import android.widget.ImageView;
 import edu.jiangxin.droiddemo.R;
 
 
-public abstract class BaseActivity extends Activity implements View.OnClickListener {
+public abstract class BaseViewAnimationActivity extends Activity implements View.OnClickListener {
 
-    public static final String TAG = BaseActivity.class.getSimpleName();
+    public static final String TAG = BaseViewAnimationActivity.class.getSimpleName();
     public Context mContext = null;
     protected ImageView mImage;
     private Button mBtn1, mBtn2;

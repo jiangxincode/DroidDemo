@@ -7,7 +7,7 @@ import android.view.animation.TranslateAnimation;
 
 import edu.jiangxin.droiddemo.R;
 
-public class TranslateAnimationActivity extends BaseActivity {
+public class TranslateAnimationActivity extends BaseViewAnimationActivity {
 
     /**
      * 使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件

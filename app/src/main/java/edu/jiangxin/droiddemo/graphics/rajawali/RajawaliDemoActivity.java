@@ -13,7 +13,7 @@ import edu.jiangxin.droiddemo.R;
 
 public class RajawaliDemoActivity extends Activity {
 
-    Renderer renderer;
+    RajawaliDemoRenderer renderer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class RajawaliDemoActivity extends Activity {
         // Add mSurface to your root view
         addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
 
-        renderer = new Renderer(this);
+        renderer = new RajawaliDemoRenderer(this);
         surface.setSurfaceRenderer(renderer);
     }
 }

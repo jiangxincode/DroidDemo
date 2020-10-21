@@ -15,23 +15,18 @@ import org.rajawali3d.renderer.RajawaliRenderer;
 
 import edu.jiangxin.droiddemo.R;
 
-public class Renderer extends RajawaliRenderer {
+public class RajawaliDemoRenderer extends RajawaliRenderer {
 
-    public Context context;
-
-    private DirectionalLight directionalLight;
     private Sphere earthSphere;
 
-    public Renderer(Context context) {
+    public RajawaliDemoRenderer(Context context) {
         super(context);
-        this.context = context;
         setFrameRate(60);
     }
 
     @Override
     public void initScene(){
-
-        directionalLight = new DirectionalLight(1f, .2f, -1.0f);
+        DirectionalLight directionalLight = new DirectionalLight(1f, .2f, -1.0f);
         directionalLight.setColor(1.0f, 1.0f, 1.0f);
         directionalLight.setPower(2);
         getCurrentScene().addLight(directionalLight);
@@ -44,7 +39,6 @@ public class Renderer extends RajawaliRenderer {
         Texture earthTexture = new Texture("Earth", R.drawable.earthtruecolor_nasa_big);
         try{
             material.addTexture(earthTexture);
-
         } catch (ATexture.TextureException error){
             Log.d("DEBUG", "TEXTURE ERROR");
         }
@@ -53,7 +47,6 @@ public class Renderer extends RajawaliRenderer {
         earthSphere.setMaterial(material);
         getCurrentScene().addChild(earthSphere);
         getCurrentCamera().setZ(4.2f);
-
     }
 
 
@@ -66,13 +59,10 @@ public class Renderer extends RajawaliRenderer {
 
     @Override
     public void onTouchEvent(MotionEvent event){
-
-
     }
 
     @Override
     public void onOffsetsChanged(float x, float y, float z, float w, int i, int j){
-
     }
 }
 
