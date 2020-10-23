@@ -15,11 +15,6 @@ public class ContraintLayoutActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // activity_contraint_layout.xml
-        // activity_autoconnect.xml
-        // activity_done.xml
-        // activity_inference.xml
-        // activity_start.xml
-        setContentView(R.layout.activity_autoconnect);
+        setContentView(R.layout.activity_contraint_layout);
     }
 }
