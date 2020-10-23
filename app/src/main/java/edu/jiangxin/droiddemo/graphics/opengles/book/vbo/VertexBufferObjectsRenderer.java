@@ -85,9 +85,6 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
     // VertexBufferObject Ids
     private int[] mVBOIds = new int[2];
 
-    ///
-    // Constructor
-    //
     public VertexBufferObjectsRenderer(Context context) {
         mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
@@ -107,9 +104,7 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
         mIndices.put(mIndicesData).position(0);
     }
 
-    ///
-    // Initialize the shader and program object
-    //
+    @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
         String vShaderStr =
                 "#version 300 es                            \n" +
@@ -142,9 +137,7 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
         GLES30.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
-    // /
-    // Draw a triangle using the shader pair created in onSurfaceCreated()
-    //
+    @Override
     public void onDrawFrame(GL10 glUnused) {
         // Set the viewport
         GLES30.glViewport(0, 0, mWidth, mHeight);
@@ -165,9 +158,6 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
     private void drawPrimitiveWithoutVBOs() {
         int numIndices = 3;
         int vtxStride = 4 * (VERTEX_POS_SIZE + VERTEX_COLOR_SIZE);
-
-        GLES30.glBindBuffer(GLES30.GL_ARRAY_BUFFER, 0);
-        GLES30.glBindBuffer(GLES30.GL_ELEMENT_ARRAY_BUFFER, 0);
 
         GLES30.glEnableVertexAttribArray(VERTEX_POS_INDX);
         GLES30.glEnableVertexAttribArray(VERTEX_COLOR_INDX);
@@ -233,9 +223,7 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
         GLES30.glBindBuffer(GLES30.GL_ELEMENT_ARRAY_BUFFER, 0);
     }
 
-    ///
-    // Handle surface changes
-    //
+    @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         mWidth = width;
         mHeight = height;

@@ -11,7 +11,7 @@ import edu.jiangxin.droiddemo.graphics.opengles.ball.BallActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.MapBuffers;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexArrayObjects;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexBufferObjects;
-import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexWithoutBuffer;
+import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexArrays;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.SeparateVboPerAttribute;
 import edu.jiangxin.droiddemo.graphics.opengles.book.hellotriangle.HelloTriangle;
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.MipMap2D;
@@ -119,7 +119,7 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
                 enterTestActivity(HelloTriangle.class);
                 break;
             case R.id.tv_VertexWithoutBuffer:
-                enterTestActivity(VertexWithoutBuffer.class);
+                enterTestActivity(VertexArrays.class);
                 break;
             case R.id.tv_VertexBufferObjects:
                 enterTestActivity(VertexBufferObjects.class);
