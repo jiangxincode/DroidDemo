@@ -1,45 +1,5 @@
-// The MIT License (MIT)
-//
-// Copyright (c) 2013 Dan Ginsburg, Budirijanto Purnomo
-//
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
-//
-// The above copyright notice and this permission notice shall be included in
-// all copies or substantial portions of the Software.
-//
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-// THE SOFTWARE.
+package edu.jiangxin.droiddemo.graphics.opengles.renderer;
 
-//
-// Book:      OpenGL(R) ES 3.0 Programming Guide, 2nd Edition
-// Authors:   Dan Ginsburg, Budirijanto Purnomo, Dave Shreiner, Aaftab Munshi
-// ISBN-10:   0-321-93388-5
-// ISBN-13:   978-0-321-93388-1
-// Publisher: Addison-Wesley Professional
-// URLs:      http://www.opengles-book.com
-//            http://my.safaribooksonline.com/book/animation-and-3d/9780133440133
-//
-
-// Hello_Triangle
-//
-//    This is a simple example that draws a single triangle with
-//    a minimal vertex/fragment shader.  The purpose of this
-//    example is to demonstrate the basic concepts of
-//    OpenGL ES 3.0 rendering.
-
-package edu.jiangxin.droiddemo.graphics.opengles.book.hellotriangle;
-
-import android.content.Context;
 import android.opengl.GLES30;
 import android.opengl.GLSurfaceView;
 import android.util.Log;
@@ -51,9 +11,9 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class HelloTriangleRenderer implements GLSurfaceView.Renderer {
+public class TriangleRenderer implements GLSurfaceView.Renderer {
 
-    private static String TAG = "HelloTriangleRenderer";
+    private static String TAG = "TriangleRenderer";
     private final float[] mVerticesData =
             {0.0f, 0.5f, 0.0f, -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f};
     // Member variables
@@ -64,7 +24,7 @@ public class HelloTriangleRenderer implements GLSurfaceView.Renderer {
     ///
     // Constructor
     //
-    public HelloTriangleRenderer(Context context) {
+    public TriangleRenderer() {
         mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mVertices.put(mVerticesData).position(0);
@@ -103,9 +63,7 @@ public class HelloTriangleRenderer implements GLSurfaceView.Renderer {
         return shader;
     }
 
-    ///
-    // Initialize the shader and program object
-    //
+    @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
         String vShaderStr =
                 "#version 300 es 			  \n"
@@ -165,9 +123,7 @@ public class HelloTriangleRenderer implements GLSurfaceView.Renderer {
         GLES30.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
-    // /
-    // Draw a triangle using the shader pair created in onSurfaceCreated()
-    //
+    @Override
     public void onDrawFrame(GL10 glUnused) {
         // Set the viewport
         GLES30.glViewport(0, 0, mWidth, mHeight);
@@ -185,12 +141,9 @@ public class HelloTriangleRenderer implements GLSurfaceView.Renderer {
         GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, 3);
     }
 
-    // /
-    // Handle surface changes
-    //
+    @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         mWidth = width;
         mHeight = height;
     }
-
 }

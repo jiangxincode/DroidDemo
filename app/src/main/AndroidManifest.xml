@@ -30,7 +30,7 @@
         <activity android:name=".animation.SvgaAnimationActivity" />
         <activity android:name=".graphics.rajawali.RajawaliDemoActivity" />
         <activity android:name=".graphics.opengles.pbuffer.PBufferActivity" />
-        <activity android:name=".graphics.opengles.simple.OpenGLDemoActivity" />
+        <activity android:name=".graphics.opengles.VariousRenderersActivity" />
         <activity android:name=".graphics.opengles.book.vbo.VertexArrays" />
         <activity android:name=".graphics.opengles.book.vbo.SeparateVboPerAttribute" />
         <activity android:name=".graphics.opengles.book.vbo.VertexBufferObjects" />

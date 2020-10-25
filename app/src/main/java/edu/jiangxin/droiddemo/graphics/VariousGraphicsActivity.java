@@ -13,7 +13,6 @@ import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexArrayObjects;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexBufferObjects;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.VertexArrays;
 import edu.jiangxin.droiddemo.graphics.opengles.book.vbo.SeparateVboPerAttribute;
-import edu.jiangxin.droiddemo.graphics.opengles.book.hellotriangle.HelloTriangle;
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.MipMap2D;
 import edu.jiangxin.droiddemo.graphics.opengles.book.fragshader.MultiTexture;
 import edu.jiangxin.droiddemo.graphics.opengles.book.advanced.ParticleSystem;
@@ -23,12 +22,12 @@ import edu.jiangxin.droiddemo.graphics.opengles.book.vertexshader.SimpleVertexSh
 import edu.jiangxin.droiddemo.graphics.opengles.book.texture.TextureWrap;
 import edu.jiangxin.droiddemo.graphics.opengles.matrix.OpenGLMatrixActivity;
 import edu.jiangxin.droiddemo.graphics.opengles.pbuffer.PBufferActivity;
-import edu.jiangxin.droiddemo.graphics.opengles.simple.OpenGLDemoActivity;
+import edu.jiangxin.droiddemo.graphics.opengles.VariousRenderersActivity;
 import edu.jiangxin.droiddemo.graphics.rajawali.RajawaliDemoActivity;
 
 public class VariousGraphicsActivity extends Activity implements View.OnClickListener {
 
-    private TextView mTvOpenGLDemo;
+    private TextView mTvBackground, mTvTriangle, mTvSquare, mTvCircle;
     private TextView mTvMatrix;
     private TextView mTvBall;
     private TextView mTvHelloTriangle;
@@ -44,7 +43,10 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_various_graphics);
 
-        mTvOpenGLDemo = findViewById(R.id.tv_opengl);
+        mTvBackground = findViewById(R.id.tv_background);
+        mTvTriangle = findViewById(R.id.tv_triangle);
+        mTvSquare = findViewById(R.id.tv_square);
+        mTvCircle = findViewById(R.id.tv_circle);
 
         mTvMatrix = findViewById(R.id.tv_matrix);
 
@@ -52,7 +54,7 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
 
         mTvHelloTriangle = findViewById(R.id.tv_HelloTriangle);
 
-        mTvVertexWithoutBuffer = findViewById(R.id.tv_VertexWithoutBuffer);
+        mTvVertexWithoutBuffer = findViewById(R.id.tv_VertexArrays);
         mTvVertexBufferObjects = findViewById(R.id.tv_VertexBufferObjects);
         mTvSeparateVboPerAttribute = findViewById(R.id.tv_SeparateVboPerAttribute);
         mTvVertexArrayObjects = findViewById(R.id.tv_VertexArrayObjects);
@@ -73,7 +75,10 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
 
         mTvRajaWaliDemo = findViewById(R.id.tv_rajawali);
 
-        mTvOpenGLDemo.setOnClickListener(this);
+        mTvBackground.setOnClickListener(this);
+        mTvTriangle.setOnClickListener(this);
+        mTvSquare.setOnClickListener(this);
+        mTvCircle.setOnClickListener(this);
 
         mTvMatrix.setOnClickListener(this);
 
@@ -106,19 +111,37 @@ public class VariousGraphicsActivity extends Activity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.tv_opengl:
-                enterTestActivity(OpenGLDemoActivity.class);
+            case R.id.tv_background: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_BACKGROUND);
+                startActivity(intent);
                 break;
+            }
+            case R.id.tv_triangle: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_TRIANGLE);
+                startActivity(intent);
+                break;
+            }
+            case R.id.tv_square: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_SQUARE);
+                startActivity(intent);
+                break;
+            }
+            case R.id.tv_circle: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_CIRCLE);
+                startActivity(intent);
+                break;
+            }
             case R.id.tv_matrix:
                 enterTestActivity(OpenGLMatrixActivity.class);
                 break;
             case R.id.tv_ball:
                 enterTestActivity(BallActivity.class);
                 break;
-            case R.id.tv_HelloTriangle:
-                enterTestActivity(HelloTriangle.class);
-                break;
-            case R.id.tv_VertexWithoutBuffer:
+            case R.id.tv_VertexArrays:
                 enterTestActivity(VertexArrays.class);
                 break;
             case R.id.tv_VertexBufferObjects:

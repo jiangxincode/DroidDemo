@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.graphics.opengles.simple.render;
+package edu.jiangxin.droiddemo.graphics.opengles.renderer;
 
 import android.opengl.GLES20;
 import android.opengl.GLSurfaceView;
@@ -12,7 +12,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-public class Square extends BaseRenderer implements GLSurfaceView.Renderer {
+public class SquareRenderer implements GLSurfaceView.Renderer {
 
     private FloatBuffer vertexBuffer;
     private ShortBuffer indexBuffer;
@@ -77,10 +77,13 @@ public class Square extends BaseRenderer implements GLSurfaceView.Renderer {
         indexBuffer.put(index);
         indexBuffer.position(0);
 
-        int vertexShader = loadShader(GLES20.GL_VERTEX_SHADER,
-                vertexShaderCode);
-        int fragmentShader = loadShader(GLES20.GL_FRAGMENT_SHADER,
-                fragmentShaderCode);
+        int vertexShader = GLES20.glCreateShader(GLES20.GL_VERTEX_SHADER);
+        GLES20.glShaderSource(vertexShader, vertexShaderCode);
+        GLES20.glCompileShader(vertexShader);
+
+        int fragmentShader = GLES20.glCreateShader(GLES20.GL_FRAGMENT_SHADER);
+        GLES20.glShaderSource(fragmentShader, fragmentShaderCode);
+        GLES20.glCompileShader(fragmentShader);
 
         //创建一个空的OpenGLES程序
         mProgram = GLES20.glCreateProgram();

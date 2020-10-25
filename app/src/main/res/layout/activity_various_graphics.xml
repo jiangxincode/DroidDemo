@@ -9,11 +9,37 @@
     tools:context="edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity">
 
     <TextView
-        android:id="@+id/tv_opengl"
+        android:id="@+id/tv_background"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="OpenGL ES Demo"
+        android:text="绘制背景"
+        android:background="@android:color/holo_blue_dark"
+        android:textSize="28sp"/>
+    <TextView
+        android:id="@+id/tv_triangle"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制三角形"
+        android:background="@android:color/holo_blue_dark"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:id="@+id/tv_square"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制正方形"
+        android:background="@android:color/holo_blue_dark"
+        android:textSize="28sp"/>
+
+    <TextView
+        android:id="@+id/tv_circle"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="绘制圆形"
         android:background="@android:color/holo_blue_dark"
         android:textSize="28sp"/>
 
@@ -44,11 +70,11 @@
         android:background="@android:color/holo_orange_dark"
         android:textSize="28sp"/>
     <TextView
-        android:id="@+id/tv_VertexWithoutBuffer"
+        android:id="@+id/tv_VertexArrays"
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="VertexWithoutBuffer"
+        android:text="VertexArrays"
         android:background="@android:color/holo_red_light"
         android:textSize="28sp"/>
     <TextView
