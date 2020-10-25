@@ -1,184 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="10dp"
-    tools:context="edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity">
+    tools:context="edu.jiangxin.droiddemo.opengl.VariousOpenGLDemosActivity">
 
-    <TextView
-        android:id="@+id/tv_background"
-        android:gravity="center"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="绘制背景"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_triangle"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="绘制三角形"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
+        android:layout_height="match_parent"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical">
 
-    <TextView
-        android:id="@+id/tv_square"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="绘制正方形"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
 
-    <TextView
-        android:id="@+id/tv_circle"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="绘制圆形"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_background"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="绘制背景"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_matrix"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OpenGL Matrix"
-        android:background="@android:color/holo_green_light"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_triangle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="绘制三角形"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_ball"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="OpenGL Ball"
-        android:background="@android:color/holo_green_dark"
-        android:textSize="28sp"/>
+            <TextView
+                android:id="@+id/tv_square"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="绘制正方形"
+                android:textSize="28sp" />
 
-    <TextView
-        android:id="@+id/tv_HelloTriangle"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="HelloTriangle"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_VertexArrays"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VertexArrays"
-        android:background="@android:color/holo_red_light"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_VertexBufferObjects"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VertexBufferObjects"
-        android:background="@android:color/holo_purple"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_SeparateVboPerAttribute"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SeparateVboPerAttribute"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_VertexArrayObjects"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VertexArrayObjects"
-        android:background="@android:color/holo_orange_light"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_MapBuffers"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MapBuffers"
-        android:background="@android:color/holo_green_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_SimpleVetexShader"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SimpleVetexShader"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_SimpleTexture2D"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SimpleTexture2D"
-        android:background="@android:color/holo_red_light"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_Mipmap2D"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Mipmap2D"
-        android:background="@android:color/holo_green_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_TextureWrap"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextureWrap"
-        android:background="@android:color/holo_orange_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_SimpleTextureCubeMap"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="SimpleTextureCubeMap"
-        android:background="@android:color/holo_red_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_MultiTexture"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="MultiTexture"
-        android:background="@android:color/holo_blue_light"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_ParticleSystem"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="ParticleSystem"
-        android:background="@android:color/holo_blue_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_PBuffer"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="PBuffer"
-        android:background="@android:color/holo_green_dark"
-        android:textSize="28sp"/>
-    <TextView
-        android:id="@+id/tv_rajawali"
-        android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rajawali Demo"
-        android:background="@android:color/holo_blue_bright"
-        android:textSize="28sp"/>
-</LinearLayout>
+            <TextView
+                android:id="@+id/tv_circle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="绘制圆形"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_matrix"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="OpenGL Matrix"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_ball"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:text="OpenGL Ball"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_VertexArrays"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="VertexArrays"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_VertexBufferObjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_purple"
+                android:gravity="center"
+                android:text="VertexBufferObjects"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_SeparateVboPerAttribute"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:text="SeparateVboPerAttribute"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_VertexArrayObjects"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_light"
+                android:gravity="center"
+                android:text="VertexArrayObjects"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_MapBuffers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:text="MapBuffers"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_SimpleVetexShader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="SimpleVetexShader"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_SimpleTexture2D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="SimpleTexture2D"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_Mipmap2D"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:text="Mipmap2D"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_TextureWrap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_orange_dark"
+                android:gravity="center"
+                android:text="TextureWrap"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_SimpleTextureCubeMap"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:text="SimpleTextureCubeMap"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_MultiTexture"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="MultiTexture"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_ParticleSystem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="ParticleSystem"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_PBuffer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_green_dark"
+                android:gravity="center"
+                android:text="PBuffer"
+                android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_rajawali"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_bright"
+                android:gravity="center"
+                android:text="Rajawali Demo"
+                android:textSize="28sp" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

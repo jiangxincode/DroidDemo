@@ -39,7 +39,6 @@ import edu.jiangxin.droiddemo.activity.RingtoneSettingActivity;
 import edu.jiangxin.droiddemo.activity.RippleActivity;
 import edu.jiangxin.droiddemo.activity.ScaleTextActivity;
 import edu.jiangxin.droiddemo.activity.SettingActivity;
-import edu.jiangxin.droiddemo.layout.SimpleLayoutActivity;
 import edu.jiangxin.droiddemo.activity.SpannableStringActivity;
 import edu.jiangxin.droiddemo.activity.SpinnerActivity;
 import edu.jiangxin.droiddemo.activity.ThemeActivity;
@@ -49,7 +48,7 @@ import edu.jiangxin.droiddemo.activity.VideoViewActivity;
 import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
-import edu.jiangxin.droiddemo.graphics.VariousGraphicsActivity;
+import edu.jiangxin.droiddemo.opengl.VariousOpenGLDemosActivity;
 import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
@@ -73,7 +72,7 @@ public class NotificationsFragment extends Fragment {
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
     private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
-            mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnGraphicsEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
+            mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
@@ -157,10 +156,10 @@ public class NotificationsFragment extends Fragment {
             startActivity(intent);
         });
 
-        mBtnGraphicsEntrance = root.findViewById(R.id.btnGraphicsEntrance);
-        mBtnGraphicsEntrance.setOnClickListener(v -> {
+        mBtnOpenglDemosEntrance = root.findViewById(R.id.btnOpenglEntrance);
+        mBtnOpenglDemosEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
-            intent.setClass(getContext(), VariousGraphicsActivity.class);
+            intent.setClass(getContext(), VariousOpenGLDemosActivity.class);
             startActivity(intent);
         });
 

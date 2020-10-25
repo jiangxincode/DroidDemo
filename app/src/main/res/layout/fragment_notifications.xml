@@ -73,10 +73,10 @@
                 android:text="动画大世界" />
 
             <Button
-                android:id="@+id/btnGraphicsEntrance"
+                android:id="@+id/btnOpenglEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="3D图形大世界" />
+                android:text="OpenGL大世界" />
 
             <Button
                 android:id="@+id/btnBlurEntrance"
