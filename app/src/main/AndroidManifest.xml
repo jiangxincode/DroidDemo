@@ -31,11 +31,6 @@
         <activity android:name=".opengl.rajawali.RajawaliDemoActivity" />
         <activity android:name=".opengl.opengles.pbuffer.PBufferActivity" />
         <activity android:name=".opengl.opengles.VariousRenderersActivity" />
-        <activity android:name=".opengl.opengles.book.vbo.VertexArrays" />
-        <activity android:name=".opengl.opengles.book.vbo.SeparateVboPerAttribute" />
-        <activity android:name=".opengl.opengles.book.vbo.VertexBufferObjects" />
-        <activity android:name=".opengl.opengles.book.vbo.VertexArrayObjects" />
-        <activity android:name=".opengl.opengles.book.vbo.MapBuffers" />
         <activity android:name=".opengl.opengles.book.texture.MipMap2D" />
         <activity android:name=".opengl.opengles.book.fragshader.MultiTexture" />
         <activity android:name=".opengl.opengles.book.advanced.ParticleSystem" />

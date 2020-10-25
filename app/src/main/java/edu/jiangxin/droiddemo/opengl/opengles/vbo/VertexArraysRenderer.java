@@ -1,6 +1,5 @@
-package edu.jiangxin.droiddemo.opengl.opengles.book.vbo;
+package edu.jiangxin.droiddemo.opengl.opengles.vbo;
 
-import android.content.Context;
 import android.opengl.GLES30;
 import android.opengl.GLSurfaceView;
 
@@ -57,7 +56,7 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
     private FloatBuffer mVerticesPos;
     private FloatBuffer mVerticesColor;
 
-    public VertexArraysRenderer(Context context) {
+    public VertexArraysRenderer() {
 
         mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();

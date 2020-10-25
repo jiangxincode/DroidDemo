@@ -9,6 +9,11 @@ import edu.jiangxin.droiddemo.opengl.opengles.renderer.BackgroundRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.CircleRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.SquareRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.TriangleRenderer;
+import edu.jiangxin.droiddemo.opengl.opengles.vbo.MapBuffersRenderer;
+import edu.jiangxin.droiddemo.opengl.opengles.vbo.SeparateVboPerAttributeRenderer;
+import edu.jiangxin.droiddemo.opengl.opengles.vbo.VertexArrayObjectsRenderer;
+import edu.jiangxin.droiddemo.opengl.opengles.vbo.VertexArraysRenderer;
+import edu.jiangxin.droiddemo.opengl.opengles.vbo.VertexBufferObjectsRenderer;
 
 public class VariousRenderersActivity extends Activity {
     public static final String ACTION_NAME_BACKGROUND = "background";
@@ -18,6 +23,16 @@ public class VariousRenderersActivity extends Activity {
     public static final String ACTION_NAME_SQUARE = "square";
 
     public static final String ACTION_NAME_CIRCLE = "circle";
+
+    public static final String ACTION_NAME_VERTEX_ARRAYS = "vertexArrays";
+
+    public static final String ACTION_NAME_VERTEX_BUFFER_OBJECTS = "vertexBufferObjects";
+
+    public static final String ACTION_NAME_SEPARATE_VBO_PER_ATTRIBUTE = "separateVboPerAttribute";
+
+    public static final String ACTION_NAME_VERTEX_ARRAY_OBJECTS = "vertexArrayObjects";
+
+    public static final String ACTION_NAME_MAP_BUFFERS = "mapBuffers";
 
     private GLSurfaceView glSurfaceView;
 
@@ -46,6 +61,9 @@ public class VariousRenderersActivity extends Activity {
 //            }
 //        });
         switch (action) {
+            case ACTION_NAME_BACKGROUND:
+                glSurfaceView.setRenderer(new BackgroundRenderer());
+                break;
             case ACTION_NAME_TRIANGLE:
                 glSurfaceView.setRenderer(new TriangleRenderer());
                 break;
@@ -55,7 +73,21 @@ public class VariousRenderersActivity extends Activity {
             case ACTION_NAME_CIRCLE:
                 glSurfaceView.setRenderer(new CircleRenderer());
                 break;
-            case ACTION_NAME_BACKGROUND:
+            case ACTION_NAME_VERTEX_ARRAYS:
+                glSurfaceView.setRenderer(new VertexArraysRenderer());
+                break;
+            case ACTION_NAME_VERTEX_BUFFER_OBJECTS:
+                glSurfaceView.setRenderer(new VertexBufferObjectsRenderer());
+                break;
+            case ACTION_NAME_SEPARATE_VBO_PER_ATTRIBUTE:
+                glSurfaceView.setRenderer(new SeparateVboPerAttributeRenderer());
+                break;
+            case ACTION_NAME_VERTEX_ARRAY_OBJECTS:
+                glSurfaceView.setRenderer(new VertexArrayObjectsRenderer());
+                break;
+            case ACTION_NAME_MAP_BUFFERS:
+                glSurfaceView.setRenderer(new MapBuffersRenderer());
+                break;
             default:
                 glSurfaceView.setRenderer(new BackgroundRenderer());
                 break;

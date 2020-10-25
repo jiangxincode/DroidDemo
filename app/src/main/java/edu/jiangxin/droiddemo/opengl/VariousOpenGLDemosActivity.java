@@ -8,11 +8,6 @@ import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.opengl.opengles.ball.BallActivity;
-import edu.jiangxin.droiddemo.opengl.opengles.book.vbo.MapBuffers;
-import edu.jiangxin.droiddemo.opengl.opengles.book.vbo.VertexArrayObjects;
-import edu.jiangxin.droiddemo.opengl.opengles.book.vbo.VertexBufferObjects;
-import edu.jiangxin.droiddemo.opengl.opengles.book.vbo.VertexArrays;
-import edu.jiangxin.droiddemo.opengl.opengles.book.vbo.SeparateVboPerAttribute;
 import edu.jiangxin.droiddemo.opengl.opengles.book.texture.MipMap2D;
 import edu.jiangxin.droiddemo.opengl.opengles.book.fragshader.MultiTexture;
 import edu.jiangxin.droiddemo.opengl.opengles.book.advanced.ParticleSystem;
@@ -136,21 +131,36 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
             case R.id.tv_ball:
                 enterTestActivity(BallActivity.class);
                 break;
-            case R.id.tv_VertexArrays:
-                enterTestActivity(VertexArrays.class);
+            case R.id.tv_VertexArrays: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_ARRAYS);
+                startActivity(intent);
                 break;
-            case R.id.tv_VertexBufferObjects:
-                enterTestActivity(VertexBufferObjects.class);
+            }
+            case R.id.tv_VertexBufferObjects: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_BUFFER_OBJECTS);
+                startActivity(intent);
                 break;
-            case R.id.tv_SeparateVboPerAttribute:
-                enterTestActivity(SeparateVboPerAttribute.class);
+            }
+            case R.id.tv_SeparateVboPerAttribute: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_SEPARATE_VBO_PER_ATTRIBUTE);
+                startActivity(intent);
                 break;
-            case R.id.tv_VertexArrayObjects:
-                enterTestActivity(VertexArrayObjects.class);
+            }
+            case R.id.tv_VertexArrayObjects: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_ARRAY_OBJECTS);
+                startActivity(intent);
                 break;
-            case R.id.tv_MapBuffers:
-                enterTestActivity(MapBuffers.class);
+            }
+            case R.id.tv_MapBuffers: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_MAP_BUFFERS);
+                startActivity(intent);
                 break;
+            }
             case R.id.tv_SimpleVetexShader:
                 enterTestActivity(SimpleVertexShader.class);
                 break;

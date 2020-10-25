@@ -37,9 +37,8 @@
 //
 //
 
-package edu.jiangxin.droiddemo.opengl.opengles.book.vbo;
+package edu.jiangxin.droiddemo.opengl.opengles.vbo;
 
-import android.content.Context;
 import android.opengl.GLES30;
 import android.opengl.GLSurfaceView;
 
@@ -95,7 +94,7 @@ public class SeparateVboPerAttributeRenderer implements GLSurfaceView.Renderer {
     ///
     // Constructor
     //
-    public SeparateVboPerAttributeRenderer(Context context) {
+    public SeparateVboPerAttributeRenderer() {
         mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mVertices.put(mVerticesData).position(0);
