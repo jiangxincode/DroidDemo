@@ -72,6 +72,15 @@
                 android:textSize="28sp" />
 
             <TextView
+                android:id="@+id/tv_blur"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_light"
+                android:gravity="center"
+                android:text="OpenGL Blur Process"
+                android:textSize="28sp" />
+
+            <TextView
                 android:id="@+id/tv_VertexArrays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

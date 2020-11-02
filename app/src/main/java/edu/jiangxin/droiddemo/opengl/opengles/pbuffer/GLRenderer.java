@@ -16,18 +16,13 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import static android.opengl.EGL14.EGL_NO_SURFACE;
 
-/**
- *
- */
-
 public abstract class GLRenderer extends Thread {
     private static final String TAG = "GLThread";
+    private final List<GLSurface> outputSurfaces;
     private EGLConfig eglConfig = null;
     private EGLDisplay eglDisplay = EGL14.EGL_NO_DISPLAY;
     private EGLContext eglContext = EGL14.EGL_NO_CONTEXT;
-
-    private ArrayBlockingQueue<Event> eventQueue;
-    private final List<GLSurface> outputSurfaces;
+    private final ArrayBlockingQueue<Event> eventQueue;
     private boolean rendering;
     private boolean isRelease;
 
@@ -38,6 +33,10 @@ public abstract class GLRenderer extends Thread {
         isRelease = false;
 
         eventQueue = new ArrayBlockingQueue<>(100);
+    }
+
+    private static String getEGLErrorString() {
+        return GLUtils.getEGLErrorString(EGL14.eglGetError());
     }
 
     private boolean makeOutputSurface(GLSurface surface) {
@@ -63,9 +62,10 @@ public abstract class GLRenderer extends Thread {
                     Log.w(TAG, "nonsupport pixmap surface");
                     return false;
                 }
-                default:
+                default: {
                     Log.w(TAG, "surface type error " + surface.type);
                     return false;
+                }
             }
         } catch (Exception e) {
             Log.w(TAG, "can't create eglSurface");
@@ -76,41 +76,44 @@ public abstract class GLRenderer extends Thread {
         return true;
     }
 
-    public void addSurface(@NonNull final GLSurface surface){
+    public void addSurface(@NonNull final GLSurface surface) {
         Event event = new Event(Event.ADD_SURFACE);
         event.param = surface;
-        if(!eventQueue.offer(event))
-            Log.e(TAG,"queue full");
+        if (!eventQueue.offer(event)) {
+            Log.e(TAG, "queue full");
+        }
     }
 
-    public void removeSurface(@NonNull final GLSurface surface){
+    public void removeSurface(@NonNull final GLSurface surface) {
         Event event = new Event(Event.REMOVE_SURFACE);
         event.param = surface;
-        if(!eventQueue.offer(event))
-            Log.e(TAG,"queue full");
+        if (!eventQueue.offer(event)) {
+            Log.e(TAG, "queue full");
+        }
     }
 
     /**
      * 开始渲染
      * 启动线程并等待初始化完毕
      */
-    public void startRender(){
-        if(!eventQueue.offer(new Event(Event.START_RENDER)))
-            Log.e(TAG,"queue full");
-        if(getState()==State.NEW) {
+    public void startRender() {
+        if (!eventQueue.offer(new Event(Event.START_RENDER))) {
+            Log.e(TAG, "queue full");
+        }
+        if (getState() == State.NEW) {
             super.start(); // 启动渲染线程
         }
     }
 
-    public void stopRender(){
-        if(!eventQueue.offer(new Event(Event.STOP_RENDER)))
-            Log.e(TAG,"queue full");
+    public void stopRender() {
+        if (!eventQueue.offer(new Event(Event.STOP_RENDER)))
+            Log.e(TAG, "queue full");
     }
 
-    public boolean postRunnable(@NonNull Runnable runnable){
+    public boolean postRunnable(@NonNull Runnable runnable) {
         Event event = new Event(Event.RUNNABLE);
         event.param = runnable;
-        if(!eventQueue.offer(event)) {
+        if (!eventQueue.offer(event)) {
             Log.e(TAG, "queue full");
             return false;
         }
@@ -118,15 +121,12 @@ public abstract class GLRenderer extends Thread {
         return true;
     }
 
-    /**
-     *
-     */
     @Override
     public void start() {
-        Log.w(TAG,"Don't call this function");
+        Log.w(TAG, "Don't call this function");
     }
 
-    public void requestRender(){
+    public void requestRender() {
         eventQueue.offer(new Event(Event.REQ_RENDER));
     }
 
@@ -185,11 +185,11 @@ public abstract class GLRenderer extends Thread {
     /**
      * 渲染到各个eglSurface
      */
-    private void render(){
+    private void render() {
         // 渲染(绘制)
-        for(GLSurface output:outputSurfaces){
-            if(output.eglSurface== EGL_NO_SURFACE) {
-                if(!makeOutputSurface(output))
+        for (GLSurface output : outputSurfaces) {
+            if (output.eglSurface == EGL_NO_SURFACE) {
+                if (!makeOutputSurface(output))
                     continue;
             }
             // 设置当前的上下文环境和输出缓冲区
@@ -207,25 +207,25 @@ public abstract class GLRenderer extends Thread {
     public void run() {
         Event event;
 
-        Log.d(TAG,getName()+": render create");
+        Log.d(TAG, getName() + ": render create");
         createGL();
         onCreated();
         // 渲染
-        while(!isRelease){
+        while (!isRelease) {
             try {
                 event = eventQueue.take();
-                switch(event.event){
+                switch (event.event) {
                     case Event.ADD_SURFACE: {
                         // 创建eglSurface
-                        GLSurface surface = (GLSurface)event.param;
-                        Log.d(TAG,"add:"+surface);
+                        GLSurface surface = (GLSurface) event.param;
+                        Log.d(TAG, "add:" + surface);
                         makeOutputSurface(surface);
                         outputSurfaces.add(surface);
                         break;
                     }
                     case Event.REMOVE_SURFACE: {
-                        GLSurface surface = (GLSurface)event.param;
-                        Log.d(TAG,"remove:"+surface);
+                        GLSurface surface = (GLSurface) event.param;
+                        Log.d(TAG, "remove:" + surface);
                         EGL14.eglDestroySurface(eglDisplay, surface.eglSurface);
                         outputSurfaces.remove(surface);
 
@@ -235,7 +235,7 @@ public abstract class GLRenderer extends Thread {
                         rendering = true;
                         break;
                     case Event.REQ_RENDER: // 渲染
-                        if(rendering) {
+                        if (rendering) {
                             onUpdate();
                             render(); // 如果surface缓存没有释放(被消费)那么这里将卡住
                         }
@@ -244,13 +244,13 @@ public abstract class GLRenderer extends Thread {
                         rendering = false;
                         break;
                     case Event.RUNNABLE:
-                        ((Runnable)event.param).run();
+                        ((Runnable) event.param).run();
                         break;
                     case Event.RELEASE:
                         isRelease = true;
                         break;
                     default:
-                        Log.e(TAG,"event error: "+event);
+                        Log.e(TAG, "event error: " + event);
                         break;
                 }
             } catch (InterruptedException e) {
@@ -260,13 +260,13 @@ public abstract class GLRenderer extends Thread {
         // 回调
         onDestroy();
         // 销毁eglSurface
-        for(GLSurface outputSurface:outputSurfaces){
+        for (GLSurface outputSurface : outputSurfaces) {
             EGL14.eglDestroySurface(eglDisplay, outputSurface.eglSurface);
             outputSurface.eglSurface = EGL_NO_SURFACE;
         }
         destroyGL();
         eventQueue.clear();
-        Log.d(TAG,getName()+": render release");
+        Log.d(TAG, getName() + ": render release");
     }
 
     /**
@@ -274,11 +274,11 @@ public abstract class GLRenderer extends Thread {
      * 这里先将渲染器释放(renderer)再退出looper，因为renderer里面可能持有这个looper的handler，
      * 先退出looper再释放renderer可能会报一些警告信息(sending message to a Handler on a dead thread)
      */
-    public void release(){
-        if(eventQueue.offer(new Event(Event.RELEASE))){
+    public void release() {
+        if (eventQueue.offer(new Event(Event.RELEASE))) {
             // 等待线程结束，如果不等待，在快速开关的时候可能会导致资源竞争(如竞争摄像头)
             // 但这样操作可能会引起界面卡顿，择优取舍
-            while (isAlive()){
+            while (isAlive()) {
                 try {
                     this.join(1000);
                 } catch (InterruptedException e) {
@@ -300,6 +300,7 @@ public abstract class GLRenderer extends Thread {
 
     /**
      * 绘制渲染，每次绘制都会调用，一帧数据可能调用多次(不同是输出缓存)
+     *
      * @param outputSurface 输出缓存位置surface
      */
     public abstract void onDrawFrame(GLSurface outputSurface);
@@ -308,11 +309,6 @@ public abstract class GLRenderer extends Thread {
      * 当渲染器销毁前调用，用户回收释放资源
      */
     public abstract void onDestroy();
-
-
-    private static String getEGLErrorString() {
-        return GLUtils.getEGLErrorString(EGL14.eglGetError());
-    }
 
     private static class Event {
         static final int ADD_SURFACE = 1; // 添加输出的surface

@@ -7,10 +7,6 @@ import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
 
 
-/**
- *
- */
-
 public class TestRenderer extends GLRenderer {
     private static final String TAG = "TestRenderer";
     private int program;
@@ -58,7 +54,6 @@ public class TestRenderer extends GLRenderer {
 
     @Override
     public void onUpdate() {
-
     }
 
     @Override

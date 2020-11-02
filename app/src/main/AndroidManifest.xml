@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".opengl.opengles.blur.OpenGlBlurActivity" />
         <activity android:name=".opengl.opengles.matrix.OpenGLMatrixActivity" />
         <activity android:name=".opengl.opengles.ball.BallActivity" />
         <activity android:name=".opengl.opengles.matrix.SimpleActivity" />

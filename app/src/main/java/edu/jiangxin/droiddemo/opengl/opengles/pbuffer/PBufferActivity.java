@@ -18,10 +18,6 @@ import javax.microedition.khronos.opengles.GL10;
 
 import edu.jiangxin.droiddemo.R;
 
-/**
- *
- */
-
 public class PBufferActivity extends Activity {
     private TestRenderer glRenderer;
     private ImageView imageIv;
@@ -31,34 +27,30 @@ public class PBufferActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pbuffer);
 
-        SurfaceView sv = (SurfaceView)findViewById(R.id.sv_main_demo);
-        imageIv = (ImageView)findViewById(R.id.iv_main_image);
+        SurfaceView surfaceView = findViewById(R.id.sv_main_demo);
+        imageIv = findViewById(R.id.iv_main_image);
         glRenderer = new TestRenderer();
         GLSurface glPbufferSurface = new GLSurface(512,512);
         glRenderer.addSurface(glPbufferSurface);
         glRenderer.startRender();
         glRenderer.requestRender();
 
-        glRenderer.postRunnable(new Runnable() {
-            @Override
-            public void run() {
-                IntBuffer ib = IntBuffer.allocate(512 * 512);
-                GLES20.glReadPixels(0, 0, 512, 512, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, ib);
+        glRenderer.postRunnable(() -> {
+            IntBuffer ib = IntBuffer.allocate(512 * 512);
+            GLES20.glReadPixels(0, 0, 512, 512, GL10.GL_RGBA, GL10.GL_UNSIGNED_BYTE, ib);
 
-                final Bitmap bitmap = frameToBitmap(512, 512, ib);
-                new Handler(Looper.getMainLooper()).post(new Runnable() {
-                    @Override
-                    public void run() {
-                        imageIv.setImageBitmap(bitmap);
-                    }
-                });
-            }
+            final Bitmap bitmap = frameToBitmap(512, 512, ib);
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    imageIv.setImageBitmap(bitmap);
+                }
+            });
         });
 
-        sv.getHolder().addCallback(new SurfaceHolder.Callback() {
+        surfaceView.getHolder().addCallback(new SurfaceHolder.Callback() {
             @Override
             public void surfaceCreated(SurfaceHolder surfaceHolder) {
-
             }
 
             @Override
@@ -70,7 +62,6 @@ public class PBufferActivity extends Activity {
 
             @Override
             public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-
             }
         });
     }
@@ -112,18 +103,5 @@ public class PBufferActivity extends Activity {
         }
 
         return Bitmap.createBitmap(pixs, width, height, Bitmap.Config.ARGB_8888);
-    }
-
-    private String bitmapToJpeg(Bitmap bmp, String filePath) {
-        try {
-            FileOutputStream fos = new FileOutputStream(filePath);//注意app的sdcard读写权限问题
-            bmp.compress(Bitmap.CompressFormat.JPEG, 80, fos);//压缩成png,100%显示效果
-            fos.flush();
-            fos.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return filePath;
     }
 }

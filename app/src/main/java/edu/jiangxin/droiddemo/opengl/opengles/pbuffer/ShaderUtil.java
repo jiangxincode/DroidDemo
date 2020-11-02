@@ -1,17 +1,11 @@
 package edu.jiangxin.droiddemo.opengl.opengles.pbuffer;
 
-import android.content.res.Resources;
 import android.opengl.GLES20;
 import android.util.Log;
-
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 
 /**
  * 加载顶点Shader与片元Shader的工具类
  */
-
 public class ShaderUtil {
     /**
      * 加载制定shader的方法
@@ -92,26 +86,5 @@ public class ShaderUtil {
             Log.e("ES20_ERROR", op + ": glError " + error);
             throw new RuntimeException(op + ": glError " + error);
         }
-    }
-
-    //从sh脚本中加载shader内容的方法
-    public static String loadFromAssetsFile(String fname, Resources r) {
-        String result = null;
-        try {
-            InputStream in = r.getAssets().open(fname);
-            int ch = 0;
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            while ((ch = in.read()) != -1) {
-                baos.write(ch);
-            }
-            byte[] buff = baos.toByteArray();
-            baos.close();
-            in.close();
-            result = new String(buff, StandardCharsets.UTF_8);
-            result = result.replaceAll("\\r\\n", "\n");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 }

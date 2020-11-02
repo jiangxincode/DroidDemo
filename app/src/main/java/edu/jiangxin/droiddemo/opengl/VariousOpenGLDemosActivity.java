@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.opengl.opengles.ball.BallActivity;
+import edu.jiangxin.droiddemo.opengl.opengles.blur.OpenGlBlurActivity;
 import edu.jiangxin.droiddemo.opengl.opengles.book.texture.MipMap2D;
 import edu.jiangxin.droiddemo.opengl.opengles.book.fragshader.MultiTexture;
 import edu.jiangxin.droiddemo.opengl.opengles.book.advanced.ParticleSystem;
@@ -25,6 +26,7 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
     private TextView mTvBackground, mTvTriangle, mTvSquare, mTvCircle;
     private TextView mTvMatrix;
     private TextView mTvBall;
+    private TextView mTvBlur;
     private TextView mTvVertexWithoutBuffer, mTvVertexBufferObjects, mTvSeparateVboPerAttribute, mTvVertexArrayObjects, mTvMapBuffers;
     private TextView mTvSimpleVetexShader;
     private TextView mTvSimpleTexture2D, mTvMipmap2D, mTvTextureWrap, mTvSimpleTextureCubeMap;
@@ -45,6 +47,8 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
         mTvMatrix = findViewById(R.id.tv_matrix);
 
         mTvBall = findViewById(R.id.tv_ball);
+
+        mTvBlur = findViewById(R.id.tv_blur);
 
         mTvVertexWithoutBuffer = findViewById(R.id.tv_VertexArrays);
         mTvVertexBufferObjects = findViewById(R.id.tv_VertexBufferObjects);
@@ -75,6 +79,8 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
         mTvMatrix.setOnClickListener(this);
 
         mTvBall.setOnClickListener(this);
+
+        mTvBlur.setOnClickListener(this);
 
         mTvVertexWithoutBuffer.setOnClickListener(this);
         mTvVertexBufferObjects.setOnClickListener(this);
@@ -130,6 +136,9 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
                 break;
             case R.id.tv_ball:
                 enterTestActivity(BallActivity.class);
+                break;
+            case R.id.tv_blur:
+                enterTestActivity(OpenGlBlurActivity.class);
                 break;
             case R.id.tv_VertexArrays: {
                 Intent intent = new Intent(this, VariousRenderersActivity.class);

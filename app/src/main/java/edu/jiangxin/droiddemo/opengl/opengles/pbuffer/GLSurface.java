@@ -4,14 +4,10 @@ import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 
-/**
- *
- */
-
 public class GLSurface {
-    public static final int TYPE_WINDOW_SURFACE  = 0;
+    public static final int TYPE_WINDOW_SURFACE = 0;
     public static final int TYPE_PBUFFER_SURFACE = 1;
-    public static final int TYPE_PIXMAP_SURFACE  = 2;
+    public static final int TYPE_PIXMAP_SURFACE = 2;
 
     protected final int type;
     protected Object surface; // 显示控件(支持SurfaceView、SurfaceHolder、Surface和SurfaceTexture)
@@ -26,7 +22,7 @@ public class GLSurface {
     }
 
     public GLSurface(Surface surface, int width, int height) {
-        this(surface,0,0,width,height);
+        this(surface, 0, 0, width, height);
     }
 
     public GLSurface(Surface surface, int x, int y, int width, int height) {
@@ -35,22 +31,22 @@ public class GLSurface {
         type = TYPE_WINDOW_SURFACE;
     }
 
-    public void setViewport(int x, int y, int width, int height){
+    public void setViewport(int x, int y, int width, int height) {
         viewport.x = x;
         viewport.y = y;
         viewport.width = width;
         viewport.height = height;
     }
 
-    public void setViewport(Viewport viewport){
-        this.viewport = viewport;
-    }
-
-    public Viewport getViewport(){
+    public Viewport getViewport() {
         return viewport;
     }
 
-    public static class Viewport{
+    public void setViewport(Viewport viewport) {
+        this.viewport = viewport;
+    }
+
+    public static class Viewport {
         public int x;
         public int y;
         public int width;
