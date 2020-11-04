@@ -23,8 +23,10 @@ public class OpenGlBlurActivity extends Activity {
         //初始化GLSurfaceView
         mGLSurfaceView = new MySurfaceView(this);
         setContentView(mGLSurfaceView);
-        mGLSurfaceView.requestFocus();//获取焦点
-        mGLSurfaceView.setFocusableInTouchMode(true);//设置为可触控
+        //获取焦点
+        mGLSurfaceView.requestFocus();
+        //设置为可触控
+        mGLSurfaceView.setFocusableInTouchMode(true);
     }
 
     @Override

@@ -22,7 +22,7 @@ public class ScreenInfoRunnable implements Runnable {
     public void run() {
         StringBuilder stringBuilder = new StringBuilder();
         DisplayMetrics metric = new DisplayMetrics();
-        // if in a activity, use getWindowManager() instead.
+        // 请参考: Android 获取屏幕宽高的两种方式: https://blog.csdn.net/qq_41642206/article/details/80688374
         WindowManager windowManager = (WindowManager)ApplicationExt.getContext().getSystemService(Context.WINDOW_SERVICE);
         windowManager.getDefaultDisplay().getMetrics(metric);
         stringBuilder.append("Screen width(px): " + metric.widthPixels).append("\n"); // 屏幕宽度（像素）

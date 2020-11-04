@@ -1,15 +1,23 @@
 package edu.jiangxin.droiddemo.opengl.opengles.blur;
 
+import android.content.res.Resources;
+import android.opengl.GLES30;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-import android.annotation.SuppressLint;
-import android.opengl.GLES30;
 
-
-//加载后的物体——仅携带顶点信息，颜色随机
-@SuppressLint("NewApi") public class LoadedObjectVertexNormalTexture
+/**
+ * 加载后的物体——仅携带顶点信息，颜色随机
+ */
+public class LoadedObject
 {
+    private int mVertexCount = 0;
+    private FloatBuffer mVertexBuffer;
+    private FloatBuffer mNormalBuffer;
+    private FloatBuffer mTextureBuffer;
+
+
     //绘制真实
     int mProgram;//自定义渲染管线着色器程序id
     int muMVPMatrixHandle;//总变换矩阵引用
@@ -22,11 +30,9 @@ import android.opengl.GLES30;
     String mVertexShader;//顶点着色器代码脚本
     String mFragmentShader;//片元着色器代码脚本
 
-    FloatBuffer   mVertexBuffer;//顶点坐标数据缓冲
-    FloatBuffer   mNormalBuffer;//顶点法向量数据缓冲
-    FloatBuffer   mTexCoorBuffer;//顶点纹理坐标数据缓冲
-    int vCount=0;
-    MySurfaceView mv;
+
+
+    Resources resources;
     boolean initFlag=false;
     //只送入顶点
     int mProgramTwo;//自定义渲染管线着色器程序id
@@ -45,58 +51,41 @@ import android.opengl.GLES30;
     boolean initFlagTwo=false;
 
 
-    public LoadedObjectVertexNormalTexture(MySurfaceView mv,float[] vertices,float[] normals,float texCoors[])
+    public LoadedObject(Resources resources, float[] vertices, float[] normals, float textures[])
     {
-        this.mv=mv;
-        //初始化顶点数据的方法
-        initVertexData(vertices,normals,texCoors);
+        this.resources = resources;
+        initVertexData(vertices,normals,textures);
     }
 
-    //初始化顶点数据的方法
-    public void initVertexData(float[] vertices,float[] normals,float texCoors[])
-    {
-        //顶点坐标数据的初始化================begin============================
-        vCount=vertices.length/3;
+    private void initVertexData(float[] vertices, float[] normals, float textures[]) {
+        mVertexCount = vertices.length / 3;
 
-        //创建顶点坐标数据缓冲
-        //vertices.length*4是因为一个整数四个字节
-        ByteBuffer vbb = ByteBuffer.allocateDirect(vertices.length*4);
-        vbb.order(ByteOrder.nativeOrder());//设置字节顺序
-        mVertexBuffer = vbb.asFloatBuffer();//转换为Float型缓冲
-        mVertexBuffer.put(vertices);//向缓冲区中放入顶点坐标数据
-        mVertexBuffer.position(0);//设置缓冲区起始位置
-        //特别提示：由于不同平台字节顺序不同数据单元不是字节的一定要经过ByteBuffer
-        //转换，关键是要通过ByteOrder设置nativeOrder()，否则有可能会出问题
-        //顶点坐标数据的初始化================end============================
+        ByteBuffer vertexByteBuffer = ByteBuffer.allocateDirect(vertices.length * 4);
+        vertexByteBuffer.order(ByteOrder.nativeOrder());
+        mVertexBuffer = vertexByteBuffer.asFloatBuffer();
+        mVertexBuffer.put(vertices);
+        mVertexBuffer.position(0);
 
-        //顶点法向量数据的初始化================begin============================
-        ByteBuffer cbb = ByteBuffer.allocateDirect(normals.length*4);
-        cbb.order(ByteOrder.nativeOrder());//设置字节顺序
-        mNormalBuffer = cbb.asFloatBuffer();//转换为Float型缓冲
-        mNormalBuffer.put(normals);//向缓冲区中放入顶点法向量数据
-        mNormalBuffer.position(0);//设置缓冲区起始位置
-        //特别提示：由于不同平台字节顺序不同数据单元不是字节的一定要经过ByteBuffer
-        //转换，关键是要通过ByteOrder设置nativeOrder()，否则有可能会出问题
-        //顶点着色数据的初始化================end============================
+        ByteBuffer cbb = ByteBuffer.allocateDirect(normals.length * 4);
+        cbb.order(ByteOrder.nativeOrder());
+        mNormalBuffer = cbb.asFloatBuffer();
+        mNormalBuffer.put(normals);
+        mNormalBuffer.position(0);
 
-        //顶点纹理坐标数据的初始化================begin============================
-        ByteBuffer tbb = ByteBuffer.allocateDirect(texCoors.length*4);
-        tbb.order(ByteOrder.nativeOrder());//设置字节顺序
-        mTexCoorBuffer = tbb.asFloatBuffer();//转换为Float型缓冲
-        mTexCoorBuffer.put(texCoors);//向缓冲区中放入顶点纹理坐标数据
-        mTexCoorBuffer.position(0);//设置缓冲区起始位置
-        //特别提示：由于不同平台字节顺序不同数据单元不是字节的一定要经过ByteBuffer
-        //转换，关键是要通过ByteOrder设置nativeOrder()，否则有可能会出问题
-        //顶点纹理坐标数据的初始化================end============================
+        ByteBuffer tbb = ByteBuffer.allocateDirect(textures.length * 4);
+        tbb.order(ByteOrder.nativeOrder());
+        mTextureBuffer = tbb.asFloatBuffer();
+        mTextureBuffer.put(textures);
+        mTextureBuffer.position(0);
     }
 
     //初始化着色器的方法
     public void initShader()
     {
         //加载顶点着色器的脚本内容
-        mVertexShader= ShaderUtil.loadFromAssetsFile("vertex.sh", mv.getResources());
+        mVertexShader= ShaderUtil.loadFromAssetsFile("vertex.sh", resources);
         //加载片元着色器的脚本内容
-        mFragmentShader=ShaderUtil.loadFromAssetsFile("frag.sh", mv.getResources());
+        mFragmentShader=ShaderUtil.loadFromAssetsFile("frag.sh", resources);
         //基于顶点着色器与片元着色器创建程序
         mProgram = ShaderUtil.createProgram(mVertexShader, mFragmentShader);
         //获取程序中顶点位置属性引用
@@ -119,9 +108,9 @@ import android.opengl.GLES30;
     public void initShaderTwo()
     {
         //加载顶点着色器的脚本内容
-        mVertexShaderTwo= ShaderUtil.loadFromAssetsFile("vertex_two.sh", mv.getResources());
+        mVertexShaderTwo= ShaderUtil.loadFromAssetsFile("vertex_two.sh", resources);
         //加载片元着色器的脚本内容
-        mFragmentShaderTwo=ShaderUtil.loadFromAssetsFile("frag_two.sh", mv.getResources());
+        mFragmentShaderTwo=ShaderUtil.loadFromAssetsFile("frag_two.sh", resources);
         //基于顶点着色器与片元着色器创建程序
         mProgramTwo = ShaderUtil.createProgram(mVertexShaderTwo, mFragmentShaderTwo);
         //获取程序中顶点位置属性引用
@@ -187,7 +176,7 @@ import android.opengl.GLES30;
                         GLES30.GL_FLOAT,
                         false,
                         2*4,
-                        mTexCoorBuffer
+                        mTextureBuffer
                 );
         //启用顶点位置、法向量、纹理坐标数据
         GLES30.glEnableVertexAttribArray(maPositionHandle);
@@ -197,10 +186,10 @@ import android.opengl.GLES30;
         GLES30.glActiveTexture(GLES30.GL_TEXTURE0);
         GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, texId);
         //绘制加载的物体
-        GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, vCount);
+        GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, mVertexCount);
         MatrixState.popMatrix();//恢复场景
     }
-    public void drawSelfTwo(int texId)
+    public void drawSelfTwo(int texId, int surfaceWidth, int surfaceHeight)
     {
         if(!initFlagTwo)
         {
@@ -221,9 +210,9 @@ import android.opengl.GLES30;
         //传递位置
         GLES30.glUniform1f(mablurPosition, Constant.blurPosition);
         //传递宽度
-        GLES30.glUniform1f(maScreenWidth, Constant.screen_width);
+        GLES30.glUniform1f(maScreenWidth, (float)surfaceWidth);
         //传递高度
-        GLES30.glUniform1f(maScreenHeight, Constant.screen_height);
+        GLES30.glUniform1f(maScreenHeight, (float)surfaceHeight);
         // 将顶点位置数据传入渲染管线
         GLES30.glVertexAttribPointer
                 (
@@ -240,7 +229,7 @@ import android.opengl.GLES30;
         GLES30.glActiveTexture(GLES30.GL_TEXTURE0);
         GLES30.glBindTexture(GLES30.GL_TEXTURE_2D, texId);
         //绘制加载的物体
-        GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, vCount);
+        GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, mVertexCount);
         MatrixState.popMatrix();//恢复场景
     }
 
