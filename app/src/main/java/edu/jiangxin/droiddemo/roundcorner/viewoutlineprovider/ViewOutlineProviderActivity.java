@@ -11,6 +11,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.Utils;
 import edu.jiangxin.droiddemo.roundcorner.utils.DisplayUtils;
 
 public class ViewOutlineProviderActivity extends AppCompatActivity {
@@ -32,7 +33,7 @@ public class ViewOutlineProviderActivity extends AppCompatActivity {
         mLly.setOutlineProvider(new ViewOutlineProvider() {
             @Override
             public void getOutline(View view, Outline outline) {
-                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), DisplayUtils.dp2px(ViewOutlineProviderActivity.this, 10F));
+                outline.setRoundRect(0, 0, view.getWidth(), view.getHeight(), Utils.dp2px(ViewOutlineProviderActivity.this, 10F));
             }
         });
         mLly.setClipToOutline(true);

@@ -7,6 +7,7 @@ import android.widget.LinearLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.Utils;
 import edu.jiangxin.droiddemo.roundcorner.utils.DisplayUtils;
 
 public class GradientDrawableActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class GradientDrawableActivity extends AppCompatActivity {
         mLly1 = findViewById(R.id.lly1);
         GradientDrawable gradientDrawable1 = new GradientDrawable();
         gradientDrawable1.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable1.setCornerRadius(DisplayUtils.dp2px(this, 10F));
+        gradientDrawable1.setCornerRadius(Utils.dp2px(this, 10F));
         gradientDrawable1.setColor(getResources().getColor(R.color.colorPrimary));
         mLly1.setBackground(gradientDrawable1);
 
@@ -37,10 +38,10 @@ public class GradientDrawableActivity extends AppCompatActivity {
         gradientDrawable2.setShape(GradientDrawable.RECTANGLE);
         gradientDrawable2.setColor(getResources().getColor(R.color.colorAccent));
         float[] radii = new float[]{
-                DisplayUtils.dp2px(this, 10F), DisplayUtils.dp2px(this, 10F),
+                Utils.dp2px(this, 10F), Utils.dp2px(this, 10F),
                 0F, 0F,
                 0F, 0F,
-                DisplayUtils.dp2px(this, 10F), DisplayUtils.dp2px(this, 10F)
+                Utils.dp2px(this, 10F), Utils.dp2px(this, 10F)
         };
         gradientDrawable2.setCornerRadii(radii);
         mLly2.setBackground(gradientDrawable2);
@@ -50,7 +51,7 @@ public class GradientDrawableActivity extends AppCompatActivity {
         gradientDrawable3.setShape(GradientDrawable.RECTANGLE);
         gradientDrawable3.setColor(getResources().getColor(R.color.colorPrimary));
         float[] radii1 = new float[]{
-                DisplayUtils.dp2px(this, 10F), DisplayUtils.dp2px(this, 10F),
+                Utils.dp2px(this, 10F), Utils.dp2px(this, 10F),
                 0F, 0F,
                 0F, 0F,
                 0F, 0F

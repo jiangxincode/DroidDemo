@@ -9,6 +9,8 @@ import android.view.animation.Interpolator;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import edu.jiangxin.droiddemo.Utils;
+
 public class SwipeMenuListView extends ListView {
 
     private static final int TOUCH_STATE_NONE = 0;
@@ -50,8 +52,8 @@ public class SwipeMenuListView extends ListView {
     }
 
     private void init() {
-        MAX_X = dp2px(MAX_X);
-        MAX_Y = dp2px(MAX_Y);
+        MAX_X = Utils.dp2px(getContext(), MAX_X);
+        MAX_Y = Utils.dp2px(getContext(), MAX_Y);
         mTouchState = TOUCH_STATE_NONE;
     }
 
@@ -272,11 +274,6 @@ public class SwipeMenuListView extends ListView {
         if (mTouchView != null && mTouchView.isOpen()) {
             mTouchView.smoothCloseMenu();
         }
-    }
-
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getContext().getResources().getDisplayMetrics());
     }
 
     public void setMenuCreator(SwipeMenuCreator menuCreator) {

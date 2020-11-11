@@ -11,6 +11,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.Utils;
 
 /**
  * 想对TextView的Autosizeing属性有更多了解建议阅读：
@@ -49,7 +50,7 @@ public class ScaleTextActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 ViewGroup.LayoutParams layoutParams = tv_scale.getLayoutParams();
-                layoutParams.width = dp2px(ScaleTextActivity.this, progress + defaultWidth);
+                layoutParams.width = Utils.sp2px(ScaleTextActivity.this, progress + defaultWidth);
                 tv_scale.setLayoutParams(layoutParams);
             }
 
@@ -68,7 +69,7 @@ public class ScaleTextActivity extends Activity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                 ViewGroup.LayoutParams layoutParams = tv_scale.getLayoutParams();
-                layoutParams.height = dp2px(ScaleTextActivity.this, defaultHeight + progress);
+                layoutParams.height = Utils.sp2px(ScaleTextActivity.this, defaultHeight + progress);
                 tv_scale.setLayoutParams(layoutParams);
             }
 
@@ -83,28 +84,4 @@ public class ScaleTextActivity extends Activity {
             }
         });
     }
-
-    /**
-     * 把dp或sp转成px （像素）
-     *
-     * @param context
-     * @param dp
-     * @return
-     */
-    public static int dp2px(Context context, int dp) {
-        // mdpi 1dp=1px
-        // hdpi 1dp=1.5px
-        // xhdpi 720*1280 1dp=2px
-        // xxhdpi 1080*1920 1dp=3px
-        // xxxhdpi 1440*2560 1dp=4px
-        //获得资源
-        Resources resources = context.getResources();
-        // 1个dp或sp等于多少个像素点  算是密度 也可以算是dp与像素的比率
-        float density = resources.getDisplayMetrics().scaledDensity;
-        // 6.5-->6
-        // 6.5+0.5=7
-        float px = density * dp + 0.5F;
-        return (int) px;
-    }
-
 }

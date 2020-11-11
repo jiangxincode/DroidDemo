@@ -1,8 +1,6 @@
 package edu.jiangxin.droiddemo.view.swipemenulistview;
 
 import android.content.Context;
-import androidx.core.view.GestureDetectorCompat;
-import androidx.core.widget.ScrollerCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
@@ -13,6 +11,11 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
+
+import androidx.core.view.GestureDetectorCompat;
+import androidx.core.widget.ScrollerCompat;
+
+import edu.jiangxin.droiddemo.Utils;
 
 public class SwipeMenuLayout extends FrameLayout {
 
@@ -31,8 +34,8 @@ public class SwipeMenuLayout extends FrameLayout {
     private GestureDetectorCompat mGestureDetector;
     private OnGestureListener mGestureListener;
     private boolean isFling;
-    private int MIN_FLING = dp2px(15);
-    private int MAX_VELOCITYX = -dp2px(500);
+    private int MIN_FLING = Utils.dp2px(getContext(), 15);
+    private int MAX_VELOCITYX = -Utils.dp2px(getContext(), 500);
     private ScrollerCompat mOpenScroller;
     private ScrollerCompat mCloseScroller;
     private int mBaseX;
@@ -293,11 +296,6 @@ public class SwipeMenuLayout extends FrameLayout {
 
     public SwipeMenuView getMenuView() {
         return mMenuView;
-    }
-
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
-                getContext().getResources().getDisplayMetrics());
     }
 
     @Override

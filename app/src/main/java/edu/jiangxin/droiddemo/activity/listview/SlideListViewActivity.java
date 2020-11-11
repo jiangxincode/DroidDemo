@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.Utils;
 import edu.jiangxin.droiddemo.view.swipemenulistview.SwipeMenu;
 import edu.jiangxin.droiddemo.view.swipemenulistview.SwipeMenuCreator;
 import edu.jiangxin.droiddemo.view.swipemenulistview.SwipeMenuItem;
@@ -52,7 +53,7 @@ public class SlideListViewActivity extends Activity {
 
                 SwipeMenuItem openItem1 = new SwipeMenuItem(getApplicationContext());
                 openItem1.setBackground(new ColorDrawable(getResources().getColor(R.color.colorLightBlack)));
-                openItem1.setWidth(dp2px(90));
+                openItem1.setWidth(Utils.dp2px(SlideListViewActivity.this, 90));
                 openItem1.setTitle("取消关注");
                 openItem1.setTitleSize(18);
                 openItem1.setTitleColor(Color.WHITE);
@@ -60,7 +61,7 @@ public class SlideListViewActivity extends Activity {
 
                 SwipeMenuItem openItem = new SwipeMenuItem(getApplicationContext());
                 openItem.setBackground(new ColorDrawable(getResources().getColor(R.color.colorRed)));
-                openItem.setWidth(dp2px(70));
+                openItem.setWidth(Utils.dp2px(SlideListViewActivity.this, 70));
                 openItem.setTitle("Delete");
                 openItem.setTitleSize(18);
                 openItem.setTitleColor(Color.WHITE);
@@ -92,11 +93,6 @@ public class SlideListViewActivity extends Activity {
             }
         });
     }
-
-    private int dp2px(int dp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, getResources().getDisplayMetrics());
-    }
-
 }
 
 class SlideListViewAdapter extends BaseAdapter {

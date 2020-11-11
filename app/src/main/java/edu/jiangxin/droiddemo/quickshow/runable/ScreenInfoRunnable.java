@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.DisplayMetrics;
+import android.view.Display;
 import android.view.WindowManager;
 
 import edu.jiangxin.droiddemo.ApplicationExt;
@@ -21,18 +22,26 @@ public class ScreenInfoRunnable implements Runnable {
     @Override
     public void run() {
         StringBuilder stringBuilder = new StringBuilder();
-        DisplayMetrics metric = new DisplayMetrics();
-        // 请参考: Android 获取屏幕宽高的两种方式: https://blog.csdn.net/qq_41642206/article/details/80688374
+        DisplayMetrics displayMetrics = new DisplayMetrics();
         WindowManager windowManager = (WindowManager)ApplicationExt.getContext().getSystemService(Context.WINDOW_SERVICE);
-        windowManager.getDefaultDisplay().getMetrics(metric);
-        stringBuilder.append("Screen width(px): " + metric.widthPixels).append("\n"); // 屏幕宽度（像素）
-        stringBuilder.append("Screen height(px): " + metric.heightPixels).append("\n"); // 屏幕高度（像素）
-        stringBuilder.append("Screen density: " + metric.density).append("\n"); // 屏幕密度（0.75 / 1.0 / 1.5）
-        stringBuilder.append("Screen densityDpi(dpi): " + metric.densityDpi).append("\n"); // 屏幕密度DPI（120 / 160 / 240）
-        stringBuilder.append("Screen width(inch): " + (float) metric.widthPixels / metric.densityDpi).append("\n");
-        stringBuilder.append("Screen height(inch): " + (float) metric.heightPixels / metric.densityDpi).append("\n");
-        stringBuilder.append("Screen width(dp): " + (float) metric.widthPixels / metric.density).append("\n");
-        stringBuilder.append("Screen height(dp): " + (float) metric.heightPixels / metric.density).append("\n");
+        Display display = windowManager.getDefaultDisplay();
+        // 不同方式获取的WindowManager实例则displayMetrics有所不同。
+        // 使用Activity获取的WindowManager则此处的displayMetrics对应的大小在多窗口情况下会小于屏幕大小
+        // 详见Display#getMetrics
+        display.getMetrics(displayMetrics);
+
+        // Display#getMetrics获取的尺寸可能会小于实际尺寸，如果要获得真实尺寸需要使用Display#getRealMetrics
+        // Display#getSize类似于Display#getMetrics，但是只有宽、高对应的像素数
+        // Display#getRealSize类似于Display#getRealMetrics，但是只有实际宽、高对应的像素数
+
+        stringBuilder.append("Screen width(px): " + displayMetrics.widthPixels).append("\n");
+        stringBuilder.append("Screen height(px): " + displayMetrics.heightPixels).append("\n");
+        stringBuilder.append("Screen density: " + displayMetrics.density).append("\n");
+        stringBuilder.append("Screen densityDpi(dpi): " + displayMetrics.densityDpi).append("\n");
+        stringBuilder.append("Screen width(inch): " + (float) displayMetrics.widthPixels / displayMetrics.densityDpi).append("\n");
+        stringBuilder.append("Screen height(inch): " + (float) displayMetrics.heightPixels / displayMetrics.densityDpi).append("\n");
+        stringBuilder.append("Screen width(dp): " + (float) displayMetrics.widthPixels / displayMetrics.density).append("\n");
+        stringBuilder.append("Screen height(dp): " + (float) displayMetrics.heightPixels / displayMetrics.density).append("\n");
 
         Message message = new Message();
         message.what = ShowInfoActivity.UPDATE_MESSAGE;
