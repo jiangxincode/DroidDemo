@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">DroidDemo</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_tools">Tools</string>
+    <string name="title_demos">Demos</string>
     <string name="action_search">search</string>
 
     <string name="s1">SYSTEM_UI_FLAG_VISIBLE</string>

@@ -20,9 +20,9 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.jiangxin.droiddemo.DashboardFragment;
+import edu.jiangxin.droiddemo.ToolsFragment;
+import edu.jiangxin.droiddemo.DemosFragment;
 import edu.jiangxin.droiddemo.HomeFragment;
-import edu.jiangxin.droiddemo.NotificationsFragment;
 import edu.jiangxin.droiddemo.adapter.MainActivityViewPagerAdapter;
 import edu.jiangxin.droiddemo.R;
 
@@ -103,8 +103,8 @@ public class MainActivity extends AppCompatActivity {
 
         adapter = new MainActivityViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment());
-        adapter.addFragment(new DashboardFragment());
-        adapter.addFragment(new NotificationsFragment());
+        adapter.addFragment(new ToolsFragment());
+        adapter.addFragment(new DemosFragment());
         mainActivityViewPager.setAdapter(adapter);
 
         setupShortcuts();

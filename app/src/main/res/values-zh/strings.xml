@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">DroidDemo</string>
     <string name="title_home">主页</string>
-    <string name="title_dashboard">仪表盘</string>
-    <string name="title_notifications">通知</string>
+    <string name="title_tools">工具</string>
+    <string name="title_demos">样例</string>
     <string name="action_search">搜索</string>
 
     <string name="exchange_txt_hint"><Data><![CDATA[请使用<font color="#ff0000"><b>%1$s</b></font>牛兑换<font color="#00ff00"><b>%2$s</b></font>%3$s 上网时长]]></Data></string>

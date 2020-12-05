@@ -59,9 +59,9 @@ import edu.jiangxin.droiddemo.service.VariousServiceActivity;
 /**
  * Created by jiang on 2018/1/21.
  */
-public class NotificationsFragment extends Fragment {
+public class DemosFragment extends Fragment {
 
-    private static final String TAG = "NotificationsFragment";
+    private static final String TAG = "DemosFragment";
 
     private static final int REQUEST_CODE_CALL_LOG = 10001;
     private static final int REQUEST_CODE_RECORD_AUDIO_1 = 10011;
@@ -83,7 +83,7 @@ public class NotificationsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        root = inflater.inflate(R.layout.fragment_demos, container, false);
 
         mBtnShowInfoEntrance = root.findViewById(R.id.btnShowInfoEntrance);
         mBtnShowInfoEntrance.setOnClickListener(v -> {
@@ -164,338 +164,242 @@ public class NotificationsFragment extends Fragment {
         });
 
         mBtnBlurEntrance = root.findViewById(R.id.btnBlurEntrance);
-        mBtnBlurEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), BlurActivity.class);
-                startActivity(intent);
-            }
+        mBtnBlurEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), BlurActivity.class);
+            startActivity(intent);
         });
 
         mBtnForbidScreenShotEntrance = root.findViewById(R.id.btnForbidScreenShotEntrance);
-        mBtnForbidScreenShotEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ForbidScreenShotActivity.class);
-                startActivity(intent);
-            }
+        mBtnForbidScreenShotEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ForbidScreenShotActivity.class);
+            startActivity(intent);
         });
 
         mBtnAppListEntrance = root.findViewById(R.id.btnAppListEntrance);
-        mBtnAppListEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), AppListActivity.class);
-                startActivity(intent);
-            }
+        mBtnAppListEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), AppListActivity.class);
+            startActivity(intent);
         });
 
         mBtnVariousNotificationEntrance = root.findViewById(R.id.btnVariousNotificationEntrance);
-        mBtnVariousNotificationEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), VariousNotificationActivity.class);
-                startActivity(intent);
-            }
+        mBtnVariousNotificationEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), VariousNotificationActivity.class);
+            startActivity(intent);
         });
 
         mBtnScaleTextEntrance = root.findViewById(R.id.btnScaleTextEntrance);
-        mBtnScaleTextEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ScaleTextActivity.class);
-                startActivity(intent);
-            }
+        mBtnScaleTextEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ScaleTextActivity.class);
+            startActivity(intent);
         });
 
         mBtnSpannableStringEntrance = root.findViewById(R.id.btnSpannableStringEntrance);
-        mBtnSpannableStringEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), SpannableStringActivity.class);
-                startActivity(intent);
-            }
+        mBtnSpannableStringEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SpannableStringActivity.class);
+            startActivity(intent);
         });
 
         mBtnGlobalSearchEntrance = root.findViewById(R.id.btnGlobalSearchEntrance);
-        mBtnGlobalSearchEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), QuickSearchBoxActivity.class);
-                startActivity(intent);
-            }
+        mBtnGlobalSearchEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), QuickSearchBoxActivity.class);
+            startActivity(intent);
         });
 
         mBtnImageViewEntrance = root.findViewById(R.id.btnImageViewEntrance);
-        mBtnImageViewEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ImageViewActivity.class);
-                startActivity(intent);
-            }
+        mBtnImageViewEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ImageViewActivity.class);
+            startActivity(intent);
         });
 
         mBtnAudioFxDemoOscillogramEntrance = root.findViewById(R.id.btnAudioFxDemoOscillogramEntrance);
-        mBtnAudioFxDemoOscillogramEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                List<String> permissions = new ArrayList<String>();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                        permissions.add(Manifest.permission.RECORD_AUDIO);
-                    }
-
-                    if (permissions.isEmpty()) {
-                        startAudioFxOscillogramActivity();
-                    } else {
-                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_1);
-                    }
-                } else {
-                    startAudioFxOscillogramActivity();
+        mBtnAudioFxDemoOscillogramEntrance.setOnClickListener(v -> {
+            List<String> permissions = new ArrayList<String>();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(Manifest.permission.RECORD_AUDIO);
                 }
+
+                if (permissions.isEmpty()) {
+                    startAudioFxOscillogramActivity();
+                } else {
+                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_1);
+                }
+            } else {
+                startAudioFxOscillogramActivity();
             }
         });
 
         mBtnAudioFxDemoHistogramEntrance = root.findViewById(R.id.btnAudioFxDemoHistogramEntrance);
-        mBtnAudioFxDemoHistogramEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                List<String> permissions = new ArrayList<String>();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                        permissions.add(Manifest.permission.RECORD_AUDIO);
-                    }
-
-                    if (permissions.isEmpty()) {
-                        startAudioFxHistogramActivity();
-                    } else {
-                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_2);
-                    }
-                } else {
-                    startAudioFxHistogramActivity();
+        mBtnAudioFxDemoHistogramEntrance.setOnClickListener(v -> {
+            List<String> permissions = new ArrayList<String>();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(Manifest.permission.RECORD_AUDIO);
                 }
+
+                if (permissions.isEmpty()) {
+                    startAudioFxHistogramActivity();
+                } else {
+                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_2);
+                }
+            } else {
+                startAudioFxHistogramActivity();
             }
         });
 
         mBtnNetMusicEntrance = root.findViewById(R.id.btnNetMusicEntrance);
-        mBtnNetMusicEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), NetMusicActivity.class);
-                startActivity(intent);
-            }
+        mBtnNetMusicEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), NetMusicActivity.class);
+            startActivity(intent);
         });
 
         mBtnVideoViewEntrance = root.findViewById(R.id.btnVideoViewEntrance);
-        mBtnVideoViewEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                List<String> permissions = new ArrayList<String>();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-                    }
-
-                    if (permissions.isEmpty()) {
-                        startVideoViewActivity();
-                    } else {
-                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_VIDEO_VIEW);
-                    }
-                } else {
-                    startVideoViewActivity();
+        mBtnVideoViewEntrance.setOnClickListener(v -> {
+            List<String> permissions = new ArrayList<String>();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
                 }
 
+                if (permissions.isEmpty()) {
+                    startVideoViewActivity();
+                } else {
+                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_VIDEO_VIEW);
+                }
+            } else {
+                startVideoViewActivity();
             }
+
         });
 
         mBtnJNIEntrance = root.findViewById(R.id.btnJNIEntrance);
-        mBtnJNIEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), JNIActivity.class);
-                startActivity(intent);
-            }
+        mBtnJNIEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), JNIActivity.class);
+            startActivity(intent);
         });
 
         mBtnActivityTrackerEntrance = root.findViewById(R.id.btnActivityTrackerEntrance);
-        mBtnActivityTrackerEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getActivity())) {
-                    startActivityForResult(
-                            new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()))
-                                    .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
-                            REQUEST_CODE_OVERLAY
-                    );
-                } else {
-                    startTrackerActivity();
-                }
-
+        mBtnActivityTrackerEntrance.setOnClickListener(v -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getActivity())) {
+                startActivityForResult(
+                        new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()))
+                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
+                        REQUEST_CODE_OVERLAY
+                );
+            } else {
+                startTrackerActivity();
             }
+
         });
 
         mBtnSoundEntrance = root.findViewById(R.id.btnSoundEntrance);
-        mBtnSoundEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), RingtoneSettingActivity.class);
-                startActivity(intent);
-            }
+        mBtnSoundEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), RingtoneSettingActivity.class);
+            startActivity(intent);
         });
 
         mBtnSoundEntrance1 = root.findViewById(R.id.btnSoundEntrance1);
-        mBtnSoundEntrance1.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), RingtoneSetting1Activity.class);
-                startActivity(intent);
-            }
+        mBtnSoundEntrance1.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), RingtoneSetting1Activity.class);
+            startActivity(intent);
         });
 
         mBtnPreferenceEntrance = root.findViewById(R.id.btnPreferenceEntrance);
-        mBtnPreferenceEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), SettingActivity.class);
-                startActivity(intent);
-            }
+        mBtnPreferenceEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SettingActivity.class);
+            startActivity(intent);
         });
 
         mBtnThemeEntrance = root.findViewById(R.id.btnThemeEntrance);
-        mBtnThemeEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ThemeActivity.class);
-                startActivity(intent);
-            }
+        mBtnThemeEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ThemeActivity.class);
+            startActivity(intent);
         });
 
         mBtnSpinnerEntrance = root.findViewById(R.id.btnSpinnerEntrance);
-        mBtnSpinnerEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), SpinnerActivity.class);
-                startActivity(intent);
-            }
+        mBtnSpinnerEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SpinnerActivity.class);
+            startActivity(intent);
         });
 
         mFragmentEntrance = root.findViewById(R.id.btnFragmentEntrance);
-        mFragmentEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), FragmentActivity.class);
-                startActivity(intent);
-            }
+        mFragmentEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), FragmentActivity.class);
+            startActivity(intent);
         });
 
         mSAFEntrance = root.findViewById(R.id.btnSAFEntrance);
-        mSAFEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), SAFActivity.class);
-                startActivity(intent);
-            }
+        mSAFEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SAFActivity.class);
+            startActivity(intent);
         });
 
         mMediaStoreDemoEntrance = root.findViewById(R.id.btnMediaStoreDemoEntrance);
-        mMediaStoreDemoEntrance.setOnClickListener(new View.OnClickListener() {
+        mMediaStoreDemoEntrance.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
-
-                List<String> permissions = new ArrayList<String>();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                        permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
-                    }
-
-                    if (permissions.isEmpty()) {
-                        startMediaStoreDemoActivity();
-                    } else {
-                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
-                    }
-                } else {
-                    startMediaStoreDemoActivity();
+            List<String> permissions = new ArrayList<String>();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
                 }
 
+                if (permissions.isEmpty()) {
+                    startMediaStoreDemoActivity();
+                } else {
+                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
+                }
+            } else {
+                startMediaStoreDemoActivity();
             }
+
         });
 
         mThreadEntrance = root.findViewById(R.id.btnThreadEntrance);
-        mThreadEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ThreadDemoActivity.class);
-                startActivity(intent);
-            }
+        mThreadEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ThreadDemoActivity.class);
+            startActivity(intent);
         });
 
         mLoaderDemoEntrance = root.findViewById(R.id.btnLoaderDemoEntrance);
-        mLoaderDemoEntrance.setOnClickListener(new View.OnClickListener() {
+        mLoaderDemoEntrance.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
-
-                List<String> permissions = new ArrayList<String>();
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    if (getActivity().checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-                        permissions.add(Manifest.permission.READ_CALL_LOG);
-                    }
-
-                    if (getActivity().checkSelfPermission(Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-                        permissions.add(Manifest.permission.WRITE_CALL_LOG);
-                    }
-
-                    if (permissions.isEmpty()) {
-                        startLoaderDemoActivity();
-                    } else {
-                        requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_CALL_LOG);
-                    }
-                } else {
-                    startLoaderDemoActivity();
+            List<String> permissions = new ArrayList<String>();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (getActivity().checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(Manifest.permission.READ_CALL_LOG);
                 }
 
+                if (getActivity().checkSelfPermission(Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(Manifest.permission.WRITE_CALL_LOG);
+                }
+
+                if (permissions.isEmpty()) {
+                    startLoaderDemoActivity();
+                } else {
+                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_CALL_LOG);
+                }
+            } else {
+                startLoaderDemoActivity();
             }
+
         });
 
         return root;
