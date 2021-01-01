@@ -40,11 +40,11 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
     // Additional member variables
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
-    private FloatBuffer mVertices1;
-    private ShortBuffer mIndices;
+    private final FloatBuffer mVertices;
+    private final FloatBuffer mVertices1;
+    private final ShortBuffer mIndices;
     // VertexBufferObject Ids
-    private int[] mVBOIds = new int[2];
+    private final int[] mVBOIds = new int[2];
 
     public VertexBufferObjectsRenderer() {
         mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)

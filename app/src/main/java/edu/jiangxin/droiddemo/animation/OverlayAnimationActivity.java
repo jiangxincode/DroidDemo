@@ -28,7 +28,7 @@ public class OverlayAnimationActivity extends Activity {
     private void viewsSetup() {
         setContentView(R.layout.activity_overlay_animation);
 
-        final Button button = (Button) findViewById(R.id.button);
+        final Button button = findViewById(R.id.button);
 
         button.setOnClickListener(new OnClickListener() {
 
@@ -78,7 +78,7 @@ public class OverlayAnimationActivity extends Activity {
             }
         });
 
-        final Button button2 = (Button) findViewById(R.id.button2);
+        final Button button2 = findViewById(R.id.button2);
         button2.setOnClickListener(new OnClickListener() {
 
             @Override
@@ -91,7 +91,7 @@ public class OverlayAnimationActivity extends Activity {
             }
         });
 
-        final Button button3 = (Button) findViewById(R.id.button3);
+        final Button button3 = findViewById(R.id.button3);
         button3.setOnClickListener(new OnClickListener() {
 
             @Override

@@ -7,7 +7,7 @@ import android.graphics.drawable.Drawable;
 public class SwipeMenuItem {
 
     private int id;
-    private Context mContext;
+    private final Context mContext;
     private String title;
     private Drawable icon;
     private Drawable background;

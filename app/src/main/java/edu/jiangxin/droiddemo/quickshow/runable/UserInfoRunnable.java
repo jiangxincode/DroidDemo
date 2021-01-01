@@ -13,7 +13,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
 public class UserInfoRunnable implements Runnable {
 
-    private Handler handler;
+    private final Handler handler;
 
     public UserInfoRunnable(Handler mHandler) {
         this.handler = mHandler;

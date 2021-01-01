@@ -22,7 +22,7 @@ public class QuickSearchBoxProvider extends ContentProvider {
 
     private DBHelper dbHelper = null;
 
-    private static HashMap<String, String> empProjectionMap;
+    private static final HashMap<String, String> empProjectionMap;
 
     static {
         empProjectionMap = new HashMap<String, String>();

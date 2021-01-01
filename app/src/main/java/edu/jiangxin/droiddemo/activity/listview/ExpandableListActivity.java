@@ -93,10 +93,10 @@ public class ExpandableListActivity extends Activity {
 
 class ExpandableListAdapter extends BaseExpandableListAdapter {
 
-    private Context mContext;
-    private List<String> mGroup;           //组列表
-    private List<List<String>> mChildText;     //子列表
-    private List<List<Integer>> mChildLogo;     //子列表
+    private final Context mContext;
+    private final List<String> mGroup;           //组列表
+    private final List<List<String>> mChildText;     //子列表
+    private final List<List<Integer>> mChildLogo;     //子列表
 
     public ExpandableListAdapter(Context context, List<String> group, List<List<String>> childText,
                                  List<List<Integer>> childLogo) {

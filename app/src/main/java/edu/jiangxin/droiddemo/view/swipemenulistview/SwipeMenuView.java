@@ -12,9 +12,9 @@ import java.util.List;
 
 public class SwipeMenuView extends LinearLayout implements OnClickListener {
 
-    private SwipeMenuListView mListView;
+    private final SwipeMenuListView mListView;
     private SwipeMenuLayout mLayout;
-    private SwipeMenu mMenu;
+    private final SwipeMenu mMenu;
     private OnSwipeItemClickListener onItemClickListener;
     private int position;
 

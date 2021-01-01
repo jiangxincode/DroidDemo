@@ -16,9 +16,9 @@ import edu.jiangxin.droiddemo.R;
 
 public class MovieListViewAdapter extends BaseAdapter{
 	
-	private List<MovieInfo> movieinfo;
-	private Context context;
-	private LayoutInflater inflater;
+	private final List<MovieInfo> movieinfo;
+	private final Context context;
+	private final LayoutInflater inflater;
 
 	public MovieListViewAdapter(List<MovieInfo> movielist, Context ctx) {
 		// TODO Auto-generated constructor stub

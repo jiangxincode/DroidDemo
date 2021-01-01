@@ -34,8 +34,8 @@ public class SwipeMenuLayout extends FrameLayout {
     private GestureDetectorCompat mGestureDetector;
     private OnGestureListener mGestureListener;
     private boolean isFling;
-    private int MIN_FLING = Utils.dp2px(getContext(), 15);
-    private int MAX_VELOCITYX = -Utils.dp2px(getContext(), 500);
+    private final int MIN_FLING = Utils.dp2px(getContext(), 15);
+    private final int MAX_VELOCITYX = -Utils.dp2px(getContext(), 500);
     private ScrollerCompat mOpenScroller;
     private ScrollerCompat mCloseScroller;
     private int mBaseX;

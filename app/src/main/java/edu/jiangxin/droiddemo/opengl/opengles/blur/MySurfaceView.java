@@ -113,7 +113,7 @@ public class MySurfaceView extends GLSurfaceView {
 
         private static final int GEN_TEX_HEIGHT = 1024;
 
-        private Context mContext;
+        private final Context mContext;
 
         private int mSurfaceWidth;
 

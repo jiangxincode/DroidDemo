@@ -7,8 +7,8 @@ import java.util.List;
 
 public class SwipeMenu {
 
-    private Context mContext;
-    private List<SwipeMenuItem> mItems;
+    private final Context mContext;
+    private final List<SwipeMenuItem> mItems;
     private int mViewType;
 
     public SwipeMenu(Context context) {

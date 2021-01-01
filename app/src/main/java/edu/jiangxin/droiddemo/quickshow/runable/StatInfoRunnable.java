@@ -16,7 +16,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
 public class StatInfoRunnable implements Runnable {
 
-    private Handler handler;
+    private final Handler handler;
 
     public StatInfoRunnable(Handler mHandler) {
         this.handler = mHandler;

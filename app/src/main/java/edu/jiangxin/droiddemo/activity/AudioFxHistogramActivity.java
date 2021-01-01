@@ -224,10 +224,10 @@ public class AudioFxHistogramActivity extends Activity {
     class VisualizerView extends View {
         private byte[] mBytes;
         private float[] mPoints;
-        private Rect mRect = new Rect();
+        private final Rect mRect = new Rect();
 
-        private Paint mForePaint = new Paint();
-        private int mSpectrumNum = 48;
+        private final Paint mForePaint = new Paint();
+        private final int mSpectrumNum = 48;
         private boolean mFirst = true;
 
         public VisualizerView(Context context) {

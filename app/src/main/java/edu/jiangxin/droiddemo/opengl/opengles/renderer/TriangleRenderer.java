@@ -13,14 +13,14 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class TriangleRenderer implements GLSurfaceView.Renderer {
 
-    private static String TAG = "TriangleRenderer";
+    private static final String TAG = "TriangleRenderer";
     private final float[] mVerticesData =
             {0.0f, 0.5f, 0.0f, -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f};
     // Member variables
     private int mProgramObject;
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
+    private final FloatBuffer mVertices;
     ///
     // Constructor
     //

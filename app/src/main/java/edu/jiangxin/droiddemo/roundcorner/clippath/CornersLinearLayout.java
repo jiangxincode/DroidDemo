@@ -14,13 +14,13 @@ import edu.jiangxin.droiddemo.R;
 
 
 public class CornersLinearLayout extends LinearLayout {
-    private Context mContext;
+    private final Context mContext;
 
-    private float mCorners;
-    private float mLeftTopCorner;
-    private float mRightTopCorner;
-    private float mLeftBottomCorner;
-    private float mRightBottomCorner;
+    private final float mCorners;
+    private final float mLeftTopCorner;
+    private final float mRightTopCorner;
+    private final float mLeftBottomCorner;
+    private final float mRightBottomCorner;
 
     private int mWidth;
     private int mHeight;

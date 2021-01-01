@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
 public class AppConfig {
 
 
-    private SharedPreferences innerConfig;
+    private final SharedPreferences innerConfig;
 
     private static final String KEY_NIGHT_MODE_SWITCH="night_theme";
 

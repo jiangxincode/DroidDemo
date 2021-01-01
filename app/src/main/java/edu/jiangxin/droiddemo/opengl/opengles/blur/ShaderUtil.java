@@ -6,6 +6,7 @@ import android.util.Log;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class ShaderUtil {
     public static int loadShader(int shaderType, String source) {
@@ -76,7 +77,7 @@ public class ShaderUtil {
             byte[] buff = baos.toByteArray();
             baos.close();
             in.close();
-            result = new String(buff, "UTF-8");
+            result = new String(buff, StandardCharsets.UTF_8);
             result = result.replaceAll("\\r\\n", "\n");
         } catch (Exception e) {
             e.printStackTrace();

@@ -58,8 +58,8 @@ public class ListViewActivity extends Activity {
 
 class ListViewMenuAdapter extends BaseAdapter {
 
-    private List<String> mMenuList;
-    private Context mContext;
+    private final List<String> mMenuList;
+    private final Context mContext;
 
     public ListViewMenuAdapter(Context context, List<String> mMenuList) {
         this.mContext = context;

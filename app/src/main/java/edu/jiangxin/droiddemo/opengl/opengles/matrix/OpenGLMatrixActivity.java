@@ -34,7 +34,7 @@ public class OpenGLMatrixActivity extends AppCompatActivity {
 
     class MyAdapter extends RecyclerView.Adapter<VH> {
 
-        private String[] sampleNames = new String[]{
+        private final String[] sampleNames = new String[]{
                 getResources().getString(R.string.sample_0),
                 getResources().getString(R.string.sample_1),
                 getResources().getString(R.string.sample_2),

@@ -206,9 +206,9 @@ public class AudioFxOscillogramActivity extends Activity {
         private byte[] mBytes;
         private float[] mPoints;
         // 矩形区域
-        private Rect mRect = new Rect();
+        private final Rect mRect = new Rect();
         // 画笔
-        private Paint mPaint = new Paint();
+        private final Paint mPaint = new Paint();
 
         // 初始化画笔
         private void init() {

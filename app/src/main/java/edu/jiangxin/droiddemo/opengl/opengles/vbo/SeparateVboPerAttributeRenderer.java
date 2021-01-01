@@ -80,12 +80,12 @@ public class SeparateVboPerAttributeRenderer implements GLSurfaceView.Renderer {
     // Additional member variables
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
-    private FloatBuffer mColors;
-    private ShortBuffer mIndices;
+    private final FloatBuffer mVertices;
+    private final FloatBuffer mColors;
+    private final ShortBuffer mIndices;
     // VertexBufferObject Ids
-    private int[] mVBOIds = new int[3];
-    private int[] vtxStrides =
+    private final int[] mVBOIds = new int[3];
+    private final int[] vtxStrides =
             {
                     VERTEX_POS_SIZE * 4,
                     VERTEX_COLOR_SIZE * 4

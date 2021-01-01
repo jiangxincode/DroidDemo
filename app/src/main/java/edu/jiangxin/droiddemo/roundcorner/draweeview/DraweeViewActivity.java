@@ -21,7 +21,7 @@ public class DraweeViewActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_drawee_view);
 
-        simpleDraweeView = (SimpleDraweeView) findViewById(R.id.simpleDraweeView);
+        simpleDraweeView = findViewById(R.id.simpleDraweeView);
     }
 
     @Override

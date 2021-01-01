@@ -47,9 +47,9 @@ public class SquareRenderer implements GLSurfaceView.Renderer {
     private int mPositionHandle;
     private int mColorHandle;
 
-    private float[] mViewMatrix=new float[16];
-    private float[] mProjectMatrix=new float[16];
-    private float[] mMVPMatrix=new float[16];
+    private final float[] mViewMatrix=new float[16];
+    private final float[] mProjectMatrix=new float[16];
+    private final float[] mMVPMatrix=new float[16];
 
     //顶点个数
     private final int vertexCount = triangleCoords.length / COORDS_PER_VERTEX;

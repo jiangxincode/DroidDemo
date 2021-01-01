@@ -97,8 +97,8 @@ public class SlideListViewActivity extends Activity {
 
 class SlideListViewAdapter extends BaseAdapter {
 
-    private List<SlideListViewEntity> mAppList;
-    private Context mContext;
+    private final List<SlideListViewEntity> mAppList;
+    private final Context mContext;
 
     public SlideListViewAdapter(Context context, List<SlideListViewEntity> mAppList) {
         this.mContext = context;

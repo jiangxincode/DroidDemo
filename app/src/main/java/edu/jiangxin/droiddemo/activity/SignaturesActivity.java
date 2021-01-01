@@ -90,7 +90,7 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 	// 项目包名
 	private String packName;
 	// 格式化日期
-	private SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	private final SimpleDateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	
 	@Override

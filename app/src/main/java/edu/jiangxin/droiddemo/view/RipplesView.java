@@ -15,15 +15,15 @@ import edu.jiangxin.droiddemo.R;
 
 
 public class RipplesView extends View {
-    private String TAG = "RipplesView";
+    private final String TAG = "RipplesView";
     private Paint paint;//用于绘制水波的画笔
     private boolean isStarting = true;
-    private List<Circle> circles = new ArrayList<Circle>();
+    private final List<Circle> circles = new ArrayList<Circle>();
     private int waveCount = 5;//波纹的总个数
     private int color = 0x00ce9b;//波纹的颜色
 
     private float breathDirection = 1;//呼吸方向（+1:变亮，-1:变暗）
-    private float breathSpeed = 0.02f;//呼吸速度
+    private final float breathSpeed = 0.02f;//呼吸速度
     private boolean isBreathing = false;
 
     public RipplesView(Context context) {

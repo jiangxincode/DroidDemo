@@ -12,8 +12,8 @@ import android.widget.WrapperListAdapter;
 public class SwipeMenuAdapter implements WrapperListAdapter,
         SwipeMenuView.OnSwipeItemClickListener {
 
-    private ListAdapter mAdapter;
-    private Context mContext;
+    private final ListAdapter mAdapter;
+    private final Context mContext;
     private SwipeMenuListView.OnMenuItemClickListener onMenuItemClickListener;
 
     public SwipeMenuAdapter(Context context, ListAdapter adapter) {

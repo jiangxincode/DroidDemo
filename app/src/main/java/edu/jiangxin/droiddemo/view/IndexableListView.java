@@ -21,7 +21,7 @@ public class IndexableListView extends View {
 			"J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V",
 			"W", "X", "Y", "Z", "#" };
 	private int choose = -1;// 选中
-	private Paint paint = new Paint();
+	private final Paint paint = new Paint();
 
 	private TextView mTextDialog;
 

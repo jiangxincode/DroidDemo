@@ -13,7 +13,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
 public class ScreenInfoRunnable implements Runnable {
 
-    private Handler handler;
+    private final Handler handler;
 
     public ScreenInfoRunnable(Handler mHandler) {
         this.handler = mHandler;

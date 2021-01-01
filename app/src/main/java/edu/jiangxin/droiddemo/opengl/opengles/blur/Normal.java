@@ -23,17 +23,9 @@ public class Normal
         if(o instanceof  Normal)
         {//若两个法向量XYZ三个分量的差都小于指定的阈值则认为这两个法向量相等
             Normal tn=(Normal)o;
-            if(Math.abs(nx-tn.nx)<DIFF&&
-                    Math.abs(ny-tn.ny)<DIFF&&
-                    Math.abs(ny-tn.ny)<DIFF
-            )
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return Math.abs(nx - tn.nx) < DIFF &&
+                    Math.abs(ny - tn.ny) < DIFF &&
+                    Math.abs(ny - tn.ny) < DIFF;
         }
         else
         {

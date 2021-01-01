@@ -51,10 +51,10 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
     // Additional member variables
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
+    private final FloatBuffer mVertices;
 
-    private FloatBuffer mVerticesPos;
-    private FloatBuffer mVerticesColor;
+    private final FloatBuffer mVerticesPos;
+    private final FloatBuffer mVerticesColor;
 
     public VertexArraysRenderer() {
 

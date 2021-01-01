@@ -25,10 +25,10 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
     private LinearLayout lt_menu;
     private ImageView iv_menu;
     private GridView gridView;
-    private int[] itemLogo = {R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng,
+    private final int[] itemLogo = {R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng,
             R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng,
             R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng, R.drawable.gv_baisheng};
-    private String[] itemName = {"白胜", "曹正", "柴进",
+    private final String[] itemName = {"白胜", "曹正", "柴进",
             "李逵", "李忠", "阮小二",
             "时迁", "王英", "吴用", "朱仝"};
 
@@ -80,8 +80,8 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
 
 class GridViewAdapter extends BaseAdapter {
 
-    private List<GridViewEntity> list;
-    private Context context;
+    private final List<GridViewEntity> list;
+    private final Context context;
 
     public GridViewAdapter(Context context, List<GridViewEntity> list) {
         this.context = context;

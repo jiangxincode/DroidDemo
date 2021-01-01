@@ -14,7 +14,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
 public class StorageInfoRunnable implements Runnable {
 
-    private Handler handler;
+    private final Handler handler;
 
     public StorageInfoRunnable(Handler mHandler) {
         this.handler = mHandler;

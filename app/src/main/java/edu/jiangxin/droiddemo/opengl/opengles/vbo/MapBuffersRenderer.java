@@ -40,7 +40,7 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
     private FloatBuffer vtxMappedBuf;
     private ShortBuffer idxMappedBuf;
     // VertexBufferObject Ids
-    private int[] mVBOIds = new int[2];
+    private final int[] mVBOIds = new int[2];
 
     ///
     // Constructor

@@ -61,7 +61,7 @@ public class ShowInfoActivity extends Activity {
 
     }
 
-    private Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
@@ -81,9 +81,9 @@ public class ShowInfoActivity extends Activity {
 
     class ShowInfoAdapter extends BaseAdapter {
 
-        private List<ShowInfoContent> mMenuList;
-        private Context mContext;
-        private int mNum;
+        private final List<ShowInfoContent> mMenuList;
+        private final Context mContext;
+        private final int mNum;
 
         public ShowInfoAdapter(Context context, List<ShowInfoContent> mMenuList, int num) {
             this.mContext = context;

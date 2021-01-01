@@ -24,11 +24,11 @@ public class LottieAnimationActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lottie_animation);
 
-        animation_view_click=(LottieAnimationView)findViewById(R.id.animation_view_click);
-        tv_seek=(TextView)findViewById(R.id.tv_seek);
+        animation_view_click= findViewById(R.id.animation_view_click);
+        tv_seek= findViewById(R.id.tv_seek);
 
-        button1=(Button)findViewById(R.id.button1);
-        button2=(Button)findViewById(R.id.button2);
+        button1= findViewById(R.id.button1);
+        button2= findViewById(R.id.button2);
 
         button1.setOnClickListener(new View.OnClickListener() {
             @Override

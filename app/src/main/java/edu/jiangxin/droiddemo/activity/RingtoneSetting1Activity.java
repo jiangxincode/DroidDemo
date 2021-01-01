@@ -51,7 +51,7 @@ public class RingtoneSetting1Activity extends Activity {
     }
 
     /*listView的按钮点击事件*/
-    private OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
+    private final OnItemClickListener mOnItemClickListener = new OnItemClickListener() {
 
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position,
@@ -93,7 +93,7 @@ public class RingtoneSetting1Activity extends Activity {
     };
 
     /*按钮点击事件*/
-    private OnClickListener mOnClickListener = new OnClickListener() {
+    private final OnClickListener mOnClickListener = new OnClickListener() {
 
         @Override
         public void onClick(View v) {

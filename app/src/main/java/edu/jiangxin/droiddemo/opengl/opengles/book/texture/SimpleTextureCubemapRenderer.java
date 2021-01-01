@@ -52,7 +52,7 @@ public class SimpleTextureCubemapRenderer implements GLSurfaceView.Renderer {
     // Texture ID
     private int mTextureId;
     // Vertex data
-    private ESShapes mSphere = new ESShapes();
+    private final ESShapes mSphere = new ESShapes();
     // Additional member variables
     private int mWidth;
     private int mHeight;

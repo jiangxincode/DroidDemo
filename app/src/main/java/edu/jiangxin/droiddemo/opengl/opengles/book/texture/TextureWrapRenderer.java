@@ -80,8 +80,8 @@ public class TextureWrapRenderer implements GLSurfaceView.Renderer {
     // Additional member variables
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
-    private ShortBuffer mIndices;
+    private final FloatBuffer mVertices;
+    private final ShortBuffer mIndices;
 
     ///
     // Constructor

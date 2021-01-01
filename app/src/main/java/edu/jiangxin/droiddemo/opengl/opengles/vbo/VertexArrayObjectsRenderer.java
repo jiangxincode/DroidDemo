@@ -39,12 +39,12 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
     // Additional member variables
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
-    private ShortBuffer mIndices;
+    private final FloatBuffer mVertices;
+    private final ShortBuffer mIndices;
     // VertexBufferObject Ids
-    private int[] mVBOIds = new int[2];
+    private final int[] mVBOIds = new int[2];
     // VertexArrayObject Id
-    private int[] mVAOId = new int[1];
+    private final int[] mVAOId = new int[1];
     ///
     // Constructor
     //

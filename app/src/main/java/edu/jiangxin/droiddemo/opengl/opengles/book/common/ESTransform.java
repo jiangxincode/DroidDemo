@@ -43,7 +43,7 @@ import java.nio.FloatBuffer;
 
 public class ESTransform {
     private float[] mMatrix = new float[16];
-    private FloatBuffer mMatrixFloatBuffer;
+    private final FloatBuffer mMatrixFloatBuffer;
 
     public ESTransform() {
         mMatrixFloatBuffer = ByteBuffer.allocateDirect(16 * 4)
@@ -80,10 +80,10 @@ public class ESTransform {
 
     public void rotate(float angle, float x, float y, float z) {
         float sinAngle, cosAngle;
-        float mag = (float) Math.sqrt((double) (x * x + y * y + z * z));
+        float mag = (float) Math.sqrt(x * x + y * y + z * z);
 
-        sinAngle = (float) Math.sin((double) (angle * Math.PI / 180.0));
-        cosAngle = (float) Math.cos((double) (angle * Math.PI / 180.0));
+        sinAngle = (float) Math.sin(angle * Math.PI / 180.0);
+        cosAngle = (float) Math.cos(angle * Math.PI / 180.0);
 
         if (mag > 0.0f) {
             float xx, yy, zz, xy, yz, zx, xs, ys, zs;

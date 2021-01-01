@@ -43,7 +43,7 @@ public class LayoutAnimationAndLayoutTransitionActivity extends Activity {
     private ListView mList;
     private CommonAdapter<String> mCommonAdapter;
 
-    private List<String> mStrings = new ArrayList<>();
+    private final List<String> mStrings = new ArrayList<>();
     private int mInitPos;
 
     @Override

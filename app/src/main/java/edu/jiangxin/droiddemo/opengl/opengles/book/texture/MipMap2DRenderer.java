@@ -80,9 +80,9 @@ public class MipMap2DRenderer implements GLSurfaceView.Renderer {
     // Additional member variables
     private int mWidth;
     private int mHeight;
-    private FloatBuffer mVertices;
-    private ShortBuffer mIndices;
-    private Context mContext;
+    private final FloatBuffer mVertices;
+    private final ShortBuffer mIndices;
+    private final Context mContext;
 
     ///
     // Constructor

@@ -51,13 +51,13 @@ public class LoadedObject
     boolean initFlagTwo=false;
 
 
-    public LoadedObject(Resources resources, float[] vertices, float[] normals, float textures[])
+    public LoadedObject(Resources resources, float[] vertices, float[] normals, float[] textures)
     {
         this.resources = resources;
         initVertexData(vertices,normals,textures);
     }
 
-    private void initVertexData(float[] vertices, float[] normals, float textures[]) {
+    private void initVertexData(float[] vertices, float[] normals, float[] textures) {
         mVertexCount = vertices.length / 3;
 
         ByteBuffer vertexByteBuffer = ByteBuffer.allocateDirect(vertices.length * 4);

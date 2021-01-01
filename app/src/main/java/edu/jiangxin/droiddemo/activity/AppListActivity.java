@@ -47,7 +47,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     private View mProgressBarView;
     private ListView mAppListView;
     private List<AppInfo> mAllAppInfoList = new ArrayList<>();
-    private ArrayList<AppInfo> mSelectedAppInfoList = new ArrayList<>();
+    private final ArrayList<AppInfo> mSelectedAppInfoList = new ArrayList<>();
     private IndexableListView mIndexableListView;
     private TextView mDialog;
     private AppAdapter mAdapter;
@@ -75,7 +75,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
     private static final int NON_EMPTY_LIST = 2;
 
-    private Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler() {
 
         @Override
         public void handleMessage(Message msg) {
@@ -371,7 +371,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     class AppAdapter extends BaseAdapter implements SectionIndexer, Filterable {
 
         private List<AppInfo> appInfoList;
-        private Context mContext;
+        private final Context mContext;
 
         public AppAdapter(Context mContext, List<AppInfo> appInfoList) {
             this.mContext = mContext;

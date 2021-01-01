@@ -22,7 +22,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
 public class OthersInfoRunnable implements Runnable {
 
-    private Handler handler;
+    private final Handler handler;
 
     public OthersInfoRunnable(Handler mHandler) {
         this.handler = mHandler;

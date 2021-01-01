@@ -82,10 +82,10 @@ public class ParticleSystemRenderer implements GLSurfaceView.Renderer {
     private int mHeight;
     private long mLastTime = 0;
     // Particle vertex data
-    private float[] mParticleData = new float[NUM_PARTICLES * PARTICLE_SIZE];
-    private FloatBuffer mParticles;
+    private final float[] mParticleData = new float[NUM_PARTICLES * PARTICLE_SIZE];
+    private final FloatBuffer mParticles;
     private float mTime;
-    private Context mContext;
+    private final Context mContext;
     ///
     // Constructor
     //

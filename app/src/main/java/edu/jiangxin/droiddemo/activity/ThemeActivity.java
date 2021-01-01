@@ -32,11 +32,7 @@ public class ThemeActivity extends Activity {
 
         Toast.makeText(this, "正在切换主题", Toast.LENGTH_SHORT).show();
 
-        if (isNight) {
-            ApplicationExt.getAppConfig().setNightTheme(false);
-        } else {
-            ApplicationExt.getAppConfig().setNightTheme(true);
-        }
+        ApplicationExt.getAppConfig().setNightTheme(!isNight);
 
         Intent intent = getIntent();
         overridePendingTransition(0, R.anim.out_anim);
