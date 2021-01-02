@@ -402,10 +402,10 @@ public class ResultCombinationActivity extends Activity {
 
     //7.等额本息数据整理
     public void sortOneStrings() {
-        ArrayList timeList = new ArrayList();
-        ArrayList capitalList = new ArrayList();
-        ArrayList interestList = new ArrayList();
-        ArrayList monthPayList = new ArrayList();
+        List<String> timeList = new ArrayList<>();
+        List<String> capitalList = new ArrayList<>();
+        List<String> interestList = new ArrayList<>();
+        List<String> monthPayList = new ArrayList<>();
 
         int deltaMonth = 12 - firstMonth + 1;
         int deltaYear = time / 12;
@@ -485,10 +485,10 @@ public class ResultCombinationActivity extends Activity {
 
     //8.等额本金数据整理
     public void sortTwoStrings() {
-        ArrayList timeList = new ArrayList();
-        ArrayList capitalList = new ArrayList();
-        ArrayList interestList = new ArrayList();
-        ArrayList monthPayList = new ArrayList();
+        List<String> timeList = new ArrayList<>();
+        List<String> capitalList = new ArrayList<>();
+        List<String> interestList = new ArrayList<>();
+        List<String> monthPayList = new ArrayList<>();
 
         int deltaMonth = 12 - firstMonth + 1;
         int deltaYear = time / 12;

@@ -67,7 +67,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     /**
      * 根据拼音来排列ListView里面的数据类
      */
-    private Comparator mComparator;
+    private Comparator<? super AppInfo> mComparator;
 
     private static final String TAG = "AppListActivity";
 

@@ -33,11 +33,11 @@ public class OthersInfoRunnable implements Runnable {
         StringBuilder stringBuilder = new StringBuilder();
         PowerManager pm = (PowerManager) ApplicationExt.getContext().getSystemService(Context.POWER_SERVICE);
         //如果为true，则表示屏幕“亮”了，否则屏幕“暗”了
-        stringBuilder.append("isScreenOn: " + pm.isScreenOn()).append("\n");
+        stringBuilder.append("isInteractive: " + pm.isInteractive()).append("\n");
         //如果flag为true，表示有两种状态：a、屏幕是黑的 b、目前正处于解锁状态 。
         // 如果flag为false，表示目前未锁屏
         KeyguardManager mKeyguardManager = (KeyguardManager) ApplicationExt.getContext().getSystemService(Context.KEYGUARD_SERVICE);
-        stringBuilder.append("inKeyguardRestrictedInputMode: " + mKeyguardManager.inKeyguardRestrictedInputMode()).append("\n");
+        stringBuilder.append("isKeyguardLocked: " + mKeyguardManager.isKeyguardLocked()).append("\n");
         stringBuilder.append("IP address: " + getIPAddress(ApplicationExt.getContext()));
 
         Message message = new Message();

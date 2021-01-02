@@ -64,7 +64,7 @@ public class SwipeMenuItem {
     }
 
     public void setIcon(int resId) {
-        this.icon = mContext.getResources().getDrawable(resId);
+        this.icon = mContext.getResources().getDrawable(resId, null);
     }
 
     public Drawable getBackground() {
@@ -76,7 +76,7 @@ public class SwipeMenuItem {
     }
 
     public void setBackground(int resId) {
-        this.background = mContext.getResources().getDrawable(resId);
+        this.background = mContext.getResources().getDrawable(resId, null);
     }
 
     public int getWidth() {

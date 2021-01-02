@@ -1,6 +1,7 @@
 package edu.jiangxin.droiddemo.activity;
 
 import android.app.Activity;
+import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -8,7 +9,6 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.text.ClipboardManager;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;

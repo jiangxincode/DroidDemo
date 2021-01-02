@@ -206,7 +206,7 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             drawable = getContext().getResources().getDrawable(id, getContext().getTheme());
         } else {
-            drawable = getContext().getResources().getDrawable(id);
+            drawable = getContext().getResources().getDrawable(id, null);
         }
         return drawable;
     }

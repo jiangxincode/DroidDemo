@@ -114,7 +114,7 @@ public class SAFActivity extends Activity implements OnClickListener {
                     Log.i("ypz", "Uri: " + uri.toString());
                     try {
                         findViewById(R.id.rlyt_bg).setBackground(
-                                new BitmapDrawable(getBitmapFromUri(uri)));
+                                new BitmapDrawable(getResources(), getBitmapFromUri(uri)));
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
