@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.view.swipemenulistview;
+package edu.jiangxin.droiddemo.activity.listview.swipemenulistview;
 
 import android.text.TextUtils;
 import android.view.Gravity;

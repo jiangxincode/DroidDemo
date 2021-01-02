@@ -1,9 +1,8 @@
-package edu.jiangxin.droiddemo.view.swipemenulistview;
+package edu.jiangxin.droiddemo.activity.listview.swipemenulistview;
 
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.GestureDetector.SimpleOnGestureListener;
 import android.view.MotionEvent;
@@ -11,9 +10,9 @@ import android.view.View;
 import android.view.animation.Interpolator;
 import android.widget.AbsListView;
 import android.widget.FrameLayout;
+import android.widget.OverScroller;
 
 import androidx.core.view.GestureDetectorCompat;
-import androidx.core.widget.ScrollerCompat;
 
 import edu.jiangxin.droiddemo.Utils;
 
@@ -36,8 +35,8 @@ public class SwipeMenuLayout extends FrameLayout {
     private boolean isFling;
     private final int MIN_FLING = Utils.dp2px(getContext(), 15);
     private final int MAX_VELOCITYX = -Utils.dp2px(getContext(), 500);
-    private ScrollerCompat mOpenScroller;
-    private ScrollerCompat mCloseScroller;
+    private OverScroller mOpenScroller;
+    private OverScroller mCloseScroller;
     private int mBaseX;
     private int position;
     private Interpolator mCloseInterpolator;
@@ -111,19 +110,15 @@ public class SwipeMenuLayout extends FrameLayout {
         mGestureDetector = new GestureDetectorCompat(getContext(),
                 mGestureListener);
 
-        // mScroller = ScrollerCompat.create(getContext(), new
-        // BounceInterpolator());
         if (mCloseInterpolator != null) {
-            mCloseScroller = ScrollerCompat.create(getContext(),
-                    mCloseInterpolator);
+            mCloseScroller = new OverScroller(getContext(), mCloseInterpolator);
         } else {
-            mCloseScroller = ScrollerCompat.create(getContext());
+            mCloseScroller = new OverScroller(getContext());
         }
         if (mOpenInterpolator != null) {
-            mOpenScroller = ScrollerCompat.create(getContext(),
-                    mOpenInterpolator);
+            mOpenScroller = new OverScroller(getContext(), mOpenInterpolator);
         } else {
-            mOpenScroller = ScrollerCompat.create(getContext());
+            mOpenScroller = new OverScroller(getContext());
         }
 
         LayoutParams contentParams = new LayoutParams(

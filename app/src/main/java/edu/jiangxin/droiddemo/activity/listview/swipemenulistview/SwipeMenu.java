@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.view.swipemenulistview;
+package edu.jiangxin.droiddemo.activity.listview.swipemenulistview;
 
 import android.content.Context;
 
@@ -13,7 +13,7 @@ public class SwipeMenu {
 
     public SwipeMenu(Context context) {
         mContext = context;
-        mItems = new ArrayList<SwipeMenuItem>();
+        mItems = new ArrayList<>();
     }
 
     public Context getContext() {

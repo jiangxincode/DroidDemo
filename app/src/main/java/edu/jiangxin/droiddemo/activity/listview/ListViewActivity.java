@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.activity.listview.swipemenulistview.SlideListViewActivity;
 
 public class ListViewActivity extends Activity {
 

@@ -1,8 +1,7 @@
-package edu.jiangxin.droiddemo.view.swipemenulistview;
+package edu.jiangxin.droiddemo.activity.listview.swipemenulistview;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Interpolator;
@@ -19,7 +18,7 @@ public class SwipeMenuListView extends ListView {
 
     public static final int DIRECTION_LEFT = 1;
     public static final int DIRECTION_RIGHT = -1;
-    private int mDirection = 1;//swipe from right to left by default
+    private int mDirection = DIRECTION_LEFT;
 
     private int MAX_Y = 5;
     private int MAX_X = 3;
@@ -315,10 +314,6 @@ public class SwipeMenuListView extends ListView {
 
     /**
      * 判断点击事件是否在某个view内
-     *
-     * @param view
-     * @param ev
-     * @return
      */
     public static boolean inRangeOfView(View view, MotionEvent ev) {
         int[] location = new int[2];
