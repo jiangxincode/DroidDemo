@@ -1,11 +1,7 @@
 package edu.jiangxin.droiddemo.activity;
 
-import android.app.Activity;
-import android.app.LoaderManager;
 import android.content.Context;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -22,6 +18,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.loader.app.LoaderManager;
+import androidx.loader.content.CursorLoader;
+import androidx.loader.content.Loader;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -31,7 +32,7 @@ import edu.jiangxin.droiddemo.R;
 /**
  * 使用加载器加载通话记录
  */
-public class LoaderDemoActivity extends Activity {
+public class LoaderDemoActivity extends AppCompatActivity {
 
     private static final String TAG = "LoaderDemoActivity";
     // 查询指定的条目
@@ -59,7 +60,7 @@ public class LoaderDemoActivity extends Activity {
         setContentView(R.layout.activity_loader_demo);
         initWidgets();
         mLoaderCallback = new MyLoaderCallbacks();
-        getLoaderManager().initLoader(0, null, mLoaderCallback);
+        getSupportLoaderManager().initLoader(0, null, mLoaderCallback);
     }
 
     private void initWidgets() {
