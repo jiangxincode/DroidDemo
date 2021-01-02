@@ -177,6 +177,14 @@ public class MainActivity extends Activity {
         setSpinner();                       //4.设置Spinner
     }
 
+    @Override
+    protected void onDestroy() {
+        if (viewPager != null) {
+            viewPager.clearOnPageChangeListeners();
+        }
+        super.onDestroy();
+    }
+
     //0.初始化
     public void init() {
     }
@@ -287,7 +295,7 @@ public class MainActivity extends Activity {
         MainViewPagerAdapter pagerAdapter = new MainViewPagerAdapter(viewList);
         viewPager.setAdapter(pagerAdapter);
         viewPager.setCurrentItem(currentItem);
-        viewPager.setOnPageChangeListener(new PageChangeListener());        //2-1.ViewPager的监听器
+        viewPager.addOnPageChangeListener(new PageChangeListener());
 
         //设置光标
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();

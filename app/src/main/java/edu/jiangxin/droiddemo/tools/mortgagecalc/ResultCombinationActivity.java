@@ -141,6 +141,14 @@ public class ResultCombinationActivity extends Activity {
         }).start();
     }
 
+    @Override
+    protected void onDestroy() {
+        if (viewPager != null) {
+            viewPager.clearOnPageChangeListeners();
+        }
+        super.onDestroy();
+    }
+
     //0.初始化
     public void init() {
     }
@@ -231,7 +239,7 @@ public class ResultCombinationActivity extends Activity {
 
         MainViewPagerAdapter adapter = new MainViewPagerAdapter(viewList);
         viewPager.setAdapter(adapter);
-        viewPager.setOnPageChangeListener(new PageChangeListener());        //3-1.ViewPager的监听器
+        viewPager.addOnPageChangeListener(new PageChangeListener());
 
         //设置光标
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
