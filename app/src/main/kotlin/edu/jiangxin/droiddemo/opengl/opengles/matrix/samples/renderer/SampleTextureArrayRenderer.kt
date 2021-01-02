@@ -137,7 +137,6 @@ class SampleTextureArrayRenderer : GLSurfaceView.Renderer {
         GLES30.glAttachShader(programId, vertexShader)
         GLES30.glAttachShader(programId, fragmentShader)
 
-        val info1 = GLES30.glGetShaderInfoLog(fragmentShader)
         // 链接GL程序
         // Link the GL program
         GLES30.glLinkProgram(programId)

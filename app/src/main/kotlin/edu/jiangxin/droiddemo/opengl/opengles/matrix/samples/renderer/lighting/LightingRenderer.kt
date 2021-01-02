@@ -299,9 +299,6 @@ open class LightingRenderer(private val vertexShaderPath: String, private val fr
         GLES30.glLinkProgram(programId)
         GLES30.glUseProgram(programId)
 
-        val log0 = GLES30.glGetProgramInfoLog(fragmentShader)
-        val log = GLES30.glGetProgramInfoLog(programId)
-
         vertexDataBuffer = ByteBuffer.allocateDirect(vertexData.size * java.lang.Float.SIZE / 8)
             .order(ByteOrder.nativeOrder())
             .asFloatBuffer()
