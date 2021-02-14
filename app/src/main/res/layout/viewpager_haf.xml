@@ -16,7 +16,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/HAF_PaybackMethod_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -43,7 +42,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/HAF_TimeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -52,7 +50,6 @@
                 android:layout_marginRight="20dp">
 
                 <TextView
-                    android:id="@+id/HAF_TimeTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="贷款年限"
@@ -70,7 +67,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/HAF_CalculationMethod_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -96,7 +92,6 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:id="@+id/HAF_Dynamic_Layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -113,7 +108,6 @@
                     android:layout_centerVertical="true">
 
                     <TextView
-                        android:id="@+id/HAF_MortgageTextView"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="贷款金额"
@@ -406,7 +400,6 @@
             </RelativeLayout>
 
             <LinearLayout
-                android:id="@+id/HAF_RateLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -432,7 +425,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/HAF_RateLayout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -538,7 +530,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/HAF_FirstTimeLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -548,7 +539,6 @@
                 android:layout_marginRight="20dp">
 
                 <TextView
-                    android:id="@+id/HAF_FirstTimeTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="首次还款时间"

@@ -38,7 +38,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Combination_TimeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -47,7 +46,6 @@
             android:layout_marginRight="20dp">
 
             <TextView
-                android:id="@+id/Combination_TimeTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="贷款年限"
@@ -65,7 +63,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Combination_CalculationMethod_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
@@ -97,7 +94,6 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/Combination_Mortgage_Layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -140,7 +136,6 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/Combination_Mortgage_Layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
@@ -541,7 +536,6 @@
             android:layout_marginRight="20dp" />
 
         <LinearLayout
-            android:id="@+id/Combination_HAF_Rate_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -657,7 +651,6 @@
             android:layout_marginRight="20dp" />
 
         <LinearLayout
-            android:id="@+id/Combination_Mortgage_Rate_Layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -763,7 +756,6 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/Combination_FirstTimeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -773,7 +765,6 @@
             android:layout_marginRight="20dp">
 
             <TextView
-                android:id="@+id/Combination_FirstTimeTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="首次还款时间"

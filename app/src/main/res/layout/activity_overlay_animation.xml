@@ -4,7 +4,6 @@
     android:orientation="vertical">
 
     <FrameLayout
-        android:id="@+id/redContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -19,7 +18,6 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/greenContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -34,7 +32,6 @@
     </FrameLayout>
 
     <FrameLayout
-        android:id="@+id/orangeContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

@@ -75,7 +75,6 @@
                 android:layout_below="@+id/ViewPager_CapitalInterestCombination_CommPaySum_Number_TextView"/>
 
             <TextView
-                android:id="@+id/ViewPager_CapitalInterestCombination_PaySum_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="还款总额:"
@@ -160,7 +159,6 @@
                 android:layout_below="@+id/ViewPager_CapitalInterestCombination_CommInterest_Number_TextView"/>
 
             <TextView
-                android:id="@+id/ViewPager_CapitalInterestCombination_Interest_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="利息总额:"

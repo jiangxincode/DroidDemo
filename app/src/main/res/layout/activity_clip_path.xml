@@ -54,7 +54,6 @@
     </edu.jiangxin.droiddemo.roundcorner.clippath.CornersLinearLayout>
 
     <edu.jiangxin.droiddemo.roundcorner.clippath.CornersLinearLayout
-        android:id="@+id/clly3"
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"

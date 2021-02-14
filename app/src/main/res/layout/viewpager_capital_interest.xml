@@ -55,7 +55,6 @@
                 android:layout_below="@+id/ViewPager_CapitalInterest_LoanSum_TextView"/>
 
             <TextView
-                android:id="@+id/ViewPager_CapitalInterest_MonthPay_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="每月还款:"
@@ -101,7 +100,6 @@
                 android:layout_alignParentRight="true"/>
 
             <TextView
-                android:id="@+id/ViewPager_CapitalInterest_Interest_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="支付利息:"

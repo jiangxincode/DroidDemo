@@ -51,7 +51,6 @@
     </androidx.viewpager.widget.ViewPager>
 
     <LinearLayout
-        android:id="@+id/ll_banner2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
