@@ -55,6 +55,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
 import edu.jiangxin.droiddemo.saf.SAFActivity;
 import edu.jiangxin.droiddemo.service.VariousServiceActivity;
+import edu.jiangxin.droiddemo.tv.recycleview.RecycleViewTv;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -76,7 +77,7 @@ public class DemosFragment extends Fragment {
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
             mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
-            mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance;
+            mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance, mRecycleViewTvEntrance;
     private View root;
 
 
@@ -400,6 +401,13 @@ public class DemosFragment extends Fragment {
                 startLoaderDemoActivity();
             }
 
+        });
+
+        mRecycleViewTvEntrance = root.findViewById(R.id.btnRecycleViewTvEntrance);
+        mRecycleViewTvEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), RecycleViewTv.class);
+            startActivity(intent);
         });
 
         return root;

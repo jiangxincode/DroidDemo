@@ -6,6 +6,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Base application theme. -->
+    <style name="TvTheme" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:listDivider">@drawable/divider_bg</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
     <style name="DayTheme" parent="AppTheme">
         <item name="titleBarColor">@color/day_titlebar</item>
         <item name="textColor">@color/day_text</item>
