@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -162,33 +164,29 @@ public class VariousNotificationActivity extends Activity {
         });
 
         mBtnOthers = findViewById(R.id.btnOthers);
-        mBtnOthers.setOnClickListener(new View.OnClickListener() {
+        mBtnOthers.setOnClickListener(v -> {
+            NotificationChannel notificationChannel = new NotificationChannel(OTHERS, OTHERS, NotificationManager.IMPORTANCE_HIGH);
+            notificationChannel.enableVibration(true);
+            notificationChannel.setSound(Settings.System.DEFAULT_NOTIFICATION_URI, Notification.AUDIO_ATTRIBUTES_DEFAULT);
+            notificationChannel.setShowBadge(false);
+            notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            notificationChannel.setBypassDnd(false);
+            notificationChannel.setDescription("OTHERS_DESCRIPTION");
+            long[] pattern = {3000, 1000, 3000, 1000}; // {间隔时间，震动持续时间，间隔时间，震动持续时间，间隔时间，震动持续时间}
+            notificationChannel.setVibrationPattern(pattern);
+            notificationManager.createNotificationChannel(notificationChannel);
+            Notification.Builder builder = new Notification.Builder(VariousNotificationActivity.this, OTHERS)
+                    .setContentTitle(OTHERS)
+                    .setContentText(OTHERS)
+                    .setSmallIcon(R.mipmap.ic_launcher);
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onClick(View v) {
-                NotificationChannel notificationChannel = new NotificationChannel(OTHERS, OTHERS, NotificationManager.IMPORTANCE_HIGH);
-                notificationChannel.enableVibration(true);
-                notificationChannel.setSound(Settings.System.DEFAULT_NOTIFICATION_URI, Notification.AUDIO_ATTRIBUTES_DEFAULT);
-                notificationChannel.setShowBadge(false);
-                notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-                notificationChannel.setBypassDnd(false);
-                notificationChannel.setDescription("OTHERS_DESCRIPTION");
-                long[] pattern = {3000, 1000, 3000, 1000}; // {间隔时间，震动持续时间，间隔时间，震动持续时间，间隔时间，震动持续时间}
-                notificationChannel.setVibrationPattern(pattern);
-                notificationManager.createNotificationChannel(notificationChannel);
-                Notification.Builder builder = new Notification.Builder(VariousNotificationActivity.this, OTHERS)
-                        .setContentTitle(OTHERS)
-                        .setContentText(OTHERS)
-                        .setSmallIcon(R.mipmap.ic_launcher);
+            Intent realIntent = new Intent(VariousNotificationActivity.this, VariousNotificationActivity.class);
+            PendingIntent pendingIntent = PendingIntent.getActivity(VariousNotificationActivity.this, 1,// requestCode是0的时候三星手机点击通知栏通知不起作用
+                    realIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            builder.setVisibility(Notification.VISIBILITY_PUBLIC);
+            builder.setFullScreenIntent(pendingIntent, false);
 
-                /*PendingIntent pendingIntent1 = PendingIntent.getActivity(VariousNotificationActivity.this, 1,// requestCode是0的时候三星手机点击通知栏通知不起作用
-                        new Intent(), PendingIntent.FLAG_UPDATE_CURRENT);
-                builder.setVisibility(Notification.VISIBILITY_PUBLIC);
-                builder.setFullScreenIntent(pendingIntent1, false);*/
-
-                notificationManager.notify(NOTIFICATION_ID_OTHERS, builder.build());
-            }
+            notificationManager.notify(NOTIFICATION_ID_OTHERS, builder.build());
         });
     }
 }
