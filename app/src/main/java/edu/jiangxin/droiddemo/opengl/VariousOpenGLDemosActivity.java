@@ -7,18 +7,17 @@ import android.view.View;
 import android.widget.TextView;
 
 import edu.jiangxin.droiddemo.R;
-import edu.jiangxin.droiddemo.opengl.opengles.ball.BallActivity;
-import edu.jiangxin.droiddemo.opengl.opengles.blur.OpenGlBlurActivity;
-import edu.jiangxin.droiddemo.opengl.opengles.book.texture.MipMap2D;
-import edu.jiangxin.droiddemo.opengl.opengles.book.fragshader.MultiTexture;
-import edu.jiangxin.droiddemo.opengl.opengles.book.advanced.ParticleSystem;
-import edu.jiangxin.droiddemo.opengl.opengles.book.texture.SimpleTexture2D;
-import edu.jiangxin.droiddemo.opengl.opengles.book.texture.SimpleTextureCubemap;
-import edu.jiangxin.droiddemo.opengl.opengles.book.vertexshader.SimpleVertexShader;
-import edu.jiangxin.droiddemo.opengl.opengles.book.texture.TextureWrap;
-import edu.jiangxin.droiddemo.opengl.opengles.matrix.OpenGLMatrixActivity;
-import edu.jiangxin.droiddemo.opengl.opengles.pbuffer.PBufferActivity;
-import edu.jiangxin.droiddemo.opengl.opengles.VariousRenderersActivity;
+import edu.jiangxin.droiddemo.opengl.ball.BallActivity;
+import edu.jiangxin.droiddemo.opengl.blur.OpenGlBlurActivity;
+import edu.jiangxin.droiddemo.opengl.book.texture.MipMap2D;
+import edu.jiangxin.droiddemo.opengl.book.fragshader.MultiTexture;
+import edu.jiangxin.droiddemo.opengl.book.advanced.ParticleSystem;
+import edu.jiangxin.droiddemo.opengl.book.texture.SimpleTexture2D;
+import edu.jiangxin.droiddemo.opengl.book.texture.SimpleTextureCubemap;
+import edu.jiangxin.droiddemo.opengl.book.vertexshader.SimpleVertexShader;
+import edu.jiangxin.droiddemo.opengl.book.texture.TextureWrap;
+import edu.jiangxin.droiddemo.opengl.matrix.OpenGLMatrixActivity;
+import edu.jiangxin.droiddemo.opengl.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.opengl.rajawali.RajawaliDemoActivity;
 
 public class VariousOpenGLDemosActivity extends Activity implements View.OnClickListener {

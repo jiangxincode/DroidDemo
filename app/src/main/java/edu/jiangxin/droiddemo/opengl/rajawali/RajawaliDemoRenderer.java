@@ -16,16 +16,16 @@ import org.rajawali3d.renderer.RajawaliRenderer;
 import edu.jiangxin.droiddemo.R;
 
 public class RajawaliDemoRenderer extends RajawaliRenderer {
+    private static final String TAG = "RajawaliDemoRenderer";
 
-    private Sphere earthSphere;
+    private Sphere mEarthSphere;
 
     public RajawaliDemoRenderer(Context context) {
         super(context);
-        setFrameRate(60);
     }
 
     @Override
-    public void initScene(){
+    public void initScene() {
         DirectionalLight directionalLight = new DirectionalLight(1f, .2f, -1.0f);
         directionalLight.setColor(1.0f, 1.0f, 1.0f);
         directionalLight.setPower(2);
@@ -37,32 +37,32 @@ public class RajawaliDemoRenderer extends RajawaliRenderer {
         material.setColor(0);
 
         Texture earthTexture = new Texture("Earth", R.drawable.earthtruecolor_nasa_big);
-        try{
+        try {
             material.addTexture(earthTexture);
-        } catch (ATexture.TextureException error){
-            Log.d("DEBUG", "TEXTURE ERROR");
+        } catch (ATexture.TextureException exception) {
+            Log.e(TAG, "addTexture exception");
         }
 
-        earthSphere = new Sphere(1, 24, 24);
-        earthSphere.setMaterial(material);
-        getCurrentScene().addChild(earthSphere);
+        mEarthSphere = new Sphere(1, 24, 24);
+        mEarthSphere.setMaterial(material);
+        getCurrentScene().addChild(mEarthSphere);
         getCurrentCamera().setZ(4.2f);
     }
 
 
     @Override
-     public void onRender(final long elapsedTime, final double deltaTime) {
+    public void onRender(final long elapsedTime, final double deltaTime) {
         super.onRender(elapsedTime, deltaTime);
-        earthSphere.rotate(Vector3.Axis.Y, 1.0);
+        mEarthSphere.rotate(Vector3.Axis.Y, 1.0);
     }
 
 
     @Override
-    public void onTouchEvent(MotionEvent event){
+    public void onTouchEvent(MotionEvent event) {
     }
 
     @Override
-    public void onOffsetsChanged(float x, float y, float z, float w, int i, int j){
+    public void onOffsetsChanged(float x, float y, float z, float w, int i, int j) {
     }
 }
 

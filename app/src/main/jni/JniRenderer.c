@@ -77,15 +77,11 @@ GLuint LoadShader(GLenum type, const char *shaderSrc) {
 
 }
 
-//*********************************************************************************
-//
 JNIEXPORT void JNICALL
-Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeReadShaderFromFile(
+Java_edu_jiangxin_droiddemo_opengl_renderer_JniRenderer_nativeReadShaderFromFile(
         JNIEnv *env, jobject self, jobject assetManager) {
     if (assetManager && env) {
-//LOGI("before AAssetManager_fromJava");
         g_pAssetManager = AAssetManager_fromJava(env, assetManager);
-//LOGI("after AAssetManager_fromJava");
         if (NULL == g_pAssetManager) {
             LOGE("AAssetManager_fromJava() return null !");
         }
@@ -94,10 +90,8 @@ Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeReadShade
     }
 }
 
-//*********************************************************************************
-//
 JNIEXPORT void JNICALL
-Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeOnSurfaceCreated(
+Java_edu_jiangxin_droiddemo_opengl_renderer_JniRenderer_nativeOnSurfaceCreated(
         JNIEnv *pEnv, jobject obj) {
     char vShaderStr[] =
             "#version 300 es                          \n"
@@ -124,13 +118,13 @@ Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeOnSurface
     GLuint programObject;
     GLint linked;
 
-// Load the vertex/fragment shaders
-//vertexShader = LoadShader ( GL_VERTEX_SHADER, vShaderStr );
-//fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, fShaderStr );
+    // Load the vertex/fragment shaders
+    //vertexShader = LoadShader ( GL_VERTEX_SHADER, vShaderStr );
+    //fragmentShader = LoadShader ( GL_FRAGMENT_SHADER, fShaderStr );
     vertexShader = LoadShader(GL_VERTEX_SHADER, pVertexShader);
     fragmentShader = LoadShader(GL_FRAGMENT_SHADER, pFragmentShader);
 
-// Create the program object
+    // Create the program object
     programObject = glCreateProgram();
 
     if (programObject == 0) {
@@ -140,10 +134,10 @@ Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeOnSurface
     glAttachShader(programObject, vertexShader);
     glAttachShader(programObject, fragmentShader);
 
-// Link the program
+    // Link the program
     glLinkProgram(programObject);
 
-// Check the link status
+    // Check the link status
     glGetProgramiv(programObject, GL_LINK_STATUS, &linked);
 
     if (!linked) {
@@ -164,43 +158,39 @@ Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeOnSurface
         return;
     }
 
-// Store the program object
+    // Store the program object
     g_programObject = programObject;
 
     glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
 
 }
 
-//*********************************************************************************
-//
 JNIEXPORT void JNICALL
-Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeOnDrawFrame(JNIEnv *pEnv,
-                                                                                   jobject obj) {
+Java_edu_jiangxin_droiddemo_opengl_renderer_JniRenderer_nativeOnDrawFrame(JNIEnv *pEnv,
+                                                                          jobject obj) {
     GLfloat vVertices[] = {0.0f, 0.5f, 0.0f,
                            -0.5f, -0.5f, 0.0f,
                            0.5f, -0.5f, 0.0f
     };
 
-// Set the viewport
+    // Set the viewport
     glViewport(0, 0, g_width, g_height);
 
-// Clear the color buffer
+    // Clear the color buffer
     glClear(GL_COLOR_BUFFER_BIT);
 
-// Use the program object
+    // Use the program object
     glUseProgram(g_programObject);
 
-// Load the vertex data
+    // Load the vertex data
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vVertices);
     glEnableVertexAttribArray(0);
 
     glDrawArrays(GL_TRIANGLES, 0, 3);
 }
 
-//*********************************************************************************
-//
 JNIEXPORT void JNICALL
-Java_edu_jiangxin_droiddemo_opengl_opengles_renderer_JniRenderer_nativeOnSurfaceChanged(
+Java_edu_jiangxin_droiddemo_opengl_renderer_JniRenderer_nativeOnSurfaceChanged(
         JNIEnv *pEnv, jobject obj, jint width, jint height) {
     g_width = width;
     g_height = height;

@@ -1,9 +1,7 @@
 package edu.jiangxin.droiddemo.opengl.rajawali;
 
-import android.app.ActionBar;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.ViewGroup;
 
 import org.rajawali3d.surface.IRajawaliSurface;
 import org.rajawali3d.surface.RajawaliSurfaceView;
@@ -13,21 +11,21 @@ import edu.jiangxin.droiddemo.R;
 
 public class RajawaliDemoActivity extends Activity {
 
-    RajawaliDemoRenderer renderer;
+    RajawaliSurfaceView mRajawaliSurfaceView;
+
+    RajawaliDemoRenderer mRajawaliRenderer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rajawali_demo);
 
-        final RajawaliSurfaceView surface = new RajawaliSurfaceView(this);
-        surface.setFrameRate(60.0);
-        surface.setRenderMode(IRajawaliSurface.RENDERMODE_WHEN_DIRTY);
+        mRajawaliSurfaceView = findViewById(R.id.rajawaliSurfaceView);
 
-        // Add mSurface to your root view
-        addContentView(surface, new ActionBar.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT));
+        mRajawaliSurfaceView.setFrameRate(60.0);
+        mRajawaliSurfaceView.setRenderMode(IRajawaliSurface.RENDERMODE_WHEN_DIRTY);
 
-        renderer = new RajawaliDemoRenderer(this);
-        surface.setSurfaceRenderer(renderer);
+        mRajawaliRenderer = new RajawaliDemoRenderer(this);
+        mRajawaliSurfaceView.setSurfaceRenderer(mRajawaliRenderer);
     }
 }
