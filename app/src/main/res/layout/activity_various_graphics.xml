@@ -36,6 +36,15 @@
                 android:textSize="28sp" />
 
             <TextView
+                android:id="@+id/tv_triangle_jni"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_dark"
+                android:gravity="center"
+                android:text="绘制三角形JNI"
+                android:textSize="28sp" />
+
+            <TextView
                 android:id="@+id/tv_square"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

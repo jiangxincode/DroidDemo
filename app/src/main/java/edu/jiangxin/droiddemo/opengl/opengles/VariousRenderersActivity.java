@@ -7,6 +7,7 @@ import android.os.Bundle;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.BackgroundRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.CircleRenderer;
+import edu.jiangxin.droiddemo.opengl.opengles.renderer.JniRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.SquareRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.renderer.TriangleRenderer;
 import edu.jiangxin.droiddemo.opengl.opengles.vbo.MapBuffersRenderer;
@@ -19,6 +20,8 @@ public class VariousRenderersActivity extends Activity {
     public static final String ACTION_NAME_BACKGROUND = "background";
 
     public static final String ACTION_NAME_TRIANGLE = "triangle";
+
+    public static final String ACTION_NAME_TRIANGLE_JNI = "triangle_jni";
 
     public static final String ACTION_NAME_SQUARE = "square";
 
@@ -66,6 +69,9 @@ public class VariousRenderersActivity extends Activity {
                 break;
             case ACTION_NAME_TRIANGLE:
                 glSurfaceView.setRenderer(new TriangleRenderer());
+                break;
+            case ACTION_NAME_TRIANGLE_JNI:
+                glSurfaceView.setRenderer(new JniRenderer(this));
                 break;
             case ACTION_NAME_SQUARE:
                 glSurfaceView.setRenderer(new SquareRenderer());

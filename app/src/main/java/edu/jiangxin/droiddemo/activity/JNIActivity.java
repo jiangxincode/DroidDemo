@@ -10,7 +10,7 @@ import edu.jiangxin.droiddemo.R;
 public class JNIActivity extends Activity {
 
     static{
-        System.loadLibrary("hello");
+        System.loadLibrary("DroidDemoJni");
     }
 
     @Override
