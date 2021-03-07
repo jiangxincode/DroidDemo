@@ -21,7 +21,7 @@ import edu.jiangxin.droiddemo.opengl.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.opengl.rajawali.RajawaliDemoActivity;
 import edu.jiangxin.droiddemo.opengl.transform.TransformActivity;
 
-public class VariousOpenGLDemosActivity extends Activity implements View.OnClickListener {
+public class OpenGlEntranceActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvBackground, mTvTriangle, mTvTriangleJni, mTvSquare, mTvCircle;
     private TextView mTvTransform;
@@ -38,7 +38,7 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_various_graphics);
+        setContentView(R.layout.activity_opengl_entrance);
 
         mTvBackground = findViewById(R.id.tv_background);
         mTvTriangle = findViewById(R.id.tv_triangle);

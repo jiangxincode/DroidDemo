@@ -51,7 +51,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 
 public class SimpleTexture2DRenderer implements GLSurfaceView.Renderer {
 
@@ -158,7 +158,7 @@ public class SimpleTexture2DRenderer implements GLSurfaceView.Renderer {
                         "}                                                   \n";
 
         // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         // Get the sampler location
         mSamplerLoc = GLES30.glGetUniformLocation(mProgramObject, "s_texture");

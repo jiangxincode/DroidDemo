@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import edu.jiangxin.droiddemo.R
+import edu.jiangxin.droiddemo.opengl.Utils
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.BumpedLightRenderer
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.DirectionalLightRenderer
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.PointLightRenderer
@@ -47,7 +48,7 @@ class SampleLighting : Fragment() {
 
     private fun createGLSurfaceView(context: Context, renderer: GLSurfaceView.Renderer): GLSurfaceView {
         val glSurfaceView = GLSurfaceView(context)
-        glSurfaceView.setEGLContextClientVersion(3)
+        glSurfaceView.setEGLContextClientVersion(Utils.OPENGL_ES_VERSION)
         glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 8, 0)
         glSurfaceView.setRenderer(renderer)
         return glSurfaceView

@@ -11,7 +11,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 
 public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
 
@@ -58,9 +58,7 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
         mIndices.put(mIndicesData).position(0);
     }
 
-    ///
-    // Initialize the shader and program object
-    //
+    @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
         String vShaderStr =
                 "#version 300 es                            \n" +
@@ -84,8 +82,7 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
                         "    o_fragColor = v_color; \n" +
                         "}";
 
-        // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         // Generate VBO Ids and load the VBOs with data
         GLES30.glGenBuffers(2, mVBOIds, 0);
@@ -129,9 +126,7 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
         GLES30.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
-    // /
-    // Draw a triangle using the shader pair created in onSurfaceCreated()
-    //
+    @Override
     public void onDrawFrame(GL10 glUnused) {
         // Set the viewport
         GLES30.glViewport(0, 0, mWidth, mHeight);
@@ -152,9 +147,7 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
         GLES30.glBindVertexArray(0);
     }
 
-    ///
-    // Handle surface changes
-    //
+    @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
         mWidth = width;
         mHeight = height;

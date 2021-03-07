@@ -46,7 +46,7 @@ import android.os.SystemClock;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 import edu.jiangxin.droiddemo.opengl.book.common.ESShapes;
 import edu.jiangxin.droiddemo.opengl.book.common.ESTransform;
 
@@ -101,7 +101,7 @@ public class SimpleVertexShaderRenderer implements GLSurfaceView.Renderer {
                         "}                                           \n";
 
         // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         // Get the uniform locations
         mMVPLoc = GLES30.glGetUniformLocation(mProgramObject, "u_mvpMatrix");

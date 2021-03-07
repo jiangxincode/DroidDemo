@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import edu.jiangxin.droiddemo.R
+import edu.jiangxin.droiddemo.opengl.Utils
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.SampleShaderRenderer
 
 /**
@@ -18,9 +19,7 @@ class SampleShader : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView = inflater.inflate(R.layout.fragment_common_sample, container,  false)
         val glSurfaceView = rootView.findViewById<GLSurfaceView>(R.id.glsurfaceview)
-        // 设置GL版本，这里设置为3.0
-        // Set GL version, here I set it to 3.0
-        glSurfaceView.setEGLContextClientVersion(3)
+        glSurfaceView.setEGLContextClientVersion(Utils.OPENGL_ES_VERSION)
         // 设置RGBA颜色缓冲、深度缓冲及stencil缓冲大小
         // Set the size of RGBA、depth and stencil vertexDataBuffer
         glSurfaceView.setEGLConfigChooser(8, 8, 8, 8, 0, 0)

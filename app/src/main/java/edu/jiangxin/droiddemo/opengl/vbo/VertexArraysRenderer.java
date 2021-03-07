@@ -10,7 +10,7 @@ import java.nio.FloatBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 
 /**
  * 顶点数组（包括两种方式：结构数组和数组结构）
@@ -18,11 +18,11 @@ import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
  */
 public class VertexArraysRenderer implements GLSurfaceView.Renderer {
 
-    final int VERTEX_POS_SIZE = 3; // x, y and z
-    final int VERTEX_COLOR_SIZE = 4; // r, g, b, and a
+    private final int VERTEX_POS_SIZE = 3; // x, y and z
+    private final int VERTEX_COLOR_SIZE = 4; // r, g, b, and a
 
-    final int VERTEX_POS_INDX = 0;
-    final int VERTEX_COLOR_INDX = 1;
+    private final int VERTEX_POS_INDEX = 0;
+    private final int VERTEX_COLOR_INDEX = 1;
 
     private final float[] mVerticesData =
             {
@@ -46,11 +46,8 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
                     0.0f, 0.0f, 1.0f, 1.0f,  // c2
             };
 
-    // Handle to a program object
     private int mProgramObject;
-    // Additional member variables
-    private int mWidth;
-    private int mHeight;
+
     private final FloatBuffer mVertices;
 
     private final FloatBuffer mVerticesPos;
@@ -58,15 +55,15 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
 
     public VertexArraysRenderer() {
 
-        mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)
+        mVertices = ByteBuffer.allocateDirect(mVerticesData.length * Float.BYTES)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mVertices.put(mVerticesData).position(0);
 
-        mVerticesPos = ByteBuffer.allocateDirect(mVerticesPosData.length * 4)
+        mVerticesPos = ByteBuffer.allocateDirect(mVerticesPosData.length * Float.BYTES)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mVerticesPos.put(mVerticesPosData).position(0);
 
-        mVerticesColor = ByteBuffer.allocateDirect(mVerticesColorData.length * 4)
+        mVerticesColor = ByteBuffer.allocateDirect(mVerticesColorData.length * Float.BYTES)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
         mVerticesColor.put(mVerticesColorData).position(0);
     }
@@ -95,21 +92,14 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
                         "    o_fragColor = v_color; \n" +
                         "}";
 
-        // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         GLES30.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
     @Override
     public void onDrawFrame(GL10 glUnused) {
-        // Set the viewport
-        GLES30.glViewport(0, 0, mWidth, mHeight);
-
-        // Clear the color buffer
         GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT);
-
-        // Use the program object
         GLES30.glUseProgram(mProgramObject);
         drawWithArrayOfStructures();
         drawWithStructureOfArrays();
@@ -117,53 +107,39 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
 
 
     private void drawWithArrayOfStructures() {
+        int vertexStride = Float.BYTES * (VERTEX_POS_SIZE + VERTEX_COLOR_SIZE);
 
-        int vtxStride = 4 * (VERTEX_POS_SIZE + VERTEX_COLOR_SIZE);
-
-        // Load the vertex position
         mVertices.position(0);
-        GLES30.glVertexAttribPointer(VERTEX_POS_INDX, 3, GLES30.GL_FLOAT,
-                false,
-                vtxStride, mVertices);
+        GLES30.glVertexAttribPointer(VERTEX_POS_INDEX, 3, GLES30.GL_FLOAT, false, vertexStride, mVertices);
         mVertices.position(VERTEX_POS_SIZE);
-        GLES30.glVertexAttribPointer(VERTEX_COLOR_INDX, 4, GLES30.GL_FLOAT,
-                false,
-                vtxStride, mVertices);
+        GLES30.glVertexAttribPointer(VERTEX_COLOR_INDEX, 4, GLES30.GL_FLOAT, false, vertexStride, mVertices);
 
-        GLES30.glEnableVertexAttribArray(VERTEX_POS_INDX);
-        GLES30.glEnableVertexAttribArray(VERTEX_COLOR_INDX);
+        GLES30.glEnableVertexAttribArray(VERTEX_POS_INDEX);
+        GLES30.glEnableVertexAttribArray(VERTEX_COLOR_INDEX);
 
         GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, 3);
 
-        GLES30.glDisableVertexAttribArray(VERTEX_POS_INDX);
-        GLES30.glDisableVertexAttribArray(VERTEX_COLOR_INDX);
+        GLES30.glDisableVertexAttribArray(VERTEX_POS_INDEX);
+        GLES30.glDisableVertexAttribArray(VERTEX_COLOR_INDEX);
     }
 
     private void drawWithStructureOfArrays() {
-        // Load the vertex position
         mVerticesPos.position(0);
-        GLES30.glVertexAttribPointer(VERTEX_POS_INDX, 3, GLES30.GL_FLOAT,
-                false,
-                0, mVerticesPos);
+        GLES30.glVertexAttribPointer(VERTEX_POS_INDEX, 3, GLES30.GL_FLOAT, false, 0, mVerticesPos);
         mVerticesColor.position(0);
-        GLES30.glVertexAttribPointer(VERTEX_COLOR_INDX, 4, GLES30.GL_FLOAT,
-                false,
-                0, mVerticesColor);
+        GLES30.glVertexAttribPointer(VERTEX_COLOR_INDEX, 4, GLES30.GL_FLOAT, false, 0, mVerticesColor);
 
-        GLES30.glEnableVertexAttribArray(VERTEX_POS_INDX);
-        GLES30.glEnableVertexAttribArray(VERTEX_COLOR_INDX);
+        GLES30.glEnableVertexAttribArray(VERTEX_POS_INDEX);
+        GLES30.glEnableVertexAttribArray(VERTEX_COLOR_INDEX);
 
         GLES30.glDrawArrays(GLES30.GL_TRIANGLES, 0, 3);
 
-        GLES30.glDisableVertexAttribArray(VERTEX_POS_INDX);
-        GLES30.glDisableVertexAttribArray(VERTEX_COLOR_INDX);
-
+        GLES30.glDisableVertexAttribArray(VERTEX_POS_INDEX);
+        GLES30.glDisableVertexAttribArray(VERTEX_COLOR_INDEX);
     }
-
 
     @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-        mWidth = width;
-        mHeight = height;
+        GLES30.glViewport(0, 0, width, height);
     }
 }

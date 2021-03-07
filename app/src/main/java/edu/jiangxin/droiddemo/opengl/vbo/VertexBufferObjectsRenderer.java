@@ -11,7 +11,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 
 public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
 
@@ -37,9 +37,7 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
             };
     // Handle to a program object
     private int mProgramObject;
-    // Additional member variables
-    private int mWidth;
-    private int mHeight;
+
     private final FloatBuffer mVertices;
     private final FloatBuffer mVertices1;
     private final ShortBuffer mIndices;
@@ -89,8 +87,7 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
                         "    o_fragColor = v_color; \n" +
                         "}";
 
-        // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         mVBOIds[0] = 0;
         mVBOIds[1] = 0;
@@ -100,19 +97,12 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 glUnused) {
-        // Set the viewport
-        GLES30.glViewport(0, 0, mWidth, mHeight);
-
-        // Clear the color buffer
         GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT);
 
-        // Use the program object
         GLES30.glUseProgram(mProgramObject);
 
-        // without VBOs
         drawPrimitiveWithoutVBOs();
 
-        // with VBOs
         drawPrimitiveWithVBOs();
     }
 
@@ -186,7 +176,6 @@ public class VertexBufferObjectsRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-        mWidth = width;
-        mHeight = height;
+        GLES30.glViewport(0, 0, width, height);
     }
 }

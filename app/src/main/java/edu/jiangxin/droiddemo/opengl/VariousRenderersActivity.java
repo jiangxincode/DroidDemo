@@ -48,8 +48,7 @@ public class VariousRenderersActivity extends Activity {
 
     private void initView(String action) {
         glSurfaceView = findViewById(R.id.glSurfaceView);
-        //GLContext设置OpenGLES2.0
-        glSurfaceView.setEGLContextClientVersion(2);
+        glSurfaceView.setEGLContextClientVersion(Utils.OPENGL_ES_VERSION);
         // 在setRenderer之前，可以调用以下方法进行EGL设置
 //        glSurfaceView.setEGLConfigChooser(true);//颜色，深度，模板等等设置
 //        glSurfaceView.setEGLWindowSurfaceFactory(new GLSurfaceView.EGLWindowSurfaceFactory() {   //窗口设置

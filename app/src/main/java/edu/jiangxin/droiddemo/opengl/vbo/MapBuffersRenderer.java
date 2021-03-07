@@ -11,7 +11,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 
 public class MapBuffersRenderer implements GLSurfaceView.Renderer {
     final int VERTEX_POS_SIZE = 3; // x, y and z
@@ -75,7 +75,7 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
                         "}";
 
         // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         mVBOIds[0] = 0;
         mVBOIds[1] = 0;

@@ -50,7 +50,7 @@ import java.nio.ShortBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 
 public class MipMap2DRenderer implements GLSurfaceView.Renderer {
 
@@ -261,7 +261,7 @@ public class MipMap2DRenderer implements GLSurfaceView.Renderer {
 
 
         // Load the shaders from "assets" and get a linked program object
-        mProgramObject = ESShader.loadProgramFromAsset(mContext,
+        mProgramObject = Utils.loadProgramFromAsset(mContext,
                 "shader/vertexShader11.vert",
                 "shader/fragmentShader11.frag");
 

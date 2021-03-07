@@ -48,7 +48,7 @@ import edu.jiangxin.droiddemo.activity.VideoViewActivity;
 import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
-import edu.jiangxin.droiddemo.opengl.VariousOpenGLDemosActivity;
+import edu.jiangxin.droiddemo.opengl.OpenGlEntranceActivity;
 import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
@@ -160,7 +160,7 @@ public class DemosFragment extends Fragment {
         mBtnOpenglDemosEntrance = root.findViewById(R.id.btnOpenglEntrance);
         mBtnOpenglDemosEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
-            intent.setClass(getContext(), VariousOpenGLDemosActivity.class);
+            intent.setClass(getContext(), OpenGlEntranceActivity.class);
             startActivity(intent);
         });
 

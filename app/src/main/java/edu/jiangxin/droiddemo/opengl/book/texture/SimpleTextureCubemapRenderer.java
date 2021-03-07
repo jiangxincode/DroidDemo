@@ -41,7 +41,7 @@ import java.nio.ByteBuffer;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
-import edu.jiangxin.droiddemo.opengl.book.common.ESShader;
+import edu.jiangxin.droiddemo.opengl.Utils;
 import edu.jiangxin.droiddemo.opengl.book.common.ESShapes;
 
 public class SimpleTextureCubemapRenderer implements GLSurfaceView.Renderer {
@@ -156,7 +156,7 @@ public class SimpleTextureCubemapRenderer implements GLSurfaceView.Renderer {
                         "}                                                   \n";
 
         // Load the shaders and get a linked program object
-        mProgramObject = ESShader.loadProgram(vShaderStr, fShaderStr);
+        mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         // Get the sampler location
         mSamplerLoc = GLES30.glGetUniformLocation(mProgramObject, "s_texture");

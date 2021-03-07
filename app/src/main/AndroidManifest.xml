@@ -34,13 +34,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".tv.recycleview.RecycleViewTv"></activity>
-        <activity android:name=".opengl.blur.OpenGlBlurActivity" />
-        <activity android:name=".opengl.matrix.OpenGLMatrixActivity" />
-        <activity android:name=".opengl.ball.BallActivity" />
-        <activity
-            android:name=".opengl.transform.TransformActivity"
-            android:screenOrientation="landscape" />
-        <activity android:name=".opengl.matrix.SimpleActivity" />
         <activity android:name=".layout.ContraintLayoutActivity" />
         <activity android:name=".layout.VariousLayoutActivity" />
         <activity android:name=".service.VariousServiceActivity" />
@@ -65,7 +58,14 @@
         <activity android:name=".opengl.book.texture.SimpleTextureCubemap" />
         <activity android:name=".opengl.book.vertexshader.SimpleVertexShader" />
         <activity android:name=".opengl.book.texture.TextureWrap" />
-        <activity android:name=".opengl.VariousOpenGLDemosActivity" />
+        <activity android:name=".opengl.OpenGlEntranceActivity" />
+        <activity android:name=".opengl.blur.OpenGlBlurActivity" />
+        <activity android:name=".opengl.matrix.OpenGLMatrixActivity" />
+        <activity android:name=".opengl.ball.BallActivity" />
+        <activity
+            android:name=".opengl.transform.TransformActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".opengl.matrix.SimpleActivity" />
         <activity android:name=".animation.view.CustomAnimationActivity" />
         <activity android:name=".animation.FrameAnimationActivity" />
         <activity android:name=".animation.VectorDrawableAnimatorActivity" />
