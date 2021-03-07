@@ -17,14 +17,13 @@ import edu.jiangxin.droiddemo.opengl.Utils;
  * 由于效率比较低，现已不推荐这种方式了
  */
 public class VertexArraysRenderer implements GLSurfaceView.Renderer {
+    private static final int VERTEX_POS_SIZE = 3; // x, y and z
+    private static final int VERTEX_COLOR_SIZE = 4; // r, g, b, and a
 
-    private final int VERTEX_POS_SIZE = 3; // x, y and z
-    private final int VERTEX_COLOR_SIZE = 4; // r, g, b, and a
+    private static final int VERTEX_POS_INDEX = 0;
+    private static final int VERTEX_COLOR_INDEX = 1;
 
-    private final int VERTEX_POS_INDEX = 0;
-    private final int VERTEX_COLOR_INDEX = 1;
-
-    private final float[] mVerticesData =
+    private static final float[] VERTICES_DATA =
             {
                     -0.5f, 0.5f, 0.0f,       // v0
                     1.0f, 0.0f, 0.0f, 1.0f,  // c0
@@ -33,13 +32,13 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
                     0.0f, -0.5f, 0.0f,        // v2
                     0.0f, 0.0f, 1.0f, 1.0f,  // c2
             };
-    private final float[] mVerticesPosData =
+    private final float[] VERTICES_POS_DATA =
             {
                     0.5f, 0.5f, 0.0f,       // v0
                     0f, -0.5f, 0.0f,        // v1
                     1.0f, -0.5f, 0.0f,        // v2
             };
-    private final float[] mVerticesColorData =
+    private final float[] VERTICES_COLOR_DATA =
             {
                     1.0f, 0.0f, 0.0f, 1.0f,  // c0
                     0.0f, 1.0f, 0.0f, 1.0f,  // c1
@@ -55,17 +54,17 @@ public class VertexArraysRenderer implements GLSurfaceView.Renderer {
 
     public VertexArraysRenderer() {
 
-        mVertices = ByteBuffer.allocateDirect(mVerticesData.length * Float.BYTES)
+        mVertices = ByteBuffer.allocateDirect(VERTICES_DATA.length * Float.BYTES)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mVertices.put(mVerticesData).position(0);
+        mVertices.put(VERTICES_DATA).position(0);
 
-        mVerticesPos = ByteBuffer.allocateDirect(mVerticesPosData.length * Float.BYTES)
+        mVerticesPos = ByteBuffer.allocateDirect(VERTICES_POS_DATA.length * Float.BYTES)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mVerticesPos.put(mVerticesPosData).position(0);
+        mVerticesPos.put(VERTICES_POS_DATA).position(0);
 
-        mVerticesColor = ByteBuffer.allocateDirect(mVerticesColorData.length * Float.BYTES)
+        mVerticesColor = ByteBuffer.allocateDirect(VERTICES_COLOR_DATA.length * Float.BYTES)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
-        mVerticesColor.put(mVerticesColorData).position(0);
+        mVerticesColor.put(VERTICES_COLOR_DATA).position(0);
     }
 
     @Override

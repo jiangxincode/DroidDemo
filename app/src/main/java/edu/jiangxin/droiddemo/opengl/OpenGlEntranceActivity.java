@@ -28,7 +28,7 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
     private TextView mTvMatrix;
     private TextView mTvBall;
     private TextView mTvBlur;
-    private TextView mTvVertexWithoutBuffer, mTvVertexBufferObjects, mTvSeparateVboPerAttribute, mTvVertexArrayObjects, mTvMapBuffers;
+    private TextView mTvVertexWithoutBuffer, mTvVertexBufferObjects, mTvVertexArrayObjects, mTvMapBuffers;
     private TextView mTvSimpleVetexShader;
     private TextView mTvSimpleTexture2D, mTvMipmap2D, mTvTextureWrap, mTvSimpleTextureCubeMap;
     private TextView mTvMultiTexture, mTvParticleSystem;
@@ -56,7 +56,6 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
 
         mTvVertexWithoutBuffer = findViewById(R.id.tv_VertexArrays);
         mTvVertexBufferObjects = findViewById(R.id.tv_VertexBufferObjects);
-        mTvSeparateVboPerAttribute = findViewById(R.id.tv_SeparateVboPerAttribute);
         mTvVertexArrayObjects = findViewById(R.id.tv_VertexArrayObjects);
         mTvMapBuffers = findViewById(R.id.tv_MapBuffers);
 
@@ -91,7 +90,6 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
 
         mTvVertexWithoutBuffer.setOnClickListener(this);
         mTvVertexBufferObjects.setOnClickListener(this);
-        mTvSeparateVboPerAttribute.setOnClickListener(this);
         mTvVertexArrayObjects.setOnClickListener(this);
         mTvMapBuffers.setOnClickListener(this);
 
@@ -167,12 +165,6 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
             case R.id.tv_VertexBufferObjects: {
                 Intent intent = new Intent(this, VariousRenderersActivity.class);
                 intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_BUFFER_OBJECTS);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_SeparateVboPerAttribute: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_SEPARATE_VBO_PER_ATTRIBUTE);
                 startActivity(intent);
                 break;
             }

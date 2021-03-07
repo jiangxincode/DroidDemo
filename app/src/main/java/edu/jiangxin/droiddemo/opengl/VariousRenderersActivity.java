@@ -11,7 +11,6 @@ import edu.jiangxin.droiddemo.opengl.renderer.JniRenderer;
 import edu.jiangxin.droiddemo.opengl.renderer.SquareRenderer;
 import edu.jiangxin.droiddemo.opengl.renderer.TriangleRenderer;
 import edu.jiangxin.droiddemo.opengl.vbo.MapBuffersRenderer;
-import edu.jiangxin.droiddemo.opengl.vbo.SeparateVboPerAttributeRenderer;
 import edu.jiangxin.droiddemo.opengl.vbo.VertexArrayObjectsRenderer;
 import edu.jiangxin.droiddemo.opengl.vbo.VertexArraysRenderer;
 import edu.jiangxin.droiddemo.opengl.vbo.VertexBufferObjectsRenderer;
@@ -30,8 +29,6 @@ public class VariousRenderersActivity extends Activity {
     public static final String ACTION_NAME_VERTEX_ARRAYS = "vertexArrays";
 
     public static final String ACTION_NAME_VERTEX_BUFFER_OBJECTS = "vertexBufferObjects";
-
-    public static final String ACTION_NAME_SEPARATE_VBO_PER_ATTRIBUTE = "separateVboPerAttribute";
 
     public static final String ACTION_NAME_VERTEX_ARRAY_OBJECTS = "vertexArrayObjects";
 
@@ -83,9 +80,6 @@ public class VariousRenderersActivity extends Activity {
                 break;
             case ACTION_NAME_VERTEX_BUFFER_OBJECTS:
                 glSurfaceView.setRenderer(new VertexBufferObjectsRenderer());
-                break;
-            case ACTION_NAME_SEPARATE_VBO_PER_ATTRIBUTE:
-                glSurfaceView.setRenderer(new SeparateVboPerAttributeRenderer());
                 break;
             case ACTION_NAME_VERTEX_ARRAY_OBJECTS:
                 glSurfaceView.setRenderer(new VertexArrayObjectsRenderer());

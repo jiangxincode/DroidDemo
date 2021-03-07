@@ -117,15 +117,6 @@
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/tv_SeparateVboPerAttribute"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/holo_red_light"
-                android:gravity="center"
-                android:text="SeparateVboPerAttribute"
-                android:textSize="28sp" />
-
-            <TextView
                 android:id="@+id/tv_VertexArrayObjects"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
