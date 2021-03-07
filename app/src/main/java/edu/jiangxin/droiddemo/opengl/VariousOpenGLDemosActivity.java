@@ -19,10 +19,12 @@ import edu.jiangxin.droiddemo.opengl.book.texture.TextureWrap;
 import edu.jiangxin.droiddemo.opengl.matrix.OpenGLMatrixActivity;
 import edu.jiangxin.droiddemo.opengl.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.opengl.rajawali.RajawaliDemoActivity;
+import edu.jiangxin.droiddemo.opengl.transform.TransformActivity;
 
 public class VariousOpenGLDemosActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvBackground, mTvTriangle, mTvTriangleJni, mTvSquare, mTvCircle;
+    private TextView mTvTransform;
     private TextView mTvMatrix;
     private TextView mTvBall;
     private TextView mTvBlur;
@@ -43,6 +45,8 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
         mTvTriangleJni = findViewById(R.id.tv_triangle_jni);
         mTvSquare = findViewById(R.id.tv_square);
         mTvCircle = findViewById(R.id.tv_circle);
+
+        mTvTransform = findViewById(R.id.tv_transform);
 
         mTvMatrix = findViewById(R.id.tv_matrix);
 
@@ -76,6 +80,8 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
         mTvTriangleJni.setOnClickListener(this);
         mTvSquare.setOnClickListener(this);
         mTvCircle.setOnClickListener(this);
+
+        mTvTransform.setOnClickListener(this);
 
         mTvMatrix.setOnClickListener(this);
 
@@ -135,6 +141,11 @@ public class VariousOpenGLDemosActivity extends Activity implements View.OnClick
             case R.id.tv_circle: {
                 Intent intent = new Intent(this, VariousRenderersActivity.class);
                 intent.setAction(VariousRenderersActivity.ACTION_NAME_CIRCLE);
+                startActivity(intent);
+                break;
+            }
+            case R.id.tv_transform: {
+                Intent intent = new Intent(this, TransformActivity.class);
                 startActivity(intent);
                 break;
             }

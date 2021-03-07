@@ -35,9 +35,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".tv.recycleview.RecycleViewTv"></activity>
         <activity android:name=".opengl.blur.OpenGlBlurActivity" />
-        <activity android:name="edu.jiangxin.droiddemo.opengl.matrix.OpenGLMatrixActivity" />
+        <activity android:name=".opengl.matrix.OpenGLMatrixActivity" />
         <activity android:name=".opengl.ball.BallActivity" />
-        <activity android:name="edu.jiangxin.droiddemo.opengl.matrix.SimpleActivity" />
+        <activity
+            android:name=".opengl.transform.TransformActivity"
+            android:screenOrientation="landscape" />
+        <activity android:name=".opengl.matrix.SimpleActivity" />
         <activity android:name=".layout.ContraintLayoutActivity" />
         <activity android:name=".layout.VariousLayoutActivity" />
         <activity android:name=".service.VariousServiceActivity" />

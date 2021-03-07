@@ -63,6 +63,15 @@
                 android:textSize="28sp" />
 
             <TextView
+                android:id="@+id/tv_transform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_blue_light"
+                android:gravity="center"
+                android:text="OpenGL变换"
+                android:textSize="28sp" />
+
+            <TextView
                 android:id="@+id/tv_matrix"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
