@@ -5,6 +5,13 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.opengl.book.advanced.ParticleSystemRenderer;
+import edu.jiangxin.droiddemo.opengl.book.fragshader.MultiTextureRenderer;
+import edu.jiangxin.droiddemo.opengl.book.texture.MipMap2DRenderer;
+import edu.jiangxin.droiddemo.opengl.book.texture.SimpleTexture2DRenderer;
+import edu.jiangxin.droiddemo.opengl.book.texture.SimpleTextureCubemapRenderer;
+import edu.jiangxin.droiddemo.opengl.book.texture.TextureWrapRenderer;
+import edu.jiangxin.droiddemo.opengl.book.vertexshader.SimpleVertexShaderRenderer;
 import edu.jiangxin.droiddemo.opengl.renderer.BackgroundRenderer;
 import edu.jiangxin.droiddemo.opengl.renderer.CircleRenderer;
 import edu.jiangxin.droiddemo.opengl.renderer.JniRenderer;
@@ -33,6 +40,20 @@ public class VariousRenderersActivity extends Activity {
     public static final String ACTION_NAME_VERTEX_ARRAY_OBJECTS = "vertexArrayObjects";
 
     public static final String ACTION_NAME_MAP_BUFFERS = "mapBuffers";
+
+    public static final String ACTION_NAME_SIMPLE_VERTEX_SHADER = "simpleVertexShader";
+
+    public static final String ACTION_NAME_SIMPLE_TEXTURE_2D = "simpleTexture2D";
+
+    public static final String ACTION_NAME_MIPMAP_2D = "mipmap2D";
+
+    public static final String ACTION_NAME_TEXTURE_WRAP = "textureWrap";
+
+    public static final String ACTION_NAME_SIMPLE_TEXTURE_CUBE_MAP = "simpleTextureCubeMap";
+
+    public static final String ACTION_NAME_MULTI_TEXTURE = "multiTexture";
+
+    public static final String ACTION_NAME_PARTICLE_SYSTEM = "particleSystem";
 
     private GLSurfaceView glSurfaceView;
 
@@ -86,6 +107,27 @@ public class VariousRenderersActivity extends Activity {
                 break;
             case ACTION_NAME_MAP_BUFFERS:
                 glSurfaceView.setRenderer(new MapBuffersRenderer());
+                break;
+            case ACTION_NAME_SIMPLE_VERTEX_SHADER:
+                glSurfaceView.setRenderer(new SimpleVertexShaderRenderer(this));
+                break;
+            case ACTION_NAME_SIMPLE_TEXTURE_2D:
+                glSurfaceView.setRenderer(new SimpleTexture2DRenderer(this));
+                break;
+            case ACTION_NAME_MIPMAP_2D:
+                glSurfaceView.setRenderer(new MipMap2DRenderer(this));
+                break;
+            case ACTION_NAME_TEXTURE_WRAP:
+                glSurfaceView.setRenderer(new TextureWrapRenderer(this));
+                break;
+            case ACTION_NAME_SIMPLE_TEXTURE_CUBE_MAP:
+                glSurfaceView.setRenderer(new SimpleTextureCubemapRenderer(this));
+                break;
+            case ACTION_NAME_MULTI_TEXTURE:
+                glSurfaceView.setRenderer(new MultiTextureRenderer(this));
+                break;
+            case ACTION_NAME_PARTICLE_SYSTEM:
+                glSurfaceView.setRenderer(new ParticleSystemRenderer(this));
                 break;
             default:
                 glSurfaceView.setRenderer(new BackgroundRenderer());

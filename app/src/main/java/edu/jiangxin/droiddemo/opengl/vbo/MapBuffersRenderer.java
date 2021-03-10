@@ -34,24 +34,13 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
             };
     // Handle to a program object
     private int mProgramObject;
-    // Additional member variables
-    private int mWidth;
-    private int mHeight;
-    private FloatBuffer vtxMappedBuf;
-    private ShortBuffer idxMappedBuf;
+
+    private FloatBuffer vertexMappedBuf;
+    private ShortBuffer indexMappedBuf;
     // VertexBufferObject Ids
     private final int[] mVBOIds = new int[2];
 
-    ///
-    // Constructor
-    //
-    public MapBuffersRenderer() {
-        //
-    }
-
-    ///
-    // Initialize the shader and program object
-    //
+    @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
         String vShaderStr =
                 "#version 300 es                            \n" +
@@ -74,7 +63,6 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
                         "    o_fragColor = v_color; \n" +
                         "}";
 
-        // Load the shaders and get a linked program object
         mProgramObject = Utils.loadProgram(vShaderStr, fShaderStr);
 
         mVBOIds[0] = 0;
@@ -83,17 +71,15 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
         GLES30.glClearColor(1.0f, 1.0f, 1.0f, 0.0f);
     }
 
-    // /
-    // Draw a triangle using the shader pair created in onSurfaceCreated()
-    //
-    public void onDrawFrame(GL10 glUnused) {
-        // Set the viewport
-        GLES30.glViewport(0, 0, mWidth, mHeight);
+    @Override
+    public void onSurfaceChanged(GL10 glUnused, int width, int height) {
+        GLES30.glViewport(0, 0, width, height);
+    }
 
-        // Clear the color buffer
+    @Override
+    public void onDrawFrame(GL10 glUnused) {
         GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT);
 
-        // Use the program object
         GLES30.glUseProgram(mProgramObject);
 
         drawPrimitiveWithVBOsMapBuffers();
@@ -114,14 +100,14 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
             GLES30.glBindBuffer(GLES30.GL_ARRAY_BUFFER, mVBOIds[0]);
             GLES30.glBufferData(GLES30.GL_ARRAY_BUFFER, vtxStride * numVertices,
                     null, GLES30.GL_STATIC_DRAW);
-            vtxMappedBuf =
+            vertexMappedBuf =
                     ((ByteBuffer) GLES30.glMapBufferRange(
                             GLES30.GL_ARRAY_BUFFER, 0, vtxStride * numVertices,
                             GLES30.GL_MAP_WRITE_BIT | GLES30.GL_MAP_INVALIDATE_BUFFER_BIT)
                     ).order(ByteOrder.nativeOrder()).asFloatBuffer();
 
             // Copy the data into the mapped buffer
-            vtxMappedBuf.put(mVerticesData).position(0);
+            vertexMappedBuf.put(mVerticesData).position(0);
 
             // Unamp the buffer
             GLES30.glUnmapBuffer(GLES30.GL_ARRAY_BUFFER);
@@ -130,14 +116,14 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
             GLES30.glBindBuffer(GLES30.GL_ELEMENT_ARRAY_BUFFER, mVBOIds[1]);
             GLES30.glBufferData(GLES30.GL_ELEMENT_ARRAY_BUFFER, 2 * numIndices,
                     null, GLES30.GL_STATIC_DRAW);
-            idxMappedBuf =
+            indexMappedBuf =
                     ((ByteBuffer) GLES30.glMapBufferRange(
                             GLES30.GL_ELEMENT_ARRAY_BUFFER, 0, 2 * numIndices,
                             GLES30.GL_MAP_WRITE_BIT | GLES30.GL_MAP_INVALIDATE_BUFFER_BIT)
                     ).order(ByteOrder.nativeOrder()).asShortBuffer();
 
             // Copy the data into the mapped buffer
-            idxMappedBuf.put(mIndicesData).position(0);
+            indexMappedBuf.put(mIndicesData).position(0);
 
             // Unamp the buffer
             GLES30.glUnmapBuffer(GLES30.GL_ELEMENT_ARRAY_BUFFER);
@@ -166,13 +152,5 @@ public class MapBuffersRenderer implements GLSurfaceView.Renderer {
 
         GLES30.glBindBuffer(GLES30.GL_ARRAY_BUFFER, 0);
         GLES30.glBindBuffer(GLES30.GL_ELEMENT_ARRAY_BUFFER, 0);
-    }
-
-    ///
-    // Handle surface changes
-    //
-    public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-        mWidth = width;
-        mHeight = height;
     }
 }

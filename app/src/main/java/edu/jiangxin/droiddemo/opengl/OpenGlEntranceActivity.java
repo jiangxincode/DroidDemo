@@ -9,13 +9,6 @@ import android.widget.TextView;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.opengl.ball.BallActivity;
 import edu.jiangxin.droiddemo.opengl.blur.OpenGlBlurActivity;
-import edu.jiangxin.droiddemo.opengl.book.texture.MipMap2D;
-import edu.jiangxin.droiddemo.opengl.book.fragshader.MultiTexture;
-import edu.jiangxin.droiddemo.opengl.book.advanced.ParticleSystem;
-import edu.jiangxin.droiddemo.opengl.book.texture.SimpleTexture2D;
-import edu.jiangxin.droiddemo.opengl.book.texture.SimpleTextureCubemap;
-import edu.jiangxin.droiddemo.opengl.book.vertexshader.SimpleVertexShader;
-import edu.jiangxin.droiddemo.opengl.book.texture.TextureWrap;
 import edu.jiangxin.droiddemo.opengl.matrix.OpenGLMatrixActivity;
 import edu.jiangxin.droiddemo.opengl.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.opengl.rajawali.RajawaliDemoActivity;
@@ -180,27 +173,48 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
                 startActivity(intent);
                 break;
             }
-            case R.id.tv_SimpleVetexShader:
-                enterTestActivity(SimpleVertexShader.class);
+            case R.id.tv_SimpleVetexShader: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_VERTEX_SHADER);
+                startActivity(intent);
                 break;
-            case R.id.tv_SimpleTexture2D:
-                enterTestActivity(SimpleTexture2D.class);
+            }
+            case R.id.tv_SimpleTexture2D: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_TEXTURE_2D);
+                startActivity(intent);
                 break;
-            case R.id.tv_Mipmap2D:
-                enterTestActivity(MipMap2D.class);
+            }
+            case R.id.tv_Mipmap2D: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_MIPMAP_2D);
+                startActivity(intent);
                 break;
-            case R.id.tv_TextureWrap:
-                enterTestActivity(TextureWrap.class);
+            }
+            case R.id.tv_TextureWrap: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_TEXTURE_WRAP);
+                startActivity(intent);
                 break;
-            case R.id.tv_SimpleTextureCubeMap:
-                enterTestActivity(SimpleTextureCubemap.class);
+            }
+            case R.id.tv_SimpleTextureCubeMap: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_TEXTURE_CUBE_MAP);
+                startActivity(intent);
                 break;
-            case R.id.tv_MultiTexture:
-                enterTestActivity(MultiTexture.class);
+            }
+            case R.id.tv_MultiTexture: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_MULTI_TEXTURE);
+                startActivity(intent);
                 break;
-            case R.id.tv_ParticleSystem:
-                enterTestActivity(ParticleSystem.class);
+            }
+            case R.id.tv_ParticleSystem: {
+                Intent intent = new Intent(this, VariousRenderersActivity.class);
+                intent.setAction(VariousRenderersActivity.ACTION_NAME_PARTICLE_SYSTEM);
+                startActivity(intent);
                 break;
+            }
             case R.id.tv_PBuffer:
                 enterTestActivity(PBufferActivity.class);
                 break;

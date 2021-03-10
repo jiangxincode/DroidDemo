@@ -67,16 +67,10 @@ public class SimpleVertexShaderRenderer implements GLSurfaceView.Renderer {
     private int mHeight;
     private long mLastTime = 0;
 
-    ///
-    // Constructor
-    //
     public SimpleVertexShaderRenderer(Context context) {
-
     }
 
-    ///
-    // Initialize the shader and program object
-    //
+    @Override
     public void onSurfaceCreated(GL10 glUnused, EGLConfig config) {
         String vShaderStr =
                 "#version 300 es 							 \n" +
@@ -157,9 +151,14 @@ public class SimpleVertexShaderRenderer implements GLSurfaceView.Renderer {
         mMVPMatrix.matrixMultiply(modelview.get(), perspective.get());
     }
 
-    ///
-    // Draw a triangle using the shader pair created in onSurfaceCreated()
-    //
+
+    @Override
+    public void onSurfaceChanged(GL10 glUnused, int width, int height) {
+        mWidth = width;
+        mHeight = height;
+    }
+
+    @Override
     public void onDrawFrame(GL10 glUnused) {
         update();
 
@@ -187,13 +186,5 @@ public class SimpleVertexShaderRenderer implements GLSurfaceView.Renderer {
         // Draw the cube
         GLES30.glDrawElements(GLES30.GL_TRIANGLES, mCube.getNumIndices(),
                 GLES30.GL_UNSIGNED_SHORT, mCube.getIndices());
-    }
-
-    ///
-    // Handle surface changes
-    //
-    public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-        mWidth = width;
-        mHeight = height;
     }
 }

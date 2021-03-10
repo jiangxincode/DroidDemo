@@ -36,18 +36,14 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
             };
     // Handle to a program object
     private int mProgramObject;
-    // Additional member variables
-    private int mWidth;
-    private int mHeight;
+
     private final FloatBuffer mVertices;
     private final ShortBuffer mIndices;
     // VertexBufferObject Ids
     private final int[] mVBOIds = new int[2];
     // VertexArrayObject Id
     private final int[] mVAOId = new int[1];
-    ///
-    // Constructor
-    //
+
     public VertexArrayObjectsRenderer() {
         mVertices = ByteBuffer.allocateDirect(mVerticesData.length * 4)
                 .order(ByteOrder.nativeOrder()).asFloatBuffer();
@@ -90,14 +86,12 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
         GLES30.glBindBuffer(GLES30.GL_ARRAY_BUFFER, mVBOIds[0]);
 
         mVertices.position(0);
-        GLES30.glBufferData(GLES30.GL_ARRAY_BUFFER, mVerticesData.length * 4,
-                mVertices, GLES30.GL_STATIC_DRAW);
+        GLES30.glBufferData(GLES30.GL_ARRAY_BUFFER, mVerticesData.length * 4, mVertices, GLES30.GL_STATIC_DRAW);
 
         GLES30.glBindBuffer(GLES30.GL_ELEMENT_ARRAY_BUFFER, mVBOIds[1]);
 
         mIndices.position(0);
-        GLES30.glBufferData(GLES30.GL_ELEMENT_ARRAY_BUFFER, 2 * mIndicesData.length,
-                mIndices, GLES30.GL_STATIC_DRAW);
+        GLES30.glBufferData(GLES30.GL_ELEMENT_ARRAY_BUFFER, 2 * mIndicesData.length, mIndices, GLES30.GL_STATIC_DRAW);
 
         // Generate VAO Id
         GLES30.glGenVertexArrays(1, mVAOId, 0);
@@ -128,9 +122,6 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onDrawFrame(GL10 glUnused) {
-        // Set the viewport
-        GLES30.glViewport(0, 0, mWidth, mHeight);
-
         // Clear the color buffer
         GLES30.glClear(GLES30.GL_COLOR_BUFFER_BIT);
 
@@ -149,7 +140,6 @@ public class VertexArrayObjectsRenderer implements GLSurfaceView.Renderer {
 
     @Override
     public void onSurfaceChanged(GL10 glUnused, int width, int height) {
-        mWidth = width;
-        mHeight = height;
+        GLES30.glViewport(0, 0, width, height);
     }
 }
