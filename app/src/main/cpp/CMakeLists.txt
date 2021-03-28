@@ -51,29 +51,16 @@ find_library( # Sets the name of the path variable.
               # you want CMake to locate.
               log )
 
-aux_source_directory (${CMAKE_SOURCE_DIR}/glm/ GLM)
-aux_source_directory (${GLM}/gtc GTC)
-aux_source_directory (${GLM}/gtx GTX)
-aux_source_directory (${GLM}/detail DETAIL)
+include_directories(${CMAKE_SOURCE_DIR}/include/glm)
 
-target_include_directories(native-lib PRIVATE ${GLM} ${GTC} ${DETAIL} ${GTX})
+set(shared_libs ../../../../libs)
 
+include_directories(${CMAKE_SOURCE_DIR}/include)
+add_library(assimp SHARED IMPORTED )
+set_target_properties(assimp PROPERTIES IMPORTED_LOCATION ${shared_libs}/${ANDROID_ABI}/libassimp.so)
 
-add_subdirectory(${CMAKE_SOURCE_DIR}/Assimp)
-include_directories(${CMAKE_SOURCE_DIR}/Assimp/include)
-set(ATLAS_ENGINE_LIBS assimp)
-set(ATLAS_ENGINE_SYSTEM_LIBS android EGL GLESv2 GLESv3 m)
-
-include_directories(${CMAKE_SOURCE_DIR}/opencv/include)
-set(distribution_DIR ../../../../libs)
+include_directories(${CMAKE_SOURCE_DIR}/include)
 add_library(opencv_java3 SHARED IMPORTED )
-set_target_properties(opencv_java3
-        PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/${ANDROID_ABI}/libopencv_java3.so
-        )
-target_link_libraries(
-                       native-lib
-                       opencv_java3
-                       ${ATLAS_ENGINE_LIBS}
-                       ${ATLAS_ENGINE_SYSTEM_LIBS}
-                       ${log-lib} )
+set_target_properties(opencv_java3 PROPERTIES IMPORTED_LOCATION ${shared_libs}/${ANDROID_ABI}/libopencv_java3.so)
+
+target_link_libraries(native-lib opencv_java3 assimp android EGL GLESv2 GLESv3 m ${log-lib} )
