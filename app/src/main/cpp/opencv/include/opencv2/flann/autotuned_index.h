@@ -41,6 +41,7 @@
 #include "composite_index.h"
 #include "linear_index.h"
 #include "logger.h"
+#include <sstream>
 
 namespace cvflann
 {

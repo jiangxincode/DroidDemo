@@ -60,11 +60,11 @@ target_include_directories(native-lib PRIVATE ${GLM} ${GTC} ${DETAIL} ${GTX})
 
 
 add_subdirectory(${CMAKE_SOURCE_DIR}/Assimp)
-include_directories(${CMAKE_SOURCE_DIR}/Assimp/include ${CMAKE_SOURCE_DIR}/opencv/include)
+include_directories(${CMAKE_SOURCE_DIR}/Assimp/include)
 set(ATLAS_ENGINE_LIBS assimp)
 set(ATLAS_ENGINE_SYSTEM_LIBS android EGL GLESv2 GLESv3 m)
 
-
+include_directories(${CMAKE_SOURCE_DIR}/opencv/include)
 set(distribution_DIR ../../../../libs)
 add_library(opencv_java3 SHARED IMPORTED )
 set_target_properties(opencv_java3
