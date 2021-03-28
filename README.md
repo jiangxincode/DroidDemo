@@ -54,14 +54,15 @@ cd D:\Code\temp\assimp-4.1.0\scripts\android_crosscompile
 
 ## 集成OpenCV
 
-* 下载OpenCV 3.2.0版本：<https://sourceforge.net/projects/opencvlibrary/files/opencv-android/3.2.0/opencv-3.2.0-android-sdk.zip/download>
-* 解压后本地目录为`D:\Code\temp\opencv-3.2.0-android-sdk`
-* 将`OpenCV-android-sdk\sdk\native\libs\arm64-v8a\libopencv_java3.so`放到`app\libs\`
-* 将`OpenCV-android-sdk\sdk\native\jni\include`中的目录放到`app\src\main\cpp\include`
-* autotuned_index.h中的include列表中增加`#include "sstream"`
+OpenCV的继承比较简单，官网提供了Android平台所需的动态库和C++头文件。
+
+* 下载OpenCV 4.5.1版本：<https://cfhcable.dl.sourceforge.net/project/opencvlibrary/4.5.1/opencv-4.5.1-android-sdk.zip>
+* 解压后本地目录为`D:\Code\temp\opencv-4.5.1-android-sdk`
+* 将`OpenCV-android-sdk\sdk\native\libs\arm64-v8a\libopencv_java4.so`拷贝到`app\libs\`
+* 将`OpenCV-android-sdk\sdk\native\jni\include`中的内容拷贝到`app\src\main\cpp\include`
 
 ## 集成GLM
 
 * 下载GLM 0.9.9.8版本：<https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.zip>
 * 解压后本地目录为`D:\Code\temp\glm-0.9.9.8`
-* 将`glm-0.9.9.8\glm`放到`app\src\main\cpp\include`
+* 将`glm-0.9.9.8\glm`中的内容拷贝到`app\src\main\cpp\include`

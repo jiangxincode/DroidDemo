@@ -12,7 +12,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                arguments '-DANDROID_ARM_NEON=TRUE', '-DCMAKE_BUILD_TYPE=Release', '-DANDROID_LD=deprecated'
+                arguments '-DANDROID_ARM_NEON=TRUE', '-DCMAKE_BUILD_TYPE=Release', '-DANDROID_LD=deprecated', '-DANDROID_STL=c++_shared'
                 cppFlags "-fexceptions -frtti -std=c++11 -O3"
             }
         }
