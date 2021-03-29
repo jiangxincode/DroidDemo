@@ -1,4 +1,4 @@
-package com.hyq.hm.test.assimp;
+package edu.jiangxin.opengldemo;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.hyq.hm.test.assimp", appContext.getPackageName());
+        assertEquals("edu.jiangxin.opengldemo", appContext.getPackageName());
     }
 }

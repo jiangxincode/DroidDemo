@@ -1,4 +1,4 @@
-package com.hyq.hm.test.assimp;
+package edu.jiangxin.opengldemo;
 
 import org.junit.Test;
 

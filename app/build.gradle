@@ -4,7 +4,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
-        applicationId "com.hyq.hm.test.assimp"
+        applicationId "edu.jiangxin.opengldemo"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
@@ -12,8 +12,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         externalNativeBuild {
             cmake {
-                arguments '-DANDROID_ARM_NEON=TRUE', '-DCMAKE_BUILD_TYPE=Release', '-DANDROID_LD=deprecated', '-DANDROID_STL=c++_shared'
-                cppFlags "-fexceptions -frtti -std=c++11 -O3"
+                arguments '-DANDROID_ARM_NEON=TRUE', '-DCMAKE_BUILD_TYPE=Release', '-DANDROID_STL=c++_shared'
+                cppFlags "-std=c++11 -O3"
             }
         }
         ndk{
