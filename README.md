@@ -1,4 +1,4 @@
-# 集成说明
+# Android平台OpenGL ES/Assimp/OpenCV/GLM集成说明
 
 ## 集成Assimp
 
@@ -68,3 +68,11 @@ GLM的集成就更简单了，源码都是hpp文件（即定义和实现在同�
 * 下载GLM 0.9.9.8版本：<https://github.com/g-truc/glm/archive/refs/tags/0.9.9.8.zip>
 * 解压后本地目录为`D:\Code\temp\glm-0.9.9.8`
 * 将`glm-0.9.9.8\glm`中的内容拷贝到`app\src\main\cpp\include`
+
+## 参考
+
+* Android: Use Assimp to load a 3D model: <http://www.anandmuralidhar.com/blog/android/assimp/>
+* AssimpAndroid: <https://github.com/anandmuralidhar24/AssimpAndroid>
+* 使用Android Studio+CMakeLists编译assimp: <https://blog.csdn.net/u010302327/article/details/104473671>
+* TestAssimp: <https://blog.csdn.net/u010302327/article/details/104473671>
+* Assimp编译实录: <https://blog.csdn.net/fyfcauc/article/details/72627996>
