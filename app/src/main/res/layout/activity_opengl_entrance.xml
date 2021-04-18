@@ -214,6 +214,16 @@
                 android:gravity="center"
                 android:text="Rajawali Demo"
                 android:textSize="28sp" />
+
+            <TextView
+                android:id="@+id/tv_assimp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:text="Assimp+GLM+OpenCV"
+                android:textSize="28sp" />
+
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

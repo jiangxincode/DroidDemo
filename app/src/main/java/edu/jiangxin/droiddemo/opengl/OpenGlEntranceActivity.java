@@ -13,6 +13,7 @@ import edu.jiangxin.droiddemo.opengl.matrix.OpenGLMatrixActivity;
 import edu.jiangxin.droiddemo.opengl.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.opengl.rajawali.RajawaliDemoActivity;
 import edu.jiangxin.droiddemo.opengl.transform.TransformActivity;
+import edu.jiangxin.droiddemo.opengl.assimp.AssimpActivity;
 
 public class OpenGlEntranceActivity extends Activity implements View.OnClickListener {
 
@@ -27,6 +28,7 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
     private TextView mTvMultiTexture, mTvParticleSystem;
     private TextView mTvPBuffer;
     private TextView mTvRajaWaliDemo;
+    private TextView mAssimp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +69,8 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
 
         mTvRajaWaliDemo = findViewById(R.id.tv_rajawali);
 
+        mAssimp = findViewById(R.id.tv_assimp);
+
         mTvBackground.setOnClickListener(this);
         mTvTriangle.setOnClickListener(this);
         mTvTriangleJni.setOnClickListener(this);
@@ -100,6 +104,8 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
         mTvPBuffer.setOnClickListener(this);
 
         mTvRajaWaliDemo.setOnClickListener(this);
+
+        mAssimp.setOnClickListener(this);
     }
 
     @Override
@@ -220,6 +226,9 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
                 break;
             case R.id.tv_rajawali:
                 enterTestActivity(RajawaliDemoActivity.class);
+                break;
+            case R.id.tv_assimp:
+                enterTestActivity(AssimpActivity.class);
                 break;
             default:
                 break;
