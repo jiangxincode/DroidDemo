@@ -19,6 +19,12 @@
             android:scrollbars="vertical">
 
             <Button
+                android:id="@+id/btnPerf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Perf" />
+
+            <Button
                 android:id="@+id/btnShowInfoEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

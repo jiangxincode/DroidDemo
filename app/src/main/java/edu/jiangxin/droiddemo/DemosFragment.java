@@ -33,6 +33,7 @@ import edu.jiangxin.droiddemo.activity.ImageViewActivity;
 import edu.jiangxin.droiddemo.activity.JNIActivity;
 import edu.jiangxin.droiddemo.activity.LoaderDemoActivity;
 import edu.jiangxin.droiddemo.activity.NetMusicActivity;
+import edu.jiangxin.droiddemo.activity.PerfActivity;
 import edu.jiangxin.droiddemo.activity.QuickSearchBoxActivity;
 import edu.jiangxin.droiddemo.activity.RingtoneSetting1Activity;
 import edu.jiangxin.droiddemo.activity.RingtoneSettingActivity;
@@ -72,7 +73,7 @@ public class DemosFragment extends Fragment {
     private static final int REQUEST_CODE_OVERLAY = 10002;
     private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
-    private Button mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
+    private Button mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -85,6 +86,13 @@ public class DemosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_demos, container, false);
+
+        mBtnPerf = root.findViewById(R.id.btnPerf);
+        mBtnPerf.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), PerfActivity.class);
+            startActivity(intent);
+        });
 
         mBtnShowInfoEntrance = root.findViewById(R.id.btnShowInfoEntrance);
         mBtnShowInfoEntrance.setOnClickListener(v -> {
