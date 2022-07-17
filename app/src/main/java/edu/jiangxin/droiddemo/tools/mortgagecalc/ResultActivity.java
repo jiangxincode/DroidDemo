@@ -1,7 +1,6 @@
 package edu.jiangxin.droiddemo.tools.mortgagecalc;
 
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Handler;
@@ -85,7 +84,6 @@ public class ResultActivity extends Activity {
     private int offSet;
     private final Matrix matrix = new Matrix();
     private Animation animation;
-    private ProgressDialog progressDialog = null;
     private final Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -104,8 +102,6 @@ public class ResultActivity extends Activity {
 
                     viewPager.setCurrentItem(currentItem);
 
-                    progressDialog.dismiss();
-                    break;
             }
         }
     };
@@ -115,8 +111,6 @@ public class ResultActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-
-        progressDialog = ProgressDialog.show(ResultActivity.this, "", "正在计算...", false, true);
 
         init();                     //0.初始化
         getData();                  //1.获得数据

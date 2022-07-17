@@ -12,3 +12,6 @@ app/release
 # IntelliJ
 *.iml
 .idea/
+
+*.log
+*.vsdx

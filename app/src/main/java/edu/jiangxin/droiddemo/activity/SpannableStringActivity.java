@@ -93,6 +93,6 @@ public class SpannableStringActivity extends Activity {
 
         //在string.xml文件中设置部分字体颜色大小
         String exchange = getResources().getString(R.string.exchange_txt_hint);
-        tv3.setText(Html.fromHtml(exchange));
+        tv3.setText(Html.fromHtml(exchange, Html.FROM_HTML_MODE_LEGACY));
     }
 }

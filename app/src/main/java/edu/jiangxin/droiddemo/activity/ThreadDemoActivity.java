@@ -1,23 +1,19 @@
 package edu.jiangxin.droiddemo.activity;
 
-import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.HttpStatus;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
-
 import android.app.Activity;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 import edu.jiangxin.droiddemo.R;
 
@@ -38,16 +34,13 @@ public class ThreadDemoActivity extends Activity {
         setContentView(R.layout.activity_thread_demo);
 
         execute = findViewById(R.id.execute);
-        execute.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //注意每次需new一个实例,新建的任务只能执行一次,否则会出现异常
-                mTask = new MyTask();
-                mTask.execute("http://www.baidu.com");
+        execute.setOnClickListener(v -> {
+            //注意每次需new一个实例,新建的任务只能执行一次,否则会出现异常
+            mTask = new MyTask();
+            mTask.execute("https://www.baidu.com");
 
-                execute.setEnabled(false);
-                cancel.setEnabled(true);
-            }
+            execute.setEnabled(false);
+            cancel.setEnabled(true);
         });
         cancel = findViewById(R.id.cancel);
         cancel.setOnClickListener(new View.OnClickListener() {
@@ -75,26 +68,35 @@ public class ThreadDemoActivity extends Activity {
         protected String doInBackground(String... params) {
             Log.i(TAG, "doInBackground(Params... params) called");
             try {
-                HttpClient client = new DefaultHttpClient();
-                HttpGet get = new HttpGet(params[0]);
-                HttpResponse response = client.execute(get);
-                if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-                    HttpEntity entity = response.getEntity();
-                    InputStream is = entity.getContent();
-                    long total = entity.getContentLength();
+                URL url = new URL(params[0]);
+                HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                httpURLConnection.setRequestMethod("GET");
+                int totalLength;
+                String contentLength = httpURLConnection.getHeaderField("Content-Length");
+                if (!TextUtils.isEmpty(contentLength)) {
+                    totalLength = Integer.parseInt(contentLength);
+                } else {
+                    totalLength = httpURLConnection.getContentLength();
+                }
+                if (totalLength == 0 || totalLength == -1) {
+                    totalLength = 10240;
+                }
+
+                InputStream inputStream = httpURLConnection.getInputStream();
+                int respondCode = httpURLConnection.getResponseCode();
+                if (respondCode == HttpURLConnection.HTTP_OK) {
                     ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                    byte[] buf = new byte[1024];
+                    byte[] buffer = new byte[1024*8];
+                    int len;
                     int count = 0;
-                    int length = -1;
-                    while ((length = is.read(buf)) != -1) {
-                        baos.write(buf, 0, length);
-                        count += length;
-                        //调用publishProgress公布进度,最后onProgressUpdate方法将被执行
-                        publishProgress((int) ((count / (float) total) * 100));
+                    while ((len = inputStream.read(buffer)) != -1) {
+                        baos.write(buffer, 0, len);
+                        count += len;
+                        publishProgress((int) ((count / (float) totalLength) * 100));
                         //为了演示进度,休眠500毫秒
                         Thread.sleep(500);
                     }
-                    return new String(baos.toByteArray(), "gb2312");
+                    return baos.toString("gb2312");
                 }
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());

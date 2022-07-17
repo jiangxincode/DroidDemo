@@ -64,7 +64,7 @@ public class BlowUpUtil {
         }
 
         lastView = view;
-        view.setBackgroundDrawable(custNineDrawable);
+        view.setBackground(custNineDrawable);
 
         if (!isAnimationAble) {
             return;

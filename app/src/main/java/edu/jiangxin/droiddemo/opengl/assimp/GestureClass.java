@@ -41,7 +41,7 @@ public class GestureClass {
             mTapScrollDetector.onTouchEvent(event);
             mScaleDetector.onTouchEvent(event);
 
-            final int action = MotionEventCompat.getActionMasked(event);
+            final int action = event.getAction();
 
             switch (action) {
                 case MotionEvent.ACTION_DOWN: {
@@ -52,8 +52,8 @@ public class GestureClass {
                     // track the drag only if two fingers are placed on screen
                     if(mTwoFingerPointerId != INVALID_POINTER_ID) {
 
-                        final float x = MotionEventCompat.getX(event, mTwoFingerPointerId);
-                        final float y = MotionEventCompat.getY(event, mTwoFingerPointerId);
+                        final float x = event.getX(mTwoFingerPointerId);
+                        final float y = event.getY(mTwoFingerPointerId);
 
                         // Calculate the distance moved
                         final float dx = x - mLastTouchX;
@@ -79,9 +79,9 @@ public class GestureClass {
 
                 case MotionEvent.ACTION_POINTER_DOWN: {
                     // detected two fingers, start the drag
-                    mTwoFingerPointerId = MotionEventCompat.getActionIndex(event);
-                    final float x = MotionEventCompat.getX(event, mTwoFingerPointerId);
-                    final float y = MotionEventCompat.getY(event, mTwoFingerPointerId);
+                    mTwoFingerPointerId = event.getActionIndex();
+                    final float x = event.getX(mTwoFingerPointerId);
+                    final float y = event.getY(mTwoFingerPointerId);
 
                     // Remember where we started (for dragging)
                     mLastTouchX = x;

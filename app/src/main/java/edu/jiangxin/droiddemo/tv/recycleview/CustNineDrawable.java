@@ -16,11 +16,11 @@ public class CustNineDrawable extends Drawable {
     private Drawable mScaleFocusDrawable = null;
 
     public CustNineDrawable(Context context) {
-        mScaleFocusDrawable = context.getResources().getDrawable(R.drawable.item_shadow_v);
+        mScaleFocusDrawable = context.getResources().getDrawable(R.drawable.item_shadow_v, context.getTheme());
     }
 
     public void setFocusDrawable(Context context, int drawableId) {
-        mScaleFocusDrawable = context.getResources().getDrawable(drawableId);
+        mScaleFocusDrawable = context.getResources().getDrawable(drawableId, context.getTheme());
     }
 
     @Override
