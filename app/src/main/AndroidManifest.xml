@@ -52,7 +52,6 @@
         <activity android:name=".animation.LottieAnimationActivity" />
         <activity android:name=".animation.SvgaAnimationActivity" />
         <activity android:name=".opengl.rajawali.RajawaliDemoActivity" />
-        <activity android:name=".opengl.assimp.AssimpActivity" />
         <activity android:name=".opengl.pbuffer.PBufferActivity" />
         <activity android:name=".opengl.VariousRenderersActivity" />
         <activity android:name=".opengl.OpenGlEntranceActivity" />
