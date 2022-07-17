@@ -32,9 +32,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".activity.PerfActivity"
-            android:exported="true" />
+        <activity android:name=".activity.PerfActivity" />
         <activity android:name=".tv.recycleview.RecycleViewTv" />
         <activity android:name=".layout.ContraintLayoutActivity" />
         <activity android:name=".layout.VariousLayoutActivity" />
@@ -68,10 +66,10 @@
         <activity android:name=".service.commonservice.CommonServiceActivity" />
         <activity
             android:name=".activity.MainActivity"
-            android:label="@string/app_name">
+            android:label="@string/app_name"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -130,7 +128,8 @@
             android:launchMode="singleTask"
             android:taskAffinity=".testLaunchMode" />
         <activity android:name=".activity.SpannableStringActivity" />
-        <activity android:name=".activity.QuickSearchBoxActivity">
+        <activity android:name=".activity.QuickSearchBoxActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="edu.jiangxin.droiddemo.action.Search" />
 
@@ -146,7 +145,8 @@
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
-        <activity android:name=".quickshow.activity.ShowInfoActivity">
+        <activity android:name=".quickshow.activity.ShowInfoActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="edu.jiangxin.droiddemo.action.SHOWINFO" />
 
@@ -183,12 +183,14 @@
             android:enabled="true"
             android:exported="true" />
 
-        <receiver android:name=".broadcastreceiver.NetStatReceiver">
+        <receiver android:name=".broadcastreceiver.NetStatReceiver"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".broadcastreceiver.ScreenOnReceiver">
+        <receiver android:name=".broadcastreceiver.ScreenOnReceiver"
+            android:exported="true">
             <intent-filter android:priority="90000">
                 <action android:name="android.intent.action.USER_PRESENT" />
             </intent-filter>
@@ -218,7 +220,8 @@
             android:process=":remote" />
         <service
             android:name=".activity.TrackerService"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
             </intent-filter>
