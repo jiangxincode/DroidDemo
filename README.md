@@ -1,5 +1,7 @@
 # DroidDemo
 
+[![Android CI](https://github.com/jiangxincode/DroidDemo/actions/workflows/android.yml/badge.svg)](https://github.com/jiangxincode/DroidDemo/actions/workflows/android.yml)
+
 ## Authors
 
 + JiangXin jiangxinnju@163.com
