@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.airbnb.lottie.model.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
 
 import edu.jiangxin.droiddemo.R;
 
@@ -44,15 +44,11 @@ public class LottieAnimationActivity extends Activity {
                 stopAnima();
             }
         });
-        LottieComposition.fromAssetFileName(this, "LottieLogo1.json", new LottieComposition.OnCompositionLoadedListener() {
 
-            @Override
-            public void onCompositionLoaded(LottieComposition composition) {
-                animation_view_click.setComposition(composition);
-                animation_view_click.setProgress(0.333f);
-
-                animation_view_click.playAnimation();
-            }
+        LottieCompositionFactory.fromAsset(this, "LottieLogo1.json").addListener(composition -> {
+            animation_view_click.setComposition(composition);
+            animation_view_click.setProgress(0.333f);
+            animation_view_click.playAnimation();
         });
 
 
