@@ -138,33 +138,33 @@
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/tv_layout_changes"
+                android:id="@+id/tv_layout_transition_xml"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/holo_orange_dark"
                 android:gravity="center"
-                android:text="LayoutChanges"
+                android:text="LayoutTransitionByXml"
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/tv_layout_animation"
+                android:id="@+id/tv_layout_animation_transition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/holo_orange_light"
                 android:gravity="center"
-                android:text="LayoutAnimation"
+                android:text="Layout Animation/Transition"
                 android:textSize="28sp" />
 
             <TextView
-                android:id="@+id/tv_layout_transition"
+                android:id="@+id/tv_grid_layout_animation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@android:color/holo_purple"
                 android:gravity="center"
-                android:text="LayoutTransition"
+                android:text="GridLayoutAnimation"
                 android:textSize="28sp" />
 
             <TextView

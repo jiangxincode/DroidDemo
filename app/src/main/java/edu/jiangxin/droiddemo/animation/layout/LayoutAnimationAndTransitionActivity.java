@@ -5,20 +5,20 @@ import android.animation.LayoutTransition;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.LayoutAnimationController;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import androidx.annotation.Nullable;
-
-import com.zhy.adapter.abslistview.CommonAdapter;
-import com.zhy.adapter.abslistview.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,11 +37,11 @@ import edu.jiangxin.droiddemo.R;
  * 4、CHANGE_APPEARING：其他视图的出现导致某个视图改变。
  * 5、CHANGE_DISAPPEARING：其他视图的消失导致某个视图改变。
  */
-public class LayoutAnimationAndLayoutTransitionActivity extends Activity {
+public class LayoutAnimationAndTransitionActivity extends Activity {
 
     private Button mAdd;
     private ListView mList;
-    private CommonAdapter<String> mCommonAdapter;
+    private BaseAdapter mBaseAdapter;
 
     private final List<String> mStrings = new ArrayList<>();
     private int mInitPos;
@@ -54,20 +54,14 @@ public class LayoutAnimationAndLayoutTransitionActivity extends Activity {
         mList = findViewById(android.R.id.list);
         mAdd.setOnClickListener(v -> {
             addItems();
-            mCommonAdapter.notifyDataSetChanged();
+            mBaseAdapter.notifyDataSetChanged();
         });
         initView();
     }
 
     private void initView() {
         addItems();
-        mList.setAdapter(mCommonAdapter =
-                new CommonAdapter<String>(this, R.layout.item_main, mStrings) {
-                    @Override
-                    protected void convert(ViewHolder viewHolder, String item, int position) {
-                        viewHolder.setText(R.id.text_name, item);
-                    }
-                });
+        mList.setAdapter(mBaseAdapter = new ListViewAdapter(this, mStrings));
         startLayoutAnimation();
         initLayoutTransition();
     }
@@ -133,5 +127,47 @@ public class LayoutAnimationAndLayoutTransitionActivity extends Activity {
         for (int i = 0; i < 5; ++i) {
             mStrings.add(++mInitPos + "个条目被添加");
         }
+    }
+}
+
+class ListViewAdapter extends BaseAdapter {
+
+    private final List<String> mList;
+    private final Context mContext;
+
+    public ListViewAdapter(Context context, List<String> mList) {
+        this.mContext = context;
+        this.mList = mList;
+    }
+
+    @Override
+    public int getCount() {
+        return mList.size();
+    }
+
+    @Override
+    public String getItem(int position) {
+        return mList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View view, ViewGroup parent) {
+        edu.jiangxin.droiddemo.animation.layout.ViewHolder holder;
+
+        if (view == null) {
+            holder = new edu.jiangxin.droiddemo.animation.layout.ViewHolder();
+            view = LayoutInflater.from(mContext).inflate(R.layout.layout_animation_item, null);
+            holder.title = view.findViewById(R.id.title);
+            view.setTag(holder);
+        } else {
+            holder = (edu.jiangxin.droiddemo.animation.layout.ViewHolder) view.getTag();
+        }
+        holder.title.setText(mList.get(position));
+        return view;
     }
 }

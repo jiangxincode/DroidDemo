@@ -110,7 +110,7 @@
         <activity android:name=".animation.PropertyAnimatorActivity" />
         <activity android:name=".animation.activity.TransitionSecondActivity" />
         <activity android:name=".animation.activity.TransitionFirstActivity" />
-        <activity android:name=".animation.layout.LayoutAnimationAndLayoutTransitionActivity" />
+        <activity android:name=".animation.layout.LayoutAnimationAndTransitionActivity" />
         <activity android:name=".animation.layout.GridLayoutAnimationActivity" />
         <activity android:name=".animation.layout.LayoutTransitionByXmlActivity" />
         <activity android:name=".activity.DecorViewActivity" />

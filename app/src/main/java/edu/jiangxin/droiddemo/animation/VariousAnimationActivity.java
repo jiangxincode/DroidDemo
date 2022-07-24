@@ -9,7 +9,7 @@ import android.widget.TextView;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.animation.activity.TransitionFirstActivity;
 import edu.jiangxin.droiddemo.animation.layout.GridLayoutAnimationActivity;
-import edu.jiangxin.droiddemo.animation.layout.LayoutAnimationAndLayoutTransitionActivity;
+import edu.jiangxin.droiddemo.animation.layout.LayoutAnimationAndTransitionActivity;
 import edu.jiangxin.droiddemo.animation.layout.LayoutTransitionByXmlActivity;
 import edu.jiangxin.droiddemo.animation.view.AlphaAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.AnimationSetActivity;
@@ -48,9 +48,9 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         mTvVectorDrawableAnimator = findViewById(R.id.tv_vector_drawable_animator);
         mTvFrameAnimation = findViewById(R.id.tv_frame_animation);
         mTvActivityTransition = findViewById(R.id.tv_activity_transition);
-        mTvLayoutChanges = findViewById(R.id.tv_layout_changes);
-        mTvLayoutAnimation = findViewById(R.id.tv_layout_animation);
-        mTvGridLayoutAnimation = findViewById(R.id.tv_layout_transition);
+        mTvLayoutChanges = findViewById(R.id.tv_layout_transition_xml);
+        mTvLayoutAnimation = findViewById(R.id.tv_layout_animation_transition);
+        mTvGridLayoutAnimation = findViewById(R.id.tv_grid_layout_animation);
         mTvOverlayAnimation = findViewById(R.id.tv_overlay_animation);
         mTvSVGAAnimation = findViewById(R.id.tv_svga_animation);
         mTvLottieAnimation = findViewById(R.id.tv_lottie_animation);
@@ -114,13 +114,13 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
             case R.id.tv_activity_transition:
                 enterTestActivity(TransitionFirstActivity.class);
                 break;
-            case R.id.tv_layout_changes:
+            case R.id.tv_layout_transition_xml:
                 enterTestActivity(LayoutTransitionByXmlActivity.class);
                 break;
-            case R.id.tv_layout_animation:
-                enterTestActivity(LayoutAnimationAndLayoutTransitionActivity.class);
+            case R.id.tv_layout_animation_transition:
+                enterTestActivity(LayoutAnimationAndTransitionActivity.class);
                 break;
-            case R.id.tv_layout_transition:
+            case R.id.tv_grid_layout_animation:
                 enterTestActivity(GridLayoutAnimationActivity.class);
                 break;
             case R.id.tv_overlay_animation:
