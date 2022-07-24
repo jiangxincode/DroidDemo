@@ -33,12 +33,12 @@ public class OthersInfoRunnable implements Runnable {
         StringBuilder stringBuilder = new StringBuilder();
         PowerManager pm = (PowerManager) ApplicationExt.getContext().getSystemService(Context.POWER_SERVICE);
         //如果为true，则表示屏幕“亮”了，否则屏幕“暗”了
-        stringBuilder.append("isInteractive: " + pm.isInteractive()).append("\n");
+        stringBuilder.append("isInteractive: ").append(pm.isInteractive()).append("\n");
         //如果flag为true，表示有两种状态：a、屏幕是黑的 b、目前正处于解锁状态 。
         // 如果flag为false，表示目前未锁屏
         KeyguardManager mKeyguardManager = (KeyguardManager) ApplicationExt.getContext().getSystemService(Context.KEYGUARD_SERVICE);
-        stringBuilder.append("isKeyguardLocked: " + mKeyguardManager.isKeyguardLocked()).append("\n");
-        stringBuilder.append("IP address: " + getIPAddress(ApplicationExt.getContext()));
+        stringBuilder.append("isKeyguardLocked: ").append(mKeyguardManager.isKeyguardLocked()).append("\n");
+        stringBuilder.append("IP address: ").append(getIPAddress(ApplicationExt.getContext()));
 
         Message message = new Message();
         message.what = ShowInfoActivity.UPDATE_MESSAGE;
@@ -72,20 +72,15 @@ public class OthersInfoRunnable implements Runnable {
             } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {//当前使用无线网络
                 WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
                 WifiInfo wifiInfo = wifiManager.getConnectionInfo();
-                String ipAddress = intIP2StringIP(wifiInfo.getIpAddress());//得到IPV4地址
-                return ipAddress;
+                return intIP2StringIP(wifiInfo.getIpAddress());
             }
-        } else {
-            //当前无网络连接,请在设置中打开网络
         }
+
         return null;
     }
 
     /**
      * 将得到的int类型的IP转换为String类型
-     *
-     * @param ip
-     * @return
      */
     private static String intIP2StringIP(int ip) {
         return (ip & 0xFF) + "." +
