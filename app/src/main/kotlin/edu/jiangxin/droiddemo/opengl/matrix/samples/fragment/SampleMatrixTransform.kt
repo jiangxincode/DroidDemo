@@ -2,18 +2,18 @@ package edu.jiangxin.droiddemo.opengl.matrix.samples.fragment
 
 import android.opengl.GLSurfaceView
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import edu.jiangxin.droiddemo.R
+import edu.jiangxin.droiddemo.databinding.FragmentSampleMatrixTransformBinding
+import edu.jiangxin.droiddemo.databinding.ItemParameterListBinding
 import edu.jiangxin.droiddemo.opengl.Utils
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.OnParameterChangeCallback
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.SampleMatrixTransformRenderer
-import kotlinx.android.synthetic.main.fragment_sample_matrix_transform.view.*
-import kotlinx.android.synthetic.main.item_parameter_list.view.*
 
 /**
  * OpenGL 3D渲染技术：坐标系及矩阵变换: https://juejin.im/post/6844903862973759496
@@ -21,10 +21,16 @@ import kotlinx.android.synthetic.main.item_parameter_list.view.*
 
 class SampleMatrixTransform : Fragment() {
 
+    private var _binding: FragmentSampleMatrixTransformBinding? = null
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
     private lateinit var glSurfaceView: GLSurfaceView
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val rootView = inflater.inflate(R.layout.fragment_sample_matrix_transform, container,  false)
+        _binding = FragmentSampleMatrixTransformBinding.inflate(inflater, container, false)
+        val rootView = binding.root
         glSurfaceView = rootView.findViewById(R.id.glsurfaceview)
         glSurfaceView.setEGLContextClientVersion(Utils.OPENGL_ES_VERSION)
         // 设置RGBA颜色缓冲、深度缓冲及stencil缓冲大小
@@ -41,12 +47,12 @@ class SampleMatrixTransform : Fragment() {
             val parameters = getParameterItems()
             val layoutManager = LinearLayoutManager(activity)
             layoutManager.orientation = RecyclerView.VERTICAL
-            rootView.parameterList.layoutManager = layoutManager
+            binding.parameterList.layoutManager = layoutManager
             val adapter = Adapter(parameters)
             adapter.onParameterChangeCallback = renderer
-            rootView.parameterList.adapter = adapter
+            binding.parameterList.adapter = adapter
 
-            rootView.resetButton.setOnClickListener {
+            binding.resetButton.setOnClickListener {
                 renderer.onParameterReset()
                 adapter.parameters = getParameterItems()
                 adapter.notifyDataSetChanged()
@@ -54,6 +60,11 @@ class SampleMatrixTransform : Fragment() {
             }
         }
         return rootView
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun getParameterItems(): Array<ParameterItem> {
@@ -89,8 +100,14 @@ class SampleMatrixTransform : Fragment() {
 
         lateinit var onParameterChangeCallback: OnParameterChangeCallback
 
+        private var _binding: ItemParameterListBinding? = null
+        // This property is only valid between onCreateView and
+        // onDestroyView.
+        private val binding get() = _binding!!
+
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): VH {
-            return VH(LayoutInflater.from(p0.context).inflate(R.layout.item_parameter_list, null, false))
+            _binding = ItemParameterListBinding.inflate(LayoutInflater.from(p0.context), null, false)
+            return VH(binding);
         }
 
         override fun getItemCount(): Int {
@@ -118,7 +135,7 @@ class SampleMatrixTransform : Fragment() {
 
     }
 
-    inner class VH(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class VH(itemView: ItemParameterListBinding) : RecyclerView.ViewHolder(itemView.root) {
         val parameterKey = itemView.parameterKey
         val parameterValue = itemView.parameterValue
         val reduceButton = itemView.reduceButton

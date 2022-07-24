@@ -8,12 +8,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import edu.jiangxin.droiddemo.R
+import edu.jiangxin.droiddemo.databinding.FragmentSampleLightingBinding
 import edu.jiangxin.droiddemo.opengl.Utils
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.BumpedLightRenderer
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.DirectionalLightRenderer
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.PointLightRenderer
 import edu.jiangxin.droiddemo.opengl.matrix.samples.renderer.lighting.SpotLightRenderer
-import kotlinx.android.synthetic.main.fragment_sample_lighting.*
 
 /**
  *      光照例子，包括平行光、点光、聚光和法向图
@@ -21,22 +21,34 @@ import kotlinx.android.synthetic.main.fragment_sample_lighting.*
  **/
 
 class SampleLighting : Fragment() {
+    private var _binding: FragmentSampleLightingBinding? = null
+    // This property is only valid between onCreateView and
+    // onDestroyView.
+    private val binding get() = _binding!!
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_sample_lighting, container,  false)
+        _binding = FragmentSampleLightingBinding.inflate(inflater, container, false)
+        val view = binding.root
+        return view
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        directionalLight.setOnClickListener {
-            updateSample(glSurfaceViewContainer, DirectionalLightRenderer())
+        binding.directionalLight.setOnClickListener {
+            updateSample(binding.glSurfaceViewContainer, DirectionalLightRenderer())
         }
-        pointLight.setOnClickListener {
-            updateSample(glSurfaceViewContainer, PointLightRenderer())
+        binding.pointLight.setOnClickListener {
+            updateSample(binding.glSurfaceViewContainer, PointLightRenderer())
         }
-        spotLight.setOnClickListener {
-            updateSample(glSurfaceViewContainer, SpotLightRenderer())
+        binding.spotLight.setOnClickListener {
+            updateSample(binding.glSurfaceViewContainer, SpotLightRenderer())
         }
-        bumped.setOnClickListener {
-            updateSample(glSurfaceViewContainer, BumpedLightRenderer())
+        binding.bumped.setOnClickListener {
+            updateSample(binding.glSurfaceViewContainer, BumpedLightRenderer())
         }
     }
 
