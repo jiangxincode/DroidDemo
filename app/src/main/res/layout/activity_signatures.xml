@@ -15,7 +15,7 @@
             android:padding="10.0dip" >
 
             <ImageView
-                android:id="@+id/as_igview"
+                android:id="@+id/LogoIv"
                 android:layout_width="90.0dip"
                 android:layout_height="90.0dip"
                 android:src="@mipmap/ic_launcher" />
@@ -27,7 +27,7 @@
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/as_name_tv"
+                    android:id="@+id/NameTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15.0dip"
@@ -39,7 +39,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_pack_tv"
+                    android:id="@+id/PackageNameTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip"
@@ -58,7 +58,7 @@
                 android:background="#2B2B2B" />
 
             <LinearLayout
-                android:id="@+id/as_md5_linear"
+                android:id="@+id/IsSystemSignatureLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -71,20 +71,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/md5_hint_s"
+                    android:text="是否是系统签名"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_md5_tv"
+                    android:id="@+id/IsSystemSignatureTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_sha1_linear"
+                android:id="@+id/Md5LinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -97,20 +97,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/sha1_hint_s"
+                    android:text="MD5"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_sha1_tv"
+                    android:id="@+id/Md5Tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_sha256_linear"
+                android:id="@+id/Sha1LinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -123,20 +123,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/sha256_hint_s"
+                    android:text="SHA1"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_sha256_tv"
+                    android:id="@+id/Sha1Tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_effective_linear"
+                android:id="@+id/Sha256LinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -149,20 +149,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/effective_hint_s"
+                    android:text="SHA256"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_effective_tv"
+                    android:id="@+id/Sha256Tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_iseffective_linear"
+                android:id="@+id/EffectiveLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -175,20 +175,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/iseffective_hint_s"
+                    android:text="有效时间"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_iseffective_tv"
+                    android:id="@+id/EffectiveTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_principal_linear"
+                android:id="@+id/IsEffectiveLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -201,20 +201,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/principal_hint_s"
+                    android:text="签名是否过期"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_principal_tv"
+                    android:id="@+id/IsEffectiveTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_version_linear"
+                android:id="@+id/PrincipalLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -227,20 +227,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/version_hint_s"
+                    android:text="证书发布方"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_version_tv"
+                    android:id="@+id/PrincipalTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_sigalgname_linear"
+                android:id="@+id/VersionLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -253,20 +253,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/sigalgname_hint_s"
+                    android:text="证书版本号"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_sigalgname_tv"
+                    android:id="@+id/VersionTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_sigalgoid_linear"
+                android:id="@+id/SigAlgNameLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -279,20 +279,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/sigalgoid_hint_s"
+                    android:text="证书算法名称"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_sigalgoid_tv"
+                    android:id="@+id/SigAlgNameTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_serialnumber_linear"
+                android:id="@+id/SigAlgOidLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -305,20 +305,20 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/serialnumber_hint_s"
+                    android:text="证书算法OID"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_serialnumber_tv"
+                    android:id="@+id/SigAlgOidTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/as_dercode_linear"
+                android:id="@+id/SerialNumberLinearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -331,13 +331,39 @@
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
-                    android:text="@string/dercode_hint_s"
+                    android:text="证书机器码"
                     android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/as_dercode_tv"
+                    android:id="@+id/SerialNumberTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5.0dip" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/DerCodeLinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10.0dip" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#0080FF"
+                    android:shadowDx="0"
+                    android:shadowDy="4"
+                    android:shadowRadius="4"
+                    android:text="证书DER编码"
+                    android:textColor="@android:color/black"
+                    android:textSize="15.0sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/DerCodeTv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip" />

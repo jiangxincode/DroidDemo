@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.jiangxin.droiddemo.activity.ActivityTrackerActivity;
-import edu.jiangxin.droiddemo.activity.AppListActivity;
+import edu.jiangxin.droiddemo.applist.AppListActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxHistogramActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxOscillogramActivity;
 import edu.jiangxin.droiddemo.activity.BlurActivity;

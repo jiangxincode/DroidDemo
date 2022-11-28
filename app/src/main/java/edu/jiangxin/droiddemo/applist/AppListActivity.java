@@ -1,4 +1,4 @@
-package edu.jiangxin.droiddemo.activity;
+package edu.jiangxin.droiddemo.applist;
 
 import android.content.Context;
 import android.content.Intent;
@@ -101,18 +101,15 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
         setContentView(R.layout.activity_app_list);
         mContext = this;
 
-        mComparator = new Comparator<AppInfo>() {
-            @Override
-            public int compare(AppInfo o1, AppInfo o2) {
-                if ("@".equals(o1.mSortLetter)
-                        || "#".equals(o2.mSortLetter)) {
-                    return -1;
-                } else if ("#".equals(o1.mSortLetter)
-                        || "@".equals(o2.mSortLetter)) {
-                    return 1;
-                } else {
-                    return o1.mSortLetter.compareTo(o2.mSortLetter);
-                }
+        mComparator = (Comparator<AppInfo>) (appInfoFirst, appInfoSecond) -> {
+            if ("@".equals(appInfoFirst.mSortLetter)
+                    || "#".equals(appInfoSecond.mSortLetter)) {
+                return -1;
+            } else if ("#".equals(appInfoFirst.mSortLetter)
+                    || "@".equals(appInfoSecond.mSortLetter)) {
+                return 1;
+            } else {
+                return appInfoFirst.mSortLetter.compareTo(appInfoSecond.mSortLetter);
             }
         };
 
@@ -148,7 +145,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                 try {
                     AppInfo appInfo = mSelectedAppInfoList.get(position);
                     Intent intent = new Intent(mContext, SignaturesActivity.class);
-                    intent.putExtra("packName", appInfo.mPkgName);
+                    intent.putExtra("packageName", appInfo.mPkgName);
                     mContext.startActivity(intent);
                 } catch (Exception e) {
                     Toast.makeText(mContext, "getting details failed", Toast.LENGTH_SHORT).show();
