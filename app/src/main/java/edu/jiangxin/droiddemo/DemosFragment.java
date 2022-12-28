@@ -21,7 +21,7 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.jiangxin.droiddemo.activity.ActivityTrackerActivity;
+import edu.jiangxin.droiddemo.activitytracker.ActivityTrackerActivity;
 import edu.jiangxin.droiddemo.applist.AppListActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxHistogramActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxOscillogramActivity;
@@ -299,7 +299,7 @@ public class DemosFragment extends Fragment {
 
         mBtnActivityTrackerEntrance = root.findViewById(R.id.btnActivityTrackerEntrance);
         mBtnActivityTrackerEntrance.setOnClickListener(v -> {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && !Settings.canDrawOverlays(getActivity())) {
+            if (!Settings.canDrawOverlays(getActivity())) {
                 startActivityForResult(
                         new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()))
                                 .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),

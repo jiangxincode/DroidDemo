@@ -63,7 +63,6 @@ dependencies {
     implementation 'org.rajawali3d:rajawali:1.0.325@aar'
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
-    implementation 'de.greenrobot:eventbus:2.4.0'
 
     implementation 'com.github.promeg:tinypinyin:2.0.3'
     implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'

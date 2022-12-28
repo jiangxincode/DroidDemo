@@ -1,18 +1,15 @@
-package edu.jiangxin.droiddemo.activity;
+package edu.jiangxin.droiddemo.activitytracker;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Point;
-import android.util.Log;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import de.greenrobot.event.EventBus;
 import edu.jiangxin.droiddemo.R;
 
 public class FloatingView extends LinearLayout {
@@ -23,6 +20,8 @@ public class FloatingView extends LinearLayout {
     private TextView mTvPackageName;
     private TextView mTvClassName;
     private ImageView mIvClose;
+    private Point preP;
+    private Point curP;
 
     public FloatingView(Context context) {
         super(context);
@@ -37,44 +36,23 @@ public class FloatingView extends LinearLayout {
         mTvClassName = findViewById(R.id.tv_class_name);
         mIvClose = findViewById(R.id.iv_close);
 
-        mIvClose.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext, "关闭悬浮框", Toast.LENGTH_SHORT).show();
-                mContext.startService(
-                        new Intent(mContext, TrackerService.class)
-                                .putExtra(TrackerService.COMMAND, TrackerService.COMMAND_CLOSE)
-                );
-            }
+        mIvClose.setOnClickListener(v -> {
+            Toast.makeText(mContext, "关闭悬浮框", Toast.LENGTH_SHORT).show();
+            mContext.startService(
+                    new Intent(mContext, TrackerService.class)
+                            .putExtra(TrackerService.KEY_ACTION, TrackerService.ACTION_CLOSE)
+            );
         });
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-        EventBus.getDefault().register(this);
-    }
-
-    @Override
-    protected void onDetachedFromWindow() {
-        super.onDetachedFromWindow();
-        EventBus.getDefault().unregister(this);
-    }
-
-    public void onEventMainThread(TrackerService.ActivityChangedEvent event) {
-        Log.d(TAG, "event:" + event.getPackageName() + ": " + event.getClassName());
-        String packageName = event.getPackageName(),
-                className = event.getClassName();
-
+    public void updateContent(String packageName, String className) {
         mTvPackageName.setText(packageName);
-        mTvClassName.setText(
-                className.startsWith(packageName) ?
-                        className.substring(packageName.length()) :
-                        className
-        );
+        String simplifiedClassName = className;
+        if (simplifiedClassName.startsWith(packageName)) {
+            simplifiedClassName = simplifiedClassName.substring(packageName.length());
+        }
+        mTvClassName.setText(simplifiedClassName);
     }
-
-    Point preP, curP;
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {

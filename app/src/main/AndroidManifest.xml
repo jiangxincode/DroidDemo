@@ -161,7 +161,7 @@
         <activity android:name=".activity.NetMusicActivity" />
         <activity android:name=".activity.VideoViewActivity" />
         <activity android:name=".activity.JNIActivity" />
-        <activity android:name=".activity.ActivityTrackerActivity" />
+        <activity android:name=".activitytracker.ActivityTrackerActivity" />
         <activity android:name=".activity.RingtoneSettingActivity" />
         <activity android:name=".activity.RingtoneSetting1Activity" />
         <activity android:name=".activity.SettingActivity" />
@@ -219,7 +219,7 @@
             android:name=".service.messanger.MessengerService"
             android:process=":remote" />
         <service
-            android:name=".activity.TrackerService"
+            android:name=".activitytracker.TrackerService"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
             android:exported="true">
             <intent-filter>
