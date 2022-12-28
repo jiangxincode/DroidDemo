@@ -40,14 +40,12 @@ android {
     ndkVersion '22.0.7026061'
     lint {
         checkReleaseBuilds false
+        abortOnError false
     }
     namespace 'edu.jiangxin.droiddemo'
 
     buildFeatures {
         viewBinding true
-    }
-    lintOptions {
-        abortOnError false
     }
 }
 
