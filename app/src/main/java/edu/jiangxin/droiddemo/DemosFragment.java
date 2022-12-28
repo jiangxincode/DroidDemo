@@ -1,14 +1,10 @@
 package edu.jiangxin.droiddemo;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.provider.Settings;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +17,6 @@ import androidx.fragment.app.Fragment;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.jiangxin.droiddemo.activitytracker.ActivityTrackerActivity;
-import edu.jiangxin.droiddemo.applist.AppListActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxHistogramActivity;
 import edu.jiangxin.droiddemo.activity.AudioFxOscillogramActivity;
 import edu.jiangxin.droiddemo.activity.BlurActivity;
@@ -47,11 +41,13 @@ import edu.jiangxin.droiddemo.activity.ThreadDemoActivity;
 import edu.jiangxin.droiddemo.activity.VariousNotificationActivity;
 import edu.jiangxin.droiddemo.activity.VideoViewActivity;
 import edu.jiangxin.droiddemo.activity.listview.ListViewActivity;
+import edu.jiangxin.droiddemo.activitytracker.ActivityTrackerActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
+import edu.jiangxin.droiddemo.applist.AppListActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
-import edu.jiangxin.droiddemo.opengl.OpenGlEntranceActivity;
 import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
+import edu.jiangxin.droiddemo.opengl.OpenGlEntranceActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
 import edu.jiangxin.droiddemo.saf.SAFActivity;
@@ -70,8 +66,6 @@ public class DemosFragment extends Fragment {
     private static final int REQUEST_CODE_RECORD_AUDIO_2 = 10012;
     private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
     private static final int REQUEST_CODE_MEDIA_STORE = 10021;
-    private static final int REQUEST_CODE_OVERLAY = 10002;
-    private static final int REQUEST_CODE_ACCESSIBILITY = 10003;
 
     private Button mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
@@ -299,16 +293,9 @@ public class DemosFragment extends Fragment {
 
         mBtnActivityTrackerEntrance = root.findViewById(R.id.btnActivityTrackerEntrance);
         mBtnActivityTrackerEntrance.setOnClickListener(v -> {
-            if (!Settings.canDrawOverlays(getActivity())) {
-                startActivityForResult(
-                        new Intent(Settings.ACTION_MANAGE_OVERLAY_PERMISSION, Uri.parse("package:" + getContext().getPackageName()))
-                                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK),
-                        REQUEST_CODE_OVERLAY
-                );
-            } else {
-                startTrackerActivity();
-            }
-
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ActivityTrackerActivity.class);
+            startActivity(intent);
         });
 
         mBtnSoundEntrance = root.findViewById(R.id.btnSoundEntrance);
@@ -446,21 +433,6 @@ public class DemosFragment extends Fragment {
         startActivity(intent);
     }
 
-    private void startTrackerActivity() {
-        if (isAccessibilitySettingsOn(this.getContext())) {
-            Intent intent = new Intent();
-            intent.setClass(getContext(), ActivityTrackerActivity.class);
-            startActivity(intent);
-        } else {
-            // 引导至辅助功能设置页面
-            startActivityForResult(
-                    new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
-                            .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK), REQUEST_CODE_ACCESSIBILITY
-            );
-        }
-
-    }
-
     private void startLoaderDemoActivity() {
         Intent intent = new Intent();
         intent.setClass(getContext(), LoaderDemoActivity.class);
@@ -510,27 +482,6 @@ public class DemosFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_OVERLAY) {
-            if (Settings.canDrawOverlays(getActivity())) {
-                startTrackerActivity();
-                return;
-            } else {
-                Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
-                return;
-            }
-        } else if (requestCode == REQUEST_CODE_ACCESSIBILITY) {
-            if (isAccessibilitySettingsOn(getContext())) {
-                startTrackerActivity();
-                return;
-            } else {
-                Toast.makeText(getActivity(), "Permission denied", Toast.LENGTH_LONG).show();
-                return;
-            }
-        }
-    }
-
     private boolean checkPermissionRequested(int[] grantResults) {
         for (int i = 0; i < grantResults.length; i++) {
             if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
@@ -538,32 +489,6 @@ public class DemosFragment extends Fragment {
             }
         }
         return true;
-    }
-
-    private static boolean isAccessibilitySettingsOn(Context context) {
-        int accessibilityEnabled = 0;
-        try {
-            accessibilityEnabled = Settings.Secure.getInt(context.getContentResolver(),
-                    Settings.Secure.ACCESSIBILITY_ENABLED);
-        } catch (Settings.SettingNotFoundException e) {
-            Log.i(TAG, "get setting failed: " + Settings.Secure.ACCESSIBILITY_ENABLED);
-            return true;
-        }
-
-        Log.i(TAG, "accessibilityEnabled : " + accessibilityEnabled);
-
-        if (accessibilityEnabled != 1) {
-            return false;
-        }
-
-        String services = Settings.Secure.getString(context.getContentResolver(),
-                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-
-        if (services == null) {
-            Log.e(TAG, "services is null");
-            return false;
-        }
-        return services.toLowerCase().contains(context.getPackageName().toLowerCase());
     }
 
 
