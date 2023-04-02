@@ -52,6 +52,7 @@ import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
 import edu.jiangxin.droiddemo.saf.SAFActivity;
 import edu.jiangxin.droiddemo.service.VariousServiceActivity;
+import edu.jiangxin.droiddemo.speechrecognize.SpeechRecognizeActivity;
 import edu.jiangxin.droiddemo.tv.recycleview.RecycleViewTv;
 
 /**
@@ -71,7 +72,7 @@ public class DemosFragment extends Fragment {
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
-            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
+            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mSpeechRecognizeEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
             mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance, mRecycleViewTvEntrance;
     private View root;
 
@@ -295,6 +296,13 @@ public class DemosFragment extends Fragment {
         mBtnActivityTrackerEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ActivityTrackerActivity.class);
+            startActivity(intent);
+        });
+
+        mSpeechRecognizeEntrance = root.findViewById(R.id.btnSpeechRecognizeEntrance);
+        mSpeechRecognizeEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SpeechRecognizeActivity.class);
             startActivity(intent);
         });
 

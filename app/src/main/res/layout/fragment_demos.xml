@@ -194,6 +194,13 @@
                 android:text="ActivityTracker/无障碍服务" />
 
             <Button
+                android:id="@+id/btnSpeechRecognizeEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="语音识别" />
+
+            <Button
                 android:id="@+id/btnSoundEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
