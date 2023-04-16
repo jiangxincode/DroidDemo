@@ -41,11 +41,6 @@
 
     <string name="xuyan">序言:\n壬戌之秋，七月既望，\n苏子与客泛舟游于赤壁之下。\n清风徐来，水波不兴。\n举酒属客，诵明月之诗，歌窈窕之章。</string>
 
-    <string name="show_image">showImage</string>
-    <string name="create_file">createFile</string>
-    <string name="delete_file">deleteFile</string>
-    <string name="alter_file">alterFile</string>
-
     <string name="content_description">contentDescription</string>
     <string name="all">所有通话记录</string>
     <string name="incoming">拨入记录</string>

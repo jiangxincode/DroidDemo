@@ -180,7 +180,7 @@
         <activity android:name=".activity.SpinnerActivity" />
         <activity android:name=".fragment.FragmentActivity" />
         <activity android:name=".fragment.FragmentTest1Activity" />
-        <activity android:name=".saf.SAFActivity" />
+        <activity android:name=".saf.SafActivity" />
         <activity android:name=".mediastore.MediaStoreDemoActivity" />
         <activity android:name=".mediastore.MyPhoto" />
         <activity android:name=".mediastore.MyMusic" />

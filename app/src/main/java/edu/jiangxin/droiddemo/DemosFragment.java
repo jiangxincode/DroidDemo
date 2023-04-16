@@ -51,7 +51,7 @@ import edu.jiangxin.droiddemo.note.NoteActivity;
 import edu.jiangxin.droiddemo.opengl.OpenGlEntranceActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
-import edu.jiangxin.droiddemo.saf.SAFActivity;
+import edu.jiangxin.droiddemo.saf.SafActivity;
 import edu.jiangxin.droiddemo.service.VariousServiceActivity;
 import edu.jiangxin.droiddemo.speechrecognize.SpeechRecognizeActivity;
 import edu.jiangxin.droiddemo.tv.recycleview.RecycleViewTv;
@@ -359,7 +359,7 @@ public class DemosFragment extends Fragment {
         mSAFEntrance = root.findViewById(R.id.btnSAFEntrance);
         mSAFEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
-            intent.setClass(getContext(), SAFActivity.class);
+            intent.setClass(getContext(), SafActivity.class);
             startActivity(intent);
         });
 
