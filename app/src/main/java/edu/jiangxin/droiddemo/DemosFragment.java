@@ -77,6 +77,19 @@ public class DemosFragment extends Fragment {
             mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance, mRecycleViewTvEntrance;
     private View root;
 
+    private static String[] MEDIA_PERMISSIONS;
+
+    static {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            MEDIA_PERMISSIONS = new String[]{
+                    Manifest.permission.READ_MEDIA_IMAGES,
+                    Manifest.permission.READ_MEDIA_AUDIO,
+                    Manifest.permission.READ_MEDIA_VIDEO
+            };
+        } else {
+            MEDIA_PERMISSIONS = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE};
+        }
+    }
 
     @Nullable
     @Override
@@ -276,21 +289,17 @@ public class DemosFragment extends Fragment {
 
         mBtnVideoViewEntrance = root.findViewById(R.id.btnVideoViewEntrance);
         mBtnVideoViewEntrance.setOnClickListener(v -> {
-            List<String> permissions = new ArrayList<String>();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+            List<String> permissions = new ArrayList<>();
+            for (String permission : MEDIA_PERMISSIONS) {
+                if (getActivity().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(permission);
                 }
-
-                if (permissions.isEmpty()) {
-                    startVideoViewActivity();
-                } else {
-                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_VIDEO_VIEW);
-                }
-            } else {
-                startVideoViewActivity();
             }
-
+            if (permissions.isEmpty()) {
+                startVideoViewActivity();
+            } else {
+                requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
+            }
         });
 
         mBtnJNIEntrance = root.findViewById(R.id.btnJNIEntrance);
@@ -365,22 +374,17 @@ public class DemosFragment extends Fragment {
 
         mMediaStoreDemoEntrance = root.findViewById(R.id.btnMediaStoreDemoEntrance);
         mMediaStoreDemoEntrance.setOnClickListener(v -> {
-
-            List<String> permissions = new ArrayList<String>();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (getActivity().checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    permissions.add(Manifest.permission.READ_EXTERNAL_STORAGE);
+            List<String> permissions = new ArrayList<>();
+            for (String permission : MEDIA_PERMISSIONS) {
+                if (getActivity().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
+                    permissions.add(permission);
                 }
-
-                if (permissions.isEmpty()) {
-                    startMediaStoreDemoActivity();
-                } else {
-                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
-                }
-            } else {
-                startMediaStoreDemoActivity();
             }
-
+            if (permissions.isEmpty()) {
+                startMediaStoreDemoActivity();
+            } else {
+                requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_MEDIA_STORE);
+            }
         });
 
         mThreadEntrance = root.findViewById(R.id.btnThreadEntrance);

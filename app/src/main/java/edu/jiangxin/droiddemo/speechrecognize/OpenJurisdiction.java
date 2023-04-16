@@ -8,12 +8,26 @@ import android.os.Build;
 import androidx.core.app.ActivityCompat;
 
 public class OpenJurisdiction {
-    //要申请的权限
-    //读写权限
-    private static String[] PERMISSIONS_STORAGE = {Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE,
-            Manifest.permission.RECORD_AUDIO,
-            Manifest.permission.CAMERA};
+
+    private static String[] PERMISSIONS_STORAGE;
+
+    static {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            PERMISSIONS_STORAGE = new String[]{
+                    Manifest.permission.READ_MEDIA_IMAGES,
+                    Manifest.permission.READ_MEDIA_AUDIO,
+                    Manifest.permission.READ_MEDIA_VIDEO,
+                    Manifest.permission.RECORD_AUDIO,
+                    Manifest.permission.CAMERA
+            };
+        } else {
+            PERMISSIONS_STORAGE = new String[]{
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.RECORD_AUDIO,
+                    Manifest.permission.CAMERA
+            };
+        }
+    }
 
     public void addPER(String string,Activity activity){
         String [] ret = new String[PERMISSIONS_STORAGE.length+1];
@@ -23,12 +37,10 @@ public class OpenJurisdiction {
         open(activity);
     }
     void open(Activity obj){
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP) {
-            for (String aPERMISSIONS_STORAGE : PERMISSIONS_STORAGE) {
-                if (ActivityCompat.checkSelfPermission(obj,aPERMISSIONS_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    int REQUEST_PERMISSION_CODE = 2;
-                    ActivityCompat.requestPermissions(obj, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE);
-                }
+        for (String aPERMISSIONS_STORAGE : PERMISSIONS_STORAGE) {
+            if (ActivityCompat.checkSelfPermission(obj,aPERMISSIONS_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                int REQUEST_PERMISSION_CODE = 2;
+                ActivityCompat.requestPermissions(obj, PERMISSIONS_STORAGE, REQUEST_PERMISSION_CODE);
             }
         }
     }
