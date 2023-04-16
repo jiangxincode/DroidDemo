@@ -75,4 +75,5 @@ dependencies {
     implementation 'com.github.yyued:SVGAPlayer-Android:2.5.3'
     implementation 'com.airbnb.android:lottie:5.2.0'
     implementation 'com.facebook.fresco:fresco:2.6.0'
+    implementation 'commons-io:commons-io:2.4'
 }

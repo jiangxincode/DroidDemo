@@ -47,6 +47,7 @@ import edu.jiangxin.droiddemo.applist.AppListActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
 import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
+import edu.jiangxin.droiddemo.note.NoteActivity;
 import edu.jiangxin.droiddemo.opengl.OpenGlEntranceActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
@@ -68,7 +69,7 @@ public class DemosFragment extends Fragment {
     private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
     private static final int REQUEST_CODE_MEDIA_STORE = 10021;
 
-    private Button mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
+    private Button mBtnNote, mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -81,6 +82,13 @@ public class DemosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_demos, container, false);
+
+        mBtnNote = root.findViewById(R.id.btnNote);
+        mBtnNote.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), NoteActivity.class);
+            startActivity(intent);
+        });
 
         mBtnPerf = root.findViewById(R.id.btnPerf);
         mBtnPerf.setOnClickListener(v -> {
