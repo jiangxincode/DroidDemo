@@ -1,6 +1,7 @@
 # DroidDemo
 
 [![Android CI](https://github.com/jiangxincode/DroidDemo/actions/workflows/android.yml/badge.svg)](https://github.com/jiangxincode/DroidDemo/actions/workflows/android.yml)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/7c0ea8f40ad3424d8c2784be2cada79a)](https://app.codacy.com/gh/jiangxincode/DroidDemo/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 ## Authors
 
