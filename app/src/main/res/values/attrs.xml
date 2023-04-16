@@ -3,7 +3,7 @@
 
     <attr name="titleBarColor" format="color" />
     <attr name="textColor" format="color" />
-    <attr name="textBackground" format="color" />
+    <attr name="textViewBackground" format="color" />
     <attr name="imageValue" format="reference"/>
 
     <!--圆角LinearLayout-->
