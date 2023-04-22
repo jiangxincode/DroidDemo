@@ -1,5 +1,5 @@
 name: Android CI
-#https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
+# Reference: https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
 
 on:
   push:
