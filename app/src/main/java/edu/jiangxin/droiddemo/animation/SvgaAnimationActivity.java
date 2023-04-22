@@ -63,7 +63,7 @@ public class SvgaAnimationActivity extends Activity {
                     loadingProgressBar.setVisibility(View.INVISIBLE);
                     Toast.makeText(SvgaAnimationActivity.this, "Error", Toast.LENGTH_SHORT).show();
                 }
-            });
+            }, null);
         } catch (Exception e) {
             System.out.print(true);
         }
