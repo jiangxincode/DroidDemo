@@ -11,11 +11,11 @@ import org.rajawali3d.materials.textures.ATexture;
 import org.rajawali3d.materials.textures.Texture;
 import org.rajawali3d.math.vector.Vector3;
 import org.rajawali3d.primitives.Sphere;
-import org.rajawali3d.renderer.RajawaliRenderer;
+import org.rajawali3d.renderer.Renderer;
 
 import edu.jiangxin.droiddemo.R;
 
-public class RajawaliDemoRenderer extends RajawaliRenderer {
+public class RajawaliDemoRenderer extends Renderer {
     private static final String TAG = "RajawaliDemoRenderer";
 
     private Sphere mEarthSphere;

@@ -3,15 +3,16 @@ package edu.jiangxin.droiddemo.opengl.rajawali;
 import android.app.Activity;
 import android.os.Bundle;
 
-import org.rajawali3d.surface.IRajawaliSurface;
-import org.rajawali3d.surface.RajawaliSurfaceView;
+
+import org.rajawali3d.view.ISurface;
+import org.rajawali3d.view.SurfaceView;
 
 import edu.jiangxin.droiddemo.R;
 
 
 public class RajawaliDemoActivity extends Activity {
 
-    RajawaliSurfaceView mRajawaliSurfaceView;
+    SurfaceView mRajawaliSurfaceView;
 
     RajawaliDemoRenderer mRajawaliRenderer;
 
@@ -23,7 +24,7 @@ public class RajawaliDemoActivity extends Activity {
         mRajawaliSurfaceView = findViewById(R.id.rajawaliSurfaceView);
 
         mRajawaliSurfaceView.setFrameRate(60.0);
-        mRajawaliSurfaceView.setRenderMode(IRajawaliSurface.RENDERMODE_WHEN_DIRTY);
+        mRajawaliSurfaceView.setRenderMode(ISurface.RENDERMODE_WHEN_DIRTY);
 
         mRajawaliRenderer = new RajawaliDemoRenderer(this);
         mRajawaliSurfaceView.setSurfaceRenderer(mRajawaliRenderer);
