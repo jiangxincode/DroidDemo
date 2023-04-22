@@ -54,7 +54,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
@@ -63,18 +63,18 @@ dependencies {
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    implementation 'com.github.promeg:tinypinyin:2.0.3'
-    implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:2.0.3'
+    implementation 'com.github.promeg:tinypinyin:3.0.0'
+    implementation 'com.github.promeg:tinypinyin-lexicons-android-cncity:3.0.0'
 
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13.2'
 
-    androidTestImplementation 'androidx.test:runner:1.4.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    androidTestImplementation 'androidx.test:runner:1.5.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
 
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.9.1'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.10'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.yyued:SVGAPlayer-Android:2.5.3'
     implementation 'com.airbnb.android:lottie:6.0.0'
-    implementation 'com.facebook.fresco:fresco:2.6.0'
+    implementation 'com.facebook.fresco:fresco:3.0.0'
     implementation 'commons-io:commons-io:2.11.0'
 }
