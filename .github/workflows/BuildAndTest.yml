@@ -1,5 +1,4 @@
-name: Android CI
-# Reference: https://medium.com/upday-devs/how-to-setup-github-actions-for-android-projects-a94e8e3b0539
+name: Build And Test
 
 on:
   push:
