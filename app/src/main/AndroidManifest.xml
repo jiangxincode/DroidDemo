@@ -249,6 +249,9 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
+        <activity android:name="edu.jiangxin.easymusic.EasyMusicActivity" />
+        <service android:name="edu.jiangxin.easymusic.service.MusicService"></service>
+
         <activity
             android:name=".tools.mortgagecalc.MainActivity"
             android:label="@string/app_name"

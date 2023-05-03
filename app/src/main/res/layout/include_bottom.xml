@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/img_playback_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/ib_bottom_model"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_buttom_btn_press" />
+
+            <ImageView
+                android:id="@+id/iv_bottom_model"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/icon_playmode_normal" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/ib_bottom_last"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_buttom_btn_press" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_playback_bt_last" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/ib_bottom_play"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_buttom_btn_press" />
+
+            <ImageView
+                android:id="@+id/iv_bottom_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_playback_bt_play" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/ib_bottom_next"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_buttom_btn_press" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_playback_bt_next" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <ImageButton
+                android:id="@+id/ib_bottom_update"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/xml_buttom_btn_press" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/img_buttom_bt_menu" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>

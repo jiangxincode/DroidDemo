@@ -23,6 +23,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="房贷计算器" />
+
+            <Button
+                    android:id="@+id/btnEasyMusic"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="EasyMusic" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

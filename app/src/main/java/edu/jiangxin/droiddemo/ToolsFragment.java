@@ -10,13 +10,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import edu.jiangxin.droiddemo.tools.mortgagecalc.MainActivity;
+import edu.jiangxin.easymusic.EasyMusicActivity;
 
 /**
  * Created by jiang on 2018/1/21.
  */
 
 public class ToolsFragment extends Fragment {
-    private Button mBtnMortgageCalculator;
+    private Button mBtnMortgageCalculator, mBtnEasyMusic;
 
     private View root;
 
@@ -29,6 +30,13 @@ public class ToolsFragment extends Fragment {
         mBtnMortgageCalculator.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), MainActivity.class);
+            startActivity(intent);
+        });
+
+        mBtnEasyMusic = root.findViewById(R.id.btnEasyMusic);
+        mBtnEasyMusic.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), EasyMusicActivity.class);
             startActivity(intent);
         });
         return root;
