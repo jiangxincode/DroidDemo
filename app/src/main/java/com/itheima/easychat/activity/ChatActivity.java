@@ -27,6 +27,9 @@ import com.itheima.easychat.service.IMService;
 import com.itheima.easychat.utils.ThreadUtils;
 
 import org.jivesoftware.smack.packet.Message;
+import org.jxmpp.jid.Jid;
+import org.jxmpp.jid.impl.JidCreate;
+import org.jxmpp.stringprep.XmppStringprepException;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -247,7 +250,11 @@ public class ChatActivity extends AppCompatActivity {
                 final String body = mEtBody.getText().toString();
                 Message msg = new Message();
                 msg.setFrom(IMService.mCurAccout);// 当前登录的用户
-                msg.setTo(mClickAccount);
+                try {
+                    msg.setTo(JidCreate.domainBareFrom(mClickAccount));
+                } catch (XmppStringprepException e) {
+                    e.printStackTrace();
+                }
                 msg.setBody(body);// 输入框里面的内容
                 msg.setType(Message.Type.chat);// 类型就是chat
                 //msg.setProperty("key", "value");// 额外属性-->额外的信息,这里我们用不到

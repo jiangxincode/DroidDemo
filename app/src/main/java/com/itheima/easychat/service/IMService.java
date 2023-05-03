@@ -15,9 +15,7 @@ import com.itheima.easychat.utils.PinyinUtil;
 import com.itheima.easychat.utils.ThreadUtils;
 import com.itheima.easychat.utils.ToastUtils;
 
-import org.jivesoftware.smack.MessageListener;
 import org.jivesoftware.smack.XMPPConnection;
-import org.jivesoftware.smack.XMPPException;
 import org.jivesoftware.smack.chat.Chat;
 import org.jivesoftware.smack.chat.ChatManager;
 import org.jivesoftware.smack.chat.ChatManagerListener;

@@ -5,15 +5,6 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
-/*
- * @创建者     Administrator
- * @创建时间   2015/8/8 09:48
- * @描述	      完成数据库,表的创建
- *
- * @更新者     $Author$
- * @更新时间   $Date$
- * @更新描述   ${TODO}
- */
 public class SmsOpenHelper extends SQLiteOpenHelper {
 
     public static final String T_SMS = "t_sms";
