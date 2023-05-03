@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.itheima.easychat.activity.EasyChatActivity;
+
 import edu.jiangxin.droiddemo.tools.mortgagecalc.MainActivity;
 import edu.jiangxin.easymusic.EasyMusicActivity;
 
@@ -17,7 +19,7 @@ import edu.jiangxin.easymusic.EasyMusicActivity;
  */
 
 public class ToolsFragment extends Fragment {
-    private Button mBtnMortgageCalculator, mBtnEasyMusic;
+    private Button mBtnMortgageCalculator, mBtnEasyMusic, mBtnEasyChat;
 
     private View root;
 
@@ -37,6 +39,13 @@ public class ToolsFragment extends Fragment {
         mBtnEasyMusic.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), EasyMusicActivity.class);
+            startActivity(intent);
+        });
+
+        mBtnEasyChat = root.findViewById(R.id.btnEasyChat);
+        mBtnEasyChat.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), EasyChatActivity.class);
             startActivity(intent);
         });
         return root;

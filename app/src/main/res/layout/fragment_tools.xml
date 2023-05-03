@@ -29,6 +29,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="EasyMusic" />
+
+            <Button
+                android:id="@+id/btnEasyChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="EasyChat" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>
