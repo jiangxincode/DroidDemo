@@ -89,7 +89,7 @@ dependencies {
         exclude group: 'xpp3', module: 'xpp3'
     }
     // Optional for XMPP-IM (RFC 6121) support (Roster, Threaded Chats, ��)
-    implementation("org.igniterealtime.smack:smack-im:4.2.4") {
+    implementation("org.igniterealtime.smack:smack-im:4.4.6") {
         exclude group: 'xpp3', module: 'xpp3'
     }
 
