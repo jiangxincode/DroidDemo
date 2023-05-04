@@ -13,7 +13,7 @@
         android:id="@+id/include_bottom_id"
         layout="@layout/include_bottom" />
 
-    <edu.jiangxin.easymusic.views.ScrollableViewGroup
+    <edu.jiangxin.droiddemo.easymusic.views.ScrollableViewGroup
         android:id="@+id/svg_main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,6 +25,6 @@
         <include layout="@layout/include_page_list" />
 
         <include layout="@layout/include_page_lrc" />
-    </edu.jiangxin.easymusic.views.ScrollableViewGroup>
+    </edu.jiangxin.droiddemo.easymusic.views.ScrollableViewGroup>
 
 </RelativeLayout>

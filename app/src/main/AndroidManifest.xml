@@ -249,33 +249,33 @@
                 android:resource="@xml/accessibility_service_config" />
         </service>
 
-        <activity android:name="edu.jiangxin.easymusic.EasyMusicActivity" />
-        <service android:name="edu.jiangxin.easymusic.service.MusicService"></service>
+        <activity android:name=".easymusic.EasyMusicActivity" />
+        <service android:name=".easymusic.service.MusicService"></service>
 	
 	    <activity
-            android:name="com.itheima.easychat.SplashActivity"
+            android:name=".easychat.SplashActivity"
             android:label="@string/app_name">
         </activity>
         <activity
-            android:name="com.itheima.easychat.activity.LoginActivity"
+            android:name=".easychat.activity.LoginActivity"
             android:label="LoginActivity"></activity>
         <activity
-            android:name="com.itheima.easychat.activity.EasyChatActivity"
+            android:name=".easychat.activity.EasyChatActivity"
             android:label="MainActivity"></activity>
 
         <provider
-            android:name="com.itheima.easychat.provider.ContactsProvider"
-            android:authorities="com.itheima.easychat.provider.ContactsProvider" />
+            android:name=".easychat.provider.ContactsProvider"
+            android:authorities="edu.jiangxin.droiddemo.easychat.provider.ContactsProvider" />
 
         <provider
-            android:name="com.itheima.easychat.provider.SmsProvider"
-            android:authorities="com.itheima.easychat.provider.SmsProvider" />
+            android:name=".easychat.provider.SmsProvider"
+            android:authorities="edu.jiangxin.droiddemo.easychat.provider.SmsProvider" />
 
-        <service android:name="com.itheima.easychat.service.IMService" />
-        <service android:name="com.itheima.easychat.service.PushService" />
+        <service android:name=".easychat.service.IMService" />
+        <service android:name=".easychat.service.PushService" />
 
         <activity
-            android:name="com.itheima.easychat.activity.ChatActivity"
+            android:name=".easychat.activity.ChatActivity"
             android:label="@string/title_activity_chat"></activity>
 
         <activity

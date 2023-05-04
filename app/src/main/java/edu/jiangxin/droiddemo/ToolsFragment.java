@@ -9,10 +9,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
-import com.itheima.easychat.activity.EasyChatActivity;
+import edu.jiangxin.droiddemo.easychat.activity.EasyChatActivity;
 
 import edu.jiangxin.droiddemo.tools.mortgagecalc.MainActivity;
-import edu.jiangxin.easymusic.EasyMusicActivity;
+import edu.jiangxin.droiddemo.easymusic.EasyMusicActivity;
 
 /**
  * Created by jiang on 2018/1/21.

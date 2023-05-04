@@ -3,7 +3,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              tools:context="com.itheima.easychat.activity.ChatActivity">
+              tools:context=".easychat.activity.ChatActivity">
 
     <TextView
         android:id="@+id/title"
