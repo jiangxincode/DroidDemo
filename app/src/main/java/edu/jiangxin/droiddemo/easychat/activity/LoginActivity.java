@@ -16,6 +16,7 @@ import edu.jiangxin.droiddemo.easychat.utils.ToastUtils;
 
 import org.jivesoftware.smack.AbstractXMPPConnection;
 import org.jivesoftware.smack.ConnectionConfiguration;
+import org.jivesoftware.smack.debugger.ConsoleDebugger;
 import org.jivesoftware.smack.tcp.XMPPTCPConnection;
 import org.jivesoftware.smack.tcp.XMPPTCPConnectionConfiguration;
 import org.jxmpp.jid.EntityJid;
@@ -72,7 +73,8 @@ public class LoginActivity extends AppCompatActivity {
                                     //https://stackoverflow.com/questions/43160061/failed-because-de-measite-minidns-hla-resolutionunsuccessfulexception-asking-f/43164006#43164006
                                     .setHostAddress(addr)
                                     .setSecurityMode(ConnectionConfiguration.SecurityMode.disabled)// 明文传输
-                                    .setDebuggerEnabled(true)// 开启调试模式,方便我们查看具体发送的内容
+                                    .setDebuggerFactory(ConsoleDebugger::new) // 开启调试模式,方便我们查看具体发送的内容
+                                    .setEnabledSSLProtocols(new String[]{"TLSv1", "TLSv1.1"})
                                     .build();
 
                             AbstractXMPPConnection conn = new XMPPTCPConnection(config);
