@@ -3,9 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/SmartBJ.iml" filepath="$PROJECT_DIR$/SmartBJ.iml" />
-      <module fileurl="file://$PROJECT_DIR$/slidingMenu_library/slidingMenu_library.iml" filepath="$PROJECT_DIR$/slidingMenu_library/slidingMenu_library.iml" />
-      <module fileurl="file://$PROJECT_DIR$/smartBJ/smartBJ.iml" filepath="$PROJECT_DIR$/smartBJ/smartBJ.iml" />
-      <module fileurl="file://$PROJECT_DIR$/viewPageIndicator_library/viewPageIndicator_library.iml" filepath="$PROJECT_DIR$/viewPageIndicator_library/viewPageIndicator_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.iml" filepath="$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.main.iml" filepath="$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/smartBJ/SmartBJ.smartBJ.unitTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.iml" filepath="$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.androidTest.iml" filepath="$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.androidTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.main.iml" filepath="$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.unitTest.iml" filepath="$PROJECT_DIR$/.idea/modules/viewPageIndicator_library/SmartBJ.viewPageIndicator_library.unitTest.iml" />
     </modules>
   </component>
 </project>

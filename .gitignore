@@ -8,9 +8,7 @@
 app/debug
 app/release
 *.jks
-/slidingMenu_library/build/
 /smartBJ/build/
-/viewPageIndicator_library/build/
 
 # IntelliJ
 *.iml

@@ -2,15 +2,13 @@
 
 package edu.jiangxin.smartbj.view;
 
-import android.support.v4.view.PagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +26,8 @@ import edu.jiangxin.smartbj.basepage.SmartServiceBaseTagPager;
  */
 public class MainContentFragment extends BaseFragment {
 
-    @ViewInject(R.id.vp_main_content_pages)
     private MyViewPager viewPager;
 
-    @ViewInject(R.id.rg_content_radios)
     private RadioGroup rg_radios;
 
     private List<BaseTagPage> pages = new ArrayList<BaseTagPage>();
@@ -106,9 +102,9 @@ public class MainContentFragment extends BaseFragment {
         View root = View.inflate(mainActivity, R.layout.fragment_content_view,
                 null);
 
-        // xutils 动态注入view
+        viewPager = root.findViewById(R.id.vp_main_content_pages);
+        rg_radios = root.findViewById(R.id.rg_content_radios);
 
-        ViewUtils.inject(this, root);
         return root;
     }
 
