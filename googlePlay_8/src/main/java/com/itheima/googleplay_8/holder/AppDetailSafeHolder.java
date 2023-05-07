@@ -2,6 +2,9 @@ package com.itheima.googleplay_8.holder;
 
 import java.util.List;
 
+import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
+import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.view.Gravity;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,11 +20,7 @@ import com.itheima.googleplay_8.bean.AppInfoBean.AppInfoSafeBean;
 import com.itheima.googleplay_8.conf.Constants.URLS;
 import com.itheima.googleplay_8.utils.BitmapHelper;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
-import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.animation.ValueAnimator;
-import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
+
 
 /**
  * @author  Administrator
@@ -34,14 +33,11 @@ import com.nineoldandroids.animation.ValueAnimator.AnimatorUpdateListener;
  * @updateDes TODO
  */
 public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnClickListener {
-	@ViewInject(R.id.app_detail_safe_pic_container)
-	LinearLayout	mContainerPic;
+	private LinearLayout	mContainerPic;
 
-	@ViewInject(R.id.app_detail_safe_des_container)
-	LinearLayout	mContainerDes;
+	private LinearLayout	mContainerDes;
 
-	@ViewInject(R.id.app_detail_safe_iv_arrow)
-	ImageView		mIvArrow;
+	private ImageView		mIvArrow;
 
 	private boolean	isOpen	= true;
 
@@ -49,8 +45,9 @@ public class AppDetailSafeHolder extends BaseHolder<AppInfoBean> implements OnCl
 	public View initHolderView() {
 
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_detail_safe, null);
-		ViewUtils.inject(this, view);
-
+		mContainerPic = view.findViewById(R.id.app_detail_safe_pic_container);
+		mContainerDes = view.findViewById(R.id.app_detail_safe_des_container);
+		mIvArrow = view.findViewById(R.id.app_detail_safe_iv_arrow);
 		view.setOnClickListener(this);
 		return view;
 	}

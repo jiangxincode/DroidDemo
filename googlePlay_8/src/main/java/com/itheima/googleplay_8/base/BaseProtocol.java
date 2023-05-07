@@ -8,8 +8,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
-import org.apache.http.impl.conn.Wire;
-
 import com.itheima.googleplay_8.conf.Constants;
 import com.itheima.googleplay_8.conf.Constants.URLS;
 import com.itheima.googleplay_8.utils.FileUtils;

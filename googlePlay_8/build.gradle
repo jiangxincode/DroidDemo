@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 18
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 33
+
+    namespace "com.itheima.googleplay_8"
 
     defaultConfig {
         applicationId "com.itheima.googleplay_8"
-        minSdkVersion 18
-        targetSdkVersion 18
+        minSdkVersion 31
+        targetSdkVersion 33
     }
 
     buildTypes {
@@ -19,10 +20,9 @@ android {
 }
 
 dependencies {
-    compile project(':pagerSlidingTabStrip')
-    compile 'com.android.support:support-v4:18.0.0'
-    compile 'com.google.code.gson:gson:2.2.3'
-    compile 'com.android.support:appcompat-v7:18.0.0'
-    compile files('libs/nineoldandroids-2.2.0.jar')
-    compile project(':xutils_lib')
+    implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.code.gson:gson:2.2.3'
+    implementation files('libs/xUtils-2.6.14.jar')
 }

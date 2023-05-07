@@ -2,9 +2,9 @@ package com.itheima.googleplay_8.holder;
 
 import java.util.List;
 
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
@@ -18,8 +18,6 @@ import com.itheima.googleplay_8.base.BaseHolder;
 import com.itheima.googleplay_8.conf.Constants.URLS;
 import com.itheima.googleplay_8.utils.BitmapHelper;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -33,19 +31,17 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  */
 public class PictureHolder extends BaseHolder<List<String>> {
 
-	@ViewInject(R.id.item_home_picture_pager)
-	ViewPager				mViewPager;
+	private ViewPager				mViewPager;
 
-	@ViewInject(R.id.item_home_picture_container_indicator)
-	LinearLayout			mContainerIndicator;
+	private LinearLayout			mContainerIndicator;
 
 	private List<String>	mDatas;
 
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_home_picture, null);
-		// 注入找孩子
-		ViewUtils.inject(this, view);
+		mViewPager = view.findViewById(R.id.item_home_picture_pager);
+		mContainerIndicator = view.findViewById(R.id.item_home_picture_container_indicator);
 		return view;
 	}
 

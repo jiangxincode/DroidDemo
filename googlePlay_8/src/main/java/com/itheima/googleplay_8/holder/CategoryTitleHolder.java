@@ -12,7 +12,6 @@ import com.itheima.googleplay_8.R;
 import com.itheima.googleplay_8.base.BaseHolder;
 import com.itheima.googleplay_8.bean.CategoryInfoBean;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator

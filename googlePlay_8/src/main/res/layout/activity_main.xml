@@ -1,4 +1,4 @@
-<android.support.v4.widget.DrawerLayout
+<androidx.drawerlayout.widget.DrawerLayout
     android:id="@+id/main_drawlayout"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -33,18 +33,12 @@
         android:orientation="vertical"
         >
 
-        <com.astuetz.PagerSlidingTabStripExtends
+        <com.astuetz.PagerSlidingTabStrip
             android:id="@+id/main_tabs"
             xmlns:itheima="http://schemas.android.com/apk/res-auto"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            itheima:pstsIndicatorColor="@color/tab_indicator_selected"
-            itheima:pstsIndicatorHeight="8dp"
-            itheima:pstsSelectedTabTextColor="@color/tab_text_selected"
-            itheima:pstsSelectedTabTextSize="18sp"
-            itheima:pstsTabTextColor="@color/tab_text_normal"
-            itheima:pstsTabTextSize="16sp">
-        </com.astuetz.PagerSlidingTabStripExtends>
+            android:layout_height="48dp">
+        </com.astuetz.PagerSlidingTabStrip>
 
         <com.itheima.googleplay_8.views.ParentViewPager
             android:id="@+id/main_viewpager"
@@ -53,4 +47,4 @@
         </com.itheima.googleplay_8.views.ParentViewPager>
     </LinearLayout>
 
-</android.support.v4.widget.DrawerLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

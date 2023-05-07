@@ -16,8 +16,6 @@ import com.itheima.googleplay_8.conf.Constants.URLS;
 import com.itheima.googleplay_8.utils.BitmapHelper;
 import com.itheima.googleplay_8.utils.UIUtils;
 import com.itheima.googleplay_8.views.RatioLayout;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -30,13 +28,12 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @updateDes TODO
  */
 public class AppDetailPicHolder extends BaseHolder<AppInfoBean> {
-	@ViewInject(R.id.app_detail_pic_iv_container)
-	LinearLayout	mContainerPic;
+	private LinearLayout	mContainerPic;
 
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_detail_pic, null);
-		ViewUtils.inject(this, view);
+		mContainerPic = view.findViewById(R.id.app_detail_pic_iv_container);
 		return view;
 	}
 

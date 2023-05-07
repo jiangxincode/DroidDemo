@@ -15,8 +15,6 @@ import com.itheima.googleplay_8.conf.Constants.URLS;
 import com.itheima.googleplay_8.utils.BitmapHelper;
 import com.itheima.googleplay_8.utils.StringUtils;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -29,37 +27,29 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @updateDes TODO
  */
 public class CategoryItemHolder extends BaseHolder<CategoryInfoBean> {
-	@ViewInject(R.id.item_category_item_1)
-	LinearLayout	mContainerItem1;
-
-	@ViewInject(R.id.item_category_item_2)
-	LinearLayout	mContainerItem2;
-
-	@ViewInject(R.id.item_category_item_3)
-	LinearLayout	mContainerItem3;
-
-	@ViewInject(R.id.item_category_icon_1)
-	ImageView		mIvIcon1;
-
-	@ViewInject(R.id.item_category_icon_2)
-	ImageView		mIvIcon2;
-
-	@ViewInject(R.id.item_category_icon_3)
-	ImageView		mIvIcon3;
-
-	@ViewInject(R.id.item_category_name_1)
-	TextView		mTvName1;
-
-	@ViewInject(R.id.item_category_name_2)
-	TextView		mTvName2;
-
-	@ViewInject(R.id.item_category_name_3)
-	TextView		mTvName3;
+	private LinearLayout	mContainerItem1;
+	private LinearLayout	mContainerItem2;
+	private LinearLayout	mContainerItem3;
+	private ImageView		mIvIcon1;
+	private ImageView		mIvIcon2;
+	private ImageView		mIvIcon3;
+	private TextView		mTvName1;
+	private TextView		mTvName2;
+	private TextView		mTvName3;
 
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_category_info, null);
-		ViewUtils.inject(this, view);
+
+		mContainerItem1 = view.findViewById(R.id.item_category_item_1);
+		mContainerItem2 = view.findViewById(R.id.item_category_item_2);
+		mContainerItem3 = view.findViewById(R.id.item_category_item_3);
+		mIvIcon1 = view.findViewById(R.id.item_category_icon_1);
+		mIvIcon2 = view.findViewById(R.id.item_category_icon_2);
+		mIvIcon3 = view.findViewById(R.id.item_category_icon_3);
+		mTvName1 = view.findViewById(R.id.item_category_name_1);
+		mTvName2 = view.findViewById(R.id.item_category_name_2);
+		mTvName3 = view.findViewById(R.id.item_category_name_3);
 
 		return view;
 	}

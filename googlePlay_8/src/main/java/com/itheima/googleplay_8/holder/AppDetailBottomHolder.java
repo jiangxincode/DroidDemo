@@ -16,8 +16,6 @@ import com.itheima.googleplay_8.utils.CommonUtils;
 import com.itheima.googleplay_8.utils.PrintDownLoadInfo;
 import com.itheima.googleplay_8.utils.UIUtils;
 import com.itheima.googleplay_8.views.ProgressButton;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -30,18 +28,17 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @updateDes TODO
  */
 public class AppDetailBottomHolder extends BaseHolder<AppInfoBean> implements OnClickListener, DownLoadObserver {
-	@ViewInject(R.id.app_detail_download_btn_share)
-	Button				mBtnShare;
-	@ViewInject(R.id.app_detail_download_btn_favo)
-	Button				mBtnFavo;
-	@ViewInject(R.id.app_detail_download_btn_download)
-	ProgressButton		mProgressButton;
+	private Button				mBtnShare;
+	private Button				mBtnFavo;
+	private ProgressButton		mProgressButton;
 	private AppInfoBean	mData;
 
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_detail_bottom, null);
-		ViewUtils.inject(this, view);
+		mBtnShare = view.findViewById(R.id.app_detail_download_btn_share);
+		mBtnFavo = view.findViewById(R.id.app_detail_download_btn_favo);
+		mProgressButton = view.findViewById(R.id.app_detail_download_btn_download);
 		mBtnShare.setOnClickListener(this);
 		mBtnFavo.setOnClickListener(this);
 		mProgressButton.setOnClickListener(this);

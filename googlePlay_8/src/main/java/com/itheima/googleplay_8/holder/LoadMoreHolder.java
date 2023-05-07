@@ -6,8 +6,6 @@ import android.widget.LinearLayout;
 import com.itheima.googleplay_8.R;
 import com.itheima.googleplay_8.base.BaseHolder;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -20,11 +18,9 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @updateDes TODO
  */
 public class LoadMoreHolder extends BaseHolder<Integer> {
-	@ViewInject(R.id.item_loadmore_container_loading)
-	LinearLayout			mContainerLoading;
+	private LinearLayout			mContainerLoading;
 
-	@ViewInject(R.id.item_loadmore_container_retry)
-	LinearLayout			mContainerRetry;
+	private LinearLayout			mContainerRetry;
 
 	public static final int	STATE_LOADING	= 0;
 	public static final int	STATE_RETRY		= 1;
@@ -34,7 +30,8 @@ public class LoadMoreHolder extends BaseHolder<Integer> {
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_loadmore, null);
 
-		ViewUtils.inject(this, view);
+		mContainerLoading = view.findViewById(R.id.item_loadmore_container_loading);
+		mContainerRetry = view.findViewById(R.id.item_loadmore_container_retry);
 
 		return view;
 	}

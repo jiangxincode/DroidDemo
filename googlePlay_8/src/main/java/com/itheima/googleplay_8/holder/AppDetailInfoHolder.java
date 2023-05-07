@@ -12,8 +12,6 @@ import com.itheima.googleplay_8.conf.Constants.URLS;
 import com.itheima.googleplay_8.utils.BitmapHelper;
 import com.itheima.googleplay_8.utils.StringUtils;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -26,32 +24,30 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  * @updateDes TODO
  */
 public class AppDetailInfoHolder extends BaseHolder<AppInfoBean> {
-	@ViewInject(R.id.app_detail_info_iv_icon)
-	ImageView	mIvIcon;
+	private ImageView	mIvIcon;
 
-	@ViewInject(R.id.app_detail_info_rb_star)
-	RatingBar	mRbStar;
+	private RatingBar	mRbStar;
 
-	@ViewInject(R.id.app_detail_info_tv_downloadnum)
-	TextView	mTvDownLoadNum;
+	private TextView	mTvDownLoadNum;
 
-	@ViewInject(R.id.app_detail_info_tv_name)
-	TextView	mTvName;
+	private TextView	mTvName;
 
-	@ViewInject(R.id.app_detail_info_tv_time)
-	TextView	mTvTime;
+	private TextView	mTvTime;
 
-	@ViewInject(R.id.app_detail_info_tv_version)
-	TextView	mTvVersion;
+	private TextView	mTvVersion;
 
-	@ViewInject(R.id.app_detail_info_tv_size)
-	TextView	mTvSize;
+	private TextView	mTvSize;
 
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_detail_info, null);
-		// 注入
-		ViewUtils.inject(this, view);
+		mIvIcon = view.findViewById(R.id.app_detail_info_iv_icon);
+		mRbStar = view.findViewById(R.id.app_detail_info_rb_star);
+		mTvDownLoadNum = view.findViewById(R.id.app_detail_info_tv_downloadnum);
+		mTvName = view.findViewById(R.id.app_detail_info_tv_name);
+		mTvTime = view.findViewById(R.id.app_detail_info_tv_time);
+		mTvVersion = view.findViewById(R.id.app_detail_info_tv_version);
+		mTvSize = view.findViewById(R.id.app_detail_info_tv_size);
 		return view;
 	}
 

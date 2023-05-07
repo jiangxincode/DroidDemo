@@ -1,8 +1,6 @@
 package com.itheima.googleplay_8.activity;
 
-import android.os.Bundle;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.ActionBar;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -20,8 +18,6 @@ import com.itheima.googleplay_8.holder.AppDetailSafeHolder;
 import com.itheima.googleplay_8.manager.DownloadManager;
 import com.itheima.googleplay_8.protocol.DetailProtocol;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -38,20 +34,15 @@ public class DetailActivity extends BaseActivity {
 	private String					mPackageName;
 	private AppInfoBean				mData;
 
-	@ViewInject(R.id.app_detail_bottom)
-	FrameLayout						mContainerBottom;
+	private FrameLayout						mContainerBottom;
 
-	@ViewInject(R.id.app_detail_des)
-	FrameLayout						mContainerDes;
+	private FrameLayout						mContainerDes;
 
-	@ViewInject(R.id.app_detail_info)
-	FrameLayout						mContainerInfo;
+	private FrameLayout						mContainerInfo;
 
-	@ViewInject(R.id.app_detail_pic)
-	FrameLayout						mContainerPic;
+	private FrameLayout						mContainerPic;
 
-	@ViewInject(R.id.app_detail_safe)
-	FrameLayout						mContainerSafe;
+	private FrameLayout						mContainerSafe;
 	private LoadingPager			mLoadingPager;
 	private AppDetailBottomHolder	mAppDetailBottomHolder;
 
@@ -137,7 +128,11 @@ public class DetailActivity extends BaseActivity {
 	private View onLoadSuccessView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.activity_detail, null);
 
-		ViewUtils.inject(this, view);
+		mContainerBottom = findViewById(R.id.app_detail_bottom);
+		mContainerDes = findViewById(R.id.app_detail_des);
+		mContainerInfo = findViewById(R.id.app_detail_info);
+		mContainerPic = findViewById(R.id.app_detail_pic);
+		mContainerSafe = findViewById(R.id.app_detail_safe);
 
 		// 填充内容
 		// 1.信息部分

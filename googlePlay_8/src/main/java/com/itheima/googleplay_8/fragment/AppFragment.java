@@ -1,31 +1,19 @@
 package com.itheima.googleplay_8.fragment;
 
 import java.util.List;
-import java.util.Random;
 
 import com.itheima.googleplay_8.adapter.AppItemAdapter;
 import com.itheima.googleplay_8.base.BaseFragment;
-import com.itheima.googleplay_8.base.BaseHolder;
 import com.itheima.googleplay_8.base.LoadingPager.LoadedResult;
-import com.itheima.googleplay_8.base.SuperBaseAdapter;
 import com.itheima.googleplay_8.bean.AppInfoBean;
 import com.itheima.googleplay_8.factory.ListViewFactory;
 import com.itheima.googleplay_8.holder.AppItemHolder;
 import com.itheima.googleplay_8.manager.DownloadManager;
 import com.itheima.googleplay_8.protocol.AppProtocol;
-import com.itheima.googleplay_8.utils.UIUtils;
 
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Bundle;
-import android.os.SystemClock;
-import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 /**
  * @author  Administrator

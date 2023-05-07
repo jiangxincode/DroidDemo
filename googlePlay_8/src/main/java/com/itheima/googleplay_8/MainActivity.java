@@ -1,17 +1,15 @@
 package com.itheima.googleplay_8;
 
-import android.os.Bundle;
-import android.support.v4.app.ActionBarDrawerToggle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.view.ViewPager.OnPageChangeListener;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
+import androidx.legacy.app.ActionBarDrawerToggle;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -19,7 +17,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 
-import com.astuetz.PagerSlidingTabStripExtends;
+import com.astuetz.PagerSlidingTabStrip;
 import com.itheima.googleplay_8.base.BaseActivity;
 import com.itheima.googleplay_8.base.BaseFragment;
 import com.itheima.googleplay_8.factory.FragmentFactory;
@@ -29,7 +27,7 @@ import com.itheima.googleplay_8.utils.UIUtils;
 
 public class MainActivity extends BaseActivity {
 
-	private PagerSlidingTabStripExtends	mTabs;
+	private PagerSlidingTabStrip mTabs;
 	private ViewPager					mViewPager;
 	private String[]					mMainTitles;
 	private DrawerLayout				mDrawerLayout;
@@ -40,7 +38,7 @@ public class MainActivity extends BaseActivity {
 	@Override
 	public void initView() {
 		setContentView(R.layout.activity_main);
-		mTabs = (PagerSlidingTabStripExtends) findViewById(R.id.main_tabs);
+		mTabs = (PagerSlidingTabStrip) findViewById(R.id.main_tabs);
 		mViewPager = (ViewPager) findViewById(R.id.main_viewpager);
 		mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawlayout);
 		mMain_menu = (FrameLayout) findViewById(R.id.main_menu);

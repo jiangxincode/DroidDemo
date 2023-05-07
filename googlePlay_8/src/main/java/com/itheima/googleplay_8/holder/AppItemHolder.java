@@ -22,8 +22,6 @@ import com.itheima.googleplay_8.utils.PrintDownLoadInfo;
 import com.itheima.googleplay_8.utils.StringUtils;
 import com.itheima.googleplay_8.utils.UIUtils;
 import com.itheima.googleplay_8.views.CircleProgressView;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 
 /**
  * @author  Administrator
@@ -37,31 +35,29 @@ import com.lidroid.xutils.view.annotation.ViewInject;
  */
 public class AppItemHolder extends BaseHolder<AppInfoBean> implements OnClickListener, DownLoadObserver {
 
-	@ViewInject(R.id.item_appinfo_iv_icon)
-	ImageView			mIvIcon;
+	private ImageView			mIvIcon;
 
-	@ViewInject(R.id.item_appinfo_rb_stars)
-	RatingBar			mRbStars;
+	private RatingBar			mRbStars;
 
-	@ViewInject(R.id.item_appinfo_tv_des)
-	TextView			mTvDes;
+	private TextView			mTvDes;
 
-	@ViewInject(R.id.item_appinfo_tv_size)
-	TextView			mTvSize;
+	private TextView			mTvSize;
 
-	@ViewInject(R.id.item_appinfo_tv_title)
-	TextView			mTvTitle;
+	private TextView			mTvTitle;
 
-	@ViewInject(R.id.item_appinfo_circleprogressview)
-	CircleProgressView	mCircleProgressView;
+	private CircleProgressView	mCircleProgressView;
 
 	private AppInfoBean	mData;
 
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_info, null);
-		// 注入
-		ViewUtils.inject(this, view);
+		mIvIcon = view.findViewById(R.id.item_appinfo_iv_icon);
+		mRbStars = view.findViewById(R.id.item_appinfo_rb_stars);
+		mTvDes = view.findViewById(R.id.item_appinfo_tv_des);
+		mTvSize = view.findViewById(R.id.item_appinfo_tv_size);
+		mTvTitle = view.findViewById(R.id.item_appinfo_tv_title);
+		mCircleProgressView = view.findViewById(R.id.item_appinfo_circleprogressview);
 
 		mCircleProgressView.setOnClickListener(this);
 		return view;

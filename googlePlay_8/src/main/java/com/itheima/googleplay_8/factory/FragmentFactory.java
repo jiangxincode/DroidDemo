@@ -1,7 +1,6 @@
 package com.itheima.googleplay_8.factory;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.util.SparseArrayCompat;
+import androidx.collection.SparseArrayCompat;
 
 import com.itheima.googleplay_8.base.BaseFragment;
 import com.itheima.googleplay_8.fragment.AppFragment;

@@ -5,7 +5,8 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.widget.Toast;
 
 import com.itheima.googleplay_8.MainActivity;
@@ -20,10 +21,10 @@ import com.itheima.googleplay_8.MainActivity;
  * @updateDate $Date: 2015-07-19 17:01:18 +0800 (星期日, 19 七月 2015) $
  * @updateDes TODO
  */
-public abstract class BaseActivity extends ActionBarActivity {
+public abstract class BaseActivity extends AppCompatActivity {
 	// 共同属性
 	// 共同的方法
-	private List<ActionBarActivity>	activities	= new LinkedList<ActionBarActivity>();
+	private List<AppCompatActivity>	activities	= new LinkedList<AppCompatActivity>();
 	private long					mPreTime;
 	private Activity				mCurActivity;
 
@@ -84,7 +85,7 @@ public abstract class BaseActivity extends ActionBarActivity {
 	 * 完全退出
 	 */
 	public void exit() {
-		for (ActionBarActivity activity : activities) {
+		for (AppCompatActivity activity : activities) {
 			activity.finish();
 		}
 	}

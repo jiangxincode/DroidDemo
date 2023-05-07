@@ -12,11 +12,9 @@ import com.itheima.googleplay_8.R;
 import com.itheima.googleplay_8.base.BaseHolder;
 import com.itheima.googleplay_8.bean.AppInfoBean;
 import com.itheima.googleplay_8.utils.UIUtils;
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
-import com.nineoldandroids.animation.Animator;
-import com.nineoldandroids.animation.Animator.AnimatorListener;
-import com.nineoldandroids.animation.ObjectAnimator;
+import android.animation.Animator;
+import android.animation.Animator.AnimatorListener;
+import android.animation.ObjectAnimator;
 
 /**
  * @author  Administrator
@@ -29,14 +27,11 @@ import com.nineoldandroids.animation.ObjectAnimator;
  * @updateDes TODO
  */
 public class AppDetailDesHolder extends BaseHolder<AppInfoBean> implements OnClickListener {
-	@ViewInject(R.id.app_detail_des_tv_author)
-	TextView			mTvAuthor;
+	private TextView			mTvAuthor;
 
-	@ViewInject(R.id.app_detail_des_iv_arrow)
-	ImageView			mIvArrow;
+	private ImageView			mIvArrow;
 
-	@ViewInject(R.id.app_detail_des_tv_des)
-	TextView			mTvDes;
+	private TextView			mTvDes;
 	private boolean		isOpen	= true;
 	private int			mTvDesMeasuredHeight;
 
@@ -45,7 +40,9 @@ public class AppDetailDesHolder extends BaseHolder<AppInfoBean> implements OnCli
 	@Override
 	public View initHolderView() {
 		View view = View.inflate(UIUtils.getContext(), R.layout.item_app_detail_des, null);
-		ViewUtils.inject(this, view);
+		mTvAuthor = view.findViewById(R.id.app_detail_des_tv_author);
+		mIvArrow = view.findViewById(R.id.app_detail_des_iv_arrow);
+		mTvDes = view.findViewById(R.id.app_detail_des_tv_des);
 		view.setOnClickListener(this);
 		return view;
 	}
