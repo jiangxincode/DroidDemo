@@ -20,7 +20,7 @@ import edu.jiangxin.smartbj.activity.SplashActivity;
  */
 
 public class ToolsFragment extends Fragment {
-    private Button mBtnMortgageCalculator, mBtnEasyMusic, mBtnEasyChat, mBtnSmartBj;
+    private Button mBtnMortgageCalculator, mBtnEasyMusic, mBtnEasyChat, mBtnSmartBj, mBtnGooglePlay;
 
     private View root;
 
@@ -54,6 +54,13 @@ public class ToolsFragment extends Fragment {
         mBtnSmartBj.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SplashActivity.class);
+            startActivity(intent);
+        });
+
+        mBtnGooglePlay = root.findViewById(R.id.btnGooglePlay);
+        mBtnGooglePlay.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), com.itheima.googleplay_8.MainActivity.class);
             startActivity(intent);
         });
         return root;

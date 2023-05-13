@@ -14,5 +14,13 @@
         <attr name="leftBottomCorner" format="dimension" />
         <attr name="rightBottomCorner" format="dimension" />
     </declare-styleable>
+    
+    <declare-styleable name="RatioLayout">
+        <attr name="picRatio" format="float" />
+        <attr name="relative">
+            <enum name="width" value="0" />
+            <enum name="height" value="1" />
+        </attr>
+    </declare-styleable>
 
 </resources>

@@ -338,6 +338,12 @@
             android:theme="@style/Theme.PageIndicatorDefaults"></activity>
         <activity android:name="edu.jiangxin.smartbj.activity.GuideActivity"></activity>
         <activity android:name="edu.jiangxin.smartbj.activity.NewsDetailAcitivity"></activity>
+	
+	<activity
+            android:name="com.itheima.googleplay_8.MainActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name="com.itheima.googleplay_8.activity.DetailActivity" />
     </application>
 
 </manifest>
