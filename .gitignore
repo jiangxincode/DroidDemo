@@ -8,7 +8,7 @@
 app/debug
 app/release
 *.jks
-/smartBJ/build/
+/app/build/
 
 # IntelliJ
 *.iml
