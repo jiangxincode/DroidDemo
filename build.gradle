@@ -21,6 +21,7 @@ allprojects {
     repositories {
         google()
         jcenter()
+	maven { url "https://jzaccone.github.io/SlidingMenu-aar" }
         maven { url 'https://jitpack.io' }
     }
     gradle.projectsEvaluated {
