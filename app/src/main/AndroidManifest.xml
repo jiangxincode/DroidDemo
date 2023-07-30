@@ -295,12 +295,10 @@
         <activity
             android:name=".tools.mortgagecalc.ResultCombinationActivity"
             android:screenOrientation="portrait" />
-	    
-	    
-	<activity
-            android:name="edu.jiangxin.smartbj.activity.SplashActivity"
-            android:exported="true">
-        </activity>
+
+        <activity android:name="edu.jiangxin.droiddemo.smartbj.activity.SplashActivity" />
+        <activity android:name="edu.jiangxin.droiddemo.smartbj.activity.GuideActivity" />
+        <activity android:name="edu.jiangxin.droiddemo.smartbj.activity.NewsDetailAcitivity" />
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -334,10 +332,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.jiangxin.smartbj.activity.MainActivity"
+            android:name="edu.jiangxin.droiddemo.smartbj.activity.MainActivity"
             android:theme="@style/Theme.PageIndicatorDefaults"></activity>
-        <activity android:name="edu.jiangxin.smartbj.activity.GuideActivity"></activity>
-        <activity android:name="edu.jiangxin.smartbj.activity.NewsDetailAcitivity"></activity>
 	
 	<activity
             android:name="com.itheima.googleplay_8.MainActivity"

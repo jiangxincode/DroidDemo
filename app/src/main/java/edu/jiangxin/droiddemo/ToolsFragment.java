@@ -13,7 +13,7 @@ import edu.jiangxin.droiddemo.easychat.activity.EasyChatActivity;
 
 import edu.jiangxin.droiddemo.tools.mortgagecalc.MainActivity;
 import edu.jiangxin.droiddemo.easymusic.EasyMusicActivity;
-import edu.jiangxin.smartbj.activity.SplashActivity;
+import edu.jiangxin.droiddemo.smartbj.activity.SplashActivity;
 
 /**
  * Created by jiang on 2018/1/21.
