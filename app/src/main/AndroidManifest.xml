@@ -7,11 +7,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
@@ -35,6 +33,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+
     <queries>
         <intent>
             <action android:name="android.speech.RecognitionService" />
@@ -49,7 +48,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".note.NoteActivity"/>
+        <activity
+            android:name=".usagestats.UsageStatsActivity"
+            android:exported="false" />
+        <activity android:name=".note.NoteActivity" />
         <activity android:name=".speechrecognize.SpeechRecognizeActivity" />
         <activity android:name=".activity.PerfActivity" />
         <activity android:name=".tv.recycleview.RecycleViewTv" />
@@ -256,23 +258,22 @@
         </service>
 
         <activity android:name=".easymusic.EasyMusicActivity" />
-        <service android:name=".easymusic.service.MusicService"></service>
-	
-	    <activity
+
+        <service android:name=".easymusic.service.MusicService" />
+
+        <activity
             android:name=".easychat.SplashActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".easychat.activity.LoginActivity"
-            android:label="LoginActivity"></activity>
+            android:label="LoginActivity" />
         <activity
             android:name=".easychat.activity.EasyChatActivity"
-            android:label="MainActivity"></activity>
+            android:label="MainActivity" />
 
         <provider
             android:name=".easychat.provider.ContactsProvider"
             android:authorities="edu.jiangxin.droiddemo.easychat.provider.ContactsProvider" />
-
         <provider
             android:name=".easychat.provider.SmsProvider"
             android:authorities="edu.jiangxin.droiddemo.easychat.provider.SmsProvider" />
@@ -282,8 +283,7 @@
 
         <activity
             android:name=".easychat.activity.ChatActivity"
-            android:label="@string/title_activity_chat"></activity>
-
+            android:label="@string/title_activity_chat" />
         <activity
             android:name=".tools.mortgagecalc.MainActivity"
             android:label="@string/app_name"
@@ -295,15 +295,14 @@
         <activity
             android:name=".tools.mortgagecalc.ResultCombinationActivity"
             android:screenOrientation="portrait" />
-
-        <activity android:name="edu.jiangxin.droiddemo.smartbj.activity.SplashActivity" />
-        <activity android:name="edu.jiangxin.droiddemo.smartbj.activity.GuideActivity" />
-        <activity android:name="edu.jiangxin.droiddemo.smartbj.activity.NewsDetailAcitivity" />
+        <activity android:name=".smartbj.activity.SplashActivity" />
+        <activity android:name=".smartbj.activity.GuideActivity" />
+        <activity android:name=".smartbj.activity.NewsDetailAcitivity" />
         <activity
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -318,8 +317,8 @@
         <activity
             android:name="cn.sharesdk.framework.ShareSDKUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:screenOrientation="portrait"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
@@ -332,13 +331,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.jiangxin.droiddemo.smartbj.activity.MainActivity"
-            android:theme="@style/Theme.PageIndicatorDefaults"></activity>
-	
-	<activity
+            android:name=".smartbj.activity.MainActivity"
+            android:theme="@style/Theme.PageIndicatorDefaults" />
+        <activity
             android:name="com.itheima.googleplay_8.MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"></activity>
         <activity android:name="com.itheima.googleplay_8.activity.DetailActivity" />
     </application>
 

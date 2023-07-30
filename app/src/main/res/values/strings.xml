@@ -68,10 +68,10 @@
 
     <string name="action_settings">Settings</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_chat">ChatActivity</string>
-    
+
     <!-- 主页 -->
     <string-array name="main_titles">
         <item>首页</item>

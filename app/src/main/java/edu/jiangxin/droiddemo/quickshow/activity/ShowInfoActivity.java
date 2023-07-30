@@ -18,7 +18,6 @@ import java.util.List;
 import edu.jiangxin.droiddemo.quickshow.runable.OthersInfoRunnable;
 import edu.jiangxin.droiddemo.quickshow.runable.PackageInfoRunable;
 import edu.jiangxin.droiddemo.quickshow.runable.ScreenInfoRunnable;
-import edu.jiangxin.droiddemo.quickshow.runable.StatInfoRunnable;
 import edu.jiangxin.droiddemo.quickshow.runable.StorageInfoRunnable;
 import edu.jiangxin.droiddemo.quickshow.runable.UserInfoRunnable;
 import edu.jiangxin.droiddemo.quickshow.view.PullDownTextView;
@@ -54,7 +53,6 @@ public class ShowInfoActivity extends Activity {
         new Thread(new StorageInfoRunnable(mHandler)).start();
         new Thread(new OthersInfoRunnable(mHandler)).start();
         new Thread(new ScreenInfoRunnable(mHandler)).start();
-        new Thread(new StatInfoRunnable(mHandler)).start();
         new Thread(new UserInfoRunnable(mHandler)).start();
         new Thread(new PackageInfoRunable(mHandler)).start();
         adapter.notifyDataSetChanged();

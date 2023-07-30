@@ -55,6 +55,7 @@ import edu.jiangxin.droiddemo.saf.SafActivity;
 import edu.jiangxin.droiddemo.service.VariousServiceActivity;
 import edu.jiangxin.droiddemo.speechrecognize.SpeechRecognizeActivity;
 import edu.jiangxin.droiddemo.tv.recycleview.RecycleViewTv;
+import edu.jiangxin.droiddemo.usagestats.UsageStatsActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -69,7 +70,7 @@ public class DemosFragment extends Fragment {
     private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
     private static final int REQUEST_CODE_MEDIA_STORE = 10021;
 
-    private Button mBtnNote, mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
+    private Button mUsageStats, mBtnNote, mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
             mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
             mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
             mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
@@ -95,6 +96,13 @@ public class DemosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         root = inflater.inflate(R.layout.fragment_demos, container, false);
+
+        mUsageStats = root.findViewById(R.id.btnUsageStats);
+        mUsageStats.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), UsageStatsActivity.class);
+            startActivity(intent);
+        });
 
         mBtnNote = root.findViewById(R.id.btnNote);
         mBtnNote.setOnClickListener(v -> {

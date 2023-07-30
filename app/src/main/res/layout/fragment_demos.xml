@@ -19,6 +19,13 @@
             android:scrollbars="vertical">
 
             <Button
+                android:id="@+id/btnUsageStats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="Usage Stats" />
+
+            <Button
                 android:id="@+id/btnNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
