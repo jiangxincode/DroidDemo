@@ -86,7 +86,7 @@ dependencies {
         exclude group: 'xpp3', module: 'xpp3'
     }
     // Optional for XMPPTCPConnection
-    implementation("org.igniterealtime.smack:smack-tcp:4.4.6") {
+    implementation("org.igniterealtime.smack:smack-tcp:4.4.7") {
         exclude group: 'xpp3', module: 'xpp3'
     }
     // Optional for XMPP-IM (RFC 6121) support (Roster, Threaded Chats, ��)
