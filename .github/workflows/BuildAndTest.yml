@@ -45,7 +45,7 @@ jobs:
     needs: build
     strategy:
       matrix:
-        api-level: [31]
+        api-level: [32]
 
     steps:
       - name: Checkout the code
