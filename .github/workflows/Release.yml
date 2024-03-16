@@ -55,7 +55,7 @@ jobs:
           mv ${{steps.sign.outputs.signedReleaseFile}} ${{ env.ReleaseFilePath }}/DroidDemo-signed-${{ steps.get-version.outputs.tagVersion }}.apk
 
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: ${{ env.ReleaseFilePath }}/DroidDemo-signed-${{ steps.get-version.outputs.tagVersion }}.apk
           token: ${{ secrets.GITHUB_TOKEN }}
