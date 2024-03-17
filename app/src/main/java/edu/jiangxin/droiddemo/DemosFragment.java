@@ -56,6 +56,7 @@ import edu.jiangxin.droiddemo.service.VariousServiceActivity;
 import edu.jiangxin.droiddemo.speechrecognize.SpeechRecognizeActivity;
 import edu.jiangxin.droiddemo.tv.recycleview.RecycleViewTv;
 import edu.jiangxin.droiddemo.usagestats.UsageStatsActivity;
+import edu.jiangxin.droiddemo.vibrator.VibratorActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -69,14 +70,6 @@ public class DemosFragment extends Fragment {
     private static final int REQUEST_CODE_RECORD_AUDIO_2 = 10012;
     private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
     private static final int REQUEST_CODE_MEDIA_STORE = 10021;
-
-    private Button mUsageStats, mBtnNote, mBtnPerf, mBtnShowInfoEntrance, mBtnDecorViewEntrance, mBtnVariousLayoutEntrance, mBtnVariousServiceEntrance, mBtnListViewEntrance, mBtnDialogEntrance,
-            mBtnRippleEntrance, mBtnRoundCornerEntrance, mBtnAnimationEntrance, mBtnOpenglDemosEntrance, mBtnBlurEntrance, mBtnForbidScreenShotEntrance, mBtnAppListEntrance, mBtnVariousNotificationEntrance,
-            mBtnScaleTextEntrance, mBtnSpannableStringEntrance, mBtnGlobalSearchEntrance, mBtnImageViewEntrance,
-            mBtnAudioFxDemoOscillogramEntrance, mBtnAudioFxDemoHistogramEntrance, mBtnNetMusicEntrance, mBtnVideoViewEntrance,
-            mBtnJNIEntrance, mBtnActivityTrackerEntrance, mSpeechRecognizeEntrance, mBtnSoundEntrance, mBtnSoundEntrance1, mBtnPreferenceEntrance, mBtnThemeEntrance, mBtnSpinnerEntrance,
-            mFragmentEntrance, mSAFEntrance, mMediaStoreDemoEntrance, mThreadEntrance, mLoaderDemoEntrance, mRecycleViewTvEntrance;
-    private View root;
 
     private static String[] MEDIA_PERMISSIONS;
 
@@ -95,208 +88,192 @@ public class DemosFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        root = inflater.inflate(R.layout.fragment_demos, container, false);
+        View root = inflater.inflate(R.layout.fragment_demos, container, false);
 
-        mUsageStats = root.findViewById(R.id.btnUsageStats);
-        mUsageStats.setOnClickListener(v -> {
+        Button btnUsageStats = root.findViewById(R.id.btnUsageStats);
+        btnUsageStats.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), UsageStatsActivity.class);
             startActivity(intent);
         });
 
-        mBtnNote = root.findViewById(R.id.btnNote);
-        mBtnNote.setOnClickListener(v -> {
+        Button btnNote = root.findViewById(R.id.btnNote);
+        btnNote.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), NoteActivity.class);
             startActivity(intent);
         });
 
-        mBtnPerf = root.findViewById(R.id.btnPerf);
-        mBtnPerf.setOnClickListener(v -> {
+        Button btnPerf = root.findViewById(R.id.btnPerf);
+        btnPerf.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), PerfActivity.class);
             startActivity(intent);
         });
 
-        mBtnShowInfoEntrance = root.findViewById(R.id.btnShowInfoEntrance);
-        mBtnShowInfoEntrance.setOnClickListener(v -> {
+        Button btnShowInfoEntrance = root.findViewById(R.id.btnShowInfoEntrance);
+        btnShowInfoEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ShowInfoActivity.class);
             startActivity(intent);
         });
 
-        mBtnVariousLayoutEntrance = root.findViewById(R.id.btnVariousLayoutEntrance);
-        mBtnVariousLayoutEntrance.setOnClickListener(v -> {
+        Button btnVariousLayoutEntrance = root.findViewById(R.id.btnVariousLayoutEntrance);
+        btnVariousLayoutEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousLayoutActivity.class);
             startActivity(intent);
         });
 
-        mBtnDecorViewEntrance = root.findViewById(R.id.btnDecorViewEntrance);
-        mBtnDecorViewEntrance.setOnClickListener(v -> {
+        Button btnDecorViewEntrance = root.findViewById(R.id.btnDecorViewEntrance);
+        btnDecorViewEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), DecorViewActivity.class);
             startActivity(intent);
         });
 
-        mBtnVariousServiceEntrance = root.findViewById(R.id.btnVariousServiceEntrance);
-        mBtnVariousServiceEntrance.setOnClickListener(v -> {
+        Button btnVariousServiceEntrance = root.findViewById(R.id.btnVariousServiceEntrance);
+        btnVariousServiceEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousServiceActivity.class);
             startActivity(intent);
         });
 
-        mBtnListViewEntrance = root.findViewById(R.id.btnListViewEntrance);
-        mBtnListViewEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), ListViewActivity.class);
-                startActivity(intent);
-            }
+        Button btnListViewEntrance = root.findViewById(R.id.btnListViewEntrance);
+        btnListViewEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ListViewActivity.class);
+            startActivity(intent);
         });
 
-        mBtnDialogEntrance = root.findViewById(R.id.btnDialogEntrance);
-        mBtnDialogEntrance.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setClass(getContext(), DialogActivity.class);
-                startActivity(intent);
-            }
+        Button btnDialogEntrance = root.findViewById(R.id.btnDialogEntrance);
+        btnDialogEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), DialogActivity.class);
+            startActivity(intent);
         });
 
-        mBtnRippleEntrance = root.findViewById(R.id.btnRippleEntrance);
-        mBtnRippleEntrance.setOnClickListener(v -> {
+        Button btnRippleEntrance = root.findViewById(R.id.btnRippleEntrance);
+        btnRippleEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), RippleActivity.class);
             startActivity(intent);
         });
 
-        mBtnRoundCornerEntrance = root.findViewById(R.id.btnRoundCornerEntrance);
-        mBtnRoundCornerEntrance.setOnClickListener(v -> {
+        Button btnRoundCornerEntrance = root.findViewById(R.id.btnRoundCornerEntrance);
+        btnRoundCornerEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousRoundCornerActivity.class);
             startActivity(intent);
         });
 
-        mBtnAnimationEntrance = root.findViewById(R.id.btnAnimationEntrance);
-        mBtnAnimationEntrance.setOnClickListener(v -> {
+        Button btnAnimationEntrance = root.findViewById(R.id.btnAnimationEntrance);
+        btnAnimationEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousAnimationActivity.class);
             startActivity(intent);
         });
 
-        mBtnOpenglDemosEntrance = root.findViewById(R.id.btnOpenglEntrance);
-        mBtnOpenglDemosEntrance.setOnClickListener(v -> {
+        Button btnOpenglEntrance = root.findViewById(R.id.btnOpenglEntrance);
+        btnOpenglEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), OpenGlEntranceActivity.class);
             startActivity(intent);
         });
 
-        mBtnBlurEntrance = root.findViewById(R.id.btnBlurEntrance);
-        mBtnBlurEntrance.setOnClickListener(v -> {
+        Button btnBlurEntrance = root.findViewById(R.id.btnBlurEntrance);
+        btnBlurEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), BlurActivity.class);
             startActivity(intent);
         });
 
-        mBtnForbidScreenShotEntrance = root.findViewById(R.id.btnForbidScreenShotEntrance);
-        mBtnForbidScreenShotEntrance.setOnClickListener(v -> {
+        Button btnForbidScreenShotEntrance = root.findViewById(R.id.btnForbidScreenShotEntrance);
+        btnForbidScreenShotEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ForbidScreenShotActivity.class);
             startActivity(intent);
         });
 
-        mBtnAppListEntrance = root.findViewById(R.id.btnAppListEntrance);
-        mBtnAppListEntrance.setOnClickListener(v -> {
+        Button btnAppListEntrance = root.findViewById(R.id.btnAppListEntrance);
+        btnAppListEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), AppListActivity.class);
             startActivity(intent);
         });
 
-        mBtnVariousNotificationEntrance = root.findViewById(R.id.btnVariousNotificationEntrance);
-        mBtnVariousNotificationEntrance.setOnClickListener(v -> {
+        Button btnVariousNotificationEntrance = root.findViewById(R.id.btnVariousNotificationEntrance);
+        btnVariousNotificationEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), VariousNotificationActivity.class);
             startActivity(intent);
         });
 
-        mBtnScaleTextEntrance = root.findViewById(R.id.btnScaleTextEntrance);
-        mBtnScaleTextEntrance.setOnClickListener(v -> {
+        Button btnScaleTextEntrance = root.findViewById(R.id.btnScaleTextEntrance);
+        btnScaleTextEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ScaleTextActivity.class);
             startActivity(intent);
         });
 
-        mBtnSpannableStringEntrance = root.findViewById(R.id.btnSpannableStringEntrance);
-        mBtnSpannableStringEntrance.setOnClickListener(v -> {
+        Button btnSpannableStringEntrance = root.findViewById(R.id.btnSpannableStringEntrance);
+        btnSpannableStringEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SpannableStringActivity.class);
             startActivity(intent);
         });
 
-        mBtnGlobalSearchEntrance = root.findViewById(R.id.btnGlobalSearchEntrance);
-        mBtnGlobalSearchEntrance.setOnClickListener(v -> {
+        Button btnGlobalSearchEntrance = root.findViewById(R.id.btnGlobalSearchEntrance);
+        btnGlobalSearchEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), QuickSearchBoxActivity.class);
             startActivity(intent);
         });
 
-        mBtnImageViewEntrance = root.findViewById(R.id.btnImageViewEntrance);
-        mBtnImageViewEntrance.setOnClickListener(v -> {
+        Button btnImageViewEntrance = root.findViewById(R.id.btnImageViewEntrance);
+        btnImageViewEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ImageViewActivity.class);
             startActivity(intent);
         });
 
-        mBtnAudioFxDemoOscillogramEntrance = root.findViewById(R.id.btnAudioFxDemoOscillogramEntrance);
-        mBtnAudioFxDemoOscillogramEntrance.setOnClickListener(v -> {
+        Button btnAudioFxDemoOscillogramEntrance = root.findViewById(R.id.btnAudioFxDemoOscillogramEntrance);
+        btnAudioFxDemoOscillogramEntrance.setOnClickListener(v -> {
             List<String> permissions = new ArrayList<String>();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                    permissions.add(Manifest.permission.RECORD_AUDIO);
-                }
+            if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(Manifest.permission.RECORD_AUDIO);
+            }
 
-                if (permissions.isEmpty()) {
-                    startAudioFxOscillogramActivity();
-                } else {
-                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_1);
-                }
-            } else {
+            if (permissions.isEmpty()) {
                 startAudioFxOscillogramActivity();
-            }
-        });
-
-        mBtnAudioFxDemoHistogramEntrance = root.findViewById(R.id.btnAudioFxDemoHistogramEntrance);
-        mBtnAudioFxDemoHistogramEntrance.setOnClickListener(v -> {
-            List<String> permissions = new ArrayList<String>();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
-                    permissions.add(Manifest.permission.RECORD_AUDIO);
-                }
-
-                if (permissions.isEmpty()) {
-                    startAudioFxHistogramActivity();
-                } else {
-                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_2);
-                }
             } else {
-                startAudioFxHistogramActivity();
+                requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_1);
             }
         });
 
-        mBtnNetMusicEntrance = root.findViewById(R.id.btnNetMusicEntrance);
-        mBtnNetMusicEntrance.setOnClickListener(v -> {
+        Button btnAudioFxDemoHistogramEntrance = root.findViewById(R.id.btnAudioFxDemoHistogramEntrance);
+        btnAudioFxDemoHistogramEntrance.setOnClickListener(v -> {
+            List<String> permissions = new ArrayList<String>();
+            if (getActivity().checkSelfPermission(Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(Manifest.permission.RECORD_AUDIO);
+            }
+
+            if (permissions.isEmpty()) {
+                startAudioFxHistogramActivity();
+            } else {
+                requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_RECORD_AUDIO_2);
+            }
+        });
+
+        Button btnNetMusicEntrance = root.findViewById(R.id.btnNetMusicEntrance);
+        btnNetMusicEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), NetMusicActivity.class);
             startActivity(intent);
         });
 
-        mBtnVideoViewEntrance = root.findViewById(R.id.btnVideoViewEntrance);
-        mBtnVideoViewEntrance.setOnClickListener(v -> {
+        Button btnVideoViewEntrance = root.findViewById(R.id.btnVideoViewEntrance);
+        btnVideoViewEntrance.setOnClickListener(v -> {
             List<String> permissions = new ArrayList<>();
             for (String permission : MEDIA_PERMISSIONS) {
                 if (getActivity().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
@@ -310,78 +287,78 @@ public class DemosFragment extends Fragment {
             }
         });
 
-        mBtnJNIEntrance = root.findViewById(R.id.btnJNIEntrance);
-        mBtnJNIEntrance.setOnClickListener(v -> {
+        Button btnJNIEntrance = root.findViewById(R.id.btnJNIEntrance);
+        btnJNIEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), JNIActivity.class);
             startActivity(intent);
         });
 
-        mBtnActivityTrackerEntrance = root.findViewById(R.id.btnActivityTrackerEntrance);
-        mBtnActivityTrackerEntrance.setOnClickListener(v -> {
+        Button btnActivityTrackerEntrance = root.findViewById(R.id.btnActivityTrackerEntrance);
+        btnActivityTrackerEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ActivityTrackerActivity.class);
             startActivity(intent);
         });
 
-        mSpeechRecognizeEntrance = root.findViewById(R.id.btnSpeechRecognizeEntrance);
-        mSpeechRecognizeEntrance.setOnClickListener(v -> {
+        Button btnSpeechRecognizeEntrance = root.findViewById(R.id.btnSpeechRecognizeEntrance);
+        btnSpeechRecognizeEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SpeechRecognizeActivity.class);
             startActivity(intent);
         });
 
-        mBtnSoundEntrance = root.findViewById(R.id.btnSoundEntrance);
-        mBtnSoundEntrance.setOnClickListener(v -> {
+        Button btnSoundEntrance = root.findViewById(R.id.btnSoundEntrance);
+        btnSoundEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), RingtoneSettingActivity.class);
             startActivity(intent);
         });
 
-        mBtnSoundEntrance1 = root.findViewById(R.id.btnSoundEntrance1);
-        mBtnSoundEntrance1.setOnClickListener(v -> {
+        Button btnSoundEntrance1 = root.findViewById(R.id.btnSoundEntrance1);
+        btnSoundEntrance1.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), RingtoneSetting1Activity.class);
             startActivity(intent);
         });
 
-        mBtnPreferenceEntrance = root.findViewById(R.id.btnPreferenceEntrance);
-        mBtnPreferenceEntrance.setOnClickListener(v -> {
+        Button btnPreferenceEntrance = root.findViewById(R.id.btnPreferenceEntrance);
+        btnPreferenceEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SettingActivity.class);
             startActivity(intent);
         });
 
-        mBtnThemeEntrance = root.findViewById(R.id.btnThemeEntrance);
-        mBtnThemeEntrance.setOnClickListener(v -> {
+        Button btnThemeEntrance = root.findViewById(R.id.btnThemeEntrance);
+        btnThemeEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ThemeActivity.class);
             startActivity(intent);
         });
 
-        mBtnSpinnerEntrance = root.findViewById(R.id.btnSpinnerEntrance);
-        mBtnSpinnerEntrance.setOnClickListener(v -> {
+        Button btnSpinnerEntrance = root.findViewById(R.id.btnSpinnerEntrance);
+        btnSpinnerEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SpinnerActivity.class);
             startActivity(intent);
         });
 
-        mFragmentEntrance = root.findViewById(R.id.btnFragmentEntrance);
-        mFragmentEntrance.setOnClickListener(v -> {
+        Button btnFragmentEntrance = root.findViewById(R.id.btnFragmentEntrance);
+        btnFragmentEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), FragmentActivity.class);
             startActivity(intent);
         });
 
-        mSAFEntrance = root.findViewById(R.id.btnSAFEntrance);
-        mSAFEntrance.setOnClickListener(v -> {
+        Button btnSAFEntrance = root.findViewById(R.id.btnSAFEntrance);
+        btnSAFEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SafActivity.class);
             startActivity(intent);
         });
 
-        mMediaStoreDemoEntrance = root.findViewById(R.id.btnMediaStoreDemoEntrance);
-        mMediaStoreDemoEntrance.setOnClickListener(v -> {
+        Button btnMediaStoreDemoEntrance = root.findViewById(R.id.btnMediaStoreDemoEntrance);
+        btnMediaStoreDemoEntrance.setOnClickListener(v -> {
             List<String> permissions = new ArrayList<>();
             for (String permission : MEDIA_PERMISSIONS) {
                 if (getActivity().checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED) {
@@ -395,41 +372,44 @@ public class DemosFragment extends Fragment {
             }
         });
 
-        mThreadEntrance = root.findViewById(R.id.btnThreadEntrance);
-        mThreadEntrance.setOnClickListener(v -> {
+        Button btnThreadEntrance = root.findViewById(R.id.btnThreadEntrance);
+        btnThreadEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ThreadDemoActivity.class);
             startActivity(intent);
         });
 
-        mLoaderDemoEntrance = root.findViewById(R.id.btnLoaderDemoEntrance);
-        mLoaderDemoEntrance.setOnClickListener(v -> {
+        Button btnLoaderDemoEntrance = root.findViewById(R.id.btnLoaderDemoEntrance);
+        btnLoaderDemoEntrance.setOnClickListener(v -> {
 
-            List<String> permissions = new ArrayList<String>();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                if (getActivity().checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-                    permissions.add(Manifest.permission.READ_CALL_LOG);
-                }
+            List<String> permissions = new ArrayList<>();
+            if (getActivity().checkSelfPermission(Manifest.permission.READ_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(Manifest.permission.READ_CALL_LOG);
+            }
 
-                if (getActivity().checkSelfPermission(Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
-                    permissions.add(Manifest.permission.WRITE_CALL_LOG);
-                }
+            if (getActivity().checkSelfPermission(Manifest.permission.WRITE_CALL_LOG) != PackageManager.PERMISSION_GRANTED) {
+                permissions.add(Manifest.permission.WRITE_CALL_LOG);
+            }
 
-                if (permissions.isEmpty()) {
-                    startLoaderDemoActivity();
-                } else {
-                    requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_CALL_LOG);
-                }
-            } else {
+            if (permissions.isEmpty()) {
                 startLoaderDemoActivity();
+            } else {
+                requestPermissions(permissions.toArray(new String[permissions.size()]), REQUEST_CODE_CALL_LOG);
             }
 
         });
 
-        mRecycleViewTvEntrance = root.findViewById(R.id.btnRecycleViewTvEntrance);
-        mRecycleViewTvEntrance.setOnClickListener(v -> {
+        Button btnRecycleViewTvEntrance = root.findViewById(R.id.btnRecycleViewTvEntrance);
+        btnRecycleViewTvEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), RecycleViewTv.class);
+            startActivity(intent);
+        });
+
+        Button btnVibratorEntrance = root.findViewById(R.id.btnVibratorEntrance);
+        btnVibratorEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), VibratorActivity.class);
             startActivity(intent);
         });
 
@@ -511,8 +491,8 @@ public class DemosFragment extends Fragment {
     }
 
     private boolean checkPermissionRequested(int[] grantResults) {
-        for (int i = 0; i < grantResults.length; i++) {
-            if (grantResults[i] != PackageManager.PERMISSION_GRANTED) {
+        for (int grantResult : grantResults) {
+            if (grantResult != PackageManager.PERMISSION_GRANTED) {
                 return false;
             }
         }
