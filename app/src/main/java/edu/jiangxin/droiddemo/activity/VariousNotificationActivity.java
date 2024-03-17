@@ -44,7 +44,6 @@ public class VariousNotificationActivity extends Activity {
 
     private NotificationManager notificationManager;
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +53,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnNoneImportance = findViewById(R.id.btnNoneImportance);
         mBtnNoneImportance.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(IMPORTANCE_NONE, IMPORTANCE_NONE, NotificationManager.IMPORTANCE_NONE);
@@ -70,7 +68,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnMinImportance = findViewById(R.id.btnMinImportance);
         mBtnMinImportance.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(IMPORTANCE_MIN, IMPORTANCE_MIN, NotificationManager.IMPORTANCE_MIN);
@@ -86,7 +83,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnLowImportance = findViewById(R.id.btnLowImportance);
         mBtnLowImportance.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(IMPORTANCE_LOW, IMPORTANCE_LOW, NotificationManager.IMPORTANCE_LOW);
@@ -102,7 +98,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnDefaultImportance = findViewById(R.id.btnDefaultImportance);
         mBtnDefaultImportance.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(IMPORTANCE_DEFAULT, IMPORTANCE_DEFAULT, NotificationManager.IMPORTANCE_DEFAULT);
@@ -118,7 +113,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnHighImportance = findViewById(R.id.btnHighImportance);
         mBtnHighImportance.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(IMPORTANCE_HIGH, IMPORTANCE_HIGH, NotificationManager.IMPORTANCE_HIGH);
@@ -134,7 +128,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnEnableVibrate = findViewById(R.id.btnEnableVibrate);
         mBtnEnableVibrate.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(ENABLE_VIBRATE, ENABLE_VIBRATE, NotificationManager.IMPORTANCE_HIGH);
@@ -150,7 +143,6 @@ public class VariousNotificationActivity extends Activity {
         mBtnDisableVibrate = findViewById(R.id.btnDisableVibrate);
         mBtnDisableVibrate.setOnClickListener(new View.OnClickListener() {
 
-            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 NotificationChannel notificationChannel = new NotificationChannel(DISABLE_VIBRATE, DISABLE_VIBRATE, NotificationManager.IMPORTANCE_HIGH);

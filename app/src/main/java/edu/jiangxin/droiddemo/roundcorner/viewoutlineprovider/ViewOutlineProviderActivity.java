@@ -17,7 +17,6 @@ import edu.jiangxin.droiddemo.roundcorner.utils.DisplayUtils;
 public class ViewOutlineProviderActivity extends AppCompatActivity {
     private LinearLayout mLly;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +25,6 @@ public class ViewOutlineProviderActivity extends AppCompatActivity {
         initWidgets();
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void initWidgets() {
         mLly = findViewById(R.id.lly);
 

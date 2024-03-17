@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
     private MainActivityViewPagerAdapter adapter;
 
     @Override
-    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     protected void onCreate(Bundle savedInstanceState) {
         Log.i(TAG, "onCreate");
         super.onCreate(savedInstanceState);
@@ -191,7 +190,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N_MR1)
     private void setupShortcuts() {
         ShortcutManager mShortcutManager = getSystemService(ShortcutManager.class);
 
