@@ -5,7 +5,7 @@ buildscript {
 
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.3.0'
@@ -20,8 +20,8 @@ buildscript {
 allprojects {
     repositories {
         google()
-        jcenter()
-	maven { url "https://jzaccone.github.io/SlidingMenu-aar" }
+        mavenCentral()
+        maven { url "https://jzaccone.github.io/SlidingMenu-aar" }
         maven { url 'https://jitpack.io' }
     }
     gradle.projectsEvaluated {

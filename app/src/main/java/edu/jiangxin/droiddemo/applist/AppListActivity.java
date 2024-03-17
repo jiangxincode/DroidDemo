@@ -12,6 +12,7 @@ import android.os.Handler;
 import android.os.Message;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +32,10 @@ import android.widget.SectionIndexer;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.promeg.pinyinhelper.Pinyin;
+import net.sourceforge.pinyin4j.PinyinHelper;
+import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
+import net.sourceforge.pinyin4j.format.HanyuPinyinToneType;
+import net.sourceforge.pinyin4j.format.exception.BadHanyuPinyinOutputFormatCombination;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -223,7 +227,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                 AppInfo appInfo = new AppInfo();
                 appInfo.mPkgName = packageInfo.packageName;
                 appInfo.mLabel = packageInfo.applicationInfo.loadLabel(getPackageManager()).toString();
-                String pinyin = Pinyin.toPinyin(appInfo.mLabel, "-");
+                String pinyin = convertToPinyin(appInfo.mLabel);
                 String sortString = pinyin.substring(0, 1).toUpperCase();
                 if (sortString.matches("[A-Z]")) {
                     appInfo.mSortLetter = sortString.toUpperCase();
@@ -365,6 +369,17 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
         return systemApps;
     }
 
+    private String convertToPinyin(String str) {
+        try {
+            HanyuPinyinOutputFormat outputFormat = new HanyuPinyinOutputFormat();
+            outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
+            return PinyinHelper.toHanyuPinyinString(str, outputFormat, "-");
+        } catch (BadHanyuPinyinOutputFormatCombination e) {
+            Log.e(TAG, "convertToPinyin failed");
+            return "#";
+        }
+    }
+
     class AppAdapter extends BaseAdapter implements SectionIndexer, Filterable {
 
         private List<AppInfo> appInfoList;
@@ -470,7 +485,8 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                         for (AppInfo appInfo : mSelectedAppInfoList) {
                             String label = appInfo.mLabel;
                             String pkgName = appInfo.mPkgName;
-                            if ((label.contains(constraint)) || (Pinyin.toPinyin(label, "-").contains(constraint)) || (pkgName.contains(constraint))
+                            String pinyin = convertToPinyin(label);
+                            if ((label.contains(constraint)) || (pinyin.contains(constraint)) || (pkgName.contains(constraint))
                             ) {
                                 filterDateList.add(appInfo);
                             }

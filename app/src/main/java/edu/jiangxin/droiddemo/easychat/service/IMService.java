@@ -11,7 +11,6 @@ import edu.jiangxin.droiddemo.easychat.dbhelper.ContactOpenHelper;
 import edu.jiangxin.droiddemo.easychat.dbhelper.SmsOpenHelper;
 import edu.jiangxin.droiddemo.easychat.provider.ContactsProvider;
 import edu.jiangxin.droiddemo.easychat.provider.SmsProvider;
-import edu.jiangxin.droiddemo.easychat.utils.PinyinUtil;
 import edu.jiangxin.droiddemo.easychat.utils.ThreadUtils;
 import edu.jiangxin.droiddemo.easychat.utils.ToastUtils;
 
@@ -231,7 +230,6 @@ public class IMService extends Service {
         values.put(ContactOpenHelper.ContactTable.ACCOUNT, account);
         values.put(ContactOpenHelper.ContactTable.NICKNAME, nickname);
         values.put(ContactOpenHelper.ContactTable.AVATAR, "0");
-        values.put(ContactOpenHelper.ContactTable.PINYIN, PinyinUtil.getPinyin(account));
 
         // 先update,后插入-->重点
         int updateCount =

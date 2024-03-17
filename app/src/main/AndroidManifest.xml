@@ -342,8 +342,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".smartbj.activity.MainActivity"
-            android:theme="@style/Theme.PageIndicatorDefaults" />
+            android:name=".smartbj.activity.MainActivity" />
         <activity
             android:name="com.itheima.googleplay_8.MainActivity"
             android:exported="true" />

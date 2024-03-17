@@ -12,7 +12,6 @@ public class ContactOpenHelper extends SQLiteOpenHelper {
         public static final String ACCOUNT = "account";//账号
         public static final String NICKNAME = "nickname";//昵称
         public static final String AVATAR = "avatar";//头像
-        public static final String PINYIN = "pinyin";//账号拼音
     }
 
     public ContactOpenHelper(Context context) {
@@ -24,8 +23,7 @@ public class ContactOpenHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE " + T_CONTACT + "(_id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 ContactTable.ACCOUNT + " TEXT, " +
                 ContactTable.NICKNAME + " TEXT, " +
-                ContactTable.AVATAR + " TEXT, " +
-                ContactTable.PINYIN + " TEXT);";
+                ContactTable.AVATAR + " TEXT);";
         db.execSQL(sql);
     }
 
