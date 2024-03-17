@@ -413,6 +413,13 @@ public class DemosFragment extends Fragment {
             startActivity(intent);
         });
 
+        Button btnSensorEntrance = root.findViewById(R.id.btnSensorEntrance);
+        btnSensorEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SensorActivity.class);
+            startActivity(intent);
+        });
+
         return root;
     }
 

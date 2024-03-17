@@ -12,15 +12,13 @@ import edu.jiangxin.droiddemo.R;
 
 public class VibratorActivity extends Activity {
 
-    private Vibrator vibrator;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vibrator);
 
         VibratorManager vibratorManager = (VibratorManager) getSystemService(VIBRATOR_MANAGER_SERVICE);
-        vibrator = vibratorManager.getDefaultVibrator();
+        Vibrator vibrator = vibratorManager.getDefaultVibrator();
 
         Button btnOneShotVibrate = findViewById(R.id.btnOneShotVibrate);
         btnOneShotVibrate.setOnClickListener(v -> {
