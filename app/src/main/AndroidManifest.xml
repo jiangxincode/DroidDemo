@@ -50,6 +50,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".ime.ImeActivity"
+            android:windowSoftInputMode="adjustPan"
+            android:exported="false" />
+        <activity
             android:name=".SensorActivity"
             android:exported="false" />
         <activity

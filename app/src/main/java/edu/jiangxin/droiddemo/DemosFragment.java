@@ -45,6 +45,7 @@ import edu.jiangxin.droiddemo.activitytracker.ActivityTrackerActivity;
 import edu.jiangxin.droiddemo.animation.VariousAnimationActivity;
 import edu.jiangxin.droiddemo.applist.AppListActivity;
 import edu.jiangxin.droiddemo.fragment.FragmentActivity;
+import edu.jiangxin.droiddemo.ime.ImeActivity;
 import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
 import edu.jiangxin.droiddemo.note.NoteActivity;
@@ -417,6 +418,13 @@ public class DemosFragment extends Fragment {
         btnSensorEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SensorActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnImeEntrance = root.findViewById(R.id.btnImeEntrance);
+        btnImeEntrance.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ImeActivity.class);
             startActivity(intent);
         });
 

@@ -305,6 +305,13 @@
                 android:textAllCaps="false"
                 android:text="Sensor Demo" />
 
+            <Button
+                android:id="@+id/btnImeEntrance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text= "输入法" />
+
         </LinearLayout>
     </ScrollView>
 
