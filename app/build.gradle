@@ -64,7 +64,7 @@ dependencies {
 
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    implementation 'com.belerweb:pinyin4j:2.5.0'
+    implementation 'com.belerweb:pinyin4j:2.5.1'
 
     testImplementation 'junit:junit:4.13.2'
 
