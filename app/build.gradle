@@ -76,7 +76,7 @@ dependencies {
     implementation 'com.github.yyued:SVGAPlayer-Android:2.6.1'
     implementation 'com.airbnb.android:lottie:6.4.0'
     implementation 'com.facebook.fresco:fresco:3.1.3'
-    implementation 'commons-io:commons-io:2.15.1'
+    implementation 'commons-io:commons-io:2.16.1'
     
     implementation("org.igniterealtime.smack:smack-android-extensions:4.4.8") {
         exclude group: 'xpp3', module: 'xpp3'
