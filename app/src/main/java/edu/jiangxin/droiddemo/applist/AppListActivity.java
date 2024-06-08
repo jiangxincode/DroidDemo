@@ -371,9 +371,14 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
     private String convertToPinyin(String str) {
         try {
+            StringBuffer sb = new StringBuffer();
             HanyuPinyinOutputFormat outputFormat = new HanyuPinyinOutputFormat();
             outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
-            return PinyinHelper.toHanyuPinyinString(str, outputFormat, "-");
+            for (char c : str.toCharArray()) {
+                String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, outputFormat);
+                sb.append(pinyinArray[0]).append("-");
+            }
+            return sb.toString();
         } catch (BadHanyuPinyinOutputFormatCombination e) {
             Log.e(TAG, "convertToPinyin failed");
             return "#";
