@@ -13,5 +13,7 @@ app/release
 *.iml
 .idea/
 
+.vscode/
+
 *.log
 *.vsdx
