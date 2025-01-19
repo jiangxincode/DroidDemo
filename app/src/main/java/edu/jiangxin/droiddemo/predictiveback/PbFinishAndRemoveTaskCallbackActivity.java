@@ -17,7 +17,7 @@ public class PbFinishAndRemoveTaskCallbackActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pb_finish_and_remove_task_callback);
         if ("Baklava".equals(Build.VERSION.CODENAME)) {
             OnBackInvokedDispatcher dispatcher = getOnBackInvokedDispatcher();
-            dispatcher.registerOnBackInvokedCallback(0, SystemOnBackInvokedCallbacks.finishAndRemoveTaskCallback(this));
+            dispatcher.registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, SystemOnBackInvokedCallbacks.finishAndRemoveTaskCallback(this));
         }
     }
 

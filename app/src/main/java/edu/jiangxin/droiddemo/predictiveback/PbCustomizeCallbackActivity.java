@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.window.BackEvent;
 import android.window.OnBackAnimationCallback;
+import android.window.OnBackInvokedDispatcher;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -35,7 +36,7 @@ public class PbCustomizeCallbackActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pb_customize_callback);
-        getOnBackInvokedDispatcher().registerOnBackInvokedCallback(0, this.mAnimationCallback);
+        getOnBackInvokedDispatcher().registerOnBackInvokedCallback(OnBackInvokedDispatcher.PRIORITY_DEFAULT, this.mAnimationCallback);
     }
 
     @Override

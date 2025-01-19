@@ -63,7 +63,16 @@
             android:name=".predictiveback.PbCustomizeCallbackActivity"
             android:exported="false" />
         <activity
+            android:name=".predictiveback.PbDoubleBackActivity"
+            android:exported="false" />
+        <activity
             android:name=".predictiveback.PbMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".predictiveback.PbCustomAnimationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".predictiveback.PbSystemNavigationObserverActivity"
             android:exported="false" />
         <activity
             android:name=".ime.ImeActivity"

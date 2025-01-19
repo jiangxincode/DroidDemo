@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#4caf50">
+    android:layout_height="match_parent">
 
     <Button
         android:id="@+id/btnToDefaultActivity"
@@ -43,6 +42,36 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnToFinishAndRemoveTaskCallbackActivity"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnToDoubleBackActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="跳转到双击返回退出界面"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMoveTaskToBackCallbackActivity"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnToCustomAnimationActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="自定义返回动画效果"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnToDoubleBackActivity"
+        android:layout_marginTop="20dp" />
+
+    <Button
+        android:id="@+id/btnToSystemNavigationObserverActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="系统导航观察者优先级"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnToCustomAnimationActivity"
         android:layout_marginTop="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

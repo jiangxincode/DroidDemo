@@ -41,18 +41,27 @@ public class PbMainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
-            OnBackInvokedDispatcher dispatcher = getOnBackInvokedDispatcher();
-            dispatcher.registerOnBackInvokedCallback(0, SystemOnBackInvokedCallbacks.finishAndRemoveTaskCallback(this));
-        }
+        Button btnToDoubleBackActivity = findViewById(R.id.btnToDoubleBackActivity);
+        btnToDoubleBackActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(PbMainActivity.this, PbDoubleBackActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnToCustomAnimationActivity = findViewById(R.id.btnToCustomAnimationActivity);
+        btnToCustomAnimationActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(PbMainActivity.this, PbCustomAnimationActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnToSystemNavigationObserverActivity = findViewById(R.id.btnToSystemNavigationObserverActivity);
+        btnToSystemNavigationObserverActivity.setOnClickListener(v -> {
+            Intent intent = new Intent(PbMainActivity.this, PbSystemNavigationObserverActivity.class);
+            startActivity(intent);
+        });
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.BAKLAVA) {
-            OnBackInvokedDispatcher dispatcher = getOnBackInvokedDispatcher();
-            dispatcher.unregisterOnBackInvokedCallback(SystemOnBackInvokedCallbacks.finishAndRemoveTaskCallback(this));
-        }
     }
 }
