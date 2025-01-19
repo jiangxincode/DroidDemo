@@ -27,7 +27,7 @@ public class SpeechRecognizeActivity extends Activity implements View.OnClickLis
     private TextView result;
     private SpeechRecognizer mSpeechRecognizer;
 
-    private String string = "what's your name";
+    private final String string = "what's your name";
 
     @Override
     public void onClick(View v) {
@@ -117,7 +117,7 @@ public class SpeechRecognizeActivity extends Activity implements View.OnClickLis
             if (partialResults != null && partialResults.size() > 0) {
                 String bestResult = partialResults.get(0);
                 bestResult = bestResult.substring(0, bestResult.length() - 1);
-                result.setText(bestResult + "");
+                result.setText(bestResult);
                 if (bestResult.equals(string)) {
                     Toast.makeText(SpeechRecognizeActivity.this, "正确", Toast.LENGTH_SHORT).show();
                 }
@@ -157,10 +157,8 @@ public class SpeechRecognizeActivity extends Activity implements View.OnClickLis
             NetworkInfo info = connectivity.getActiveNetworkInfo();
             if (info != null && info.isConnected()) {
                 // 当前网络是连接的
-                if (info.getState() == NetworkInfo.State.CONNECTED) {
-                    // 当前所连接的网络可用
-                    return true;
-                }
+                // 当前所连接的网络可用
+                return info.getState() == NetworkInfo.State.CONNECTED;
             }
         }
         return false;

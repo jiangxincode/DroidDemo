@@ -16,7 +16,7 @@ public class JniRenderer implements GLSurfaceView.Renderer {
 
     private final String TAG = "JNI_RENDERER";
 
-    private AssetManager mAssetMgr;
+    private final AssetManager mAssetMgr;
 
     public native void nativeOnSurfaceCreated();
 

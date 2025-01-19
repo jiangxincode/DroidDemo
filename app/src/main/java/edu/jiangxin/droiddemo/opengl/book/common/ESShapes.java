@@ -73,7 +73,7 @@ public class ESShapes {
             for (j = 0; j < numSlices + 1; j++) {
                 int vertex = (i * (numSlices + 1) + j) * 3;
 
-                mVertices.put(vertex + 0,
+                mVertices.put(vertex,
                         (float) (radius
                                 * Math.sin(angleStep * (float) i) * Math
                                 .sin(angleStep * (float) j)));
@@ -86,12 +86,12 @@ public class ESShapes {
                                         * Math.sin(angleStep * (float) i) * Math
                                         .cos(angleStep * (float) j)));
 
-                mNormals.put(vertex + 0, mVertices.get(vertex + 0) / radius);
+                mNormals.put(vertex, mVertices.get(vertex) / radius);
                 mNormals.put(vertex + 1, mVertices.get(vertex + 1) / radius);
                 mNormals.put(vertex + 2, mVertices.get(vertex + 2) / radius);
 
                 int texIndex = (i * (numSlices + 1) + j) * 2;
-                mTexCoords.put(texIndex + 0, (float) j / (float) numSlices);
+                mTexCoords.put(texIndex, (float) j / (float) numSlices);
                 mTexCoords.put(texIndex + 1, (1.0f - (float) i)
                         / (float) (numParallels - 1));
             }

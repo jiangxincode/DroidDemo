@@ -53,7 +53,7 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 	private ScrollableViewGroup mSvg_main;
 	private EasyMusicActivity mInstance;
 	private LrcUtil mLrcUtil;
-	private Handler handler = new Handler() {//接收结果,刷新ui
+	private final Handler handler = new Handler() {//接收结果,刷新ui
 
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
@@ -113,8 +113,8 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 			default:
 				break;
 			}
-		};
-	};
+		}
+    };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -130,15 +130,15 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 	 * 初始化控件
 	 */
 	private void initView() {
-		mTv_curduration = (TextView) findViewById(R.id.tv_curduration);
-		mTv_minilrc = (TextView) findViewById(R.id.tv_minilrc);
-		mTv_totalduration = (TextView) findViewById(R.id.tv_totalduration);
-		mSk_duration = (SeekBar) findViewById(R.id.sk_duration);
-		mIv_bottom_model = (ImageView) findViewById(R.id.iv_bottom_model);
-		mIv_bottom_play = (ImageView) findViewById(R.id.iv_bottom_play);
-		mLv_list = (ListView) findViewById(R.id.lv_list);
-		mSvg_main = (ScrollableViewGroup) findViewById(R.id.svg_main);
-		mTv_lyricShow = (LyricShow) findViewById(R.id.tv_lrc);
+		mTv_curduration = findViewById(R.id.tv_curduration);
+		mTv_minilrc = findViewById(R.id.tv_minilrc);
+		mTv_totalduration = findViewById(R.id.tv_totalduration);
+		mSk_duration = findViewById(R.id.sk_duration);
+		mIv_bottom_model = findViewById(R.id.iv_bottom_model);
+		mIv_bottom_play = findViewById(R.id.iv_bottom_play);
+		mLv_list = findViewById(R.id.lv_list);
+		mSvg_main = findViewById(R.id.svg_main);
+		mTv_lyricShow = findViewById(R.id.tv_lrc);
 		//默认选中第一个
 		findViewById(R.id.ib_top_play).setSelected(true);
 	}
@@ -211,7 +211,7 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 		});
 	}
 
-	private int[] topArr = { R.id.ib_top_play, R.id.ib_top_list, R.id.ib_top_lrc, R.id.ib_top_volumn };
+	private final int[] topArr = { R.id.ib_top_play, R.id.ib_top_list, R.id.ib_top_lrc, R.id.ib_top_volumn };
 	private LyricShow mTv_lyricShow;
 
 	/**
@@ -357,14 +357,14 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 	 * @param color
 	 */
 	public void changeColorWhite() {
-		TextView tv = (TextView) mLv_list.findViewWithTag(MediaUtils.CURPOSITION);
+		TextView tv = mLv_list.findViewWithTag(MediaUtils.CURPOSITION);
 		if (tv != null) {
 			tv.setTextColor(Color.WHITE);
 		}
 	}
 
 	public void changeColorGreen() {
-		TextView tv = (TextView) mLv_list.findViewWithTag(MediaUtils.CURPOSITION);
+		TextView tv = mLv_list.findViewWithTag(MediaUtils.CURPOSITION);
 		if (tv != null) {
 			tv.setTextColor(Color.GREEN);
 		}

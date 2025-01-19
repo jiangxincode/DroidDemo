@@ -33,7 +33,7 @@ public class CircleRenderer implements GLSurfaceView.Renderer {
 
     private final FloatBuffer mVertexBuffer;
 
-    private float[] matrix = new float[16];
+    private final float[] matrix = new float[16];
 
     private int mProgram;
 

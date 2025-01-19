@@ -13,14 +13,13 @@ import edu.jiangxin.droiddemo.easychat.activity.EasyChatActivity;
 
 import edu.jiangxin.droiddemo.tools.mortgagecalc.MainActivity;
 import edu.jiangxin.droiddemo.easymusic.EasyMusicActivity;
-import edu.jiangxin.droiddemo.smartbj.activity.SplashActivity;
 
 /**
  * Created by jiang on 2018/1/21.
  */
 
 public class ToolsFragment extends Fragment {
-    private Button mBtnMortgageCalculator, mBtnEasyMusic, mBtnEasyChat, mBtnSmartBj, mBtnGooglePlay;
+    private Button mBtnMortgageCalculator, mBtnEasyMusic, mBtnEasyChat;
 
     private View root;
 
@@ -47,20 +46,6 @@ public class ToolsFragment extends Fragment {
         mBtnEasyChat.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), EasyChatActivity.class);
-            startActivity(intent);
-        });
-
-        mBtnSmartBj = root.findViewById(R.id.btnSmartBj);
-        mBtnSmartBj.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setClass(getContext(), SplashActivity.class);
-            startActivity(intent);
-        });
-
-        mBtnGooglePlay = root.findViewById(R.id.btnGooglePlay);
-        mBtnGooglePlay.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setClass(getContext(), com.itheima.googleplay_8.MainActivity.class);
             startActivity(intent);
         });
         return root;

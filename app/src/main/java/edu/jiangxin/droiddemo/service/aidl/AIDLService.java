@@ -47,7 +47,7 @@ public class AIDLService extends Service {
                     mBooks.add(book);
                 }
                 //打印mBooks列表，观察客户端传过来的值
-                Log.e(TAG, "invoking addBooks() method , now the list is : " + mBooks.toString());
+                Log.e(TAG, "invoking addBooks() method , now the list is : " + mBooks);
             }
         }
     };

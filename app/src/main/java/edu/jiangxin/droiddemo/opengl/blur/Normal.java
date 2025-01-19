@@ -20,9 +20,8 @@ public class Normal
     @Override
     public boolean equals(Object o)
     {
-        if(o instanceof  Normal)
+        if(o instanceof Normal tn)
         {//若两个法向量XYZ三个分量的差都小于指定的阈值则认为这两个法向量相等
-            Normal tn=(Normal)o;
             return Math.abs(nx - tn.nx) < DIFF &&
                     Math.abs(ny - tn.ny) < DIFF &&
                     Math.abs(ny - tn.ny) < DIFF;

@@ -55,7 +55,7 @@ public class ContactsFragment extends Fragment {
 	}
 
 	private void initView(View view) {
-		mListView = (ListView) view.findViewById(R.id.listView);
+		mListView = view.findViewById(R.id.listView);
 	}
 
 	private void initListener() {
@@ -134,9 +134,9 @@ public class ContactsFragment extends Fragment {
 							// 设置数据显示数据
 							@Override
 							public void bindView(View view, Context context, Cursor cursor) {
-								ImageView ivHead = (ImageView) view.findViewById(R.id.head);
-								TextView tvAccount = (TextView) view.findViewById(R.id.account);
-								TextView tvNickName = (TextView) view.findViewById(R.id.nickname);
+								ImageView ivHead = view.findViewById(R.id.head);
+								TextView tvAccount = view.findViewById(R.id.account);
+								TextView tvNickName = view.findViewById(R.id.nickname);
 
 								String acccount =
 										cursor.getString(c.getColumnIndex(ContactOpenHelper.ContactTable.ACCOUNT));

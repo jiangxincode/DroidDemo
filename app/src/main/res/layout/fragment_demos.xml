@@ -319,6 +319,13 @@
                 android:textAllCaps="false"
                 android:text= "输入法" />
 
+            <Button
+                android:id="@+id/btnSystemShare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAllCaps="false"
+                android:text="系统分享功能演示" />
+
         </LinearLayout>
     </ScrollView>
 

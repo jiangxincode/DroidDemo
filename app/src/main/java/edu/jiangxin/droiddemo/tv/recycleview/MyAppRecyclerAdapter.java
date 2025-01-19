@@ -14,8 +14,8 @@ import edu.jiangxin.droiddemo.R;
  * Created by lmh on 2016/8/12.
  */
 public class MyAppRecyclerAdapter extends BaseRecyclerAdapter<String> {
-    private BlowUpUtil blowUpUtil;
-    private Context mContext;
+    private final BlowUpUtil blowUpUtil;
+    private final Context mContext;
     private boolean isHeader = false;
     private RecyclerView recyclerView;
 
@@ -75,12 +75,12 @@ public class MyAppRecyclerAdapter extends BaseRecyclerAdapter<String> {
     }
 
     private class MyHolder extends BaseRecyclerAdapter.Holder {
-        private TextView tvDescribe;
+        private final TextView tvDescribe;
 
 
         MyHolder(View itemView) {
             super(itemView);
-            tvDescribe = (TextView) itemView.findViewById(R.id.tv_describe);
+            tvDescribe = itemView.findViewById(R.id.tv_describe);
         }
     }
 

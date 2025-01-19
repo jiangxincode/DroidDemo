@@ -204,7 +204,8 @@ public class ResultCombinationActivity extends Activity {
     //3.设置ViewPager
     public void initViewPager() {
         viewList = new ArrayList<View>();
-        LayoutInflater layoutInflater = getLayoutInflater().from(this);
+        getLayoutInflater();
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
 
         view1 = layoutInflater.inflate(R.layout.viewpager_capital_interest_combination, null);
         view2 = layoutInflater.inflate(R.layout.viewpager_capital_combination, null);
@@ -480,10 +481,10 @@ public class ResultCombinationActivity extends Activity {
             }
         }
 
-        oneTimeStrings = (String[]) timeList.toArray(new String[timeList.size()]);
-        oneCapitalStrings = (String[]) capitalList.toArray(new String[capitalList.size()]);
-        oneInterestStrings = (String[]) interestList.toArray(new String[interestList.size()]);
-        oneMonthPayStrings = (String[]) monthPayList.toArray(new String[monthPayList.size()]);
+        oneTimeStrings = timeList.toArray(new String[timeList.size()]);
+        oneCapitalStrings = capitalList.toArray(new String[capitalList.size()]);
+        oneInterestStrings = interestList.toArray(new String[interestList.size()]);
+        oneMonthPayStrings = monthPayList.toArray(new String[monthPayList.size()]);
     }
 
     //8.等额本金数据整理
@@ -563,10 +564,10 @@ public class ResultCombinationActivity extends Activity {
             }
         }
 
-        twoTimeStrings = (String[]) timeList.toArray(new String[timeList.size()]);
-        twoCapitalStrings = (String[]) capitalList.toArray(new String[capitalList.size()]);
-        twoInterestStrings = (String[]) interestList.toArray(new String[interestList.size()]);
-        twoMonthPayStrings = (String[]) monthPayList.toArray(new String[monthPayList.size()]);
+        twoTimeStrings = timeList.toArray(new String[timeList.size()]);
+        twoCapitalStrings = capitalList.toArray(new String[capitalList.size()]);
+        twoInterestStrings = interestList.toArray(new String[interestList.size()]);
+        twoMonthPayStrings = monthPayList.toArray(new String[monthPayList.size()]);
     }
 
     //9.显示结果

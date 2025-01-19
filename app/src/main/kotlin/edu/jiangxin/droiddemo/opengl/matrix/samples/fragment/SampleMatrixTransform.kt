@@ -28,7 +28,7 @@ class SampleMatrixTransform : Fragment() {
 
     private lateinit var glSurfaceView: GLSurfaceView
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentSampleMatrixTransformBinding.inflate(inflater, container, false)
         val rootView = binding.root
         glSurfaceView = rootView.findViewById(R.id.glsurfaceview)
@@ -107,7 +107,7 @@ class SampleMatrixTransform : Fragment() {
 
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): VH {
             _binding = ItemParameterListBinding.inflate(LayoutInflater.from(p0.context), null, false)
-            return VH(binding);
+            return VH(binding)
         }
 
         override fun getItemCount(): Int {

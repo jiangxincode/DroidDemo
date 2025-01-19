@@ -34,10 +34,7 @@ public class ContactsProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mHelper = new ContactOpenHelper(getContext());
-        if (mHelper != null) {
-            return true;
-        }
-        return false;
+        return mHelper != null;
     }
 
     @Override

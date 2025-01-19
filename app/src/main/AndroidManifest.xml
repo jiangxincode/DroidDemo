@@ -41,6 +41,8 @@
         </intent>
     </queries>
 
+    <uses-feature android:name="android.software.renderscript" />
+
     <application
         android:name=".ApplicationExt"
         android:allowBackup="true"
@@ -331,46 +333,7 @@
         <activity
             android:name=".tools.mortgagecalc.ResultCombinationActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".smartbj.activity.SplashActivity" />
-        <activity android:name=".smartbj.activity.GuideActivity" />
-        <activity android:name=".smartbj.activity.NewsDetailAcitivity" />
-        <activity
-            android:name="com.mob.tools.MobUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <intent-filter>
-                <data android:scheme="tencent100371282" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name="cn.sharesdk.framework.ShareSDKUIShell"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
-            android:windowSoftInputMode="stateHidden|adjustResize">
-            <intent-filter>
-                <data android:scheme="tencent100371282" />
-
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.BROWSABLE" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".smartbj.activity.MainActivity" />
-        <activity
-            android:name="com.itheima.googleplay_8.MainActivity"
-            android:exported="true" />
-        <activity android:name="com.itheima.googleplay_8.activity.DetailActivity" />
+        <activity android:name=".activity.SystemShareActivity" />
     </application>
 
 </manifest>

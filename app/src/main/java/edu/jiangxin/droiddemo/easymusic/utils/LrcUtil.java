@@ -92,7 +92,7 @@ public class LrcUtil {
 			int pos2 = LRCText.indexOf("]");
 
 			if (pos1 == 0 && pos2 != -1) {
-				Long time[] = new Long[GetPossiblyTagCount(LRCText)];
+				Long[] time = new Long[GetPossiblyTagCount(LRCText)];
 				time[0] = TimeToLong(LRCText.substring(pos1 + 1, pos2));
 				if (time[0] == -1)
 					return ""; // LRCText
@@ -130,8 +130,8 @@ public class LrcUtil {
 	}
 
 	private int GetPossiblyTagCount(String Line) {
-		String strCount1[] = Line.split("\\[");
-		String strCount2[] = Line.split("\\]");
+		String[] strCount1 = Line.split("\\[");
+		String[] strCount2 = Line.split("\\]");
 		if (strCount1.length == 0 && strCount2.length == 0)
 			return 1;
 		else if (strCount1.length > strCount2.length)
@@ -149,7 +149,7 @@ public class LrcUtil {
 			int mill = 0;
 			if (s2.length > 1)
 				mill = Integer.parseInt(s2[1]);
-			return min * 60 * 1000 + sec * 1000 + mill * 10;
+			return (long) min * 60 * 1000 + sec * 1000L + mill * 10L;
 		} catch (Exception e) {
 			return -1;
 		}

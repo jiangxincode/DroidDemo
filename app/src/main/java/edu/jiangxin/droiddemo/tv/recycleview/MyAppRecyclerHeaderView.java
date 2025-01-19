@@ -20,7 +20,7 @@ import edu.jiangxin.droiddemo.R;
 public class MyAppRecyclerHeaderView extends LinearLayout implements MyAppRecyclerView.BorderListener {
 
     private MyAppRecyclerView rvContent;
-    private ArrayList<String> mDatas = new ArrayList<>();
+    private final ArrayList<String> mDatas = new ArrayList<>();
     private GridLayoutManager mLayoutManager;
     private MyAppRecyclerAdapter mAdapter;
     private HeaderBorderListener headerBorderListener;
@@ -63,8 +63,8 @@ public class MyAppRecyclerHeaderView extends LinearLayout implements MyAppRecycl
         this.setClipToPadding(false);
         this.setFocusable(false);
         View view = LayoutInflater.from(getContext()).inflate(R.layout.widget_my_app_header, this);
-        rvContent = (MyAppRecyclerView) view.findViewById(R.id.rv_my_app_header_content);
-        tvRecent = (TextView) view.findViewById(R.id.tv_my_app_header_recent);
+        rvContent = view.findViewById(R.id.rv_my_app_header_content);
+        tvRecent = view.findViewById(R.id.tv_my_app_header_recent);
         rvContent.setClipChildren(false);
         rvContent.setClipToPadding(false);
         rvContent.setHasFixedSize(true);

@@ -114,8 +114,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initView() {
-        mEtUserName = (TextView) findViewById(R.id.et_username);
-        mEtPassWord = (TextView) findViewById(R.id.et_password);
-        mBtnLogin = (Button) findViewById(R.id.btn_login);
+        mEtUserName = findViewById(R.id.et_username);
+        mEtPassWord = findViewById(R.id.et_password);
+        mBtnLogin = findViewById(R.id.btn_login);
     }
 }

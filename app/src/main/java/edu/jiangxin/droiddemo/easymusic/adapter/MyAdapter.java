@@ -12,7 +12,7 @@ import edu.jiangxin.droiddemo.easymusic.bean.Music;
 import edu.jiangxin.droiddemo.easymusic.utils.MediaUtils;
 
 public class MyAdapter extends BaseAdapter {
-    private Context context;
+    private final Context context;
 
     public MyAdapter(Context context) {
         super();
@@ -47,8 +47,8 @@ public class MyAdapter extends BaseAdapter {
             convertView = View.inflate(context, R.layout.item_music, null);
             holder = new ViewHolder();
             convertView.setTag(holder);//设置tag的作用
-            holder.tv_title = (TextView) convertView.findViewById(R.id.tv_title);
-            holder.tv_artist = (TextView) convertView.findViewById(R.id.tv_artist);
+            holder.tv_title = convertView.findViewById(R.id.tv_title);
+            holder.tv_artist = convertView.findViewById(R.id.tv_artist);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }

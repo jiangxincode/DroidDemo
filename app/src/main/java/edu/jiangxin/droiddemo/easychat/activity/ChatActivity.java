@@ -200,9 +200,9 @@ public class ChatActivity extends AppCompatActivity {
                                         convertView.setTag(holder);
 
                                         // holder赋值
-                                        holder.time = (TextView) convertView.findViewById(R.id.time);
-                                        holder.body = (TextView) convertView.findViewById(R.id.content);
-                                        holder.head = (ImageView) convertView.findViewById(R.id.head);
+                                        holder.time = convertView.findViewById(R.id.time);
+                                        holder.body = convertView.findViewById(R.id.content);
+                                        holder.head = convertView.findViewById(R.id.head);
                                     } else {
                                         holder = (ViewHolder) convertView.getTag();
                                     }
@@ -215,9 +215,9 @@ public class ChatActivity extends AppCompatActivity {
                                         convertView.setTag(holder);
 
                                         // holder赋值
-                                        holder.time = (TextView) convertView.findViewById(R.id.time);
-                                        holder.body = (TextView) convertView.findViewById(R.id.content);
-                                        holder.head = (ImageView) convertView.findViewById(R.id.head);
+                                        holder.time = convertView.findViewById(R.id.time);
+                                        holder.body = convertView.findViewById(R.id.content);
+                                        holder.head = convertView.findViewById(R.id.head);
                                     } else {
                                         holder = (ViewHolder) convertView.getTag();
                                     }

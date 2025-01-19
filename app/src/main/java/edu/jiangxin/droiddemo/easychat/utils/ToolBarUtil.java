@@ -12,7 +12,7 @@ import edu.jiangxin.droiddemo.R;
 
 public class ToolBarUtil {
 
-    private List<TextView> mTextViews = new ArrayList<TextView>();
+    private final List<TextView> mTextViews = new ArrayList<TextView>();
 
     public void createToolBar(LinearLayout container, String[] toolBarTitleArr, int[] iconArr) {
 

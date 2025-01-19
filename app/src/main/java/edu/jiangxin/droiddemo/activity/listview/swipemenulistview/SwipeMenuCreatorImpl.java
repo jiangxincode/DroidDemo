@@ -11,7 +11,7 @@ import edu.jiangxin.droiddemo.Utils;
 
 public class SwipeMenuCreatorImpl implements SwipeMenuCreator {
     @NonNull
-    private Context mContext;
+    private final Context mContext;
 
     public SwipeMenuCreatorImpl(@NonNull Context mContext) {
         this.mContext = mContext;

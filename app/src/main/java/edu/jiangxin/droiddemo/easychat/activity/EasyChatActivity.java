@@ -26,7 +26,7 @@ public class EasyChatActivity extends AppCompatActivity {
 
 	LinearLayout			mMainBottom;
 
-	private List<Fragment>	mFragments	= new ArrayList<Fragment>();
+	private final List<Fragment>	mFragments	= new ArrayList<Fragment>();
 	private ToolBarUtil		mToolBarUtil;
 	private String[]		mToolBarTitleArr;
 

@@ -206,8 +206,7 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
         animator.addListener(new AnimatorListenerAdapter() {
         });
 
-        if (animator instanceof ValueAnimator) {
-            ValueAnimator valueAnimator = (ValueAnimator) animator;
+        if (animator instanceof ValueAnimator valueAnimator) {
             valueAnimator.addUpdateListener(animation -> {
             });
         }

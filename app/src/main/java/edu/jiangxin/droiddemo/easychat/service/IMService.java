@@ -42,7 +42,7 @@ public class IMService extends Service {
     private ChatManager mChatManager;
     private Chat mCurChat;
 
-    private Map<Jid, Chat> mChatMap = new HashMap<>();
+    private final Map<Jid, Chat> mChatMap = new HashMap<>();
 
     @Override
     public IBinder onBind(Intent intent) {

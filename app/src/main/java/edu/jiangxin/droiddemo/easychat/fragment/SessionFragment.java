@@ -53,7 +53,7 @@ public class SessionFragment extends Fragment {
 	}
 
 	private void initView(View view) {
-		mListView = (ListView) view.findViewById(R.id.listView);
+		mListView = view.findViewById(R.id.listView);
 	}
 
 	private void initData() {
@@ -128,9 +128,9 @@ public class SessionFragment extends Fragment {
 							// 设置数据显示数据
 							@Override
 							public void bindView(View view, Context context, Cursor cursor) {
-								ImageView ivHead = (ImageView) view.findViewById(R.id.head);
-								TextView tvBody = (TextView) view.findViewById(R.id.body);
-								TextView tvNickName = (TextView) view.findViewById(R.id.nickname);
+								ImageView ivHead = view.findViewById(R.id.head);
+								TextView tvBody = view.findViewById(R.id.body);
+								TextView tvNickName = view.findViewById(R.id.nickname);
 
 								String body = c.getString(c.getColumnIndex(SmsOpenHelper.SmsTable.BODY));
 								String acccount = c.getString(c.getColumnIndex(SmsOpenHelper.SmsTable.SESSION_ACCOUNT));

@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import edu.jiangxin.droiddemo.R;
@@ -33,9 +34,7 @@ public class ListViewActivity extends Activity {
         String[] menu = new String[]{"ExpandableList", "GridView", "ListView侧滑",
                 "ViewFlipper"};
 
-        for (int i = 0; i < menu.length; ++i) {
-            menuList.add(menu[i]);
-        }
+        Collections.addAll(menuList, menu);
 
         adapter = new ListViewMenuAdapter(this, menuList);
         lv_view.setAdapter(adapter);

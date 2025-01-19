@@ -100,10 +100,9 @@ public class ShaderUtil {
             while ((ch = in.read()) != -1) {
                 baos.write(ch);
             }
-            byte[] buff = baos.toByteArray();
             baos.close();
             in.close();
-            result = new String(buff, StandardCharsets.UTF_8);
+            result = baos.toString(StandardCharsets.UTF_8);
             result = result.replaceAll("\\r\\n", "\n");
         } catch (Exception e) {
             e.printStackTrace();

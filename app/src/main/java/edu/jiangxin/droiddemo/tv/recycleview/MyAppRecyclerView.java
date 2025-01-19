@@ -70,8 +70,7 @@ public class MyAppRecyclerView extends RecyclerView {
         View view = this.getFocusedChild();
         LayoutManager layoutManager = this.getLayoutManager();
         int focusPos = layoutManager.getPosition(view);
-        if (layoutManager instanceof GridLayoutManager) {
-            GridLayoutManager gridLayoutManager = (GridLayoutManager) layoutManager;
+        if (layoutManager instanceof GridLayoutManager gridLayoutManager) {
             int spanCount = gridLayoutManager.getSpanCount();
             int itemCount = layoutManager.getItemCount();
             int rowCount;

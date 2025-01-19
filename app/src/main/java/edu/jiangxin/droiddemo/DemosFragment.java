@@ -58,6 +58,7 @@ import edu.jiangxin.droiddemo.speechrecognize.SpeechRecognizeActivity;
 import edu.jiangxin.droiddemo.tv.recycleview.RecycleViewTv;
 import edu.jiangxin.droiddemo.usagestats.UsageStatsActivity;
 import edu.jiangxin.droiddemo.vibrator.VibratorActivity;
+import edu.jiangxin.droiddemo.activity.SystemShareActivity;
 
 /**
  * Created by jiang on 2018/1/21.
@@ -428,6 +429,13 @@ public class DemosFragment extends Fragment {
         btnImeEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), ImeActivity.class);
+            startActivity(intent);
+        });
+
+        Button btnSystemShare = root.findViewById(R.id.btnSystemShare);
+        btnSystemShare.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), SystemShareActivity.class);
             startActivity(intent);
         });
 

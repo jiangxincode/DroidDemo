@@ -4,7 +4,6 @@ public class CustomAnimationActivity extends BaseViewAnimationActivity {
 
     @Override
     protected void starXmlAnimation() {
-        return;
     }
 
     @Override

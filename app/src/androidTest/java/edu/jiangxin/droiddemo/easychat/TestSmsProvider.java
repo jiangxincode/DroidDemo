@@ -62,7 +62,7 @@ public class TestSmsProvider {
 			for (int i = 0; i < columnCount; i++) {
 				System.out.print(c.getString(i) + "  ");
 			}
-			System.out.println("");
+			System.out.println();
 		}
 	}
 }

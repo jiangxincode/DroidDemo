@@ -12,13 +12,13 @@ import edu.jiangxin.droiddemo.R;
  * Created by lmh on 2016/1/13.
  */
 public class BlowUpUtil {
-    private float SCALE_FACTOR = 1.05f;
-    private float SCALE_FACTOR_2 = 1.08f;
+    private final float SCALE_FACTOR = 1.05f;
+    private final float SCALE_FACTOR_2 = 1.08f;
 
     private ScaleAnimation mAnimation;
     private ScaleAnimation mAnimationUpDown;
-    private Context context;
-    private CustNineDrawable custNineDrawable;
+    private final Context context;
+    private final CustNineDrawable custNineDrawable;
     private View lastView;
     private int itemDistanceEnd = 200;//default 30dp
 

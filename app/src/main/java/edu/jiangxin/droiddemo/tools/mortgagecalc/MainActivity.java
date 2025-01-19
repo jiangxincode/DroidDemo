@@ -215,7 +215,8 @@ public class MainActivity extends Activity {
     //2.初始化ViewPager
     public void initViewPager() {
         viewList = new ArrayList<View>();
-        LayoutInflater layoutInflater = getLayoutInflater().from(this);
+        getLayoutInflater();
+        LayoutInflater layoutInflater = LayoutInflater.from(this);
 
         //三个标题
         commercialLoanView = layoutInflater.inflate(R.layout.viewpager_commercialloan, null);
@@ -966,7 +967,8 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> paybackMethodAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, paybackMethods) {
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                LayoutInflater layoutInflater = getLayoutInflater().from(MainActivity.this);
+                getLayoutInflater();
+                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
                 View view = layoutInflater.inflate(R.layout.spinner_item1, null);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(paybackMethods[position]);
@@ -1026,7 +1028,8 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> timeAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, times) {
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                LayoutInflater layoutInflater = getLayoutInflater().from(MainActivity.this);
+                getLayoutInflater();
+                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
                 View view = layoutInflater.inflate(R.layout.spinner_item1, null);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(times[position]);
@@ -1100,7 +1103,8 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> calculationMethodAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, calculationMethods) {
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                LayoutInflater layoutInflater = getLayoutInflater().from(MainActivity.this);
+                getLayoutInflater();
+                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
                 View view = layoutInflater.inflate(R.layout.spinner_item1, null);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(calculationMethods[position]);
@@ -1190,7 +1194,8 @@ public class MainActivity extends Activity {
         ArrayAdapter<String> percentAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, percents) {
             @Override
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                LayoutInflater layoutInflater = getLayoutInflater().from(MainActivity.this);
+                getLayoutInflater();
+                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
                 View view = layoutInflater.inflate(R.layout.spinner_item1, null);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(percents[position]);

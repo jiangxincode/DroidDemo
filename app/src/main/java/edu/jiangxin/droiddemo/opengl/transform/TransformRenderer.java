@@ -47,8 +47,8 @@ public class TransformRenderer implements GLSurfaceView.Renderer {
     private int mHeight;
     private final FloatBuffer mVertices;
     private final ShortBuffer mIndices;
-    private Context mContext;
-    private String mResPath;
+    private final Context mContext;
+    private final String mResPath;
 
     public TransformRenderer(Context context, String resPath) {
         mContext = context;

@@ -25,7 +25,7 @@ public class RecycleViewTv extends AppCompatActivity implements MyAppRecyclerVie
         super.onCreate(savedInstanceState);
         setTheme(R.style.TvTheme);
         setContentView(R.layout.activity_recycle_view_tv);
-        mRecyclerView = (MyAppRecyclerView) this.findViewById(R.id.rv_my_app_content);
+        mRecyclerView = this.findViewById(R.id.rv_my_app_content);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new MyAppGridLayoutManager(this, 6);
         mAdapter = new MyAppRecyclerAdapter(this);

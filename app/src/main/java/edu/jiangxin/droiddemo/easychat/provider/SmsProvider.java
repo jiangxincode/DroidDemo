@@ -33,10 +33,7 @@ public class SmsProvider extends ContentProvider {
     @Override
     public boolean onCreate() {
         mHelper = new SmsOpenHelper(getContext());
-        if (mHelper != null) {
-            return true;
-        }
-        return false;
+        return mHelper != null;
     }
 
     @Override

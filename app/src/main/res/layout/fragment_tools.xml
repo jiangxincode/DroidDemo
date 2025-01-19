@@ -36,18 +36,6 @@
                 android:layout_height="wrap_content"
                 android:text="EasyChat" />
 
-            <Button
-                android:id="@+id/btnSmartBj"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="SmartBj" />
-
-            <Button
-                android:id="@+id/btnGooglePlay"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="GooglePlay" />
-
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

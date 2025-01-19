@@ -35,7 +35,7 @@ public class ScrollableViewGroup extends ViewGroup {
 
 	public interface OnCurrentViewChangedListener {
 
-		public void onCurrentViewChanged(View view, int currentview);
+		void onCurrentViewChanged(View view, int currentview);
 	}
 
 	/** * @param context */

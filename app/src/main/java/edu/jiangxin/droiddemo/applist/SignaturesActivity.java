@@ -146,15 +146,14 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 			// 获取证书对象
 			X509Certificate cert = SignaturesMsg.getX509Certificate(pInfo.signatures);
 			// 设置有效期
-			StringBuilder sbEffective = new StringBuilder();
-			sbEffective.append(mDateFormat.format(cert.getNotBefore()));
-			sbEffective.append("\t至\t");
-			sbEffective.append(mDateFormat.format(cert.getNotAfter()));
-			sbEffective.append("\n\n");
-			sbEffective.append(cert.getNotBefore());
-			sbEffective.append("\t至\t");
-			sbEffective.append(cert.getNotAfter());
-			mEffectiveTv.setText(sbEffective.toString());
+            String sbEffective = mDateFormat.format(cert.getNotBefore()) +
+                    "\t至\t" +
+                    mDateFormat.format(cert.getNotAfter()) +
+                    "\n\n" +
+                    cert.getNotBefore() +
+                    "\t至\t" +
+                    cert.getNotAfter();
+			mEffectiveTv.setText(sbEffective);
 			// 证书是否过期 true = 过期,false = 未过期
 			boolean isEffective = false;
 			try {
@@ -188,7 +187,7 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 			// certMsg[1] = cert.getSubjectDN().toString();
 		} catch (Exception e) {
 			e.printStackTrace();
-			showToast("获取异常：" + e.toString());
+			showToast("获取异常：" + e);
 		}
 	}
 
