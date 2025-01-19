@@ -125,8 +125,7 @@
         <activity android:name=".service.commonservice.CommonServiceActivity" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true"
-            android:label="@string/app_name">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -301,7 +300,7 @@
 
         <activity
             android:name=".easychat.SplashActivity"
-            android:label="@string/app_name" />
+            />
         <activity
             android:name=".easychat.activity.LoginActivity"
             android:label="LoginActivity" />
@@ -324,7 +323,6 @@
             android:label="@string/title_activity_chat" />
         <activity
             android:name=".tools.mortgagecalc.MainActivity"
-            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan|stateHidden" />
         <activity
