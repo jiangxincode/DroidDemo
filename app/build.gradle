@@ -38,7 +38,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    ndkVersion '25.1.8937393'
+    ndkVersion '27.2.12479018'
     lint {
         checkReleaseBuilds false
         abortOnError false
