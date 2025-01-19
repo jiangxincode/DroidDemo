@@ -23,7 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
-                android:text="可预测返回手势" />
+                android:text="可预测返回" />
 
             <Button
                 android:id="@+id/btnUsageStats"
