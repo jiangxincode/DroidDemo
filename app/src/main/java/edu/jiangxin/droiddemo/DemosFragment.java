@@ -50,6 +50,7 @@ import edu.jiangxin.droiddemo.layout.VariousLayoutActivity;
 import edu.jiangxin.droiddemo.mediastore.MediaStoreDemoActivity;
 import edu.jiangxin.droiddemo.note.NoteActivity;
 import edu.jiangxin.droiddemo.opengl.OpenGlEntranceActivity;
+import edu.jiangxin.droiddemo.predictiveback.PbMainActivity;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 import edu.jiangxin.droiddemo.roundcorner.VariousRoundCornerActivity;
 import edu.jiangxin.droiddemo.saf.SafActivity;
@@ -90,6 +91,13 @@ public class DemosFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_demos, container, false);
+
+        Button btnPredictiveBack = root.findViewById(R.id.btnPredictiveBack);
+        btnPredictiveBack.setOnClickListener(v -> {
+            Intent intent = new Intent();
+            intent.setClass(getContext(), PbMainActivity.class);
+            startActivity(intent);
+        });
 
         Button btnUsageStats = root.findViewById(R.id.btnUsageStats);
         btnUsageStats.setOnClickListener(v -> {

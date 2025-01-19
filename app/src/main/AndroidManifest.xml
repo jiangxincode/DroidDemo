@@ -44,15 +44,31 @@
     <application
         android:name=".ApplicationExt"
         android:allowBackup="true"
+        android:enableOnBackInvokedCallback="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ime.ImeActivity"
-            android:windowSoftInputMode="adjustPan"
+            android:name=".predictiveback.PbDefaultActivity"
             android:exported="false" />
+        <activity
+            android:name=".predictiveback.PbMoveTaskToBackCallbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".predictiveback.PbFinishAndRemoveTaskCallbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".predictiveback.PbCustomizeCallbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".predictiveback.PbMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ime.ImeActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SensorActivity"
             android:exported="false" />
@@ -341,8 +357,7 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".smartbj.activity.MainActivity" />
+        <activity android:name=".smartbj.activity.MainActivity" />
         <activity
             android:name="com.itheima.googleplay_8.MainActivity"
             android:exported="true" />

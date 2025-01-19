@@ -3,11 +3,12 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdk 34
+    compileSdkPreview "Baklava"
     defaultConfig {
         applicationId "edu.jiangxin.droiddemo"
         versionCode 1001000
         versionName "1.1.0"
-        minSdkVersion 32
+        minSdkVersion 34
         targetSdkVersion 34
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -65,6 +66,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     implementation 'com.belerweb:pinyin4j:2.5.1'
+    implementation 'androidx.activity:activity:1.8.0'
 
     testImplementation 'junit:junit:4.13.2'
 
