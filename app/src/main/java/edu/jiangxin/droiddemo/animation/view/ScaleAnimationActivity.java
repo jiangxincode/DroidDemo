@@ -1,8 +1,6 @@
 package edu.jiangxin.droiddemo.animation.view;
 
 
-import android.annotation.TargetApi;
-import android.os.Build;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.view.animation.ScaleAnimation;
@@ -14,7 +12,6 @@ public class ScaleAnimationActivity extends BaseViewAnimationActivity {
     /**
      * 使用AnimationUtils类的静态方法loadAnimation()来加载XML中的动画XML文件
      */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void starXmlAnimation() {
         mImage.clearAnimation();

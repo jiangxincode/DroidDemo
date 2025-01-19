@@ -3,7 +3,6 @@ package edu.jiangxin.droiddemo;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,18 +72,14 @@ public class DemosFragment extends Fragment {
     private static final int REQUEST_CODE_VIDEO_VIEW = 10020;
     private static final int REQUEST_CODE_MEDIA_STORE = 10021;
 
-    private static String[] MEDIA_PERMISSIONS;
+    private static final String[] MEDIA_PERMISSIONS;
 
     static {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            MEDIA_PERMISSIONS = new String[]{
-                    Manifest.permission.READ_MEDIA_IMAGES,
-                    Manifest.permission.READ_MEDIA_AUDIO,
-                    Manifest.permission.READ_MEDIA_VIDEO
-            };
-        } else {
-            MEDIA_PERMISSIONS = new String[]{Manifest.permission.READ_EXTERNAL_STORAGE};
-        }
+        MEDIA_PERMISSIONS = new String[]{
+                Manifest.permission.READ_MEDIA_IMAGES,
+                Manifest.permission.READ_MEDIA_AUDIO,
+                Manifest.permission.READ_MEDIA_VIDEO
+        };
     }
 
     @Nullable

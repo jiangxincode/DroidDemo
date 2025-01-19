@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.RingtoneManager;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
@@ -122,13 +121,11 @@ public class RingtoneSettingActivity extends Activity {
     }
 
     private void checkWriteSettingPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            // 判断是否有WRITE_SETTINGS权限if(!Settings.System.canWrite(this))
-            if (!Settings.System.canWrite(this)) {
-                Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
-                        Uri.parse("package:" + getPackageName()));
-                startActivityForResult(intent, REQUEST_CODE_PERMISSIONS);
-            }
+        // 判断是否有WRITE_SETTINGS权限if(!Settings.System.canWrite(this))
+        if (!Settings.System.canWrite(this)) {
+            Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
+                    Uri.parse("package:" + getPackageName()));
+            startActivityForResult(intent, REQUEST_CODE_PERMISSIONS);
         }
     }
 

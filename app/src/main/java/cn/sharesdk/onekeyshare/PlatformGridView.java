@@ -8,18 +8,11 @@
 
 package cn.sharesdk.onekeyshare;
 
-import static cn.sharesdk.framework.utils.R.*;
-import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import m.framework.ui.widget.viewpager.ViewPagerAdapter;
-import m.framework.ui.widget.viewpager.ViewPagerClassic;
+import static cn.sharesdk.framework.utils.R.getBitmapRes;
+
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.os.Build;
 import android.os.Handler.Callback;
 import android.os.Message;
 import android.util.AttributeSet;
@@ -32,11 +25,20 @@ import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 import cn.sharesdk.framework.CustomPlatform;
 import cn.sharesdk.framework.FakeActivity;
 import cn.sharesdk.framework.Platform;
 import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.framework.utils.UIHandler;
+import m.framework.ui.widget.viewpager.ViewPagerAdapter;
+import m.framework.ui.widget.viewpager.ViewPagerClassic;
 
 /** 平台宫格列表显示工具。 */
 public class PlatformGridView extends LinearLayout implements
@@ -274,9 +276,6 @@ public class PlatformGridView extends LinearLayout implements
 
 	// 禁用页面滚动的“发光”效果
 	private void disableOverScrollMode(View view) {
-		if (Build.VERSION.SDK_INT < 9) {
-			return;
-		}
 		try {
 			Method m = View.class.getMethod("setOverScrollMode",
 					new Class[] { Integer.TYPE });

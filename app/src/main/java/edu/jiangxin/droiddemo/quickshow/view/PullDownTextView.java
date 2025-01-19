@@ -2,11 +2,8 @@ package edu.jiangxin.droiddemo.quickshow.view;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import android.os.Build;
-import androidx.annotation.Nullable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.View;
@@ -15,6 +12,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
 
 import edu.jiangxin.droiddemo.R;
 
@@ -200,15 +199,8 @@ public class PullDownTextView extends LinearLayout implements View.OnClickListen
      * @param id ： 图片的Id
      * @return ：获取到的图片
      */
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private Drawable getDrawable(int id) {
-        Drawable drawable;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            drawable = getContext().getResources().getDrawable(id, getContext().getTheme());
-        } else {
-            drawable = getContext().getResources().getDrawable(id, null);
-        }
-        return drawable;
+        return getContext().getResources().getDrawable(id, getContext().getTheme());
     }
 
     /**
