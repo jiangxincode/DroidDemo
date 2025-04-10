@@ -76,7 +76,7 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.yyued:SVGAPlayer-Android:2.6.1'
-    implementation 'com.airbnb.android:lottie:6.5.2'
+    implementation 'com.airbnb.android:lottie:6.6.6'
     implementation 'com.facebook.fresco:fresco:3.5.0'
     implementation 'commons-io:commons-io:2.18.0'
     
