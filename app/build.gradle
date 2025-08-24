@@ -38,6 +38,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
     ndkVersion '27.2.12479018'
     lint {
         checkReleaseBuilds false
@@ -56,7 +59,7 @@ dependencies {
 
     implementation 'androidx.appcompat:appcompat:1.7.0'
     implementation 'com.google.android.material:material:1.11.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.2.0'
     implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
@@ -66,7 +69,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     implementation 'com.belerweb:pinyin4j:2.5.1'
-    implementation 'androidx.activity:activity:1.8.0'
+    implementation 'androidx.activity:activity:1.10.1'
 
     testImplementation 'junit:junit:4.13.2'
 
@@ -76,7 +79,7 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.yyued:SVGAPlayer-Android:2.6.1'
-    implementation 'com.airbnb.android:lottie:6.5.2'
+    implementation 'com.airbnb.android:lottie:6.6.6'
     implementation 'com.facebook.fresco:fresco:3.6.0'
     implementation 'commons-io:commons-io:2.18.0'
     
@@ -90,7 +93,7 @@ dependencies {
     implementation("org.igniterealtime.smack:smack-tcp:4.4.8") {
         exclude group: 'xpp3', module: 'xpp3'
     }
-    // Optional for XMPP-IM (RFC 6121) support (Roster, Threaded Chats, ��)
+    // Optional for XMPP-IM (RFC 6121) support
     implementation("org.igniterealtime.smack:smack-im:4.4.8") {
         exclude group: 'xpp3', module: 'xpp3'
     }
