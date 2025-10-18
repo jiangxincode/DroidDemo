@@ -21,8 +21,8 @@ allprojects {
     repositories {
         google()
         mavenCentral()
-        maven { url "https://jzaccone.github.io/SlidingMenu-aar" }
-        maven { url 'https://jitpack.io' }
+        maven { url = "https://jzaccone.github.io/SlidingMenu-aar" }
+        maven { url = 'https://jitpack.io' }
     }
     gradle.projectsEvaluated {
         tasks.withType(JavaCompile) {

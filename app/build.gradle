@@ -3,7 +3,7 @@ apply plugin: 'kotlin-android'
 
 android {
     compileSdk 34
-    compileSdkPreview "Baklava"
+    compileSdkPreview = "Baklava"
     defaultConfig {
         applicationId "edu.jiangxin.droiddemo"
         versionCode 1001000
@@ -41,16 +41,16 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    ndkVersion '27.2.12479018'
+    ndkVersion = '27.2.12479018'
     lint {
-        checkReleaseBuilds false
-        abortOnError false
+        checkReleaseBuilds = false
+        abortOnError = false
     }
-    namespace 'edu.jiangxin.droiddemo'
+    namespace = 'edu.jiangxin.droiddemo'
 
     buildFeatures {
-        viewBinding true
-        aidl true
+        viewBinding = true
+        aidl = true
     }
 }
 
