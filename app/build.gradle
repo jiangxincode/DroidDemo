@@ -57,11 +57,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.7.1'
     implementation 'com.google.android.material:material:1.11.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.2.0'
-    implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0-alpha03'
+    implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
     implementation 'org.rajawali3d:rajawali:1.2.1970@aar'
@@ -73,15 +73,15 @@ dependencies {
 
     testImplementation 'junit:junit:4.13.2'
 
-    androidTestImplementation 'androidx.test:runner:1.6.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.6.1'
+    androidTestImplementation 'androidx.test:runner:1.7.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.github.yyued:SVGAPlayer-Android:2.6.1'
-    implementation 'com.airbnb.android:lottie:6.6.6'
+    implementation 'com.airbnb.android:lottie:6.6.7'
     implementation 'com.facebook.fresco:fresco:3.6.0'
-    implementation 'commons-io:commons-io:2.18.0'
+    implementation 'commons-io:commons-io:2.20.0'
     
     implementation("org.igniterealtime.smack:smack-android-extensions:4.4.8") {
         exclude group: 'xpp3', module: 'xpp3'
@@ -100,7 +100,7 @@ dependencies {
 
     implementation 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
     implementation 'com.jeremyfeinstein.slidingmenu:library:1.3@aar'
-    implementation 'com.google.code.gson:gson:2.11.0'
+    implementation 'com.google.code.gson:gson:2.13.2'
     
     implementation 'com.astuetz:pagerslidingtabstrip:1.0.1'
 }
