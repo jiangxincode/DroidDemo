@@ -13,6 +13,11 @@
 
 ## Installation
 
+```shell
+./gradlew clean build --warning-mode=all 2>&1 > "$(Get-Date -Format yyyyMMddHHmm).log"
+./gradlew app:dependencies --configuration releaseRuntimeClasspath 2>&1 > dependencies.dump
+```
+
 ## Usage
 
 ## Configuration

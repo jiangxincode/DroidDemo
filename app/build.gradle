@@ -1,9 +1,10 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdk 34
-    compileSdkPreview = "Baklava"
+    compileSdk = 36
     defaultConfig {
         applicationId "edu.jiangxin.droiddemo"
         versionCode 1001000
@@ -16,7 +17,7 @@ android {
     buildTypes {
         release {
             minifyEnabled true
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
 
         }
     }
@@ -38,10 +39,15 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions {
-        jvmTarget = '17'
+
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.JVM_17
+        }
     }
+
     ndkVersion = '27.2.12479018'
+
     lint {
         checkReleaseBuilds = false
         abortOnError = false
@@ -61,6 +67,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.13.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.2.1'
     implementation 'androidx.vectordrawable:vectordrawable:1.2.0'
+    //noinspection KtxExtensionAvailable
     implementation 'androidx.dynamicanimation:dynamicanimation:1.1.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
 
@@ -69,6 +76,7 @@ dependencies {
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
     implementation 'com.belerweb:pinyin4j:2.5.1'
+    //noinspection KtxExtensionAvailable
     implementation 'androidx.activity:activity:1.11.0'
 
     testImplementation 'junit:junit:4.13.2'
