@@ -1,7 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical">
 
     <ScrollView
@@ -31,7 +30,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15.0dip"
-                    android:shadowColor="@android:color/black"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
@@ -43,7 +41,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5.0dip"
-                    android:shadowColor="@android:color/black"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
@@ -67,12 +64,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="是否是系统签名"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -93,12 +88,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="MD5"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -119,12 +112,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="SHA1"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -145,12 +136,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="SHA256"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -171,12 +160,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="有效时间"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -197,12 +184,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="签名是否过期"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -223,12 +208,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="证书发布方"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -249,12 +232,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="证书版本号"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -275,12 +256,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="证书算法名称"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -301,12 +280,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="证书算法OID"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -327,12 +304,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="证书机器码"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 
@@ -353,12 +328,10 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:shadowColor="#0080FF"
                     android:shadowDx="0"
                     android:shadowDy="4"
                     android:shadowRadius="4"
                     android:text="证书DER编码"
-                    android:textColor="@android:color/black"
                     android:textSize="15.0sp"
                     android:textStyle="bold" />
 

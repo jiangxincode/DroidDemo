@@ -8,11 +8,9 @@
         android:id="@+id/catalog"
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:background="#E0E0E0"
         android:paddingStart="5dip"
         android:paddingTop="5dip"
-        android:paddingBottom="5dip"
-        android:textColor="#454545" />
+        android:paddingBottom="5dip" />
 
     <RelativeLayout
         android:layout_width="match_parent"

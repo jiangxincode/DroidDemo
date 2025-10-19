@@ -1,7 +1,6 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical">
 
     <LinearLayout
@@ -30,19 +29,15 @@
         <ListView
             android:id="@+id/am_listview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@android:color/white"
-            android:listSelector="@drawable/listview_item_selector" />
+            android:layout_height="match_parent" />
 
         <TextView
             android:id="@+id/title_layout_no_friends"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="end|top"
-            android:background="#E0E0E0"
             android:gravity="center_vertical"
             android:text="没有匹配的应用"
-            android:textColor="#454545"
             android:visibility="gone" />
 
         <LinearLayout
@@ -50,18 +45,15 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_gravity="end|top"
-            android:background="#ff303030"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/title_layout_catalog"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#E0E0E0"
                 android:paddingStart="5dip"
                 android:paddingTop="5dip"
-                android:paddingBottom="5dip"
-                android:textColor="#454545" />
+                android:paddingBottom="5dip" />
         </LinearLayout>
 
         <TextView
@@ -71,7 +63,6 @@
             android:layout_gravity="center"
             android:background="@drawable/show_head_toast_bg"
             android:gravity="center"
-            android:textColor="#ffffffff"
             android:textSize="30sp"
             android:visibility="invisible" />
 

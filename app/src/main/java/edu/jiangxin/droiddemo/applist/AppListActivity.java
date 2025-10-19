@@ -376,7 +376,12 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
             outputFormat.setToneType(HanyuPinyinToneType.WITHOUT_TONE);
             for (char c : str.toCharArray()) {
                 String[] pinyinArray = PinyinHelper.toHanyuPinyinStringArray(c, outputFormat);
-                sb.append(pinyinArray[0]).append("-");
+                if (pinyinArray == null || pinyinArray.length == 0) {
+                    sb.append("#");
+                } else {
+                    sb.append(pinyinArray[0]);
+                }
+                sb.append("-");
             }
             return sb.toString();
         } catch (BadHanyuPinyinOutputFormatCombination e) {
