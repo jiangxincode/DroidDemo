@@ -9,7 +9,7 @@ android {
         versionCode 1001000
         versionName "1.1.0"
         minSdkVersion 34
-        targetSdkVersion 34
+        targetSdkVersion 36
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
