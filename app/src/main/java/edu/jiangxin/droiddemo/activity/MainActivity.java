@@ -4,29 +4,30 @@ import android.content.Intent;
 import android.content.pm.ShortcutInfo;
 import android.content.pm.ShortcutManager;
 import android.graphics.drawable.Icon;
-import android.os.Build;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import androidx.viewpager.widget.ViewPager;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.StrictMode;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.jiangxin.droiddemo.ToolsFragment;
 import edu.jiangxin.droiddemo.DemosFragment;
 import edu.jiangxin.droiddemo.HomeFragment;
-import edu.jiangxin.droiddemo.adapter.MainActivityViewPagerAdapter;
 import edu.jiangxin.droiddemo.R;
+import edu.jiangxin.droiddemo.ToolsFragment;
+import edu.jiangxin.droiddemo.adapter.MainActivityViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,19 +48,13 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
 
-        ActionBar actionBar = getSupportActionBar();
-
-        //是否显示对应图标
-        /*actionBar.setHomeButtonEnabled(false);
-        actionBar.setDisplayShowHomeEnabled(true);
-        actionBar.setIcon(R.mipmap.ic_launcher);*/
-
-        //显示返回图标
-        actionBar.setDisplayHomeAsUpEnabled(true);
-
-        // 显示标题
-        actionBar.setDisplayShowTitleEnabled(true);
-
+        View container = findViewById(R.id.container);
+        ViewCompat.setOnApplyWindowInsetsListener(container, (v, insets) -> {
+            int typeMask = WindowInsetsCompat.Type.statusBars() | WindowInsetsCompat.Type.displayCutout();
+            Insets sysInsets = insets.getInsets(typeMask);
+            v.setPadding(sysInsets.left, sysInsets.top, sysInsets.right, sysInsets.bottom);
+            return insets;
+        });
 
         navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -152,42 +147,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onStop() {
         Log.i(TAG, "onStop");
         super.onStop();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.actionbar_main, menu);
-
-        MenuItem home = menu.findItem(R.id.navigation_home);
-        home.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                mainActivityViewPager.setCurrentItem(0);
-                return true;
-            }
-        });
-
-        MenuItem dashboard = menu.findItem(R.id.navigation_dashboard);
-        dashboard.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                mainActivityViewPager.setCurrentItem(1);
-                return true;
-            }
-        });
-
-        MenuItem notifications = menu.findItem(R.id.navigation_notifications);
-        notifications.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                mainActivityViewPager.setCurrentItem(2);
-                return true;
-            }
-        });
-
-
-        return super.onCreateOptionsMenu(menu);
     }
 
     private void setupShortcuts() {

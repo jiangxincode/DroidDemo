@@ -51,7 +51,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme.ActionBar">
         <activity
             android:name=".predictiveback.PbDefaultActivity"
             android:exported="false" />
@@ -125,7 +125,8 @@
         <activity android:name=".service.commonservice.CommonServiceActivity" />
         <activity
             android:name=".activity.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
