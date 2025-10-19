@@ -85,9 +85,11 @@ dependencies {
     
     implementation("org.igniterealtime.smack:smack-android-extensions:4.4.8") {
         exclude group: 'xpp3', module: 'xpp3'
+        exclude(group: "xpp3", module: "xpp3_min")
     }
     implementation("org.igniterealtime.smack:smack-android:4.4.8") {
         exclude group: 'xpp3', module: 'xpp3'
+        exclude(group: "xpp3", module: "xpp3_min")
     }
     // Optional for XMPPTCPConnection
     implementation("org.igniterealtime.smack:smack-tcp:4.4.8") {
