@@ -35,7 +35,6 @@ import edu.jiangxin.droiddemo.activity.ScaleTextActivity;
 import edu.jiangxin.droiddemo.activity.SettingActivity;
 import edu.jiangxin.droiddemo.activity.SpannableStringActivity;
 import edu.jiangxin.droiddemo.activity.SpinnerActivity;
-import edu.jiangxin.droiddemo.activity.ThemeActivity;
 import edu.jiangxin.droiddemo.activity.ThreadDemoActivity;
 import edu.jiangxin.droiddemo.activity.VariousNotificationActivity;
 import edu.jiangxin.droiddemo.activity.VideoViewActivity;
@@ -331,13 +330,6 @@ public class DemosFragment extends Fragment {
         btnPreferenceEntrance.setOnClickListener(v -> {
             Intent intent = new Intent();
             intent.setClass(getContext(), SettingActivity.class);
-            startActivity(intent);
-        });
-
-        Button btnThemeEntrance = root.findViewById(R.id.btnThemeEntrance);
-        btnThemeEntrance.setOnClickListener(v -> {
-            Intent intent = new Intent();
-            intent.setClass(getContext(), ThemeActivity.class);
             startActivity(intent);
         });
 

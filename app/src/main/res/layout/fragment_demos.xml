@@ -243,13 +243,6 @@
                 android:text="Preference" />
 
             <Button
-                android:id="@+id/btnThemeEntrance"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textAllCaps="false"
-                android:text="切换主题" />
-
-            <Button
                 android:id="@+id/btnSpinnerEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
