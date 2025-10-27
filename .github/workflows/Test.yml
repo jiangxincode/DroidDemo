@@ -54,7 +54,7 @@ jobs:
           script: ./gradlew connectedCheck
 
       - name: Upload Reports
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ matrix.target }}-${{ matrix.api-level }}-test-report
           path: app/build/reports
