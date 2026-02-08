@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+// 'kotlin-android' plugin is no longer needed - AGP 9.0+ has built-in Kotlin support
 
 android {
     compileSdk = 36
