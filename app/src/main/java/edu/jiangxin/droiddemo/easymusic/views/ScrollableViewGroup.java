@@ -144,7 +144,6 @@ public class ScrollableViewGroup extends ViewGroup {
 	 * * (non-Javadoc) * @see
 	 * android.view.ViewGroup#dispatchDraw(android.graphics.Canvas)
 	 */
-	@SuppressWarnings("deprecation")
 	@Override
 	protected void dispatchDraw(Canvas canvas) {
 		boolean fastDraw = mTouchState != TOUCH_STATE_SCROLLING && mNextScreen == INVALID_SCREEN;
@@ -345,7 +344,6 @@ public class ScrollableViewGroup extends ViewGroup {
 
 	}
 
-	@SuppressWarnings("deprecation")
 	void enableChildrenCache() {
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {

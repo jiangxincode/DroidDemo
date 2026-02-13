@@ -49,7 +49,6 @@ public class OthersInfoRunnable implements Runnable {
         handler.sendMessage(message);
     }
 
-    @SuppressWarnings("deprecation")
     private static String getIPAddress(Context context) {
         NetworkInfo info = ((ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();

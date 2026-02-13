@@ -148,7 +148,6 @@ public class SpeechRecognizeActivity extends Activity implements View.OnClickLis
         this.mSpeechRecognizer.destroy();
     }
 
-    @SuppressWarnings("deprecation")
     public static boolean isNetworkAvailable(Context context) {
         ConnectivityManager connectivity = (ConnectivityManager) context
                 .getSystemService(Context.CONNECTIVITY_SERVICE);

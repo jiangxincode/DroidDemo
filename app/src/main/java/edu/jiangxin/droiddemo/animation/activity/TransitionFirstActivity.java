@@ -64,7 +64,6 @@ public class TransitionFirstActivity extends Activity {
                 TransitionSecondActivity.class), compat.toBundle());
     }
 
-    @SuppressWarnings("deprecation")
     private void thumbNailScaleAnim(ImageView _chromeImageView) {
         _chromeImageView.setDrawingCacheEnabled(true);
         _chromeImageView.buildDrawingCache();
