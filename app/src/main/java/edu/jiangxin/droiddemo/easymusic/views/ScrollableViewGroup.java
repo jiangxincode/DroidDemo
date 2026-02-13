@@ -1,6 +1,7 @@
 package edu.jiangxin.droiddemo.easymusic.views;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
@@ -12,6 +13,9 @@ import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ScrollableViewGroup extends ViewGroup {
 	private static final int INVALID_SCREEN = -1;
@@ -32,6 +36,7 @@ public class ScrollableViewGroup extends ViewGroup {
 	private VelocityTracker mVelocityTracker;
 	private int mPaintFlag = 0;
 	private OnCurrentViewChangedListener mOnCurrentViewChangedListener;
+	private Map<View, Bitmap> mChildBitmapCache = new HashMap<>();
 
 	public interface OnCurrentViewChangedListener {
 
@@ -164,12 +169,13 @@ public class ScrollableViewGroup extends ViewGroup {
 
 				} else {
 					Paint paint = new Paint();
-					if (mPaintFlag < 0) {
-						canvas.drawBitmap(viewNext.getDrawingCache(), -viewNext.getWidth(), viewNext.getTop(), paint);
-					} else {
-						canvas.drawBitmap(viewNext.getDrawingCache(), getWidth() * getChildCount(), viewNext.getTop(),
-								paint);
-
+					Bitmap nextBitmap = getViewBitmap(viewNext);
+					if (nextBitmap != null) {
+						if (mPaintFlag < 0) {
+							canvas.drawBitmap(nextBitmap, -viewNext.getWidth(), viewNext.getTop(), paint);
+						} else {
+							canvas.drawBitmap(nextBitmap, getWidth() * getChildCount(), viewNext.getTop(), paint);
+						}
 					}
 				}
 			} else {
@@ -183,11 +189,16 @@ public class ScrollableViewGroup extends ViewGroup {
 					Paint paint = new Paint();
 					if (mPaintFlag < 0) {
 						viewNext = getChildAt(getChildCount() - 1);
-						canvas.drawBitmap(viewNext.getDrawingCache(), -viewNext.getWidth(), viewNext.getTop(), paint);
+						Bitmap nextBitmap = getViewBitmap(viewNext);
+						if (nextBitmap != null) {
+							canvas.drawBitmap(nextBitmap, -viewNext.getWidth(), viewNext.getTop(), paint);
+						}
 					} else {
 						viewNext = getChildAt(0);
-						canvas.drawBitmap(viewNext.getDrawingCache(), getWidth() * getChildCount(), viewNext.getTop(),
-								paint);
+						Bitmap nextBitmap = getViewBitmap(viewNext);
+						if (nextBitmap != null) {
+							canvas.drawBitmap(nextBitmap, getWidth() * getChildCount(), viewNext.getTop(), paint);
+						}
 					}
 				}
 			}
@@ -348,11 +359,9 @@ public class ScrollableViewGroup extends ViewGroup {
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {
 			final View layout = getChildAt(i);
-			layout.setDrawingCacheEnabled(true);
+			createViewBitmap(layout);
 			if (layout instanceof ViewGroup) {
-
 				((ViewGroup) layout).setAlwaysDrawnWithCacheEnabled(true);
-
 			}
 		}
 	}
@@ -361,11 +370,33 @@ public class ScrollableViewGroup extends ViewGroup {
 		final int count = getChildCount();
 		for (int i = 0; i < count; i++) {
 			final View layout = getChildAt(i);
+			Bitmap bitmap = mChildBitmapCache.remove(layout);
+			if (bitmap != null) {
+				bitmap.recycle();
+			}
 			if (layout instanceof ViewGroup) {
 				((ViewGroup) layout).setAlwaysDrawnWithCacheEnabled(false);
-
 			}
 		}
+	}
+
+	private void createViewBitmap(View view) {
+		if (view.getWidth() > 0 && view.getHeight() > 0) {
+			Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+			Canvas canvas = new Canvas(bitmap);
+			view.draw(canvas);
+			mChildBitmapCache.put(view, bitmap);
+		}
+	}
+
+	private Bitmap getViewBitmap(View view) {
+		Bitmap bitmap = mChildBitmapCache.get(view);
+		if (bitmap == null && view.getWidth() > 0 && view.getHeight() > 0) {
+			bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+			Canvas canvas = new Canvas(bitmap);
+			view.draw(canvas);
+		}
+		return bitmap;
 	}
 
 	/*

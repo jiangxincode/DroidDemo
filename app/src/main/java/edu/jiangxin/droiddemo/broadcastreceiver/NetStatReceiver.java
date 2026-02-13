@@ -4,7 +4,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -27,31 +30,55 @@ public class NetStatReceiver extends BroadcastReceiver {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
+        boolean isConnected;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network network = cm.getActiveNetwork();
+            NetworkCapabilities capabilities = network != null ? cm.getNetworkCapabilities(network) : null;
+            isConnected = capabilities != null &&
+                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+        } else {
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            isConnected = activeNetwork != null &&
+                    activeNetwork.isConnectedOrConnecting();
+        }
+        
         Log.i(TAG, "isConnected: " + isConnected);
         if (!isConnected) {
             return;
         }
 
-        NetworkInfo info = cm.getActiveNetworkInfo();
-        if (info == null) {
-            return;
-        }
-
         new Thread(networkTask).start();
 
-        switch (info.getType()) {
-            case ConnectivityManager.TYPE_WIFI:
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network network = cm.getActiveNetwork();
+            NetworkCapabilities capabilities = network != null ? cm.getNetworkCapabilities(network) : null;
+            if (capabilities == null) {
+                return;
+            }
+            
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
                 Log.i(TAG, "type is: TYPE_WIFI");
-                break;
-            case ConnectivityManager.TYPE_MOBILE:
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                 Log.i(TAG, "type is: TYPE_MOBILE");
-                Log.i(TAG, "sub type is: " + info.getSubtype());
-                break;
-             default:
-                break;
+            }
+        } else {
+            NetworkInfo info = cm.getActiveNetworkInfo();
+            if (info == null) {
+                return;
+            }
+            
+            switch (info.getType()) {
+                case ConnectivityManager.TYPE_WIFI:
+                    Log.i(TAG, "type is: TYPE_WIFI");
+                    break;
+                case ConnectivityManager.TYPE_MOBILE:
+                    Log.i(TAG, "type is: TYPE_MOBILE");
+                    Log.i(TAG, "sub type is: " + info.getSubtype());
+                    break;
+                 default:
+                    break;
+            }
         }
     }
 

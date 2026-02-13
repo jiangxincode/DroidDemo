@@ -3,9 +3,12 @@ package edu.jiangxin.droiddemo.quickshow.runable;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -50,12 +53,21 @@ public class OthersInfoRunnable implements Runnable {
     }
 
     private static String getIPAddress(Context context) {
-        NetworkInfo info = ((ConnectivityManager) context
-                .getSystemService(Context.CONNECTIVITY_SERVICE)).getActiveNetworkInfo();
-        if (info != null && info.isConnected()) {
-            if (info.getType() == ConnectivityManager.TYPE_MOBILE) {//当前使用2G/3G/4G网络
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network network = cm.getActiveNetwork();
+            if (network == null) {
+                return null;
+            }
+            
+            NetworkCapabilities capabilities = cm.getNetworkCapabilities(network);
+            if (capabilities == null) {
+                return null;
+            }
+            
+            if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)) {
                 try {
-                    //Enumeration<NetworkInterface> en=NetworkInterface.getNetworkInterfaces();
                     for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
                         NetworkInterface intf = en.nextElement();
                         for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
@@ -68,11 +80,33 @@ public class OthersInfoRunnable implements Runnable {
                 } catch (SocketException e) {
                     e.printStackTrace();
                 }
-
-            } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {//当前使用无线网络
+            } else if (capabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) {
                 WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
                 WifiInfo wifiInfo = wifiManager.getConnectionInfo();
                 return intIP2StringIP(wifiInfo.getIpAddress());
+            }
+        } else {
+            NetworkInfo info = cm.getActiveNetworkInfo();
+            if (info != null && info.isConnected()) {
+                if (info.getType() == ConnectivityManager.TYPE_MOBILE) {
+                    try {
+                        for (Enumeration<NetworkInterface> en = NetworkInterface.getNetworkInterfaces(); en.hasMoreElements(); ) {
+                            NetworkInterface intf = en.nextElement();
+                            for (Enumeration<InetAddress> enumIpAddr = intf.getInetAddresses(); enumIpAddr.hasMoreElements(); ) {
+                                InetAddress inetAddress = enumIpAddr.nextElement();
+                                if (!inetAddress.isLoopbackAddress() && inetAddress instanceof Inet4Address) {
+                                    return inetAddress.getHostAddress();
+                                }
+                            }
+                        }
+                    } catch (SocketException e) {
+                        e.printStackTrace();
+                    }
+                } else if (info.getType() == ConnectivityManager.TYPE_WIFI) {
+                    WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+                    WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                    return intIP2StringIP(wifiInfo.getIpAddress());
+                }
             }
         }
 

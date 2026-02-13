@@ -3,6 +3,7 @@ package edu.jiangxin.droiddemo.animation.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -65,14 +66,12 @@ public class TransitionFirstActivity extends Activity {
     }
 
     private void thumbNailScaleAnim(ImageView _chromeImageView) {
-        _chromeImageView.setDrawingCacheEnabled(true);
-        _chromeImageView.buildDrawingCache();
-        Bitmap bitmap = _chromeImageView.getDrawingCache();
+        Bitmap bitmap = Bitmap.createBitmap(_chromeImageView.getWidth(), _chromeImageView.getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+        _chromeImageView.draw(canvas);
         ActivityOptionsCompat options = ActivityOptionsCompat.makeThumbnailScaleUpAnimation(
                 _chromeImageView, bitmap, 0, 0);
-        // Request the activity be started, using the custom animation options.
         ActivityCompat.startActivity(this, new Intent(this, TransitionSecondActivity.class), options.toBundle());
-        _chromeImageView.setDrawingCacheEnabled(false);
     }
 
     private void scaleUpAnim(ImageView _originalImageView) {
