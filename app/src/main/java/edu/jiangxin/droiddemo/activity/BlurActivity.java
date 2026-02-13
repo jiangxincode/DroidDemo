@@ -25,7 +25,6 @@ import java.io.FileNotFoundException;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class BlurActivity extends Activity {
 
     private static final String TAG = "BlurActivity";

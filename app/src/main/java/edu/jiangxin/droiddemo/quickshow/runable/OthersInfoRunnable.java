@@ -20,7 +20,6 @@ import java.util.Enumeration;
 import edu.jiangxin.droiddemo.ApplicationExt;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
-@SuppressWarnings("deprecation")
 public class OthersInfoRunnable implements Runnable {
 
     private final Handler handler;

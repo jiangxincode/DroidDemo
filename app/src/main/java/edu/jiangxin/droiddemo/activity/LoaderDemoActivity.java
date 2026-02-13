@@ -32,7 +32,6 @@ import edu.jiangxin.droiddemo.R;
 /**
  * 使用加载器加载通话记录
  */
-@SuppressWarnings("deprecation")
 public class LoaderDemoActivity extends AppCompatActivity {
 
     private static final String TAG = "LoaderDemoActivity";

@@ -36,7 +36,6 @@ import java.text.SimpleDateFormat;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class ChatActivity extends AppCompatActivity {
 
     public static final String CLICKACCOUNT = "clickAccount";

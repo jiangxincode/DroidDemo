@@ -19,7 +19,6 @@ import java.util.ArrayList;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class SpeechRecognizeActivity extends Activity implements View.OnClickListener {
     private static final String TAG = "SpeechRecognizeTAG";
 

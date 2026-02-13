@@ -20,7 +20,6 @@ import java.net.URL;
  * Created by jiang on 2018/1/21.
  */
 
-@SuppressWarnings("deprecation")
 public class NetStatReceiver extends BroadcastReceiver {
     private  static  final String TAG = "NetStatReceiver";
     @Override

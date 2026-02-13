@@ -21,7 +21,6 @@ import android.widget.Toast;
 import edu.jiangxin.droiddemo.easymusic.conf.Constants;
 import edu.jiangxin.droiddemo.easymusic.utils.MediaUtils;
 
-@SuppressWarnings("deprecation")
 public class MusicService extends Service implements OnErrorListener, OnPreparedListener, OnCompletionListener,
 		OnAudioFocusChangeListener {
 

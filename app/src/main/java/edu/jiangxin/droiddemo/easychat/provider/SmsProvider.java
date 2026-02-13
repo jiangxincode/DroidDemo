@@ -10,7 +10,6 @@ import android.net.Uri;
 
 import edu.jiangxin.droiddemo.easychat.dbhelper.SmsOpenHelper;
 
-@SuppressWarnings("fallthrough")
 public class SmsProvider extends ContentProvider {
     private static final String AUTHORITIES = SmsProvider.class.getCanonicalName();
 

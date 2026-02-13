@@ -30,7 +30,6 @@ import javax.security.auth.x500.X500Principal;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class SignaturesActivity extends Activity implements OnClickListener {
 
 	private Context mContext;

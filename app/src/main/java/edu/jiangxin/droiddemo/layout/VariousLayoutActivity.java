@@ -9,7 +9,6 @@ import android.widget.TextView;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.service.intentservice.IntentServiceActivity;
 
-@SuppressWarnings("rawtypes")
 public class VariousLayoutActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvSimpleLayout, mTvConstraintLayout;

@@ -62,7 +62,6 @@ import edu.jiangxin.droiddemo.activity.SystemShareActivity;
 /**
  * Created by jiang on 2018/1/21.
  */
-@SuppressWarnings("deprecation")
 public class DemosFragment extends Fragment {
 
     private static final String TAG = "DemosFragment";

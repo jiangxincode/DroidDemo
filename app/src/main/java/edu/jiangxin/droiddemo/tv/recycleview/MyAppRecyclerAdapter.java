@@ -13,7 +13,6 @@ import edu.jiangxin.droiddemo.R;
 /**
  * Created by lmh on 2016/8/12.
  */
-@SuppressWarnings("rawtypes")
 public class MyAppRecyclerAdapter extends BaseRecyclerAdapter<String> {
     private final BlowUpUtil blowUpUtil;
     private final Context mContext;

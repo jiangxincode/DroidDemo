@@ -9,7 +9,6 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class DraweeViewActivity extends AppCompatActivity {
 
     private SimpleDraweeView simpleDraweeView;

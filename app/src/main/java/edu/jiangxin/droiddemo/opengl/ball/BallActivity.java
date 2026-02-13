@@ -8,7 +8,6 @@ import android.view.WindowManager;
 /**
  * OpenGL ES 3. 绘制球体 实战: https://blog.csdn.net/u010281924/article/details/105327231
  */
-@SuppressWarnings("deprecation")
 public class BallActivity extends Activity {
 
     private MySurfaceView mGLSurfaceView;

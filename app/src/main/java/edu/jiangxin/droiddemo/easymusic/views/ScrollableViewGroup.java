@@ -13,7 +13,6 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 import android.widget.Scroller;
 
-@SuppressWarnings({"deprecation", "fallthrough"})
 public class ScrollableViewGroup extends ViewGroup {
 	private static final int INVALID_SCREEN = -1;
 	private static final int TOUCH_STATE_REST = 0;

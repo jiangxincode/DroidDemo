@@ -42,7 +42,6 @@ import edu.jiangxin.droiddemo.easymusic.views.LyricShow;
 import edu.jiangxin.droiddemo.easymusic.views.ScrollableViewGroup;
 import edu.jiangxin.droiddemo.easymusic.views.ScrollableViewGroup.OnCurrentViewChangedListener;
 
-@SuppressWarnings("deprecation")
 public class EasyMusicActivity extends Activity implements OnClickListener {
 
 	private TextView mTv_curduration;

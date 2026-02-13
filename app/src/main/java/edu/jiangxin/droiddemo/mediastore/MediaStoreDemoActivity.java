@@ -25,7 +25,6 @@ import java.io.IOException;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class MediaStoreDemoActivity extends Activity {
 
     private ImageButton mPhotoImageButton;

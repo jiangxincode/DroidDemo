@@ -7,7 +7,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 
-@SuppressWarnings("deprecation")
 public class OpenGlBlurActivity extends Activity {
     private MySurfaceView mGLSurfaceView;
 

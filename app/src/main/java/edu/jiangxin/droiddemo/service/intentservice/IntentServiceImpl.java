@@ -4,7 +4,6 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.util.Log;
 
-@SuppressWarnings("deprecation")
 public class IntentServiceImpl extends IntentService {
 
     private static final String TAG = "IntentServiceImpl";

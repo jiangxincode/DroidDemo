@@ -18,7 +18,6 @@ import edu.jiangxin.droiddemo.animation.view.RotateAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.ScaleAnimationActivity;
 import edu.jiangxin.droiddemo.animation.view.TranslateAnimationActivity;
 
-@SuppressWarnings("rawtypes")
 public class VariousAnimationActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvAlphaAnimation, mTvScaleAnimation, mTvTranslateAnimation, mTvRotateAnimation, mTvCustomAnimation, mTvAnimationSet;

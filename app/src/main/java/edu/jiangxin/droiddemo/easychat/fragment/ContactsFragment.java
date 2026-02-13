@@ -26,7 +26,6 @@ import edu.jiangxin.droiddemo.easychat.utils.ThreadUtils;
 
 import edu.jiangxin.droiddemo.R;
 
-@SuppressWarnings("deprecation")
 public class ContactsFragment extends Fragment {
 
 	private ListView		mListView;

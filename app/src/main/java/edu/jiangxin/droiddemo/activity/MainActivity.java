@@ -29,7 +29,6 @@ import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.ToolsFragment;
 import edu.jiangxin.droiddemo.adapter.MainActivityViewPagerAdapter;
 
-@SuppressWarnings("deprecation")
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
