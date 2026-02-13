@@ -395,6 +395,7 @@ public class ScrollableViewGroup extends ViewGroup {
 			bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
 			Canvas canvas = new Canvas(bitmap);
 			view.draw(canvas);
+			mChildBitmapCache.put(view, bitmap);
 		}
 		return bitmap;
 	}
