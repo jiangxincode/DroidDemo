@@ -66,6 +66,9 @@ public class TransitionFirstActivity extends Activity {
     }
 
     private void thumbNailScaleAnim(ImageView _chromeImageView) {
+        if (_chromeImageView.getWidth() <= 0 || _chromeImageView.getHeight() <= 0) {
+            return;
+        }
         Bitmap bitmap = Bitmap.createBitmap(_chromeImageView.getWidth(), _chromeImageView.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(bitmap);
         _chromeImageView.draw(canvas);
