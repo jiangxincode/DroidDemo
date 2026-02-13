@@ -84,7 +84,7 @@ public class NetStatReceiver extends BroadcastReceiver {
                     Log.i(TAG, "type is: TYPE_MOBILE");
                     Log.i(TAG, "sub type is: " + info.getSubtype());
                     break;
-                 default:
+                default:
                     break;
             }
         }

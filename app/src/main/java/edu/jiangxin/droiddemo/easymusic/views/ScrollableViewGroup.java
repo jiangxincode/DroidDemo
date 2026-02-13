@@ -389,9 +389,7 @@ public class ScrollableViewGroup extends ViewGroup {
 				Bitmap existingBitmap = mChildBitmapCache.get(view);
 				if (existingBitmap == null) {
 					Bitmap bitmap = createBitmapFromView(view);
-					if (bitmap != null) {
-						mChildBitmapCache.put(view, bitmap);
-					}
+					mChildBitmapCache.put(view, bitmap);
 				}
 			}
 		}
@@ -402,22 +400,17 @@ public class ScrollableViewGroup extends ViewGroup {
 			Bitmap bitmap = mChildBitmapCache.get(view);
 			if (bitmap == null && view.getWidth() > 0 && view.getHeight() > 0) {
 				bitmap = createBitmapFromView(view);
-				if (bitmap != null) {
-					mChildBitmapCache.put(view, bitmap);
-				}
+				mChildBitmapCache.put(view, bitmap);
 			}
 			return bitmap;
 		}
 	}
 
 	private Bitmap createBitmapFromView(View view) {
-		if (view.getWidth() > 0 && view.getHeight() > 0) {
-			Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-			Canvas canvas = new Canvas(bitmap);
-			view.draw(canvas);
-			return bitmap;
-		}
-		return null;
+		Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+		Canvas canvas = new Canvas(bitmap);
+		view.draw(canvas);
+		return bitmap;
 	}
 
 	/*
