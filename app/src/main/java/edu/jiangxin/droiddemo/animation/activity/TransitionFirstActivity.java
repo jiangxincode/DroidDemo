@@ -72,6 +72,7 @@ public class TransitionFirstActivity extends Activity {
         ActivityOptionsCompat options = ActivityOptionsCompat.makeThumbnailScaleUpAnimation(
                 _chromeImageView, bitmap, 0, 0);
         ActivityCompat.startActivity(this, new Intent(this, TransitionSecondActivity.class), options.toBundle());
+        bitmap.recycle();
     }
 
     private void scaleUpAnim(ImageView _originalImageView) {
