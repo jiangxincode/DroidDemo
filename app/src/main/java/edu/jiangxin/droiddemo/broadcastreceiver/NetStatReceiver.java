@@ -25,23 +25,13 @@ import java.net.URL;
 
 public class NetStatReceiver extends BroadcastReceiver {
     private  static  final String TAG = "NetStatReceiver";
+    
     @Override
     public void onReceive(Context context, Intent intent) {
         ConnectivityManager cm =
                 (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        boolean isConnected;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            Network network = cm.getActiveNetwork();
-            NetworkCapabilities capabilities = network != null ? cm.getNetworkCapabilities(network) : null;
-            isConnected = capabilities != null &&
-                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
-                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
-        } else {
-            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-            isConnected = activeNetwork != null &&
-                    activeNetwork.isConnectedOrConnecting();
-        }
+        boolean isConnected = isNetworkConnected(cm);
         
         Log.i(TAG, "isConnected: " + isConnected);
         if (!isConnected) {
@@ -50,6 +40,24 @@ public class NetStatReceiver extends BroadcastReceiver {
 
         new Thread(networkTask).start();
 
+        logNetworkType(cm);
+    }
+    
+    private boolean isNetworkConnected(ConnectivityManager cm) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Network network = cm.getActiveNetwork();
+            NetworkCapabilities capabilities = network != null ? cm.getNetworkCapabilities(network) : null;
+            return capabilities != null &&
+                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET) &&
+                    capabilities.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED);
+        } else {
+            NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+            return activeNetwork != null &&
+                    activeNetwork.isConnectedOrConnecting();
+        }
+    }
+    
+    private void logNetworkType(ConnectivityManager cm) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Network network = cm.getActiveNetwork();
             NetworkCapabilities capabilities = network != null ? cm.getNetworkCapabilities(network) : null;

@@ -36,7 +36,8 @@ public class ScrollableViewGroup extends ViewGroup {
 	private VelocityTracker mVelocityTracker;
 	private int mPaintFlag = 0;
 	private OnCurrentViewChangedListener mOnCurrentViewChangedListener;
-	private Map<View, Bitmap> mChildBitmapCache = new HashMap<>();
+	private final Map<View, Bitmap> mChildBitmapCache = new HashMap<>();
+	private final Object mCacheLock = new Object();
 
 	public interface OnCurrentViewChangedListener {
 
@@ -367,35 +368,45 @@ public class ScrollableViewGroup extends ViewGroup {
 	}
 
 	void clearChildrenCache() {
-		final int count = getChildCount();
-		for (int i = 0; i < count; i++) {
-			final View layout = getChildAt(i);
-			Bitmap bitmap = mChildBitmapCache.remove(layout);
-			if (bitmap != null) {
-				bitmap.recycle();
-			}
-			if (layout instanceof ViewGroup) {
-				((ViewGroup) layout).setAlwaysDrawnWithCacheEnabled(false);
+		synchronized (mCacheLock) {
+			final int count = getChildCount();
+			for (int i = 0; i < count; i++) {
+				final View layout = getChildAt(i);
+				Bitmap bitmap = mChildBitmapCache.remove(layout);
+				if (bitmap != null) {
+					bitmap.recycle();
+				}
+				if (layout instanceof ViewGroup) {
+					((ViewGroup) layout).setAlwaysDrawnWithCacheEnabled(false);
+				}
 			}
 		}
 	}
 
 	private void createViewBitmap(View view) {
-		if (view.getWidth() > 0 && view.getHeight() > 0 && !mChildBitmapCache.containsKey(view)) {
-			Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
-			Canvas canvas = new Canvas(bitmap);
-			view.draw(canvas);
-			mChildBitmapCache.put(view, bitmap);
+		synchronized (mCacheLock) {
+			if (view.getWidth() > 0 && view.getHeight() > 0 && !mChildBitmapCache.containsKey(view)) {
+				Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+				Canvas canvas = new Canvas(bitmap);
+				view.draw(canvas);
+				mChildBitmapCache.put(view, bitmap);
+			}
 		}
 	}
 
 	private Bitmap getViewBitmap(View view) {
-		Bitmap bitmap = mChildBitmapCache.get(view);
-		if (bitmap == null) {
-			createViewBitmap(view);
-			bitmap = mChildBitmapCache.get(view);
+		synchronized (mCacheLock) {
+			Bitmap bitmap = mChildBitmapCache.get(view);
+			if (bitmap == null) {
+				if (view.getWidth() > 0 && view.getHeight() > 0) {
+					bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
+					Canvas canvas = new Canvas(bitmap);
+					view.draw(canvas);
+					mChildBitmapCache.put(view, bitmap);
+				}
+			}
+			return bitmap;
 		}
-		return bitmap;
 	}
 
 	/*
