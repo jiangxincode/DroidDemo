@@ -1,7 +1,6 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 apply plugin: 'com.android.application'
-// 'kotlin-android' plugin is no longer needed - AGP 9.0+ has built-in Kotlin support
 
 android {
     compileSdk = 36
@@ -83,7 +82,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.7.0'
 
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.14'
-    // kotlin-stdlib is no longer needed - AGP 9.0+ includes it automatically
     implementation 'com.github.yyued:SVGAPlayer-Android:2.6.1'
     implementation 'com.airbnb.android:lottie:6.7.1'
     implementation 'com.facebook.fresco:fresco:3.6.0'
