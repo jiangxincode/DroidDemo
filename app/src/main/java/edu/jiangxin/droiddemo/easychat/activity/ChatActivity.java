@@ -124,10 +124,14 @@ public class ChatActivity extends AppCompatActivity {
         // 1.首先判断是否存在adapter
         if (mAdapter != null) {
             // 刷新
-            Cursor cursor = mAdapter.getCursor();
-            cursor.requery();
+            Cursor newCursor = getContentResolver().query(SmsProvider.URI_SMS,
+                    null,
+                    "(from_account = ? and to_account=?)or(from_account = ? and to_account= ? )",
+                    new String[]{IMService.mCurAccout.asEntityBareJidString(), mClickAccount, mClickAccount, IMService.mCurAccout.asEntityBareJidString()},
+                    SmsOpenHelper.SmsTable.TIME + " ASC");
+            mAdapter.changeCursor(newCursor);
 
-            mListView.setSelection(cursor.getCount() - 1);
+            mListView.setSelection(mAdapter.getCount() - 1);
             return;
         }
 
@@ -150,7 +154,7 @@ public class ChatActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         // CursorAdapter :getview-->newView()-->bindView
-                        mAdapter = new CursorAdapter(ChatActivity.this, c) {
+                        mAdapter = new CursorAdapter(ChatActivity.this, c, 0) {
 
                             public static final int RECEIVE = 1;
                             public static final int SEND = 0;

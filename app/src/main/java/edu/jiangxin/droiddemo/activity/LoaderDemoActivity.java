@@ -194,11 +194,11 @@ class MyCursorAdapter extends CursorAdapter {
     private final Context mContext;
 
     public MyCursorAdapter(Context context, Cursor c) {
-        this(context, c, true);
+        this(context, c, 0);
     }
 
-    public MyCursorAdapter(Context context, Cursor c, boolean autoRequery) {
-        super(context, c, autoRequery);
+    public MyCursorAdapter(Context context, Cursor c, int flags) {
+        super(context, c, flags);
         mContext = context;
     }
 

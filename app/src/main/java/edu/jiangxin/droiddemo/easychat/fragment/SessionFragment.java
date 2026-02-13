@@ -95,7 +95,9 @@ public class SessionFragment extends Fragment {
 		// 判断adapter是否存在
 		if (mAdapter != null) {
 			// 刷新adapter就行了
-			mAdapter.getCursor().requery();
+			Cursor newCursor = getActivity().getContentResolver().query(SmsProvider.URI_SESSION, null, null,
+					new String[] { IMService.mCurAccout.asEntityBareJidString(), IMService.mCurAccout.asEntityBareJidString() }, null);
+			mAdapter.changeCursor(newCursor);
 			return;
 		}
 		ThreadUtils.runInThread(new Runnable() {
@@ -118,7 +120,7 @@ public class SessionFragment extends Fragment {
 						 BaseAdapter    -->getView
 						 |-CursorAdapter
 						 */
-						mAdapter = new CursorAdapter(getActivity(), c) {
+						mAdapter = new CursorAdapter(getActivity(), c, 0) {
 							// 如果convertView==null,返回一个具体的根视图
 							@Override
 							public View newView(Context context, Cursor cursor, ViewGroup parent) {
