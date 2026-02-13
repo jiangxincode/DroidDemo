@@ -34,7 +34,7 @@ public class VariousLayoutActivity extends Activity implements View.OnClickListe
         }
     }
 
-    private void enterTestActivity(Class clazz) {
+    private void enterTestActivity(Class<?> clazz) {
         startActivity(new Intent(this, clazz));
     }
 }

@@ -74,7 +74,7 @@ public class MyAppRecyclerAdapter extends BaseRecyclerAdapter<String> {
         return blowUpUtil;
     }
 
-    private class MyHolder extends BaseRecyclerAdapter.Holder {
+    private class MyHolder extends BaseRecyclerAdapter<String>.Holder {
         private final TextView tvDescribe;
 
 

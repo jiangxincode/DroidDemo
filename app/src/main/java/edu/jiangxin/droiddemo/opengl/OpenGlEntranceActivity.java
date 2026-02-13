@@ -184,7 +184,7 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
         }
     }
 
-    private void enterTestActivity(Class clazz) {
+    private void enterTestActivity(Class<?> clazz) {
         startActivity(new Intent(this, clazz));
     }
 }

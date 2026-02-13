@@ -327,6 +327,7 @@ public class ScrollableViewGroup extends ViewGroup {
 
 		case MotionEvent.ACTION_CANCEL:
 			System.out.println("---ScrollableViewGroup----onInterceptTouchEvent---MotionEvent.ACTION_CANCEL---");
+			break;
 		case MotionEvent.ACTION_UP:
 			System.out.println("---ScrollableViewGroup----onInterceptTouchEvent---MotionEvent.ACTION_UP---");
 			mTouchState = TOUCH_STATE_REST;
