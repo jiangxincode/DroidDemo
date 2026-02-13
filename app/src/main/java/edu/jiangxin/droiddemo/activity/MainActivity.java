@@ -61,23 +61,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.navigation_home: {
-
-                        mainActivityViewPager.setCurrentItem(0);
-
-                        return true;
-                    }
-                    case R.id.navigation_dashboard:
-
-                        mainActivityViewPager.setCurrentItem(1);
-
-                        return true;
-                    case R.id.navigation_notifications:
-
-                        mainActivityViewPager.setCurrentItem(2);
-
-                        return true;
+                int itemId = item.getItemId();
+                if (itemId == R.id.navigation_home) {
+                    mainActivityViewPager.setCurrentItem(0);
+                    return true;
+                } else if (itemId == R.id.navigation_dashboard) {
+                    mainActivityViewPager.setCurrentItem(1);
+                    return true;
+                } else if (itemId == R.id.navigation_notifications) {
+                    mainActivityViewPager.setCurrentItem(2);
+                    return true;
                 }
                 return false;
             }

@@ -36,24 +36,17 @@ public class VariousServiceActivity extends Activity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn10:
-                enterTestActivity(CommonServiceActivity.class);
-                break;
-            case R.id.btn11:
-                enterTestActivity(IntentServiceActivity.class);
-                break;
-            case R.id.btn12:
-                enterTestActivity(LocalBinderActivity.class);
-                break;
-            case R.id.btn13:
-                enterTestActivity(MessengerActivity.class);
-                break;
-            case R.id.btn14:
-                enterTestActivity(AIDLActivity.class);
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == R.id.btn10) {
+            enterTestActivity(CommonServiceActivity.class);
+        } else if (id == R.id.btn11) {
+            enterTestActivity(IntentServiceActivity.class);
+        } else if (id == R.id.btn12) {
+            enterTestActivity(LocalBinderActivity.class);
+        } else if (id == R.id.btn13) {
+            enterTestActivity(MessengerActivity.class);
+        } else if (id == R.id.btn14) {
+            enterTestActivity(AIDLActivity.class);
         }
     }
 

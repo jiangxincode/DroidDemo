@@ -77,63 +77,43 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_alpha_animation:
-                enterTestActivity(AlphaAnimationActivity.class);
-                break;
-            case R.id.tv_scale_animation:
-                enterTestActivity(ScaleAnimationActivity.class);
-                break;
-            case R.id.tv_translate_animation:
-                enterTestActivity(TranslateAnimationActivity.class);
-                break;
-            case R.id.tv_rotate_animation:
-                enterTestActivity(RotateAnimationActivity.class);
-                break;
-            case R.id.tv_custom_animation:
-                enterTestActivity(CustomAnimationActivity.class);
-                break;
-            case R.id.tv_animation_set:
-                enterTestActivity(AnimationSetActivity.class);
-                break;
-            case R.id.tv_interpolator:
-                enterTestActivity(InterpolatorTestActivity.class);
-                break;
-            case R.id.tv_property_animator:
-                enterTestActivity(PropertyAnimatorActivity.class);
-                break;
-            case R.id.tv_physics_animation:
-                enterTestActivity(PhysicsAnimationActivity.class);
-                break;
-            case R.id.tv_vector_drawable_animator:
-                enterTestActivity(VectorDrawableAnimatorActivity.class);
-                break;
-            case R.id.tv_frame_animation:
-                enterTestActivity(FrameAnimationActivity.class);
-                break;
-            case R.id.tv_activity_transition:
-                enterTestActivity(TransitionFirstActivity.class);
-                break;
-            case R.id.tv_layout_transition_xml:
-                enterTestActivity(LayoutTransitionByXmlActivity.class);
-                break;
-            case R.id.tv_layout_animation_transition:
-                enterTestActivity(LayoutAnimationAndTransitionActivity.class);
-                break;
-            case R.id.tv_grid_layout_animation:
-                enterTestActivity(GridLayoutAnimationActivity.class);
-                break;
-            case R.id.tv_overlay_animation:
-                enterTestActivity(OverlayAnimationActivity.class);
-                break;
-            case R.id.tv_svga_animation:
-                enterTestActivity(SvgaAnimationActivity.class);
-                break;
-            case R.id.tv_lottie_animation:
-                enterTestActivity(LottieAnimationActivity.class);
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == R.id.tv_alpha_animation) {
+            enterTestActivity(AlphaAnimationActivity.class);
+        } else if (id == R.id.tv_scale_animation) {
+            enterTestActivity(ScaleAnimationActivity.class);
+        } else if (id == R.id.tv_translate_animation) {
+            enterTestActivity(TranslateAnimationActivity.class);
+        } else if (id == R.id.tv_rotate_animation) {
+            enterTestActivity(RotateAnimationActivity.class);
+        } else if (id == R.id.tv_custom_animation) {
+            enterTestActivity(CustomAnimationActivity.class);
+        } else if (id == R.id.tv_animation_set) {
+            enterTestActivity(AnimationSetActivity.class);
+        } else if (id == R.id.tv_interpolator) {
+            enterTestActivity(InterpolatorTestActivity.class);
+        } else if (id == R.id.tv_property_animator) {
+            enterTestActivity(PropertyAnimatorActivity.class);
+        } else if (id == R.id.tv_physics_animation) {
+            enterTestActivity(PhysicsAnimationActivity.class);
+        } else if (id == R.id.tv_vector_drawable_animator) {
+            enterTestActivity(VectorDrawableAnimatorActivity.class);
+        } else if (id == R.id.tv_frame_animation) {
+            enterTestActivity(FrameAnimationActivity.class);
+        } else if (id == R.id.tv_activity_transition) {
+            enterTestActivity(TransitionFirstActivity.class);
+        } else if (id == R.id.tv_layout_transition_xml) {
+            enterTestActivity(LayoutTransitionByXmlActivity.class);
+        } else if (id == R.id.tv_layout_animation_transition) {
+            enterTestActivity(LayoutAnimationAndTransitionActivity.class);
+        } else if (id == R.id.tv_grid_layout_animation) {
+            enterTestActivity(GridLayoutAnimationActivity.class);
+        } else if (id == R.id.tv_overlay_animation) {
+            enterTestActivity(OverlayAnimationActivity.class);
+        } else if (id == R.id.tv_svga_animation) {
+            enterTestActivity(SvgaAnimationActivity.class);
+        } else if (id == R.id.tv_lottie_animation) {
+            enterTestActivity(LottieAnimationActivity.class);
         }
     }
 

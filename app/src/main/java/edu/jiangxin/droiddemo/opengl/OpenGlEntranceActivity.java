@@ -104,125 +104,83 @@ public class OpenGlEntranceActivity extends Activity implements View.OnClickList
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.tv_background: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_BACKGROUND);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_triangle: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_TRIANGLE);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_triangle_jni: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_TRIANGLE_JNI);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_square: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_SQUARE);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_circle: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_CIRCLE);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_transform: {
-                Intent intent = new Intent(this, TransformActivity.class);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_matrix:
-                enterTestActivity(OpenGLMatrixActivity.class);
-                break;
-            case R.id.tv_ball:
-                enterTestActivity(BallActivity.class);
-                break;
-            case R.id.tv_blur:
-                enterTestActivity(OpenGlBlurActivity.class);
-                break;
-            case R.id.tv_VertexArrays: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_ARRAYS);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_VertexBufferObjects: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_BUFFER_OBJECTS);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_VertexArrayObjects: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_ARRAY_OBJECTS);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_MapBuffers: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_MAP_BUFFERS);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_SimpleVetexShader: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_VERTEX_SHADER);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_SimpleTexture2D: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_TEXTURE_2D);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_Mipmap2D: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_MIPMAP_2D);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_TextureWrap: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_TEXTURE_WRAP);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_SimpleTextureCubeMap: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_TEXTURE_CUBE_MAP);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_MultiTexture: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_MULTI_TEXTURE);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_ParticleSystem: {
-                Intent intent = new Intent(this, VariousRenderersActivity.class);
-                intent.setAction(VariousRenderersActivity.ACTION_NAME_PARTICLE_SYSTEM);
-                startActivity(intent);
-                break;
-            }
-            case R.id.tv_PBuffer:
-                enterTestActivity(PBufferActivity.class);
-                break;
-            case R.id.tv_rajawali:
-                enterTestActivity(RajawaliDemoActivity.class);
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == R.id.tv_background) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_BACKGROUND);
+            startActivity(intent);
+        } else if (id == R.id.tv_triangle) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_TRIANGLE);
+            startActivity(intent);
+        } else if (id == R.id.tv_triangle_jni) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_TRIANGLE_JNI);
+            startActivity(intent);
+        } else if (id == R.id.tv_square) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_SQUARE);
+            startActivity(intent);
+        } else if (id == R.id.tv_circle) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_CIRCLE);
+            startActivity(intent);
+        } else if (id == R.id.tv_transform) {
+            startActivity(new Intent(this, TransformActivity.class));
+        } else if (id == R.id.tv_matrix) {
+            enterTestActivity(OpenGLMatrixActivity.class);
+        } else if (id == R.id.tv_ball) {
+            enterTestActivity(BallActivity.class);
+        } else if (id == R.id.tv_blur) {
+            enterTestActivity(OpenGlBlurActivity.class);
+        } else if (id == R.id.tv_VertexArrays) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_ARRAYS);
+            startActivity(intent);
+        } else if (id == R.id.tv_VertexBufferObjects) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_BUFFER_OBJECTS);
+            startActivity(intent);
+        } else if (id == R.id.tv_VertexArrayObjects) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_VERTEX_ARRAY_OBJECTS);
+            startActivity(intent);
+        } else if (id == R.id.tv_MapBuffers) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_MAP_BUFFERS);
+            startActivity(intent);
+        } else if (id == R.id.tv_SimpleVetexShader) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_VERTEX_SHADER);
+            startActivity(intent);
+        } else if (id == R.id.tv_SimpleTexture2D) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_TEXTURE_2D);
+            startActivity(intent);
+        } else if (id == R.id.tv_Mipmap2D) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_MIPMAP_2D);
+            startActivity(intent);
+        } else if (id == R.id.tv_TextureWrap) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_TEXTURE_WRAP);
+            startActivity(intent);
+        } else if (id == R.id.tv_SimpleTextureCubeMap) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_SIMPLE_TEXTURE_CUBE_MAP);
+            startActivity(intent);
+        } else if (id == R.id.tv_MultiTexture) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_MULTI_TEXTURE);
+            startActivity(intent);
+        } else if (id == R.id.tv_ParticleSystem) {
+            Intent intent = new Intent(this, VariousRenderersActivity.class);
+            intent.setAction(VariousRenderersActivity.ACTION_NAME_PARTICLE_SYSTEM);
+            startActivity(intent);
+        } else if (id == R.id.tv_PBuffer) {
+            enterTestActivity(PBufferActivity.class);
+        } else if (id == R.id.tv_rajawali) {
+            enterTestActivity(RajawaliDemoActivity.class);
         }
     }
 

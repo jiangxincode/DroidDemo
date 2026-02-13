@@ -32,17 +32,11 @@ public abstract class BaseViewAnimationActivity extends Activity implements View
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button1:
-                starXmlAnimation();
-                break;
-            case R.id.button2:
-                starCodeAnimation();
-                break;
-
-            default:
-                break;
-
+        int id = view.getId();
+        if (id == R.id.button1) {
+            starXmlAnimation();
+        } else if (id == R.id.button2) {
+            starCodeAnimation();
         }
     }
 

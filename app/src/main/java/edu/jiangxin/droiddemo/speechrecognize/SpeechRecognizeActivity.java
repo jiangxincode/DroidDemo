@@ -31,10 +31,8 @@ public class SpeechRecognizeActivity extends Activity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.speechBut:
-                doSpeechRecognition(v);
-                break;
+        if (v.getId() == R.id.speechBut) {
+            doSpeechRecognition(v);
         }
     }
 

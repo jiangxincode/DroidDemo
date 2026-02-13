@@ -314,37 +314,35 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_show_desktop:
-                mSelectedAppInfoList.clear();
-                List<String> desktopApps = getDesktopApps();
-                for (AppInfo appInfo : mAllAppInfoList) {
-                    if (desktopApps.contains(appInfo.mPkgName)) {
-                        mSelectedAppInfoList.add(appInfo);
-                    }
+        int itemId = item.getItemId();
+        if (itemId == R.id.action_show_desktop) {
+            mSelectedAppInfoList.clear();
+            List<String> desktopApps = getDesktopApps();
+            for (AppInfo appInfo : mAllAppInfoList) {
+                if (desktopApps.contains(appInfo.mPkgName)) {
+                    mSelectedAppInfoList.add(appInfo);
                 }
-                Collections.sort(mSelectedAppInfoList, mComparator);
-                mAdapter.notifyDataSetChanged();
-                break;
-
-            case R.id.action_show_all:
-                mSelectedAppInfoList.clear();
-                mSelectedAppInfoList.addAll(mAllAppInfoList);
-                Collections.sort(mSelectedAppInfoList, mComparator);
-                mAdapter.notifyDataSetChanged();
-                break;
-            case R.id.action_show_nosystem:
-                mSelectedAppInfoList.clear();
-                List<String> systemApps = getSystemApps();
-                for (AppInfo appInfo : mAllAppInfoList) {
-                    if (!systemApps.contains(appInfo.mPkgName)) {
-                        mSelectedAppInfoList.add(appInfo);
-                    }
+            }
+            Collections.sort(mSelectedAppInfoList, mComparator);
+            mAdapter.notifyDataSetChanged();
+            return super.onOptionsItemSelected(item);
+        } else if (itemId == R.id.action_show_all) {
+            mSelectedAppInfoList.clear();
+            mSelectedAppInfoList.addAll(mAllAppInfoList);
+            Collections.sort(mSelectedAppInfoList, mComparator);
+            mAdapter.notifyDataSetChanged();
+            return super.onOptionsItemSelected(item);
+        } else if (itemId == R.id.action_show_nosystem) {
+            mSelectedAppInfoList.clear();
+            List<String> systemApps = getSystemApps();
+            for (AppInfo appInfo : mAllAppInfoList) {
+                if (!systemApps.contains(appInfo.mPkgName)) {
+                    mSelectedAppInfoList.add(appInfo);
                 }
-                Collections.sort(mSelectedAppInfoList, mComparator);
-                mAdapter.notifyDataSetChanged();
-            default:
-                break;
+            }
+            Collections.sort(mSelectedAppInfoList, mComparator);
+            mAdapter.notifyDataSetChanged();
+            return super.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
     }

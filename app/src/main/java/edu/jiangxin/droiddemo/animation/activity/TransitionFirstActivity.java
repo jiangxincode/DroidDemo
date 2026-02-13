@@ -31,24 +31,17 @@ public class TransitionFirstActivity extends Activity {
     }
 
     public void buttonListener(View views) {
-        switch (views.getId()) {
-            case R.id.custom_button:
-                customAnim();
-                break;
-            case R.id.scaleUp_button:
-                scaleUpAnim(mOriginalImageView);
-                break;
-            case R.id.thumbnail_button:
-                thumbNailScaleAnim(mChromeImageView);
-                break;
-            case R.id.scene_button:
-                sceneTransitionAnimation(mChromeImageView);
-                break;
-            case R.id.scene_button1:
-                sceneTransitionAnimation();
-                break;
-            default:
-                break;
+        int id = views.getId();
+        if (id == R.id.custom_button) {
+            customAnim();
+        } else if (id == R.id.scaleUp_button) {
+            scaleUpAnim(mOriginalImageView);
+        } else if (id == R.id.thumbnail_button) {
+            thumbNailScaleAnim(mChromeImageView);
+        } else if (id == R.id.scene_button) {
+            sceneTransitionAnimation(mChromeImageView);
+        } else if (id == R.id.scene_button1) {
+            sceneTransitionAnimation();
         }
     }
 

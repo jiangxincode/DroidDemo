@@ -145,31 +145,27 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
     @Override
     public void onClick(View v) {
         endAllAnimation();
-
         ObjectAnimator objectAnimator = null;
-        switch (v.getId()) {
-            case R.id.textView:
-                objectAnimator = ObjectAnimator.ofFloat(mTarget, "alpha", 1f, 0f, 1f);
-                break;
-            case R.id.textView2:
-                PropertyValuesHolder propertyValuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 1f, 3f, 1f);
-                PropertyValuesHolder propertyValuesHolder2 = PropertyValuesHolder.ofFloat("scaleY", 1f, 3f, 1f);
-                objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mTarget, propertyValuesHolder1, propertyValuesHolder2);
-                break;
-            case R.id.textView3:
-                // 可以通过TypeEvaluator处理特殊类型：https://www.jianshu.com/p/6ea5e89f6f39
-                objectAnimator = ObjectAnimator.ofObject(mTarget, "rotation", new FloatEvaluator(), 0f, 360f);
-                break;
-            case R.id.textView4:
-                Path path = new Path();
-                path.rLineTo(200, 200);
-                path.rLineTo(-200, -200);
-                objectAnimator = ObjectAnimator.ofFloat(mTarget, "translationX", "translationY", path);
-                break;
-
+        int id = v.getId();
+        if (id == R.id.textView) {
+            objectAnimator = ObjectAnimator.ofFloat(mTarget, "alpha", 1f, 0f, 1f);
+        } else if (id == R.id.textView2) {
+            PropertyValuesHolder propertyValuesHolder1 = PropertyValuesHolder.ofFloat("scaleX", 1f, 3f, 1f);
+            PropertyValuesHolder propertyValuesHolder2 = PropertyValuesHolder.ofFloat("scaleY", 1f, 3f, 1f);
+            objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mTarget, propertyValuesHolder1, propertyValuesHolder2);
+        } else if (id == R.id.textView3) {
+            // 可以通过TypeEvaluator处理特殊类型：https://www.jianshu.com/p/6ea5e89f6f39
+            objectAnimator = ObjectAnimator.ofObject(mTarget, "rotation", new FloatEvaluator(), 0f, 360f);
+        } else if (id == R.id.textView4) {
+            Path path = new Path();
+            path.rLineTo(200, 200);
+            path.rLineTo(-200, -200);
+            objectAnimator = ObjectAnimator.ofFloat(mTarget, "translationX", "translationY", path);
         }
-        objectAnimator.setDuration(1000);
-        objectAnimator.start();
+        if (objectAnimator != null) {
+            objectAnimator.setDuration(1000);
+            objectAnimator.start();
+        }
     }
 
 

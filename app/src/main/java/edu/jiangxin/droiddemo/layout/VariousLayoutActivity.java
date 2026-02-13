@@ -26,15 +26,11 @@ public class VariousLayoutActivity extends Activity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btnSimpleLayout:
-                enterTestActivity(SimpleLayoutActivity.class);
-                break;
-            case R.id.btnContraintLayout:
-                enterTestActivity(ContraintLayoutActivity.class);
-                break;
-            default:
-                break;
+        int id = view.getId();
+        if (id == R.id.btnSimpleLayout) {
+            enterTestActivity(SimpleLayoutActivity.class);
+        } else if (id == R.id.btnContraintLayout) {
+            enterTestActivity(ContraintLayoutActivity.class);
         }
     }
 
