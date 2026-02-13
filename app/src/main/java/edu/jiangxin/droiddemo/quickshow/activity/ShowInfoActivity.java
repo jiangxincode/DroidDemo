@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,7 +60,7 @@ public class ShowInfoActivity extends Activity {
 
     }
 
-    private final Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler(Looper.getMainLooper()) {
 
         @Override
         public void handleMessage(Message msg) {
@@ -149,5 +150,4 @@ public class ShowInfoActivity extends Activity {
         String content;
     }
 }
-
 

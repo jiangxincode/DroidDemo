@@ -1,6 +1,7 @@
 package edu.jiangxin.droiddemo.easychat.utils;
 
 import android.os.Handler;
+import android.os.Looper;
 
 public class ThreadUtils {
     /**
@@ -13,7 +14,7 @@ public class ThreadUtils {
     /**
      * 创建一个主线程中handler
      */
-    public static Handler mHandler = new Handler();
+    public static Handler mHandler = new Handler(Looper.getMainLooper());
 
     /**
      * UI线程执行task

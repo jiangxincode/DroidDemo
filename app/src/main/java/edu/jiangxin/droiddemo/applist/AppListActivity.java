@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -79,7 +80,7 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
     private static final int NON_EMPTY_LIST = 2;
 
-    private final Handler mHandler = new Handler() {
+    private final Handler mHandler = new Handler(Looper.getMainLooper()) {
 
         @Override
         public void handleMessage(Message msg) {

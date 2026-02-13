@@ -16,6 +16,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Messenger;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -53,7 +54,7 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 	private ScrollableViewGroup mSvg_main;
 	private EasyMusicActivity mInstance;
 	private LrcUtil mLrcUtil;
-	private final Handler handler = new Handler() {//接收结果,刷新ui
+	private final Handler handler = new Handler(Looper.getMainLooper()) {//接收结果,刷新ui
 
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {

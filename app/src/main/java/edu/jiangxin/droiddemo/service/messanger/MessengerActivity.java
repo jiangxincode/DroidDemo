@@ -8,6 +8,7 @@ import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.os.Message;
 import android.os.Messenger;
 import android.os.RemoteException;
@@ -28,6 +29,10 @@ public class MessengerActivity extends Activity {
     private Messenger mService;
 
     private static class MessengerHandler extends Handler {
+        MessengerHandler() {
+            super(Looper.getMainLooper());
+        }
+
         @Override
         public void handleMessage(Message msg) {
             switch (msg.what) {

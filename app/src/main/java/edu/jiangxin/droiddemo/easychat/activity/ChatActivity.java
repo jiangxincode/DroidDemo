@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
+import android.os.Looper;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -284,7 +285,7 @@ public class ChatActivity extends AppCompatActivity {
     }
 
     /*=============== 使用contentObserver时刻监听记录的改变 ===============*/
-    MyContentObserver mMyContentObserver = new MyContentObserver(new Handler());
+    MyContentObserver mMyContentObserver = new MyContentObserver(new Handler(Looper.getMainLooper()));
 
     /**
      * 注册监听

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.os.Message;
 import android.util.DisplayMetrics;
 import android.view.KeyEvent;
@@ -87,7 +88,7 @@ public class ResultCombinationActivity extends Activity {
     private int offSet;
     private final Matrix matrix = new Matrix();
     private Animation animation;
-    private final Handler handler = new Handler() {
+    private final Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);

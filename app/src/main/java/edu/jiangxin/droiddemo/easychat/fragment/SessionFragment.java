@@ -7,6 +7,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -164,7 +165,7 @@ public class SessionFragment extends Fragment {
 
 	/*=============== 监听数据库记录的改变 ===============*/
 
-	MyContentObserver	mMyContentObserver	= new MyContentObserver(new Handler());
+	MyContentObserver	mMyContentObserver	= new MyContentObserver(new Handler(Looper.getMainLooper()));
 
 	/**
 	 * 注册监听
