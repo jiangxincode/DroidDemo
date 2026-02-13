@@ -36,6 +36,7 @@ import java.util.regex.Pattern;
 import edu.jiangxin.droiddemo.R;
 
 
+@SuppressWarnings("deprecation")
 public class NoteActivity extends AppCompatActivity {
 
     private static final int TITLE_MAX_CHAR = 30;

@@ -19,6 +19,7 @@ import java.util.List;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings("deprecation")
 public class EasyChatActivity extends AppCompatActivity {
 	TextView				mMainTvTitle;
 

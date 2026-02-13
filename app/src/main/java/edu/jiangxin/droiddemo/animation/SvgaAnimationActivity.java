@@ -28,6 +28,7 @@ import org.jetbrains.annotations.NotNull;
 import edu.jiangxin.droiddemo.R;
 import kotlin.jvm.functions.Function2;
 
+@SuppressWarnings("deprecation")
 public class SvgaAnimationActivity extends Activity {
 
     private SVGAImageView svgaImageView;

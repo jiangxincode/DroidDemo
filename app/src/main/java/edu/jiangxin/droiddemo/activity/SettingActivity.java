@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings("deprecation")
 public class SettingActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener{
     CheckBoxPreference mCheckBoxPreference;
     EditTextPreference mEditTextPreference;

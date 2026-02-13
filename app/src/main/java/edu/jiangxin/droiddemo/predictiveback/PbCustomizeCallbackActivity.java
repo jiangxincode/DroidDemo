@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings("deprecation")
 public class PbCustomizeCallbackActivity extends AppCompatActivity {
 
     private static final String TAG = PbCustomizeCallbackActivity.class.getName();

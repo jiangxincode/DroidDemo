@@ -18,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import edu.jiangxin.droiddemo.R;
 
 
+@SuppressWarnings("deprecation")
 public class MyPhoto extends Activity{
 
 	

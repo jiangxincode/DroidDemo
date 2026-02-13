@@ -16,6 +16,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 
 import static android.opengl.EGL14.EGL_NO_SURFACE;
 
+@SuppressWarnings("deprecation")
 public abstract class GLRenderer extends Thread {
     private static final String TAG = "GLThread";
     private final List<GLSurface> outputSurfaces;

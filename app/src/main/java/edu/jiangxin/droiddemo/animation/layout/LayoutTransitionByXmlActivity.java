@@ -43,6 +43,7 @@ import edu.jiangxin.droiddemo.activity.MainActivity;
  * <p>In this sample, the user can add rows to and remove rows from a vertical
  * {@link android.widget.LinearLayout}.</p>
  */
+@SuppressWarnings("deprecation")
 public class LayoutTransitionByXmlActivity extends AppCompatActivity {
     /**
      * A static list of country names.

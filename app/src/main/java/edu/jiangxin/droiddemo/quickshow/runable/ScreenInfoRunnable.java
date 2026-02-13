@@ -11,6 +11,7 @@ import android.view.WindowManager;
 import edu.jiangxin.droiddemo.ApplicationExt;
 import edu.jiangxin.droiddemo.quickshow.activity.ShowInfoActivity;
 
+@SuppressWarnings("deprecation")
 public class ScreenInfoRunnable implements Runnable {
 
     private final Handler handler;

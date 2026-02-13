@@ -15,6 +15,7 @@ import androidx.core.util.Pair;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings({"deprecation", "unchecked"})
 public class TransitionFirstActivity extends Activity {
 
     ImageView mOriginalImageView;

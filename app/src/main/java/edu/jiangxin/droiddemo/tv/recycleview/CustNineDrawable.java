@@ -12,6 +12,7 @@ import edu.jiangxin.droiddemo.R;
 /**
  * Created by lmh on 2016/1/13.
  */
+@SuppressWarnings("deprecation")
 public class CustNineDrawable extends Drawable {
     private Drawable mScaleFocusDrawable = null;
 

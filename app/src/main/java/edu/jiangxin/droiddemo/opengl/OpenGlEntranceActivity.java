@@ -14,6 +14,7 @@ import edu.jiangxin.droiddemo.opengl.pbuffer.PBufferActivity;
 import edu.jiangxin.droiddemo.opengl.rajawali.RajawaliDemoActivity;
 import edu.jiangxin.droiddemo.opengl.transform.TransformActivity;
 
+@SuppressWarnings("rawtypes")
 public class OpenGlEntranceActivity extends Activity implements View.OnClickListener {
 
     private TextView mTvBackground, mTvTriangle, mTvTriangleJni, mTvSquare, mTvCircle;

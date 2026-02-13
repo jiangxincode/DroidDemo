@@ -7,6 +7,7 @@ import android.widget.Button;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings("deprecation")
 public class DecorViewActivity extends Activity {
 
     private Button mBtn1, mBtn2, mBtn3, mBtn4, mBtn5, mBtn6, mBtn7, mBtn8;

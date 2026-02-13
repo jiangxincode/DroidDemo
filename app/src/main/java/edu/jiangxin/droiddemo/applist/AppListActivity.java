@@ -46,6 +46,7 @@ import java.util.List;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.view.IndexableListView;
 
+@SuppressWarnings({"deprecation", "unchecked"})
 public class AppListActivity extends AppCompatActivity implements SectionIndexer {
 
     private Context mContext;

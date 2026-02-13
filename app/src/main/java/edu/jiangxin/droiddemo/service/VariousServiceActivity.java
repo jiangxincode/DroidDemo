@@ -13,6 +13,7 @@ import edu.jiangxin.droiddemo.service.intentservice.IntentServiceActivity;
 import edu.jiangxin.droiddemo.service.localbinder.LocalBinderActivity;
 import edu.jiangxin.droiddemo.service.messanger.MessengerActivity;
 
+@SuppressWarnings("rawtypes")
 public class VariousServiceActivity extends Activity implements View.OnClickListener {
 
     private TextView mBtn10, mBtn11, mBtn12, mBtn13, mBtn14;

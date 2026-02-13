@@ -18,6 +18,7 @@ import edu.jiangxin.droiddemo.R;
 /**
  * Setting sound of ringtone/alarm/notification
  */
+@SuppressWarnings("deprecation")
 public class RingtoneSettingActivity extends Activity {
     private static final String TAG = "RingtoneSettingActivity";
 

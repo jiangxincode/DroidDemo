@@ -17,6 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings("deprecation")
 public class MyMovie extends Activity{
 
 	private List<MovieInfo> movielist;

@@ -32,6 +32,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+@SuppressWarnings("deprecation")
 public class IMService extends Service {
     public static XMPPConnection conn;
     public static EntityJid mCurAccout;                    // 当前登录用户的jid

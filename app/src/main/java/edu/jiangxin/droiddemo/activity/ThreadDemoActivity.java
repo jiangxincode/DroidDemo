@@ -17,6 +17,7 @@ import java.net.URL;
 
 import edu.jiangxin.droiddemo.R;
 
+@SuppressWarnings("deprecation")
 public class ThreadDemoActivity extends Activity {
 
     private static final String TAG = "ASYNC_TASK";

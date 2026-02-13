@@ -3,6 +3,7 @@ package edu.jiangxin.droiddemo;
 import android.content.Context;
 import android.util.TypedValue;
 
+@SuppressWarnings("deprecation")
 public class Utils {
     public static int dp2px(Context context, float dipValue) {
         float pxValue = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dipValue,
