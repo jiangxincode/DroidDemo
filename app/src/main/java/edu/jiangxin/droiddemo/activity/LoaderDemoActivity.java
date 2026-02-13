@@ -134,21 +134,15 @@ public class LoaderDemoActivity extends AppCompatActivity {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.btn_all:
-                    allCalllog();
-                    break;
-                case R.id.btn_incoming:
-                    incomingCalllog();
-                    break;
-                case R.id.btn_outcoming:
-                    outcomingCalllog();
-                    break;
-                case R.id.btn_missed:
-                    missedCalllog();
-                    break;
-                default:
-                    break;
+            int id = v.getId();
+            if (id == R.id.btn_all) {
+                allCalllog();
+            } else if (id == R.id.btn_incoming) {
+                incomingCalllog();
+            } else if (id == R.id.btn_outcoming) {
+                outcomingCalllog();
+            } else if (id == R.id.btn_missed) {
+                missedCalllog();
             }
         }
     }

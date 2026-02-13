@@ -60,20 +60,16 @@ public class GridViewActivity extends Activity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.lt_grid_view_title_menu:
-                if (visibility) {
-                    iv_menu.setBackgroundResource(R.drawable.gv_left);
-                    gridView.setVisibility(View.GONE);
-                    visibility = false;
-                } else {
-                    visibility = true;
-                    iv_menu.setBackgroundResource(R.drawable.gv_down);
-                    gridView.setVisibility(View.VISIBLE);
-                }
-                break;
-            default:
-                break;
+        if (v.getId() == R.id.lt_grid_view_title_menu) {
+            if (visibility) {
+                iv_menu.setBackgroundResource(R.drawable.gv_left);
+                gridView.setVisibility(View.GONE);
+                visibility = false;
+            } else {
+                visibility = true;
+                iv_menu.setBackgroundResource(R.drawable.gv_down);
+                gridView.setVisibility(View.VISIBLE);
+            }
         }
     }
 }

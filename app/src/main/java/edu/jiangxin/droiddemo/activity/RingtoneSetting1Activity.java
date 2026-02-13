@@ -97,17 +97,15 @@ public class RingtoneSetting1Activity extends Activity {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                /*返回按钮时退出demo*/
-                case R.id.back_btn:
-                    finish();
-                    break;
+            int id = v.getId();
+            /*返回按钮时退出demo*/
+            if (id == R.id.back_btn) {
+                finish();
+            } else if (id == R.id.sure_btn) {
                 /*保存按钮则保存SharedPreferences中的数据*/
-                case R.id.sure_btn:
-                    spe.putInt("ring", listView.getCheckedItemPosition()).commit();
-                    Toast.makeText(RingtoneSetting1Activity.this, "提示音保存成功", Toast.LENGTH_SHORT)
-                            .show();
-                    break;
+                spe.putInt("ring", listView.getCheckedItemPosition()).commit();
+                Toast.makeText(RingtoneSetting1Activity.this, "提示音保存成功", Toast.LENGTH_SHORT)
+                        .show();
             }
         }
     };

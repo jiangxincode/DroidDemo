@@ -221,37 +221,27 @@ public class SignaturesActivity extends Activity implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.Md5LinearLayout:
+		int id = v.getId();
+		if (id == R.id.Md5LinearLayout) {
 			setClipboardText(mMd5Tv);
-			break;
-		case R.id.Sha1LinearLayout:
+		} else if (id == R.id.Sha1LinearLayout) {
 			setClipboardText(mSha1Tv);
-			break;
-		case R.id.Sha256LinearLayout:
+		} else if (id == R.id.Sha256LinearLayout) {
 			setClipboardText(mSha256Tv);
-			break;
-		case R.id.EffectiveLinearLayout:
+		} else if (id == R.id.EffectiveLinearLayout) {
 			setClipboardText(mEffectiveTv);
-			break;
-		case R.id.PrincipalLinearLayout:
+		} else if (id == R.id.PrincipalLinearLayout) {
 			setClipboardText(mPrincipalTv);
-			break;
-		case R.id.VersionLinearLayout:
+		} else if (id == R.id.VersionLinearLayout) {
 			setClipboardText(mVersionTv);
-			break;
-		case R.id.SigAlgNameLinearLayout:
+		} else if (id == R.id.SigAlgNameLinearLayout) {
 			setClipboardText(mSigAlgNameTv);
-			break;
-		case R.id.SigAlgOidLinearLayout:
+		} else if (id == R.id.SigAlgOidLinearLayout) {
 			setClipboardText(mSigAlgOidTv);
-			break;
-		case R.id.SerialNumberLinearLayout:
+		} else if (id == R.id.SerialNumberLinearLayout) {
 			setClipboardText(mSerialNumberTv);
-			break;
-		case R.id.DerCodeLinearLayout:
+		} else if (id == R.id.DerCodeLinearLayout) {
 			setClipboardText(mDerCodeTv);
-			break;
 		}
 	}
 
