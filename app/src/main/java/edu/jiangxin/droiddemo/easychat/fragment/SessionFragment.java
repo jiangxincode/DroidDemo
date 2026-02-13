@@ -42,11 +42,11 @@ public class SessionFragment extends Fragment {
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
 		init();
 		initData();
 		initListener();
-		super.onActivityCreated(savedInstanceState);
 	}
 
 	private void init() {

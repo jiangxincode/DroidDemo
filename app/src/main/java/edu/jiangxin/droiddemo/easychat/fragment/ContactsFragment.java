@@ -45,10 +45,10 @@ public class ContactsFragment extends Fragment {
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
 		initData();
 		initListener();
-		super.onActivityCreated(savedInstanceState);
 	}
 
 	private void init() {
