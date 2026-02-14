@@ -53,8 +53,7 @@ public class ThreadDemoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //取消一个正在执行的任务
-                if (currentTask != null) {
-                    currentTask.cancel(true);
+                if (currentTask != null && currentTask.cancel(true)) {
                     onTaskCancelled();
                 }
             }
@@ -105,6 +104,9 @@ public class ThreadDemoActivity extends Activity {
                     int len;
                     int count = 0;
                     while ((len = inputStream.read(buffer)) != -1) {
+                        if (Thread.currentThread().isInterrupted()) {
+                            return;
+                        }
                         baos.write(buffer, 0, len);
                         count += len;
                         final int progress = (int) ((count / (float) totalLength) * 100);

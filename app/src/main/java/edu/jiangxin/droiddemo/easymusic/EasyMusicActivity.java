@@ -417,7 +417,9 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 			MediaUtils.initSongList(EasyMusicActivity.this);//contentProvider-->sqlite
 			
 			mainHandler.post(() -> {
-				dialog.dismiss();
+				if (!isFinishing() && dialog.isShowing()) {
+					dialog.dismiss();
+				}
 				//listview刷新
 				mAdapter.notifyDataSetChanged();
 			});
