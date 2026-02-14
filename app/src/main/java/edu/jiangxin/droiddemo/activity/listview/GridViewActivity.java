@@ -100,6 +100,7 @@ class GridViewAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getView(int position, View contertView, ViewGroup parent) {
         GridViewChildHolder holder;
         if (contertView == null) {

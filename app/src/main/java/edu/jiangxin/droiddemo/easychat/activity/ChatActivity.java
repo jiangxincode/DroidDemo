@@ -197,6 +197,7 @@ public class ChatActivity extends AppCompatActivity {
                             }
 
                             @Override
+                            @SuppressWarnings("unchecked")
                             public View getView(int position, View convertView, ViewGroup parent) {
                                 ViewHolder holder;
                                 if (getItemViewType(position) == RECEIVE) {

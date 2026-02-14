@@ -150,6 +150,7 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
 
     //  获得父项显示的view
     @Override
+    @SuppressWarnings("unchecked")
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         View view = convertView;
         GroupHolder holder;
@@ -175,6 +176,7 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         View view = convertView;

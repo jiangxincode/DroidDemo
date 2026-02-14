@@ -156,6 +156,7 @@ class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getView(int position, View view, ViewGroup parent) {
         edu.jiangxin.droiddemo.animation.layout.ViewHolder holder;
 

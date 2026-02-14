@@ -46,6 +46,7 @@ public class MovieListViewAdapter extends BaseAdapter{
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
     public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		

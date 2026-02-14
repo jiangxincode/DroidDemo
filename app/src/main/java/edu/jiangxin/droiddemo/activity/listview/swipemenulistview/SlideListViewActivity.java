@@ -80,6 +80,7 @@ class SlideListViewAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getView(int position, View view, ViewGroup parent) {
         SlideListViewHolder holder;
 

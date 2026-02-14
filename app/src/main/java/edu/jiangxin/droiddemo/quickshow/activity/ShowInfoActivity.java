@@ -106,6 +106,7 @@ public class ShowInfoActivity extends Activity {
         }
 
         @Override
+        @SuppressWarnings("unchecked")
         public View getView(int position, View view, ViewGroup parent) {
 
             Holder holder;
