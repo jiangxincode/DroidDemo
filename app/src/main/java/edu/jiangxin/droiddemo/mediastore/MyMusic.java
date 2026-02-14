@@ -38,14 +38,16 @@ public class MyMusic extends Activity{
 		musiclist = new ArrayList<MusicInfo>();
 		Context ctx = MyMusic.this;
 		ContentResolver resolver = ctx.getContentResolver();
-		Cursor c = resolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER);
-		c.moveToFirst();
-		int totalmusic = c.getCount();
-		
-		if(totalmusic>0) {
-			initmusiclist(c,totalmusic);
-		} else {
-			Toast.makeText(MyMusic.this, "there is no music on your phone", Toast.LENGTH_LONG).show();
+		try (Cursor c = resolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI, null, null, null, MediaStore.Audio.Media.DEFAULT_SORT_ORDER)) {
+			if (c != null && c.moveToFirst()) {
+				int totalmusic = c.getCount();
+				
+				if(totalmusic>0) {
+					initmusiclist(c,totalmusic);
+				} else {
+					Toast.makeText(MyMusic.this, "there is no music on your phone", Toast.LENGTH_LONG).show();
+				}
+			}
 		}
 		
 		musicListView.setOnItemClickListener(new OnItemClickListener() {
@@ -95,7 +97,6 @@ public class MyMusic extends Activity{
 	        musiclist.add(temp);
 	        c.moveToNext();
 		}
-		c.close();
 		musicAdapter = new MusicListViewAdapter(musiclist,MyMusic.this);
 		
 		
@@ -104,16 +105,15 @@ public class MyMusic extends Activity{
 		// TODO Auto-generated method stub
 		String mUriAlbums = "content://media/external/audio/albums";  
 	    String[] projection = new String[] { "album_art" };  
-	    Cursor cur = this.getContentResolver().query(  
+	    String album_art = null;
+	    try (Cursor cur = this.getContentResolver().query(  
 	            Uri.parse(mUriAlbums + "/" + album_id),
-	            projection, null, null, null);  
-	    String album_art = null;  
-	    if (cur.getCount() > 0 && cur.getColumnCount() > 0) {  
-	        cur.moveToNext();  
-	        album_art = cur.getString(0);  
-	    }  
-	    cur.close();  
-	    cur = null;  
+	            projection, null, null, null)) {
+	    	if (cur != null && cur.getCount() > 0 && cur.getColumnCount() > 0) {  
+	    		cur.moveToNext();  
+	    		album_art = cur.getString(0);  
+	    	}
+	    }
 	    return album_art;  
 	}
 
