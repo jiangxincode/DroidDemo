@@ -105,6 +105,7 @@ public class ThreadDemoActivity extends Activity {
                     int count = 0;
                     while ((len = inputStream.read(buffer)) != -1) {
                         if (Thread.currentThread().isInterrupted()) {
+                            mainHandler.post(() -> onTaskCancelled());
                             return;
                         }
                         baos.write(buffer, 0, len);
