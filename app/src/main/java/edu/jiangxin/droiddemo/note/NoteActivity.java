@@ -182,7 +182,7 @@ public class NoteActivity extends AppCompatActivity {
     private void loadFile(Uri uri) throws URISyntaxException, IOException {
         File f = new File(new URI(uri.toString()));
         String title = FilenameUtils.getBaseName(f.getName());
-        String content = FileUtils.readFileToString(f);
+        String content = FileUtils.readFileToString(f, java.nio.charset.StandardCharsets.UTF_8);
         titleView.setText(title);
         contentView.setText(content);
         openedFile = f;

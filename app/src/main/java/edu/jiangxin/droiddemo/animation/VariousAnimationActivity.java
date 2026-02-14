@@ -117,7 +117,7 @@ public class VariousAnimationActivity extends Activity implements View.OnClickLi
         }
     }
 
-    private void enterTestActivity(Class clazz) {
+    private void enterTestActivity(Class<?> clazz) {
         startActivity(new Intent(this, clazz));
 //        overridePendingTransition();
     }

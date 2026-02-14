@@ -42,7 +42,7 @@ public class EasyChatActivity extends AppCompatActivity {
 	}
 
 	private void initListener() {
-		mMainViewpager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+		mMainViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
 			@Override
 			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -97,7 +97,7 @@ public class EasyChatActivity extends AppCompatActivity {
 	class MyPagerAdapter extends FragmentPagerAdapter {
 
 		public MyPagerAdapter(FragmentManager fm) {
-			super(fm);
+			super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
 		}
 
 		@Override

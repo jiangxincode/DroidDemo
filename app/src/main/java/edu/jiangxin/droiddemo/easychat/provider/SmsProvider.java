@@ -117,6 +117,7 @@ public class SmsProvider extends ContentProvider {
                 cursor = db.rawQuery("SELECT * FROM "//
                         + "(SELECT * FROM t_sms WHERE from_account = ? or to_account = ? ORDER BY time ASC)" //
                         + " GROUP BY session_account", selectionArgs);//
+                break;
             default:
                 break;
         }

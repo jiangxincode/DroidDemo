@@ -45,10 +45,10 @@ public class ContactsFragment extends Fragment {
 	}
 
 	@Override
-	public void onActivityCreated(Bundle savedInstanceState) {
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
 		initData();
 		initListener();
-		super.onActivityCreated(savedInstanceState);
 	}
 
 	private void init() {
@@ -102,7 +102,8 @@ public class ContactsFragment extends Fragment {
 		// 判断adapter是否存在
 		if (mAdapter != null) {
 			// 刷新adapter就行了
-			mAdapter.getCursor().requery();
+			Cursor newCursor = getActivity().getContentResolver().query(ContactsProvider.URI_CONTACT, null, null, null, null);
+			mAdapter.changeCursor(newCursor);
 			return;
 		}
 		ThreadUtils.runInThread(new Runnable() {
@@ -124,7 +125,7 @@ public class ContactsFragment extends Fragment {
 						 BaseAdapter    -->getView
 						 |-CursorAdapter
 						 */
-						mAdapter = new CursorAdapter(getActivity(), c) {
+						mAdapter = new CursorAdapter(getActivity(), c, 0) {
 							// 如果convertView==null,返回一个具体的根视图
 							@Override
 							public View newView(Context context, Cursor cursor, ViewGroup parent) {
