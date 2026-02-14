@@ -208,8 +208,8 @@ public class ResultCombinationActivity extends Activity {
         getLayoutInflater();
         LayoutInflater layoutInflater = LayoutInflater.from(this);
 
-        view1 = layoutInflater.inflate(R.layout.viewpager_capital_interest_combination, null);
-        view2 = layoutInflater.inflate(R.layout.viewpager_capital_combination, null);
+        view1 = layoutInflater.inflate(R.layout.viewpager_capital_interest_combination, viewPager, false);
+        view2 = layoutInflater.inflate(R.layout.viewpager_capital_combination, viewPager, false);
 
         viewList.add(view1);
         viewList.add(view2);

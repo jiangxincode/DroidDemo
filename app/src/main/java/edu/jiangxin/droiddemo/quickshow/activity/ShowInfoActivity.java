@@ -106,12 +106,13 @@ public class ShowInfoActivity extends Activity {
         }
 
         @Override
+        @SuppressWarnings("unchecked")
         public View getView(int position, View view, ViewGroup parent) {
 
             Holder holder;
 
             if (view == null) {
-                view = LayoutInflater.from(mContext).inflate(R.layout.activity_show_info_item, null);
+                view = LayoutInflater.from(mContext).inflate(R.layout.activity_show_info_item, parent, false);
                 holder = new Holder();
                 holder.pullDownTextView = view.findViewById(R.id.expand_text_view);
                 holder.progressBar = view.findViewById(R.id.progressBar);

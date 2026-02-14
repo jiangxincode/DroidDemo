@@ -85,6 +85,7 @@ public class MainAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getView(int position, View convertView, ViewGroup parent) {
         /* 将convertView封装在ViewHodler中，减少系统内存占用 */
         /* convertView为空则初始化 */

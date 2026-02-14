@@ -30,13 +30,13 @@ public class GradientDrawableActivity extends AppCompatActivity {
         GradientDrawable gradientDrawable1 = new GradientDrawable();
         gradientDrawable1.setShape(GradientDrawable.RECTANGLE);
         gradientDrawable1.setCornerRadius(Utils.dp2px(this, 10F));
-        gradientDrawable1.setColor(getResources().getColor(R.color.colorPrimary, null));
+        gradientDrawable1.setColor(getResources().getColor(R.color.colorPrimary, getTheme()));
         mLly1.setBackground(gradientDrawable1);
 
         mLly2 = findViewById(R.id.lly2);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable2.setColor(getResources().getColor(R.color.colorAccent, null));
+        gradientDrawable2.setColor(getResources().getColor(R.color.colorAccent, getTheme()));
         float[] radii = new float[]{
                 Utils.dp2px(this, 10F), Utils.dp2px(this, 10F),
                 0F, 0F,
@@ -49,7 +49,7 @@ public class GradientDrawableActivity extends AppCompatActivity {
         mLly3 = findViewById(R.id.lly3);
         GradientDrawable gradientDrawable3 = new GradientDrawable();
         gradientDrawable3.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable3.setColor(getResources().getColor(R.color.colorPrimary, null));
+        gradientDrawable3.setColor(getResources().getColor(R.color.colorPrimary, getTheme()));
         float[] radii1 = new float[]{
                 Utils.dp2px(this, 10F), Utils.dp2px(this, 10F),
                 0F, 0F,
