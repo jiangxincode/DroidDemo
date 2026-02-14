@@ -49,10 +49,10 @@ public class MovieListViewAdapter extends BaseAdapter{
     public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		
-		   ViewHolder holder = null;  
+		   ViewHolder holder;
            if(convertView == null){  
                holder = new ViewHolder();  
-               convertView = LayoutInflater.from(context).inflate(R.layout.movielistviewitem, null);
+               convertView = LayoutInflater.from(context).inflate(R.layout.movielistviewitem, parent, false);
                holder.thumbImage = convertView.findViewById(R.id.movie_cover);
                holder.titleText = convertView.findViewById(R.id.movie_title);
                convertView.setTag(holder);  
