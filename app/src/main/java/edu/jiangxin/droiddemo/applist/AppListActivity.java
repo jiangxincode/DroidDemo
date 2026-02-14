@@ -6,7 +6,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -42,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.view.IndexableListView;
@@ -62,7 +63,8 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
     private MenuItem mSearchItem;
 
-    private AppInfoLoadTask mTask;
+    private ExecutorService executorService;
+    private Handler mainHandler;
 
     /**
      * 上次第一个可见元素，用于滚动时记录标识。
@@ -105,6 +107,9 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_app_list);
         mContext = this;
+
+        executorService = Executors.newSingleThreadExecutor();
+        mainHandler = new Handler(Looper.getMainLooper());
 
         mComparator = (Comparator<AppInfo>) (appInfoFirst, appInfoSecond) -> {
             if ("@".equals(appInfoFirst.mSortLetter)
@@ -210,17 +215,19 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
     @Override
     protected void onResume() {
         super.onResume();
-        mTask = new AppInfoLoadTask();
-        mTask.execute();
+        loadAppInfo();
     }
 
-    private class AppInfoLoadTask extends AsyncTask<String, Integer, List<AppInfo>> {
-        @Override
-        protected void onPreExecute() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (executorService != null) {
+            executorService.shutdown();
         }
+    }
 
-        @Override
-        protected List<AppInfo> doInBackground(String... params) {
+    private void loadAppInfo() {
+        executorService.execute(() -> {
             List<AppInfo> appInfos = new ArrayList<>();
             PackageManager pManager = mContext.getPackageManager();
             List<PackageInfo> packageInfos = pManager.getInstalledPackages(PackageManager.MATCH_UNINSTALLED_PACKAGES);
@@ -238,28 +245,18 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
                 appInfo.mIcon = pManager.getApplicationIcon(packageInfo.applicationInfo);
                 appInfos.add(appInfo);
             }
-            return appInfos;
-        }
 
-        @Override
-        protected void onProgressUpdate(Integer... progresses) {
-        }
+            mainHandler.post(() -> {
+                mAllAppInfoList = appInfos;
+                mSelectedAppInfoList.clear();
+                mSelectedAppInfoList.addAll(mAllAppInfoList);
 
-        @Override
-        protected void onPostExecute(List<AppInfo> result) {
-            mAllAppInfoList = result;
-            mSelectedAppInfoList.clear();
-            mSelectedAppInfoList.addAll(mAllAppInfoList);
+                Collections.sort(mSelectedAppInfoList, mComparator);
 
-            Collections.sort(mSelectedAppInfoList, mComparator);
-
-            mProgressBarView.setVisibility(View.GONE);
-            mAdapter.notifyDataSetChanged();
-        }
-
-        @Override
-        protected void onCancelled() {
-        }
+                mProgressBarView.setVisibility(View.GONE);
+                mAdapter.notifyDataSetChanged();
+            });
+        });
     }
 
     @Override

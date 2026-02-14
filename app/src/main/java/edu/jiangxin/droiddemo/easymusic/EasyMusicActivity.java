@@ -12,7 +12,6 @@ import android.content.IntentFilter;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -31,6 +30,8 @@ import android.widget.Toast;
 
 import java.io.File;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.easymusic.conf.Constants;
@@ -122,9 +123,19 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_easymusic);
 		mInstance = this;//当前activity的引用
+		executorService = Executors.newSingleThreadExecutor();
+		mainHandler = new Handler(Looper.getMainLooper());
 		initView();
 		initData();
 		initListener();
+	}
+
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		if (executorService != null) {
+			executorService.shutdown();
+		}
 	}
 
 	/**
@@ -385,6 +396,8 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 
 	MyBroadcastReceiver receiver = new MyBroadcastReceiver();
 	private MyAdapter mAdapter;
+	private ExecutorService executorService;
+	private Handler mainHandler;
 
 	class MyBroadcastReceiver extends BroadcastReceiver {
 		@Override
@@ -392,34 +405,23 @@ public class EasyMusicActivity extends Activity implements OnClickListener {
 			//反注册广播
 			unregisterReceiver(receiver);
 			//执行task
-			new MyScanTask().execute();
+			scanMusic();
 		}
 	}
 
-	class MyScanTask extends AsyncTask<Void, Void, Void> {
-
-		private ProgressDialog mDialog;
-
-		@Override
-		protected Void doInBackground(Void... params) {
+	private void scanMusic() {
+		ProgressDialog dialog = ProgressDialog.show(EasyMusicActivity.this, "提示", "努力更新中");
+		
+		executorService.execute(() -> {
 			//重新更新songList
 			MediaUtils.initSongList(EasyMusicActivity.this);//contentProvider-->sqlite
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			mDialog.dismiss();
-			//listview刷新
-			mAdapter.notifyDataSetChanged();
-			super.onPostExecute(result);
-		}
-
-		@Override
-		protected void onPreExecute() {
-			mDialog = ProgressDialog.show(EasyMusicActivity.this, "提示", "努力更新中");
-			super.onPreExecute();
-		}
+			
+			mainHandler.post(() -> {
+				dialog.dismiss();
+				//listview刷新
+				mAdapter.notifyDataSetChanged();
+			});
+		});
 	}
 
 	@Override

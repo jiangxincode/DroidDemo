@@ -1,8 +1,9 @@
 package edu.jiangxin.droiddemo.activity;
 
 import android.app.Activity;
-import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -14,6 +15,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 import edu.jiangxin.droiddemo.R;
 
@@ -26,19 +30,21 @@ public class ThreadDemoActivity extends Activity {
     private ProgressBar progressBar;
     private TextView textView;
 
-    private MyTask mTask;
+    private ExecutorService executorService;
+    private Handler mainHandler;
+    private Future<?> currentTask;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thread_demo);
 
+        executorService = Executors.newSingleThreadExecutor();
+        mainHandler = new Handler(Looper.getMainLooper());
+
         execute = findViewById(R.id.execute);
         execute.setOnClickListener(v -> {
-            //注意每次需new一个实例,新建的任务只能执行一次,否则会出现异常
-            mTask = new MyTask();
-            mTask.execute("https://www.baidu.com");
-
+            executeTask("https://www.baidu.com");
             execute.setEnabled(false);
             cancel.setEnabled(true);
         });
@@ -46,8 +52,11 @@ public class ThreadDemoActivity extends Activity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //取消一个正在执行的任务,onCancelled方法将会被调用
-                mTask.cancel(true);
+                //取消一个正在执行的任务
+                if (currentTask != null) {
+                    currentTask.cancel(true);
+                    onTaskCancelled();
+                }
             }
         });
         progressBar = findViewById(R.id.progress_bar);
@@ -55,20 +64,26 @@ public class ThreadDemoActivity extends Activity {
 
     }
 
-    private class MyTask extends AsyncTask<String, Integer, String> {
-        //onPreExecute方法用于在执行后台任务前做一些UI操作
-        @Override
-        protected void onPreExecute() {
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (executorService != null) {
+            executorService.shutdown();
+        }
+    }
+
+    private void executeTask(String urlString) {
+        // onPreExecute
+        mainHandler.post(() -> {
             Log.i(TAG, "onPreExecute() called");
             textView.setText("loading...");
-        }
+        });
 
-        //doInBackground方法内部执行后台任务,不可在此方法内修改UI
-        @Override
-        protected String doInBackground(String... params) {
-            Log.i(TAG, "doInBackground(Params... params) called");
+        // doInBackground
+        currentTask = executorService.submit(() -> {
+            Log.i(TAG, "doInBackground called");
             try {
-                URL url = new URL(params[0]);
+                URL url = new URL(urlString);
                 HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
                 httpURLConnection.setRequestMethod("GET");
                 int totalLength;
@@ -92,45 +107,43 @@ public class ThreadDemoActivity extends Activity {
                     while ((len = inputStream.read(buffer)) != -1) {
                         baos.write(buffer, 0, len);
                         count += len;
-                        publishProgress((int) ((count / (float) totalLength) * 100));
+                        final int progress = (int) ((count / (float) totalLength) * 100);
+                        // onProgressUpdate
+                        mainHandler.post(() -> {
+                            Log.i(TAG, "onProgressUpdate called");
+                            progressBar.setProgress(progress);
+                            textView.setText("loading..." + progress + "%");
+                        });
                         //为了演示进度,休眠500毫秒
                         Thread.sleep(500);
                     }
-                    return baos.toString("gb2312");
+                    String result = baos.toString("gb2312");
+                    // onPostExecute
+                    mainHandler.post(() -> {
+                        Log.i(TAG, "onPostExecute called");
+                        textView.setText(result);
+                        execute.setEnabled(true);
+                        cancel.setEnabled(false);
+                    });
                 }
             } catch (Exception e) {
                 Log.e(TAG, e.getMessage());
+                mainHandler.post(() -> {
+                    textView.setText("Error: " + e.getMessage());
+                    execute.setEnabled(true);
+                    cancel.setEnabled(false);
+                });
             }
-            return null;
-        }
+        });
+    }
 
-        //onProgressUpdate方法用于更新进度信息
-        @Override
-        protected void onProgressUpdate(Integer... progresses) {
-            Log.i(TAG, "onProgressUpdate(Progress... progresses) called");
-            progressBar.setProgress(progresses[0]);
-            textView.setText("loading..." + progresses[0] + "%");
-        }
-
-        //onPostExecute方法用于在执行完后台任务后更新UI,显示结果
-        @Override
-        protected void onPostExecute(String result) {
-            Log.i(TAG, "onPostExecute(Result result) called");
-            textView.setText(result);
-
-            execute.setEnabled(true);
-            cancel.setEnabled(false);
-        }
-
-        //onCancelled方法用于在取消执行中的任务时更改UI
-        @Override
-        protected void onCancelled() {
+    private void onTaskCancelled() {
+        mainHandler.post(() -> {
             Log.i(TAG, "onCancelled() called");
             textView.setText("cancelled");
             progressBar.setProgress(0);
-
             execute.setEnabled(true);
             cancel.setEnabled(false);
-        }
+        });
     }
 }
