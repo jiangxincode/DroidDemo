@@ -47,7 +47,7 @@ public class MusicListViewAdapter extends BaseAdapter{
 	@Override
     public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		convertView = inflater.inflate(R.layout.musiclistviewitem, null);
+		convertView = inflater.inflate(R.layout.musiclistviewitem, parent, false);
 		
 		ImageView iv = convertView.findViewById(R.id.album_cover);
 		TextView title = convertView.findViewById(R.id.music_title);

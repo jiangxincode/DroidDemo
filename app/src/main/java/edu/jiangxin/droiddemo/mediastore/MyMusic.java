@@ -51,7 +51,6 @@ public class MyMusic extends Activity{
 		musicListView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			@SuppressWarnings("AliMissingOverrideAnnotation")
 			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
 									long arg3) {
 				// TODO Auto-generated method stub
@@ -83,9 +82,11 @@ public class MyMusic extends Activity{
 	        album_id =(c.getInt(c.getColumnIndexOrThrow(MediaStore.Audio.Media.ALBUM_ID)));
 	        String albumArt = getAlbumArt(album_id); 
 	        if (albumArt == null) {  
-	        	Drawable d = getResources().getDrawable(R.drawable.music, null);
-	        	BitmapDrawable bd = (BitmapDrawable)d;
-	            temp.setAlbum_cover(bd);  
+	        	Drawable d = getResources().getDrawable(R.drawable.music, getTheme());
+	        	if (d instanceof BitmapDrawable) {
+	        		BitmapDrawable bd = (BitmapDrawable)d;
+	        		temp.setAlbum_cover(bd);
+	        	}
 	        } else {  
 	            bm = BitmapFactory.decodeFile(albumArt);  
 	            BitmapDrawable bmpDraw = new BitmapDrawable(getResources(), bm);
