@@ -219,9 +219,9 @@ public class MainActivity extends Activity {
         LayoutInflater layoutInflater = LayoutInflater.from(this);
 
         //三个标题
-        commercialLoanView = layoutInflater.inflate(R.layout.viewpager_commercialloan, null);
-        HAFView = layoutInflater.inflate(R.layout.viewpager_haf, null);
-        combinationView = layoutInflater.inflate(R.layout.viewpager_combination, null);
+        commercialLoanView = layoutInflater.inflate(R.layout.viewpager_commercialloan, viewPager, false);
+        HAFView = layoutInflater.inflate(R.layout.viewpager_haf, viewPager, false);
+        combinationView = layoutInflater.inflate(R.layout.viewpager_combination, viewPager, false);
 
         //商业贷款页面控件
         CommPaybackMethodSpinner = commercialLoanView.findViewById(R.id.Commercial_PaybackMethod_Spinner);
@@ -969,7 +969,7 @@ public class MainActivity extends Activity {
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 getLayoutInflater();
                 LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
+                View view = layoutInflater.inflate(R.layout.spinner_item1, parent, false);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(paybackMethods[position]);
                 return view;
@@ -1030,7 +1030,7 @@ public class MainActivity extends Activity {
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 getLayoutInflater();
                 LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
+                View view = layoutInflater.inflate(R.layout.spinner_item1, parent, false);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(times[position]);
                 return view;
@@ -1105,7 +1105,7 @@ public class MainActivity extends Activity {
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 getLayoutInflater();
                 LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
+                View view = layoutInflater.inflate(R.layout.spinner_item1, parent, false);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(calculationMethods[position]);
                 return view;
@@ -1196,7 +1196,7 @@ public class MainActivity extends Activity {
             public View getDropDownView(int position, View convertView, ViewGroup parent) {
                 getLayoutInflater();
                 LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
+                View view = layoutInflater.inflate(R.layout.spinner_item1, parent, false);
                 TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
                 textView.setText(percents[position]);
                 return view;

@@ -1,6 +1,7 @@
 package edu.jiangxin.droiddemo.tools.mortgagecalc;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -41,7 +42,7 @@ public class ResultListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View view = View.inflate(context, R.layout.list_item, null);
+        View view = LayoutInflater.from(context).inflate(R.layout.list_item, parent, false);
 
         TextView timeTextView = view.findViewById(R.id.List_Time_TextView);
         TextView capitalTextView = view.findViewById(R.id.List_Capital_TextView);

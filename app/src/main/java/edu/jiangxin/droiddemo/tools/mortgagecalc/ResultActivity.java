@@ -202,8 +202,8 @@ public class ResultActivity extends Activity {
         getLayoutInflater();
         LayoutInflater layoutInflater = LayoutInflater.from(this);
 
-        view1 = layoutInflater.inflate(R.layout.viewpager_capital_interest, null);
-        view2 = layoutInflater.inflate(R.layout.viewpager_capital, null);
+        view1 = layoutInflater.inflate(R.layout.viewpager_capital_interest, viewPager, false);
+        view2 = layoutInflater.inflate(R.layout.viewpager_capital, viewPager, false);
 
         viewList.add(view1);
         viewList.add(view2);

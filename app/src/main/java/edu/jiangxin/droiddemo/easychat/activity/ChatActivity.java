@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Looper;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -200,7 +201,7 @@ public class ChatActivity extends AppCompatActivity {
                                 ViewHolder holder;
                                 if (getItemViewType(position) == RECEIVE) {
                                     if (convertView == null) {
-                                        convertView = View.inflate(ChatActivity.this, R.layout.item_chat_receive, null);
+                                        convertView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.item_chat_receive, parent, false);
                                         holder = new ViewHolder();
                                         convertView.setTag(holder);
 
@@ -215,7 +216,7 @@ public class ChatActivity extends AppCompatActivity {
                                     // 得到数据,展示数据
                                 } else {// 发送
                                     if (convertView == null) {
-                                        convertView = View.inflate(ChatActivity.this, R.layout.item_chat_send, null);
+                                        convertView = LayoutInflater.from(ChatActivity.this).inflate(R.layout.item_chat_send, parent, false);
                                         holder = new ViewHolder();
                                         convertView.setTag(holder);
 

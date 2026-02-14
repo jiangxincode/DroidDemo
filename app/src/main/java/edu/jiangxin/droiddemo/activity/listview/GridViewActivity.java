@@ -101,10 +101,10 @@ class GridViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View contertView, ViewGroup parent) {
-        GridViewChildHolder holder = null;
+        GridViewChildHolder holder;
         if (contertView == null) {
             holder = new GridViewChildHolder();
-            contertView = LayoutInflater.from(context).inflate(R.layout.adaper_grid_view_item, null);
+            contertView = LayoutInflater.from(context).inflate(R.layout.adaper_grid_view_item, parent, false);
             holder.iv_icon = contertView.findViewById(R.id.iv_item);
             holder.tv_name = contertView.findViewById(R.id.tv_item);
 

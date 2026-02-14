@@ -413,9 +413,9 @@ public class AppListActivity extends AppCompatActivity implements SectionIndexer
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            ViewHolder holder = null;
+            ViewHolder holder;
             if (convertView == null) {
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.activity_app_list_item, null);
+                convertView = LayoutInflater.from(mContext).inflate(R.layout.activity_app_list_item, parent, false);
                 holder = new ViewHolder();
                 convertView.setTag(holder);
                 holder.iv_icon = convertView.findViewById(R.id.ai_igview);

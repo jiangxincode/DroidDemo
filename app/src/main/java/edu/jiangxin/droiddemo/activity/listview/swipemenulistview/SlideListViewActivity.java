@@ -81,11 +81,11 @@ class SlideListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        SlideListViewHolder holder = null;
+        SlideListViewHolder holder;
 
         if (view == null) {
             holder = new SlideListViewHolder();
-            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_slide_list_view_item, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_slide_list_view_item, parent, false);
             holder.iv_icon = view.findViewById(R.id.iv_icon);
             holder.tv_name = view.findViewById(R.id.tv_name);
 

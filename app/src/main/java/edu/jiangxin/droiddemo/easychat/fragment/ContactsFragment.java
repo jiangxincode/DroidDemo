@@ -129,7 +129,7 @@ public class ContactsFragment extends Fragment {
 							// 如果convertView==null,返回一个具体的根视图
 							@Override
 							public View newView(Context context, Cursor cursor, ViewGroup parent) {
-								View view = View.inflate(context, R.layout.item_contact, null);
+								View view = LayoutInflater.from(context).inflate(R.layout.item_contact, parent, false);
 								return view;
 							}
 

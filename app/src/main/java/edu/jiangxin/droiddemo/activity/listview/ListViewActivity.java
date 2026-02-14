@@ -83,11 +83,11 @@ class ListViewMenuAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View view, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
 
         if (view == null) {
             holder = new ViewHolder();
-            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_listview_item, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_listview_item, parent, false);
             holder.tvMenu = view.findViewById(R.id.tv_list_view_menu_item);
 
             view.setTag(holder);

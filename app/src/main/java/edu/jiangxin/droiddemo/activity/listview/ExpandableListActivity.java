@@ -152,10 +152,10 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         View view = convertView;
-        GroupHolder holder = null;
+        GroupHolder holder;
         if (view == null) {
             holder = new GroupHolder();
-            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_expandlist_group_item, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_expandlist_group_item, parent, false);
             holder.groupName = view.findViewById(R.id.tv_expandlist_group_name);
             holder.groupArrow = view.findViewById(R.id.iv_expandlist_group);
             view.setTag(holder);
@@ -178,10 +178,10 @@ class ExpandableListAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition,
                              boolean isLastChild, View convertView, ViewGroup parent) {
         View view = convertView;
-        ChildHolder holder = null;
+        ChildHolder holder;
         if (view == null) {
             holder = new ChildHolder();
-            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_expandlist_child_item, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.adapter_expandlist_child_item, parent, false);
             holder.childLogo = view.findViewById(R.id.iv_expandlist_child_avatar);
             holder.childTitle = view.findViewById(R.id.tv_expandlist_child_name);
             holder.childContent = view.findViewById(R.id.tv_expandlist_child_content);
