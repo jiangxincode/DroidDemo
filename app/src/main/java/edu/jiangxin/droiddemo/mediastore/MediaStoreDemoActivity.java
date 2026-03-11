@@ -96,18 +96,22 @@ public class MediaStoreDemoActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Drawable drawable = mImageView.getDrawable();
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-                Bitmap bitmap = bitmapDrawable.getBitmap();
-                saveImageToFile(MediaStoreDemoActivity.this, bitmap);
+                if (drawable instanceof BitmapDrawable) {
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+                    Bitmap bitmap = bitmapDrawable.getBitmap();
+                    saveImageToFile(MediaStoreDemoActivity.this, bitmap);
+                }
             }
         });
         mSaveToMediaStoreButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
                 Drawable drawable = mImageView.getDrawable();
-                BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-                Bitmap bitmap = bitmapDrawable.getBitmap();
-                saveImageToGallery(MediaStoreDemoActivity.this, bitmap);
+                if (drawable instanceof BitmapDrawable) {
+                    BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
+                    Bitmap bitmap = bitmapDrawable.getBitmap();
+                    saveImageToGallery(MediaStoreDemoActivity.this, bitmap);
+                }
             }
         });
     }

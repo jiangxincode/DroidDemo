@@ -72,7 +72,7 @@ public class SpannableStringActivity extends Activity {
         //设置项目符号
         sStr.setSpan(new BulletSpan(android.text.style.BulletSpan.STANDARD_GAP_WIDTH, Color.GREEN), 0, sStr.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE); //第一个参数表示项目符号占用的宽度，第二个参数为项目符号的颜色
         //设置图片
-        Drawable drawable = getResources().getDrawable(R.mipmap.ic_launcher, null);
+        Drawable drawable = getResources().getDrawable(R.mipmap.ic_launcher, getTheme());
         drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
         sStr.setSpan(new ImageSpan(drawable), 24, 26, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 

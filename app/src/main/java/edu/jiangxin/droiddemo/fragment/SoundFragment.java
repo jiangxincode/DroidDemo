@@ -28,7 +28,7 @@ public class SoundFragment extends Fragment {
 
         // 之前 为了将 layout 文件转换为 view 对象时, 调用的是
         // View.inflate(context, resource, root)
-        View view = inflater.inflate(R.layout.soundfragment, null);
+        View view = inflater.inflate(R.layout.soundfragment, container, false);
         btn = view.findViewById(R.id.bbtn);
         btn.setOnClickListener(new View.OnClickListener() {
 

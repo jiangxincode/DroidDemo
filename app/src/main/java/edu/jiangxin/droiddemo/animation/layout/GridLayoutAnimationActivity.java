@@ -85,12 +85,13 @@ class GridViewAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getView(int position, View view, ViewGroup parent) {
         ViewHolder holder;
 
         if (view == null) {
             holder = new ViewHolder();
-            view = LayoutInflater.from(mContext).inflate(R.layout.layout_animation_item, null);
+            view = LayoutInflater.from(mContext).inflate(R.layout.layout_animation_item, parent, false);
             holder.title = view.findViewById(R.id.title);
             view.setTag(holder);
         } else {

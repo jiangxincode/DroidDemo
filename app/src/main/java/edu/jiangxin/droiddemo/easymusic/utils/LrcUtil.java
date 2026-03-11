@@ -54,15 +54,14 @@ public class LrcUtil {
 				//				activity.setMiniLrc("歌词存在");
 				lrclist = new Vector<Timelrc>();
 				IsLyricExist = true;
-				InputStream is = new BufferedInputStream(new FileInputStream(f));
-				BufferedReader br = new BufferedReader(new InputStreamReader(is, GetCharset(f)));
-				String strTemp = "";
-				while ((strTemp = br.readLine()) != null) {
-					// Log.d(TAG,"strTemp = "+strTemp);
-					strTemp = AnalyzeLRC(strTemp);
+				try (InputStream is = new BufferedInputStream(new FileInputStream(f));
+				     BufferedReader br = new BufferedReader(new InputStreamReader(is, GetCharset(f)))) {
+					String strTemp;
+					while ((strTemp = br.readLine()) != null) {
+						// Log.d(TAG,"strTemp = "+strTemp);
+						strTemp = AnalyzeLRC(strTemp);
+					}
 				}
-				br.close();
-				is.close();
 				// 对歌词进行排序
 				Collections.sort(lrclist, new Sort());
 				//				Collections.sort(lrclist);

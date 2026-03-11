@@ -45,10 +45,9 @@ public class PhotoGridViewAdapter extends BaseAdapter{
 	}
 
 	@Override
-    @SuppressWarnings("deprecation")
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-		convertView = inflater.inflate(R.layout.photogridviewitem, null);
+		convertView = inflater.inflate(R.layout.photogridviewitem, parent, false);
 		ImageView iv = convertView.findViewById(R.id.gv_photo);
 		String uri = photolist.get(position).getPhotosrc();
 		iv.setImageURI(Uri.parse(uri));

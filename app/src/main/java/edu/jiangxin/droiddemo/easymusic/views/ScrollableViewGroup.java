@@ -509,7 +509,7 @@ public class ScrollableViewGroup extends ViewGroup {
 			break;
 		case MotionEvent.ACTION_CANCEL:
 			mTouchState = TOUCH_STATE_REST;
-
+			break;
 		}
 
 		return true;

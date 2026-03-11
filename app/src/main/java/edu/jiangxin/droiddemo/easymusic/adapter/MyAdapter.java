@@ -2,6 +2,7 @@ package edu.jiangxin.droiddemo.easymusic.adapter;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -41,10 +42,11 @@ public class MyAdapter extends BaseAdapter {
     }
 
     @Override
+    @SuppressWarnings("unchecked")
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder = null;
+        ViewHolder holder;
         if (convertView == null) {
-            convertView = View.inflate(context, R.layout.item_music, null);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_music, parent, false);
             holder = new ViewHolder();
             convertView.setTag(holder);//设置tag的作用
             holder.tv_title = convertView.findViewById(R.id.tv_title);
