@@ -16,7 +16,7 @@
         android:orientation="horizontal"
         android:weightSum="1">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/pasteToTitleBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -41,37 +41,37 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/pasteToContentBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="粘贴" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/pasteToAppendContentBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="增加" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/cleanBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="清除" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/loadBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="选择目录" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="保存" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/openBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

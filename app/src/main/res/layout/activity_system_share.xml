@@ -5,19 +5,19 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShareText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="分享文本" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShareImage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="分享图片" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnShareMultiple"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

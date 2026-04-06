@@ -14,14 +14,23 @@
   limitations under the License.
   -->
 
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        style="@style/Widget.Material3.Toolbar" />
 
     <!-- A vertical LinearLayout in a ScrollView. This emulates a ListView (and is lighter weight
          than a ListView when there aren't many rows). -->
     <ScrollView android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <!-- Note that this LinearLayout has the "animateLayoutChanges" property set to true.
              This tells the framework to automatically animate child views (in this case, rows)
@@ -48,4 +57,4 @@
         android:text="@string/message_empty_layout_changes"
         android:textColor="?android:textColorSecondary" />
 
-</FrameLayout>
+</LinearLayout>

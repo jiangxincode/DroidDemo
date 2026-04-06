@@ -63,7 +63,7 @@
             android:layout_gravity="center"
             android:background="@drawable/show_head_toast_bg"
             android:gravity="center"
-            android:textSize="30sp"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
             android:visibility="invisible" />
 
         <edu.jiangxin.droiddemo.view.IndexableListView

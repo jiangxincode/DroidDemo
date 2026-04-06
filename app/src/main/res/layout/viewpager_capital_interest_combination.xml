@@ -197,7 +197,7 @@
             android:gravity="center"
             android:text="期数"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:layout_weight="1"/>
 
         <TextView
@@ -206,7 +206,7 @@
             android:gravity="center"
             android:text="偿还本金"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:layout_weight="1"/>
 
         <TextView
@@ -215,7 +215,7 @@
             android:gravity="center"
             android:text="偿还利息"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:layout_weight="1"/>
 
         <TextView
@@ -224,7 +224,7 @@
             android:gravity="center"
             android:text="月供"
             android:textColor="#000000"
-            android:textSize="15sp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:layout_weight="1"/>
     </LinearLayout>
 

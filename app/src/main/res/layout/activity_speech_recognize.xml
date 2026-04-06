@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="内容"
-        android:textSize="40dp" />
+        android:textAppearance="?attr/textAppearanceDisplaySmall" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/speechBut"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

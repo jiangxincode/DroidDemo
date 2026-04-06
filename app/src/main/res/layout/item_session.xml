@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="黑马"
-            android:textSize="20sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
         <TextView
             android:id="@+id/body"
@@ -37,7 +37,7 @@
             android:layout_gravity="center_vertical"
             android:text="黑马"
             android:textColor="#D4D0C8"
-            android:textSize="17sp"/>
+            android:textAppearance="?attr/textAppearanceBodyLarge"/>
     </LinearLayout>
 
 </LinearLayout>

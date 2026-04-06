@@ -4,14 +4,14 @@
     android:layout_height="match_parent"
     android:padding="20dp">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_show_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ShowImage"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_create_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:text="CreateFile"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_delete_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,7 +27,7 @@
         android:text="DeleteFile"
         />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_alter_file"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

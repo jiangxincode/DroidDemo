@@ -19,7 +19,7 @@
         android:singleLine="true"
         android:text="Name"
         android:textColor="#ffffffff"
-        android:textSize="20.0dip" />
+        android:textAppearance="?attr/textAppearanceTitleMedium" />
 
     <TextView
         android:id="@+id/tv_artist"
@@ -31,6 +31,6 @@
         android:ellipsize="middle"
         android:singleLine="true"
         android:text="Content"
-        android:textSize="12.0dip" />
+        android:textAppearance="?attr/textAppearanceBodySmall" />
 
 </LinearLayout>

@@ -172,7 +172,9 @@
         <activity android:name=".animation.activity.TransitionFirstActivity" />
         <activity android:name=".animation.layout.LayoutAnimationAndTransitionActivity" />
         <activity android:name=".animation.layout.GridLayoutAnimationActivity" />
-        <activity android:name=".animation.layout.LayoutTransitionByXmlActivity" />
+        <activity
+            android:name=".animation.layout.LayoutTransitionByXmlActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.DecorViewActivity" />
         <activity android:name=".activity.ForbidScreenShotActivity" />
         <activity

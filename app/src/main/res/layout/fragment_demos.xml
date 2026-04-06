@@ -17,301 +17,301 @@
             android:scrollbarStyle="outsideInset"
             android:scrollbars="vertical">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPredictiveBack"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="可预测返回" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnUsageStats"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Usage Stats" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNote"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Note" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPerf"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Perf" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnShowInfoEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="信息展示" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVariousLayoutEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="各种Layout" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDecorViewEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="状态栏/标题栏设置" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVariousServiceEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="各种Service" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnListViewEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="各种ListView" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDialogEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_dialog_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRippleEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_ripple_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRoundCornerEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="圆角效果" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAnimationEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="动画大世界" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnOpenglEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="OpenGL大世界" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnBlurEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="高斯模糊以及Activity生命周期展示" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnForbidScreenShotEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_forbid_screenshot_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAppListEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_app_list_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVariousNotificationEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_various_notification_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnScaleTextEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_scale_text_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSpannableStringEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="@string/button_spannable_string_entrance" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnGlobalSearchEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="全局搜索样例" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnImageViewEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="ImageView样例" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAudioFxDemoOscillogramEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="频谱波形图样例" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnAudioFxDemoHistogramEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="频谱柱状图样例" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNetMusicEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="播放网络音乐" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVideoViewEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="播放视频" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnJNIEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="JNI" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnActivityTrackerEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="ActivityTracker/无障碍服务" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSpeechRecognizeEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="语音识别" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSoundEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="铃声设置" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSoundEntrance1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="铃声设置" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnPreferenceEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Preference" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSpinnerEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Spinner" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnFragmentEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Fragment相关" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSAFEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Storage Access Framework" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnMediaStoreDemoEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="MediaStoreDemo" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnThreadEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="线程相关" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLoaderDemoEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Loader相关" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnRecycleViewTvEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="RecycleView Tv" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnVibratorEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Vibrator Demo" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSensorEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text="Sensor Demo" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnImeEntrance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAllCaps="false"
                 android:text= "输入法" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnSystemShare"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

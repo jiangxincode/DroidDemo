@@ -7,4 +7,4 @@
           android:clickable="true"
           android:padding="16dp"
           android:textColor="@color/black_87pc"
-          android:textSize="@dimen/text_body"/>
+          android:textAppearance="?attr/textAppearanceBodyLarge"/>

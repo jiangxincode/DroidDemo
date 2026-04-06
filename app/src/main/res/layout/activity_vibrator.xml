@@ -16,21 +16,21 @@
             android:orientation="vertical"
             android:padding="10dp">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnOneShotVibrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="OneShotVibrate" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnWaveformVibrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="WaveformVibrate" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnComposeVibrate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

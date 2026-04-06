@@ -39,7 +39,7 @@
             android:background="#FFF"
             android:padding="10dip"
             android:textColor="#000"
-            android:textSize="20sp" />
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         <TextView
             android:layout_width="match_parent"

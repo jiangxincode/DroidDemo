@@ -26,10 +26,10 @@
             android:layout_height="wrap_content"
             android:id="@+id/tv_seek"
             android:layout_gravity="center"
-            android:textSize="16sp"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
             android:textColor="@android:color/white"
             />
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:layout_width="100dip"
             android:layout_height="40dip"
             android:text="开始动画"
@@ -37,7 +37,7 @@
             android:background="@color/colorPrimary"
             android:id="@+id/button1"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:layout_width="100dip"
             android:layout_height="40dip"
             android:layout_marginLeft="10dip"

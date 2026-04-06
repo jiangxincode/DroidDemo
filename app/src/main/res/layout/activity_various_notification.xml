@@ -17,49 +17,49 @@
             android:scrollbarStyle="outsideInset"
             android:scrollbars="vertical">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnNoneImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_NONE" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnMinImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_MIN" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnLowImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_LOW" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDefaultImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_DEFAULT" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnHighImportance"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="IMPORTANCE_HIGH" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnEnableVibrate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="ENABLE_VIBRATE" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnDisableVibrate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="DISABLE_VIBRATE" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnOthers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

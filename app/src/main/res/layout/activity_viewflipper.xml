@@ -23,28 +23,28 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:text="@string/view_flipper_str1"
-                android:textSize="20sp" />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:text="@string/view_flipper_str2"
-                android:textSize="20sp" />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:text="@string/view_flipper_str3"
-                android:textSize="20sp" />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:text="@string/view_flipper_str4"
-                android:textSize="20sp" />
+                android:textAppearance="?attr/textAppearanceTitleMedium" />
 
         </ViewFlipper>
     </LinearLayout>

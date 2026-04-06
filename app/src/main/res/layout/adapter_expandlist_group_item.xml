@@ -17,6 +17,6 @@
         android:gravity="center_vertical"
         android:layout_marginStart="12dp"
         android:textColor="@color/colorBlack"
-        android:textSize="20sp"/>
+        android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
 </LinearLayout>

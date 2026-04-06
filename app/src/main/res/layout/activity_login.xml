@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="账号: "
-                android:textSize="24sp" />
+                android:textAppearance="?attr/textAppearanceTitleLarge" />
             <!--输入账号-->
             <EditText
                 android:id="@+id/et_username"
@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="账号: "
-                android:textSize="24sp" />
+                android:textAppearance="?attr/textAppearanceTitleLarge" />
             <!--输入密码-->
             <EditText
                 android:id="@+id/et_password"
@@ -61,7 +61,7 @@
                 android:text="admin" />
         </LinearLayout>
         <!-- 登录按钮-->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_login"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

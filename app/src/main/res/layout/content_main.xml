@@ -9,61 +9,20 @@
     android:background="#ffffff"
     tools:showIn="@layout/activity_main">
 
-    <LinearLayout
-        android:id="@+id/layout"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:orientation="horizontal">
+        android:layout_marginBottom="10dp" />
 
-        <TextView
-            android:id="@+id/CommercialLoanTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="商业贷款"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/HAFTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="公积金贷款"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_weight="1"/>
-
-        <TextView
-            android:id="@+id/CombinationTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="组合贷款"
-            android:textColor="#000000"
-            android:textSize="18sp"
-            android:gravity="center"
-            android:layout_weight="1"/>
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/cursorImageView"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:src="@drawable/cursor"
-        android:scaleType="matrix"
-        android:layout_below="@+id/layout" />
-
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:layout_below="@+id/cursorImageView"
-        android:layout_above="@+id/ll_banner">
-    </androidx.viewpager.widget.ViewPager>
+        android:layout_below="@+id/tabLayout"
+        android:layout_above="@+id/ll_banner" />
 
     <LinearLayout
         android:id="@+id/ll_banner"
@@ -83,22 +42,22 @@
         android:layout_marginRight="5dp"
         android:layout_alignParentBottom="true">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/resetButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="重置"
-            android:textSize="18sp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
             android:textColor="#000000"
             android:padding="10dp"
             android:layout_weight="0.5"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/calculationButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="开始计算"
-            android:textSize="18sp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
             android:textColor="#000000"
             android:padding="10dp"
             android:layout_weight="1.5"/>

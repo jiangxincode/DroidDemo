@@ -16,9 +16,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,14 +28,14 @@ import edu.jiangxin.droiddemo.DemosFragment;
 import edu.jiangxin.droiddemo.HomeFragment;
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.ToolsFragment;
-import edu.jiangxin.droiddemo.adapter.MainActivityViewPagerAdapter;
+import edu.jiangxin.droiddemo.adapter.MainActivityFragmentStateAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private ViewPager mainActivityViewPager;
+    private ViewPager2 mainActivityViewPager;
     private BottomNavigationView navigation;
-    private MainActivityViewPagerAdapter adapter;
+    private MainActivityFragmentStateAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,60 +47,69 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.VmPolicy vmPolicy = new StrictMode.VmPolicy.Builder().detectAll().penaltyLog().build();
         StrictMode.setVmPolicy(vmPolicy);
 
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
+
         setContentView(R.layout.activity_main);
 
         View container = findViewById(R.id.container);
         ViewCompat.setOnApplyWindowInsetsListener(container, (v, insets) -> {
             int typeMask = WindowInsetsCompat.Type.statusBars() | WindowInsetsCompat.Type.displayCutout();
             Insets sysInsets = insets.getInsets(typeMask);
-            v.setPadding(sysInsets.left, sysInsets.top, sysInsets.right, sysInsets.bottom);
+            v.setPadding(sysInsets.left, sysInsets.top, sysInsets.right, 0);
             return insets;
         });
 
         navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        ViewCompat.setOnApplyWindowInsetsListener(navigation, (v, insets) -> {
+            Insets navInsets = insets.getInsets(WindowInsetsCompat.Type.navigationBars());
+            v.setPadding(v.getPaddingLeft(), v.getPaddingTop(), v.getPaddingRight(), navInsets.bottom);
+            return insets;
+        });
 
+        mainActivityViewPager = findViewById(R.id.main_viewpager);
+
+        adapter = new MainActivityFragmentStateAdapter(this);
+        adapter.addFragment(new HomeFragment());
+        adapter.addFragment(new ToolsFragment());
+        adapter.addFragment(new DemosFragment());
+        mainActivityViewPager.setAdapter(adapter);
+
+        // Bidirectional sync: BottomNavigationView → ViewPager2
+        navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int itemId = item.getItemId();
                 if (itemId == R.id.navigation_home) {
-                    mainActivityViewPager.setCurrentItem(0);
+                    mainActivityViewPager.setCurrentItem(0, false);
                     return true;
                 } else if (itemId == R.id.navigation_dashboard) {
-                    mainActivityViewPager.setCurrentItem(1);
+                    mainActivityViewPager.setCurrentItem(1, false);
                     return true;
                 } else if (itemId == R.id.navigation_notifications) {
-                    mainActivityViewPager.setCurrentItem(2);
+                    mainActivityViewPager.setCurrentItem(2, false);
                     return true;
                 }
                 return false;
             }
         });
 
-        mainActivityViewPager = findViewById(R.id.main_viewpager);
-
-        mainActivityViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
+        // Bidirectional sync: ViewPager2 → BottomNavigationView
+        mainActivityViewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
-
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
+                switch (position) {
+                    case 0:
+                        navigation.setSelectedItemId(R.id.navigation_home);
+                        break;
+                    case 1:
+                        navigation.setSelectedItemId(R.id.navigation_dashboard);
+                        break;
+                    case 2:
+                        navigation.setSelectedItemId(R.id.navigation_notifications);
+                        break;
+                }
             }
         });
-
-        adapter = new MainActivityViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new HomeFragment());
-        adapter.addFragment(new ToolsFragment());
-        adapter.addFragment(new DemosFragment());
-        mainActivityViewPager.setAdapter(adapter);
 
         setupShortcuts();
 

@@ -14,15 +14,16 @@ import android.view.animation.Interpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.animation.interpolator.EaseCubicInterpolator;
 import edu.jiangxin.droiddemo.animation.interpolator.HesitateInterpolator;
 
 
-public class InterpolatorTestActivity extends Activity implements AdapterView.OnItemSelectedListener {
+public class InterpolatorTestActivity extends Activity {
     private static final String TAG = "InterpolatorTestActivity";
 
     private static final String[] INTERPOLATORS = {
@@ -86,16 +87,14 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
 
         });
 
-        Spinner spinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, INTERPOLATORS);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        MaterialAutoCompleteTextView spinner = findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, INTERPOLATORS);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(this);
+        spinner.setOnItemClickListener((parent, view, position, id) -> onItemSelected(parent, view, position, id));
         resetState();
 
     }
 
-    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         resetState();
@@ -210,9 +209,5 @@ public class InterpolatorTestActivity extends Activity implements AdapterView.On
         interpolator_t.setText("公式t=0");
         pause.setText("Start");
         ObjectAnimator.ofFloat(target, "translationY", 0).setDuration(0).start();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
     }
 }

@@ -2,13 +2,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/all" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_incoming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:layout_toRightOf="@id/btn_all"
         android:text="@string/incoming" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_outcoming"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,7 +24,7 @@
         android:layout_marginTop="10dp"
         android:text="@string/outcoming" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_missed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

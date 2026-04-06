@@ -42,7 +42,7 @@
             android:layout_toLeftOf="@id/head"
             android:background="@drawable/outgoing"
             android:text="黑马"
-            android:textSize="20sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
     </RelativeLayout>
 
 </LinearLayout>

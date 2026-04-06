@@ -20,7 +20,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginTop="2dp"
         android:layout_toRightOf="@id/bt_icon"
-        android:textSize="23sp" />
+        android:textAppearance="?attr/textAppearanceTitleLarge" />
 
     <TextView
         android:id="@+id/tv_number"
@@ -30,7 +30,7 @@
         android:layout_below="@id/tv_name"
         android:layout_marginBottom="2dp"
         android:textColor="#7f7f7f"
-        android:textSize="16sp" />
+        android:textAppearance="?attr/textAppearanceBodyLarge" />
 
     <TextView
         android:id="@+id/tv_date"
@@ -41,7 +41,7 @@
         android:layout_toRightOf="@id/tv_number"
         android:ellipsize="end"
         android:textColor="#7f7f7f"
-        android:textSize="16sp" />
+        android:textAppearance="?attr/textAppearanceBodyLarge" />
 
     <ImageButton
         android:id="@+id/btn_delete"

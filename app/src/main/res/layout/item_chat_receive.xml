@@ -47,7 +47,7 @@
             android:background="@drawable/incoming"
             android:text="黑马"
             android:textColor="#000"
-            android:textSize="20sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
     </RelativeLayout>
 
 </LinearLayout>

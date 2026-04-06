@@ -17,49 +17,49 @@
             android:scrollbarStyle="outsideInset"
             android:scrollbars="vertical">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s1" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s2" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s3" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s4" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s5" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s6" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/s7" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btn8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

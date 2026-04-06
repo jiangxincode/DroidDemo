@@ -21,6 +21,6 @@
             android:layout_marginStart="10dp"
             android:layout_toEndOf="@+id/iv_icon"
             android:textColor="@color/colorBlack"
-            android:textSize="18sp" />
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
     </RelativeLayout>
 </LinearLayout>

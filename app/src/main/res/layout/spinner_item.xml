@@ -8,4 +8,4 @@
     android:singleLine="true"
     android:text="New Text"
     android:textColor="#f77718"
-    android:textSize="15sp" />
+    android:textAppearance="?attr/textAppearanceBodyLarge" />

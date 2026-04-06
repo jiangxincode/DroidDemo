@@ -24,17 +24,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="贷款方式"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"/>
 
-            <Spinner
-                android:id="@+id/Combination_PaybackMethod_Spinner"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.3">
-            </Spinner>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/Combination_PaybackMethod_Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -49,17 +54,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="贷款年限"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"/>
 
-            <Spinner
-                android:id="@+id/Combination_Time_Spinner"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.3">
-            </Spinner>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/Combination_Time_Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -74,17 +84,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="计算方式"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"/>
 
-            <Spinner
-                android:id="@+id/Combination_CalculationMethod_Spinner"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.3">
-            </Spinner>
+                <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                    android:id="@+id/Combination_CalculationMethod_Spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+            </com.google.android.material.textfield.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -105,30 +120,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="公积金贷款金额"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Mortgage_HAF_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:imeOptions="actionDone"
-                    android:background="#cfcece"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Mortgage_HAF_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:imeOptions="actionDone"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -147,30 +168,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="商业贷款金额"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Mortgage_Comm_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:imeOptions="actionDone"
-                    android:background="#cfcece"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Mortgage_Comm_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:imeOptions="actionDone"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -199,30 +226,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="单价"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_Price_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:imeOptions="actionDone"
-                    android:background="#cfcece"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_Price_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:imeOptions="actionDone"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="元/㎡"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -243,30 +276,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="面积"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_Area_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:imeOptions="actionDone"
-                    android:background="#cfcece"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_Area_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:imeOptions="actionDone"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="㎡"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -287,31 +326,37 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="总价"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_Sum_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:focusable="false"
-                    android:enabled="false"
-                    android:background="#ffffff"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_Sum_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:focusable="false"
+                        android:enabled="false"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -332,17 +377,22 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="首付比例"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="1"/>
 
-                <Spinner
-                    android:id="@+id/Combination_Area_FirstPay_Spinner"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1.3">
-                </Spinner>
+                    <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                        android:id="@+id/Combination_Area_FirstPay_Spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 
             <LinearLayout
@@ -359,31 +409,37 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="首付金额"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_FirstPay_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:focusable="false"
-                    android:enabled="false"
-                    android:background="#ffffff"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_FirstPay_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:focusable="false"
+                        android:enabled="false"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -404,31 +460,37 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="贷款总额"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_Pay_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:focusable="false"
-                    android:enabled="false"
-                    android:background="#ffffff"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_Pay_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:focusable="false"
+                        android:enabled="false"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -449,30 +511,36 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="公积金贷款金额"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_HAFPay_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:imeOptions="actionDone"
-                    android:background="#cfcece"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_HAFPay_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:imeOptions="actionDone"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -493,31 +561,37 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="商业贷款金额"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:layout_gravity="center_vertical"
                     android:layout_weight="2"/>
 
-                <EditText
-                    android:id="@+id/Combination_Area_CommPay_EditText"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:text="0.00"
-                    android:textSize="18sp"
-                    android:textColor="#000000"
-                    android:focusable="false"
-                    android:enabled="false"
-                    android:background="#ffffff"
-                    android:gravity="center"
                     android:layout_gravity="center_vertical"
-                    android:layout_weight="1.3"/>
+                    android:layout_weight="1.3">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/Combination_Area_CommPay_EditText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal"
+                        android:text="0.00"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textColor="#000000"
+                        android:focusable="false"
+                        android:enabled="false"
+                        android:gravity="center"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="万元"
-                    android:textSize="18sp"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
                     android:textColor="#000000"
                     android:paddingLeft="10dp"
                     android:gravity="left"
@@ -529,7 +603,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="公积金贷款利率"
-            android:textSize="18sp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
             android:textColor="#000000"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
@@ -546,28 +620,34 @@
             android:focusable="true"
             android:focusableInTouchMode="true">
 
-            <EditText
-                android:id="@+id/Combination_HAF_Rate_EditText"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="3.25"
-                android:inputType="numberDecimal"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:background="#cfcece"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Combination_HAF_Rate_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="3.25"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="#000000"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="%"
-                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
                 android:textColor="#000000"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -580,34 +660,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="×"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"/>
 
-            <EditText
-                android:id="@+id/Combination_HAF_Discount_EditText"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="1"
-                android:inputType="numberDecimal"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:background="#cfcece"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Combination_HAF_Discount_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="#000000"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="倍"
-                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
                 android:textColor="#000000"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -620,7 +706,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="="
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:gravity="center"
                 android:layout_marginLeft="10dp"
@@ -631,7 +717,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="3.250%"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:singleLine="true"
                 android:paddingLeft="5dp"
@@ -644,7 +730,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="商业贷款利率"
-            android:textSize="18sp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
             android:textColor="#000000"
             android:layout_marginBottom="20dp"
             android:layout_marginLeft="20dp"
@@ -661,28 +747,34 @@
             android:focusable="true"
             android:focusableInTouchMode="true">
 
-            <EditText
-                android:id="@+id/Combination_Mortgage_Rate_EditText"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="4.90"
-                android:inputType="numberDecimal"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:background="#cfcece"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Combination_Mortgage_Rate_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="4.90"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="#000000"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="%"
-                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
                 android:textColor="#000000"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -695,34 +787,40 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="×"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:gravity="center"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"/>
 
-            <EditText
-                android:id="@+id/Combination_Mortgage_Discount_EditText"
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="1"
-                android:inputType="numberDecimal"
-                android:textSize="15sp"
-                android:textColor="#000000"
-                android:imeOptions="actionDone"
-                android:singleLine="true"
-                android:background="#cfcece"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"/>
+                android:layout_weight="1">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/Combination_Mortgage_Discount_EditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:inputType="numberDecimal"
+                    android:textAppearance="?attr/textAppearanceBodyLarge"
+                    android:textColor="#000000"
+                    android:imeOptions="actionDone"
+                    android:singleLine="true"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="倍"
-                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
                 android:textColor="#000000"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
@@ -735,7 +833,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="="
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:gravity="center"
                 android:layout_marginLeft="10dp"
@@ -746,7 +844,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="4.900%"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:singleLine="true"
                 android:paddingLeft="5dp"
@@ -768,7 +866,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="首次还款时间"
-                android:textSize="18sp"
+                android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:textColor="#000000"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"/>
@@ -777,7 +875,7 @@
                 android:id="@+id/Combination_FirstTimePickTextView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
                 android:textColor="#000000"
                 android:background="#cfcece"
                 android:paddingTop="5dp"

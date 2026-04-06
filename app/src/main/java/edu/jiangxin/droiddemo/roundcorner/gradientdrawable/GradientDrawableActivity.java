@@ -36,7 +36,7 @@ public class GradientDrawableActivity extends AppCompatActivity {
         mLly2 = findViewById(R.id.lly2);
         GradientDrawable gradientDrawable2 = new GradientDrawable();
         gradientDrawable2.setShape(GradientDrawable.RECTANGLE);
-        gradientDrawable2.setColor(getResources().getColor(R.color.colorAccent, null));
+        gradientDrawable2.setColor(getResources().getColor(R.color.md3_secondary, null));
         float[] radii = new float[]{
                 Utils.dp2px(this, 10F), Utils.dp2px(this, 10F),
                 0F, 0F,

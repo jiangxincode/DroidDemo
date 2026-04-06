@@ -24,7 +24,7 @@
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="绘制背景"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_triangle"
@@ -33,7 +33,7 @@
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="绘制三角形"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_triangle_jni"
@@ -42,7 +42,7 @@
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="绘制三角形JNI"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_square"
@@ -51,7 +51,7 @@
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="绘制正方形"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_circle"
@@ -60,7 +60,7 @@
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="绘制圆形"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_transform"
@@ -69,7 +69,7 @@
                 android:background="@android:color/holo_blue_light"
                 android:gravity="center"
                 android:text="OpenGL变换"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_matrix"
@@ -78,7 +78,7 @@
                 android:background="@android:color/holo_green_light"
                 android:gravity="center"
                 android:text="OpenGL Matrix"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_ball"
@@ -87,7 +87,7 @@
                 android:background="@android:color/holo_green_dark"
                 android:gravity="center"
                 android:text="OpenGL Ball"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_blur"
@@ -96,7 +96,7 @@
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
                 android:text="OpenGL Blur Process"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_VertexArrays"
@@ -105,7 +105,7 @@
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
                 android:text="VertexArrays"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_VertexBufferObjects"
@@ -114,7 +114,7 @@
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
                 android:text="VertexBufferObjects"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_VertexArrayObjects"
@@ -123,7 +123,7 @@
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
                 android:text="VertexArrayObjects"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_MapBuffers"
@@ -132,7 +132,7 @@
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
                 android:text="MapBuffers"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_SimpleVetexShader"
@@ -141,7 +141,7 @@
                 android:background="@android:color/holo_orange_dark"
                 android:gravity="center"
                 android:text="SimpleVetexShader"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_SimpleTexture2D"
@@ -150,7 +150,7 @@
                 android:background="@android:color/holo_red_light"
                 android:gravity="center"
                 android:text="SimpleTexture2D"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_Mipmap2D"
@@ -159,7 +159,7 @@
                 android:background="@android:color/holo_green_dark"
                 android:gravity="center"
                 android:text="Mipmap2D"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_TextureWrap"
@@ -168,7 +168,7 @@
                 android:background="@android:color/holo_orange_dark"
                 android:gravity="center"
                 android:text="TextureWrap"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_SimpleTextureCubeMap"
@@ -177,7 +177,7 @@
                 android:background="@android:color/holo_red_dark"
                 android:gravity="center"
                 android:text="SimpleTextureCubeMap"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_MultiTexture"
@@ -186,7 +186,7 @@
                 android:background="@android:color/holo_blue_light"
                 android:gravity="center"
                 android:text="MultiTexture"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_ParticleSystem"
@@ -195,7 +195,7 @@
                 android:background="@android:color/holo_blue_dark"
                 android:gravity="center"
                 android:text="ParticleSystem"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_PBuffer"
@@ -204,7 +204,7 @@
                 android:background="@android:color/holo_green_dark"
                 android:gravity="center"
                 android:text="PBuffer"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/tv_rajawali"
@@ -213,7 +213,7 @@
                 android:background="@android:color/holo_blue_bright"
                 android:gravity="center"
                 android:text="Rajawali Demo"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

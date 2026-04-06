@@ -3,6 +3,8 @@ package edu.jiangxin.droiddemo;
 import android.app.Application;
 import android.content.Context;
 
+import com.google.android.material.color.DynamicColors;
+
 public class ApplicationExt extends Application {
 
     private static Context mContext;
@@ -12,6 +14,7 @@ public class ApplicationExt extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        DynamicColors.applyToActivitiesIfAvailable(this);
 
         mContext = getApplicationContext();
         appConfig = new AppConfig(getApplicationContext());

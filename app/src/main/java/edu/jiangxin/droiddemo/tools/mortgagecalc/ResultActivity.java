@@ -1,22 +1,20 @@
 package edu.jiangxin.droiddemo.tools.mortgagecalc;
 
 import android.app.Activity;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -46,14 +44,13 @@ public class ResultActivity extends Activity {
     private double sum = 0;
     private double interest = 0;
     //用于显示等额本息和等额本金的ViewPager
-    private ViewPager viewPager;
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
     private List<View> viewList;
     private View view1;
     private View view2;
     private MyListView listViewOne;                     //等额本息的ListView
     private MyListView listViewTwo;                     //等额本金的ListView
-    private TextView typeOneText;                       //等额本息的标题
-    private TextView typeTwoText;                       //等额本金的标题
     private TextView oneLoanSumTextView;                //显示等额本息的结果
     private TextView oneMonthTextView;
     private TextView onePaySumTextView;
@@ -81,10 +78,6 @@ public class ResultActivity extends Activity {
     private String[] twoInterestStrings;
     private String[] twoMonthPayStrings;
     private int currentItem = 0;
-    private ImageView cursorImageView;
-    private int offSet;
-    private final Matrix matrix = new Matrix();
-    private Animation animation;
     private final Handler handler = new Handler(Looper.getMainLooper()) {
         @Override
         public void handleMessage(Message msg) {
@@ -136,9 +129,6 @@ public class ResultActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        if (viewPager != null) {
-            viewPager.clearOnPageChangeListeners();
-        }
         super.onDestroy();
     }
 
@@ -191,9 +181,7 @@ public class ResultActivity extends Activity {
     //2.初始化控件
     public void initViews() {
         viewPager = findViewById(R.id.viewpager);
-        typeOneText = findViewById(R.id.typeOneTextView);
-        typeTwoText = findViewById(R.id.typeTwoTextView);
-        cursorImageView = findViewById(R.id.ResultCursorImageView);
+        tabLayout = findViewById(R.id.tabLayout);
     }
 
     //3.设置ViewPager
@@ -225,31 +213,16 @@ public class ResultActivity extends Activity {
 
         MainViewPagerAdapter adapter = new MainViewPagerAdapter(viewList);
         viewPager.setAdapter(adapter);
-        viewPager.addOnPageChangeListener(new PageChangeListener());
 
-        //设置光标
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        offSet = displayMetrics.widthPixels / 2;                            //每个标题的宽度（720/2=360）
-        matrix.setTranslate(0, 0);
-        cursorImageView.setImageMatrix(matrix);                             // 需要imageView的scaleType为matrix*/
+        String[] tabTitles = {"等额本息", "等额本金"};
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(tabTitles[position])
+        ).attach();
     }
 
     //4.设置监听器
     public void setListeners() {
-        typeOneText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(0);
-            }
-        });
-
-        typeTwoText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(1);
-            }
-        });
-
+        // TabLayoutMediator handles tab-viewpager synchronization
     }
 
     //5.等额本息的计算方法
@@ -614,32 +587,4 @@ public class ResultActivity extends Activity {
     }
 
     //3-1.ViewPager的监听器
-    public class PageChangeListener implements ViewPager.OnPageChangeListener {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            //设置光标
-            switch (position) {
-                case 0:
-                    animation = new TranslateAnimation(offSet, 0, 0, 0);
-                    break;
-                case 1:
-                    animation = new TranslateAnimation(0, offSet, 0, 0);
-                    break;
-            }
-            currentItem = position;
-            animation.setDuration(150); // 光标滑动速度
-            animation.setFillAfter(true);
-            cursorImageView.startAnimation(animation);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-
-        }
-    }
 }

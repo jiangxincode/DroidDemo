@@ -22,7 +22,7 @@
                 android:background="@android:color/holo_blue_bright"
                 android:gravity="center"
                 android:text="SimpleLayout(padding margin border)"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
 
             <TextView
                 android:id="@+id/btnContraintLayout"
@@ -32,7 +32,7 @@
                 android:background="@android:color/holo_green_light"
                 android:gravity="center"
                 android:text="ContraintLayout"
-                android:textSize="28sp" />
+                android:textAppearance="?attr/textAppearanceHeadlineMedium" />
         </LinearLayout>
     </ScrollView>
 </RelativeLayout>

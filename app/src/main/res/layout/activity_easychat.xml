@@ -5,23 +5,17 @@
               android:orientation="vertical"
               tools:context=".easychat.activity.MainActivity">
 
-    <TextView
-        android:id="@+id/main_tv_title"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/easychat_tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="#ff33b5e5"
-        android:gravity="center"
-        android:text="会话"
-        android:textColor="#fff"
-        android:textSize="24sp"
-        />
+        android:layout_height="wrap_content"
+        android:background="#ff33b5e5" />
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/easychat_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
-        ></androidx.viewpager.widget.ViewPager>
+        android:layout_weight="1" />
 
     <LinearLayout
         android:id="@+id/main_bottom"

@@ -16,18 +16,19 @@ import android.view.animation.LinearInterpolator;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 
 import edu.jiangxin.droiddemo.R;
 
-public class PropertyAnimatorActivity extends Activity implements AdapterView.OnItemSelectedListener, View.OnClickListener {
+public class PropertyAnimatorActivity extends Activity implements View.OnClickListener {
     private static final String[] PROPERTY_ANIMATION = {"ValueAnimator", "ObjectAnimator", "AnimatorSet", "ViewPropertyAnimator"};
     private static final int RED = 0xffFF8080;
     private static final int BLUE = 0xff8080FF;
     private static final int BLACK = 0xff000000;
 
-    private Spinner mSpinner = null;
+    private MaterialAutoCompleteTextView mSpinner = null;
     private ValueAnimator mValueAnimator = null;
     private ObjectAnimator mObjectAnimator = null;
     private AnimatorSet mAnimatorSet = null;
@@ -41,10 +42,9 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_property_animator);
         mSpinner = findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, PROPERTY_ANIMATION);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, PROPERTY_ANIMATION);
         mSpinner.setAdapter(adapter);
-        mSpinner.setOnItemSelectedListener(this);
+        mSpinner.setOnItemClickListener((parent, view, position, id) -> onItemSelected(parent, view, position, id));
 
         mObjectAnimatorlayout = findViewById(R.id.objectAnimator_layout);
         mTarget = findViewById(R.id.property_target);
@@ -59,7 +59,6 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
         mTv4.setOnClickListener(this);
     }
 
-    @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         switch (position) {
             case 0:
@@ -123,10 +122,6 @@ public class PropertyAnimatorActivity extends Activity implements AdapterView.On
             default:
                 break;
         }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
     }
 
     private void endAllAnimation() {

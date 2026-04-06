@@ -1,34 +1,31 @@
 package edu.jiangxin.droiddemo.tools.mortgagecalc;
 
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Matrix;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.DisplayMetrics;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.EditorInfo;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 
-import androidx.viewpager.widget.ViewPager;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
+
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -47,25 +44,19 @@ public class MainActivity extends Activity {
     //动态添加的控件
     private final static int COMB_CAPITAL = 0;
     private final static int COMB_AREA = 1;
-    private TextView commercialLoanTextView;        //商业贷款
-    private TextView HAFTextView;                   //公积金贷款
-    private TextView combinationTextView;           //组合贷款
-    private ViewPager viewPager;
+    private ViewPager2 viewPager;
+    private TabLayout tabLayout;
     private List<View> viewList;
     private View commercialLoanView;
     private View HAFView;
     private View combinationView;
     private int currentItem = 0;
-    private ImageView cursorImageView;
-    private int offSet;
-    private final Matrix matrix = new Matrix();
-    private Animation animation;
     private Button resetButton;
     private Button calculationButton;
     //商业贷款部分
-    private Spinner CommPaybackMethodSpinner;
-    private Spinner CommTimeSpinner;
-    private Spinner CommCalculationMethodSpinner;
+    private MaterialAutoCompleteTextView CommPaybackMethodSpinner;
+    private MaterialAutoCompleteTextView CommTimeSpinner;
+    private MaterialAutoCompleteTextView CommCalculationMethodSpinner;
     private EditText CommRateEditText;
     private EditText CommDiscountEditText;
     private TextView CommRateTextView;
@@ -79,7 +70,7 @@ public class MainActivity extends Activity {
     private EditText CommPriceEditText;             //按面积计算
     private EditText CommAreaEditText;
     private EditText CommAreaSumEditText;
-    private Spinner CommFirstPaySpinner;
+    private MaterialAutoCompleteTextView CommFirstPaySpinner;
     private EditText CommFirstPayEditText;
     private EditText CommPayEditText;
     private String CommTime;                        //贷款时间（年）
@@ -92,9 +83,9 @@ public class MainActivity extends Activity {
     private int CommFirstMonth;
     private int CommPaybackMethod;                  //还款方式（等额本息、等额本金）
     //公积金贷款部分
-    private Spinner HAFPaybackMethodSpinner;
-    private Spinner HAFTimeSpinner;
-    private Spinner HAFCalculationMethodSpinner;
+    private MaterialAutoCompleteTextView HAFPaybackMethodSpinner;
+    private MaterialAutoCompleteTextView HAFTimeSpinner;
+    private MaterialAutoCompleteTextView HAFCalculationMethodSpinner;
     private EditText HAFRateEditText;
     private EditText HAFDiscountEditText;
     private TextView HAFRateTextView;
@@ -108,7 +99,7 @@ public class MainActivity extends Activity {
     private EditText HAFPriceEditText;              //按面积计算
     private EditText HAFAreaEditText;
     private EditText HAFAreaSumEditText;
-    private Spinner HAFFirstPaySpinner;
+    private MaterialAutoCompleteTextView HAFFirstPaySpinner;
     private EditText HAFFirstPayEditText;
     private EditText HAFPayEditText;
     private String HAFTime;                        //贷款时间（年）
@@ -121,9 +112,9 @@ public class MainActivity extends Activity {
     private int HAFFirstMonth;
     private int HAFPaybackMethod;                  //还款方式（等额本息、等额本金）
     //组合贷款部分
-    private Spinner CombPaybackMethodSpinner;
-    private Spinner CombTimeSpinner;
-    private Spinner CombCalculationMethodSpinner;
+    private MaterialAutoCompleteTextView CombPaybackMethodSpinner;
+    private MaterialAutoCompleteTextView CombTimeSpinner;
+    private MaterialAutoCompleteTextView CombCalculationMethodSpinner;
     private EditText CombCommRateEditText;                  //商业贷款利率
     private EditText CombCommDiscountEditText;
     private TextView CombCommRateTextView;
@@ -143,7 +134,7 @@ public class MainActivity extends Activity {
     private EditText CombAreaPriceEditText;                         //单价
     private EditText CombAreaAreaEditText;                          //面积
     private EditText CombAreaSumEditText;                           //总价
-    private Spinner CombAreaFirstPaySpinner;                        //首付比例
+    private MaterialAutoCompleteTextView CombAreaFirstPaySpinner;                        //首付比例
     private EditText CombAreaFirstPayEditText;                      //首付
     private EditText CombAreaPayEditText;                           //贷款总额
     private EditText CombAreaHAFPayEditText;                        //公积金贷款金额
@@ -179,9 +170,6 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onDestroy() {
-        if (viewPager != null) {
-            viewPager.clearOnPageChangeListeners();
-        }
         super.onDestroy();
     }
 
@@ -191,11 +179,8 @@ public class MainActivity extends Activity {
 
     //1.初始化Views
     public void initViews() {
-        commercialLoanTextView = findViewById(R.id.CommercialLoanTextView);
-        HAFTextView = findViewById(R.id.HAFTextView);
-        combinationTextView = findViewById(R.id.CombinationTextView);
         viewPager = findViewById(R.id.viewpager);
-        cursorImageView = findViewById(R.id.cursorImageView);
+        tabLayout = findViewById(R.id.tabLayout);
         resetButton = findViewById(R.id.resetButton);
         calculationButton = findViewById(R.id.calculationButton);
 
@@ -295,39 +280,24 @@ public class MainActivity extends Activity {
 
         MainViewPagerAdapter pagerAdapter = new MainViewPagerAdapter(viewList);
         viewPager.setAdapter(pagerAdapter);
-        viewPager.setCurrentItem(currentItem);
-        viewPager.addOnPageChangeListener(new PageChangeListener());
+        viewPager.setCurrentItem(currentItem, false);
 
-        //设置光标
-        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
-        offSet = displayMetrics.widthPixels / 3;         //每个标题的宽度（720/3=240）
-        matrix.setTranslate(0, 0);
-        cursorImageView.setImageMatrix(matrix);          // 需要imageView的scaleType为matrix*/
+        String[] tabTitles = {"商业贷款", "公积金贷款", "组合贷款"};
+        new TabLayoutMediator(tabLayout, viewPager,
+                (tab, position) -> tab.setText(tabTitles[position])
+        ).attach();
+
+        viewPager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
+            @Override
+            public void onPageSelected(int position) {
+                currentItem = position;
+            }
+        });
     }
 
     //3.设置监听器
     public void setListeners() {
-        //ViewPager三个标题
-        commercialLoanTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(0);
-            }
-        });
-
-        HAFTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(1);
-            }
-        });
-
-        combinationTextView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                viewPager.setCurrentItem(2);
-            }
-        });
+        // TabLayoutMediator handles tab-viewpager synchronization
 
         //贷款金额清空
         CommMortgageEditText.setOnTouchListener(new View.OnTouchListener() {
@@ -783,7 +753,7 @@ public class MainActivity extends Activity {
                         CommRateEditText.setText("4.9");
                         CommDiscountEditText.setText("1");
                         CommRateTextView.setText("4.900%");
-                        CommFirstPaySpinner.setSelection(1, true);
+                        CommFirstPaySpinner.setText("2成(20%)", false);
                         break;
                     case 1:
                         HAFMortgageEditText.setText(string);
@@ -795,7 +765,7 @@ public class MainActivity extends Activity {
                         HAFRateEditText.setText("3.25");
                         HAFDiscountEditText.setText("1");
                         HAFRateTextView.setText("3.250%");
-                        HAFFirstPaySpinner.setSelection(1, true);
+                        HAFFirstPaySpinner.setText("2成(20%)", false);
                         break;
                     case 2:
                         CombMortgageHAFEditText.setText(string);
@@ -813,7 +783,7 @@ public class MainActivity extends Activity {
                         CombCommRateEditText.setText("4.9");
                         CombCommDiscountEditText.setText("1");
                         CombCommRateTextView.setText("4.900%");
-                        CombAreaFirstPaySpinner.setSelection(1, true);
+                        CombAreaFirstPaySpinner.setText("2成(20%)", false);
                         break;
                 }
             }
@@ -823,7 +793,7 @@ public class MainActivity extends Activity {
         calculationButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
                 switch (currentItem) {
                     case 0:
                         //按贷款金额计算
@@ -964,58 +934,18 @@ public class MainActivity extends Activity {
         paybackMethods[0] = "等额本息";
         paybackMethods[1] = "等额本金";
 
-        ArrayAdapter<String> paybackMethodAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, paybackMethods) {
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                getLayoutInflater();
-                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
-                TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
-                textView.setText(paybackMethods[position]);
-                return view;
-            }
-        };
+        ArrayAdapter<String> paybackMethodAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_dropdown_item_1line, paybackMethods);
         CommPaybackMethodSpinner.setAdapter(paybackMethodAdapter);
-        CommPaybackMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CommPaybackMethod = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        CommPaybackMethodSpinner.setSelection(0, true);
+        CommPaybackMethodSpinner.setOnItemClickListener((parent, view, position, id) -> CommPaybackMethod = position);
+        CommPaybackMethodSpinner.setText(paybackMethods[0], false);
 
         HAFPaybackMethodSpinner.setAdapter(paybackMethodAdapter);
-        HAFPaybackMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                HAFPaybackMethod = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        HAFPaybackMethodSpinner.setSelection(0, true);
+        HAFPaybackMethodSpinner.setOnItemClickListener((parent, view, position, id) -> HAFPaybackMethod = position);
+        HAFPaybackMethodSpinner.setText(paybackMethods[0], false);
 
         CombPaybackMethodSpinner.setAdapter(paybackMethodAdapter);
-        CombPaybackMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CombPaybackMethod = position;
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-        CombPaybackMethodSpinner.setSelection(0, true);
+        CombPaybackMethodSpinner.setOnItemClickListener((parent, view, position, id) -> CombPaybackMethod = position);
+        CombPaybackMethodSpinner.setText(paybackMethods[0], false);
 
         //贷款年限的下拉菜单
         final String[] times = new String[22];
@@ -1025,227 +955,125 @@ public class MainActivity extends Activity {
         times[20] = "25年(300期)";
         times[21] = "30年(360期)";
 
-        ArrayAdapter<String> timeAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, times) {
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                getLayoutInflater();
-                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
-                TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
-                textView.setText(times[position]);
-                return view;
-            }
-        };
+        ArrayAdapter<String> timeAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_dropdown_item_1line, times);
         CommTimeSpinner.setAdapter(timeAdapter);
-        CommTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position < 20) {
-                    CommTime = String.valueOf(position + 1);
-                } else if (position == 20) {
-                    CommTime = "25";
-                } else {
-                    CommTime = "30";
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+        CommTimeSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            if (position < 20) {
+                CommTime = String.valueOf(position + 1);
+            } else if (position == 20) {
+                CommTime = "25";
+            } else {
+                CommTime = "30";
             }
         });
-        CommTimeSpinner.setSelection(19, true);
+        CommTimeSpinner.setText(times[19], false);
 
         HAFTimeSpinner.setAdapter(timeAdapter);
-        HAFTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position < 20) {
-                    HAFTime = String.valueOf(position + 1);
-                } else if (position == 20) {
-                    HAFTime = "25";
-                } else {
-                    HAFTime = "30";
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+        HAFTimeSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            if (position < 20) {
+                HAFTime = String.valueOf(position + 1);
+            } else if (position == 20) {
+                HAFTime = "25";
+            } else {
+                HAFTime = "30";
             }
         });
-        HAFTimeSpinner.setSelection(19, true);
+        HAFTimeSpinner.setText(times[19], false);
 
         CombTimeSpinner.setAdapter(timeAdapter);
-        CombTimeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (position < 20) {
-                    CombTime = String.valueOf(position + 1);
-                } else if (position == 20) {
-                    CombTime = "25";
-                } else {
-                    CombTime = "30";
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+        CombTimeSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            if (position < 20) {
+                CombTime = String.valueOf(position + 1);
+            } else if (position == 20) {
+                CombTime = "25";
+            } else {
+                CombTime = "30";
             }
         });
-        CombTimeSpinner.setSelection(19, true);
+        CombTimeSpinner.setText(times[19], false);
 
         //计算方式的下拉菜单
         final String[] calculationMethods = new String[2];
         calculationMethods[0] = "贷款金额";
         calculationMethods[1] = "住房面积";
-        ArrayAdapter<String> calculationMethodAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, calculationMethods) {
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                getLayoutInflater();
-                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
-                TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
-                textView.setText(calculationMethods[position]);
-                return view;
-            }
-        };
+        ArrayAdapter<String> calculationMethodAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_dropdown_item_1line, calculationMethods);
         CommCalculationMethodSpinner.setAdapter(calculationMethodAdapter);
-        CommCalculationMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        CommAreaDynamicLayout.setVisibility(View.GONE);
-                        CommMortgageDynamicLayout.setVisibility(View.VISIBLE);
-                        CommCalculationMethod = COMM_CAPITAL;
-                        break;
-                    case 1:
-                        CommMortgageDynamicLayout.setVisibility(View.GONE);
-                        CommAreaDynamicLayout.setVisibility(View.VISIBLE);
-                        CommCalculationMethod = COMM_AREA;
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+        CommCalculationMethodSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position) {
+                case 0:
+                    CommAreaDynamicLayout.setVisibility(View.GONE);
+                    CommMortgageDynamicLayout.setVisibility(View.VISIBLE);
+                    CommCalculationMethod = COMM_CAPITAL;
+                    break;
+                case 1:
+                    CommMortgageDynamicLayout.setVisibility(View.GONE);
+                    CommAreaDynamicLayout.setVisibility(View.VISIBLE);
+                    CommCalculationMethod = COMM_AREA;
+                    break;
             }
         });
-        CommCalculationMethodSpinner.setSelection(0, true);
+        CommCalculationMethodSpinner.setText(calculationMethods[0], false);
 
         HAFCalculationMethodSpinner.setAdapter(calculationMethodAdapter);
-        HAFCalculationMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        HAFAreaDynamicLayout.setVisibility(View.GONE);
-                        HAFMortgageDynamicLayout.setVisibility(View.VISIBLE);
-                        HAFCalculationMethod = HAF_CAPITAL;
-                        break;
-                    case 1:
-                        HAFMortgageDynamicLayout.setVisibility(View.GONE);
-                        HAFAreaDynamicLayout.setVisibility(View.VISIBLE);
-                        HAFCalculationMethod = HAF_AREA;
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+        HAFCalculationMethodSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position) {
+                case 0:
+                    HAFAreaDynamicLayout.setVisibility(View.GONE);
+                    HAFMortgageDynamicLayout.setVisibility(View.VISIBLE);
+                    HAFCalculationMethod = HAF_CAPITAL;
+                    break;
+                case 1:
+                    HAFMortgageDynamicLayout.setVisibility(View.GONE);
+                    HAFAreaDynamicLayout.setVisibility(View.VISIBLE);
+                    HAFCalculationMethod = HAF_AREA;
+                    break;
             }
         });
-        HAFCalculationMethodSpinner.setSelection(0, true);
+        HAFCalculationMethodSpinner.setText(calculationMethods[0], false);
 
         CombCalculationMethodSpinner.setAdapter(calculationMethodAdapter);
-        CombCalculationMethodSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                switch (position) {
-                    case 0:
-                        CombAreaDynamicLayout.setVisibility(View.GONE);
-                        CombMortgageDynamicLayout.setVisibility(View.VISIBLE);
-                        CombCalculationMethod = COMB_CAPITAL;
-                        break;
-                    case 1:
-                        CombMortgageDynamicLayout.setVisibility(View.GONE);
-                        CombAreaDynamicLayout.setVisibility(View.VISIBLE);
-                        CombCalculationMethod = COMB_AREA;
-                        break;
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
+        CombCalculationMethodSpinner.setOnItemClickListener((parent, view, position, id) -> {
+            switch (position) {
+                case 0:
+                    CombAreaDynamicLayout.setVisibility(View.GONE);
+                    CombMortgageDynamicLayout.setVisibility(View.VISIBLE);
+                    CombCalculationMethod = COMB_CAPITAL;
+                    break;
+                case 1:
+                    CombMortgageDynamicLayout.setVisibility(View.GONE);
+                    CombAreaDynamicLayout.setVisibility(View.VISIBLE);
+                    CombCalculationMethod = COMB_AREA;
+                    break;
             }
         });
-        CombCalculationMethodSpinner.setSelection(0, true);
+        CombCalculationMethodSpinner.setText(calculationMethods[0], false);
 
         //首付比例的下拉菜单
         final String[] percents = new String[10];
         for (int i = 0; i < 9; i++) {
             percents[i] = (i + 1) + "成(" + (i + 1) * 10 + "%)";
         }
-        ArrayAdapter<String> percentAdapter = new ArrayAdapter<String>(MainActivity.this, R.layout.spinner1, percents) {
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                getLayoutInflater();
-                LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-                View view = layoutInflater.inflate(R.layout.spinner_item1, null);
-                TextView textView = view.findViewById(R.id.Spinner_Item_TextView);
-                textView.setText(percents[position]);
-                return view;
-            }
-        };
+        ArrayAdapter<String> percentAdapter = new ArrayAdapter<>(MainActivity.this, android.R.layout.simple_dropdown_item_1line, percents);
         CommFirstPaySpinner.setAdapter(percentAdapter);
-        CommFirstPaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CommFirstPayPercent = String.valueOf(position + 1);
-                setFistPay();                                       //3-3.计算首付和贷款金额
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+        CommFirstPaySpinner.setOnItemClickListener((parent, view, position, id) -> {
+            CommFirstPayPercent = String.valueOf(position + 1);
+            setFistPay();                                       //3-3.计算首付和贷款金额
         });
-        CommFirstPaySpinner.setSelection(1, true);
+        CommFirstPaySpinner.setText(percents[1], false);
 
         HAFFirstPaySpinner.setAdapter(percentAdapter);
-        HAFFirstPaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                HAFFirstPayPercent = String.valueOf(position + 1);
-                setFistPay();                                       //3-3.计算首付和贷款金额
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+        HAFFirstPaySpinner.setOnItemClickListener((parent, view, position, id) -> {
+            HAFFirstPayPercent = String.valueOf(position + 1);
+            setFistPay();                                       //3-3.计算首付和贷款金额
         });
-        HAFFirstPaySpinner.setSelection(1, true);
+        HAFFirstPaySpinner.setText(percents[1], false);
 
         CombAreaFirstPaySpinner.setAdapter(percentAdapter);
-        CombAreaFirstPaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                CombFirstPayPercent = String.valueOf(position + 1);
-                setFistPay();                                       //3-3.计算首付和贷款金额
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
+        CombAreaFirstPaySpinner.setOnItemClickListener((parent, view, position, id) -> {
+            CombFirstPayPercent = String.valueOf(position + 1);
+            setFistPay();                                       //3-3.计算首付和贷款金额
         });
-        CombAreaFirstPaySpinner.setSelection(1, true);
+        CombAreaFirstPaySpinner.setText(percents[1], false);
     }
 
     //3-1.检查是否都填写了
@@ -1253,7 +1081,7 @@ public class MainActivity extends Activity {
         switch (currentItem) {
             case 0: //商业贷款
             {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
 
                 //按贷款金额计算
                 if (calculationMethod == COMM_CAPITAL) {
@@ -1338,7 +1166,7 @@ public class MainActivity extends Activity {
             }
             case 1: //公积金贷款
             {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
 
                 //按贷款金额计算
                 if (calculationMethod == HAF_CAPITAL) {
@@ -1426,7 +1254,7 @@ public class MainActivity extends Activity {
 
             case 2://组合贷款
             {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(MainActivity.this);
 
                 //按贷款金额计算
                 if (calculationMethod == COMB_CAPITAL) {
@@ -1697,44 +1525,4 @@ public class MainActivity extends Activity {
     }
 
     //2-1.ViewPager的监听器
-    public class PageChangeListener implements ViewPager.OnPageChangeListener {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            //设置光标
-            switch (position) {
-                //TranslateAnimation(float fromXDelta, float toXDelta, float fromYDelta, float toYDelta)
-                case 0:
-                    //从第二个到第一个
-                    animation = new TranslateAnimation(offSet, 0, 0, 0);
-                    break;
-                case 1:
-                    //从第一个到第二个
-                    if (currentItem == 0) {
-                        animation = new TranslateAnimation(0, offSet, 0, 0);
-                    }
-                    //从第三个到第二个
-                    else if (currentItem == 2) {
-                        animation = new TranslateAnimation(offSet * 2, offSet, 0, 0);
-                    }
-                    break;
-                case 2:
-                    //从第二个到第三个
-                    animation = new TranslateAnimation(offSet, offSet * 2, 0, 0);
-            }
-            currentItem = position;
-            animation.setDuration(150); // 光标滑动速度
-            animation.setFillAfter(true);
-            cursorImageView.startAnimation(animation);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-
-        }
-    }
 }

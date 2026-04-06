@@ -10,19 +10,19 @@
         android:orientation="vertical"
         android:text="@string/hello_world">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="sound"
             android:text="声音" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="display"
             android:text="显示" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:onClick="storage"

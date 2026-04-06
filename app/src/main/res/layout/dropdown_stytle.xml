@@ -5,7 +5,7 @@
     android:text="New Text"
     android:padding="10dp"
     android:singleLine="true"
-    android:textSize="15sp"
+    android:textAppearance="?attr/textAppearanceBodyLarge"
     android:textColor="#f77718"
     android:gravity="start"
     android:background="#aa33ac" />

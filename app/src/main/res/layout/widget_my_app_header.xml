@@ -11,7 +11,7 @@
         android:layout_marginStart="10dp"
         android:text="最近使用"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textAppearance="?attr/textAppearanceTitleMedium" />
 
     <edu.jiangxin.droiddemo.tv.recycleview.MyAppRecyclerView
         android:id="@+id/rv_my_app_header_content"
@@ -28,5 +28,5 @@
         android:layout_marginTop="3dp"
         android:text="全部应用"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textAppearance="?attr/textAppearanceTitleMedium" />
 </merge>

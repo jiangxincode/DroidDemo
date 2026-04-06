@@ -25,13 +25,18 @@
             android:layout_marginLeft="100dp"
             android:text="Select an animation:"/>
 
-        <Spinner
-            android:id="@+id/spinner"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
-            android:layout_marginLeft="100dp"
-            android:spinnerMode="dropdown"/>
+            android:layout_marginLeft="100dp">
+            <com.google.android.material.textfield.MaterialAutoCompleteTextView
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             android:id="@+id/distance_y"
@@ -42,7 +47,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="15sp"/>
+            android:textAppearance="?attr/textAppearanceBodyLarge"/>
 
         <TextView
             android:id="@+id/total_y"
@@ -53,7 +58,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="15sp"/>
+            android:textAppearance="?attr/textAppearanceBodyLarge"/>
 
         <TextView
             android:id="@+id/distance_y_percent"
@@ -64,7 +69,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
         <TextView
             android:id="@+id/interpolator_y"
@@ -75,7 +80,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
         <ImageView
             android:layout_width="match_parent"
@@ -94,7 +99,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="15sp"/>
+            android:textAppearance="?attr/textAppearanceBodyLarge"/>
 
         <TextView
             android:id="@+id/total_time"
@@ -105,7 +110,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="15sp"/>
+            android:textAppearance="?attr/textAppearanceBodyLarge"/>
 
         <TextView
             android:id="@+id/distance_time_percent"
@@ -116,7 +121,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
         <TextView
             android:id="@+id/interpolator_t"
@@ -127,7 +132,7 @@
             android:singleLine="true"
             android:text="0"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
         <TextView
             android:id="@+id/formula"
@@ -138,16 +143,16 @@
             android:singleLine="true"
             android:text="加速插值器公式：y = t * t"
             android:textColor="@android:color/black"
-            android:textSize="18sp"/>
+            android:textAppearance="?attr/textAppearanceTitleMedium"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/pause"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="250dp"
             android:layout_marginTop="520dp"
             android:text="Start"
-            android:textSize="22sp"/>
+            android:textAppearance="?attr/textAppearanceTitleLarge"/>
     </RelativeLayout>
 
 </RelativeLayout>

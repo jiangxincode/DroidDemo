@@ -4,13 +4,13 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/execute"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="execute" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/cancel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

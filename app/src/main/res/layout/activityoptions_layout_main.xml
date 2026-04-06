@@ -36,7 +36,7 @@
             android:layout_marginLeft="16dp"
             android:text="Tower of London"
             android:textColor="#000000"
-            android:textSize="20sp" />
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
       </LinearLayout>
     </LinearLayout>
   </ScrollView>
@@ -54,35 +54,35 @@
 
       android:orientation="vertical" >
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/custom_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Custom Animation"
         android:onClick="buttonListener"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/scaleUp_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="ScaleUp Animation"
         android:onClick="buttonListener"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/thumbnail_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Thumbnail ScaleUp Animation"
         android:onClick="buttonListener"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/scene_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Scene Transition Animation"
         android:onClick="buttonListener"/>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/scene_button1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

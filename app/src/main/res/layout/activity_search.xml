@@ -4,25 +4,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id ="@+id/btnInsert"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="插入数据" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id ="@+id/btnQuery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="查询数据" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id ="@+id/btnDelete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="删除数据" />
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id ="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -20,7 +20,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="packageName"
-            android:textSize="14sp"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
             android:textColor="#555555"/>
 
         <View
@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="ClassName"
-            android:textSize="18sp"
+            android:textAppearance="?attr/textAppearanceTitleMedium"
             android:textColor="#333333"/>
 
     </LinearLayout>

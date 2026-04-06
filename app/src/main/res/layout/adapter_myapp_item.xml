@@ -18,7 +18,7 @@
             android:layout_centerInParent="true"
             android:gravity="center"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textAppearance="?attr/textAppearanceTitleMedium" />
     </RelativeLayout>
 
 </FrameLayout>

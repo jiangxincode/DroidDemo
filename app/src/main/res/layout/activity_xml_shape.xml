@@ -24,7 +24,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="四个圆角10dp"
-            android:textSize="24sp"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textColor="#FFFFFF" />
     </LinearLayout>
 
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="上方圆角10dp"
-            android:textSize="24sp"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 
@@ -70,7 +70,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="右下圆角10dp"
-            android:textSize="24sp"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
             android:textColor="#FFFFFF"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

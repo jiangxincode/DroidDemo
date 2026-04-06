@@ -46,14 +46,14 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveToFile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="btnSaveToFile"
             android:layout_margin="10dp"/>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveToMediaStore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

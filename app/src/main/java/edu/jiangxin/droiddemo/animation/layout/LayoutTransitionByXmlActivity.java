@@ -26,10 +26,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.LayoutRes;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
+
+import com.google.android.material.appbar.MaterialToolbar;
 
 import edu.jiangxin.droiddemo.R;
 import edu.jiangxin.droiddemo.activity.MainActivity;
@@ -141,9 +142,12 @@ public class LayoutTransitionByXmlActivity extends AppCompatActivity {
 
 
     private void setupToolbar() {
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
+        MaterialToolbar toolbar = findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            }
         }
     }
 

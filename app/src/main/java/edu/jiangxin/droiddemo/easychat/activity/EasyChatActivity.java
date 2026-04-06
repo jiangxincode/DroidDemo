@@ -2,13 +2,16 @@ package edu.jiangxin.droiddemo.easychat.activity;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
-import androidx.viewpager.widget.ViewPager;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
+import androidx.viewpager2.widget.ViewPager2;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 import edu.jiangxin.droiddemo.easychat.fragment.ContactsFragment;
 import edu.jiangxin.droiddemo.easychat.fragment.SessionFragment;
@@ -20,9 +23,9 @@ import java.util.List;
 import edu.jiangxin.droiddemo.R;
 
 public class EasyChatActivity extends AppCompatActivity {
-	TextView				mMainTvTitle;
 
-	ViewPager mMainViewpager;
+	ViewPager2 mMainViewpager;
+	TabLayout mTabLayout;
 
 	LinearLayout			mMainBottom;
 
@@ -34,31 +37,19 @@ public class EasyChatActivity extends AppCompatActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_easychat);
-		mMainTvTitle = findViewById(R.id.main_tv_title);
 		mMainViewpager = findViewById(R.id.easychat_viewpager);
+		mTabLayout = findViewById(R.id.easychat_tabLayout);
 		mMainBottom = findViewById(R.id.main_bottom);
 		initData();
 		initListener();
 	}
 
 	private void initListener() {
-		mMainViewpager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-			@Override
-			public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-			}
-
+		mMainViewpager.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
 			@Override
 			public void onPageSelected(int position) {
 				// 修改颜色
 				mToolBarUtil.changeColor(position);
-				// 修改title
-				mMainTvTitle.setText(mToolBarTitleArr[position]);
-			}
-
-			@Override
-			public void onPageScrollStateChanged(int state) {
-
 			}
 		});
 
@@ -71,15 +62,11 @@ public class EasyChatActivity extends AppCompatActivity {
 	}
 
 	private void initData() {
-		// viewPager-->view-->pagerAdapter
-		// viewPager-->fragment-->fragmentPagerAdapter-->fragment数量比较少
-		// viewPager-->fragment-->fragmentStatePagerAdapter
-
 		// 添加fragment到集合中
 		mFragments.add(new SessionFragment());
 		mFragments.add(new ContactsFragment());
 
-		mMainViewpager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
+		mMainViewpager.setAdapter(new MyPagerAdapter(this));
 
 		// 底部按钮
 		mToolBarUtil = new ToolBarUtil();
@@ -92,22 +79,28 @@ public class EasyChatActivity extends AppCompatActivity {
 
 		// 设置默认选中会话
 		mToolBarUtil.changeColor(0);
+
+		// TabLayout with ViewPager2
+		new TabLayoutMediator(mTabLayout, mMainViewpager,
+				(tab, position) -> tab.setText(mToolBarTitleArr[position])
+		).attach();
 	}
 
-	class MyPagerAdapter extends FragmentPagerAdapter {
+	class MyPagerAdapter extends FragmentStateAdapter {
 
-		public MyPagerAdapter(FragmentManager fm) {
-			super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+		public MyPagerAdapter(@NonNull FragmentActivity fa) {
+			super(fa);
 		}
 
+		@NonNull
 		@Override
-		public Fragment getItem(int position) {
+		public Fragment createFragment(int position) {
 			return mFragments.get(position);
 		}
 
 		@Override
-		public int getCount() {
-			return 2;
+		public int getItemCount() {
+			return mFragments.size();
 		}
 	}
 }
