@@ -51,7 +51,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.ActionBar">
+        android:theme="@style/AppTheme.NoActionBar">
         <activity
             android:name=".predictiveback.PbDefaultActivity"
             android:exported="false" />
@@ -172,9 +172,7 @@
         <activity android:name=".animation.activity.TransitionFirstActivity" />
         <activity android:name=".animation.layout.LayoutAnimationAndTransitionActivity" />
         <activity android:name=".animation.layout.GridLayoutAnimationActivity" />
-        <activity
-            android:name=".animation.layout.LayoutTransitionByXmlActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".animation.layout.LayoutTransitionByXmlActivity" />
         <activity android:name=".activity.DecorViewActivity" />
         <activity android:name=".activity.ForbidScreenShotActivity" />
         <activity

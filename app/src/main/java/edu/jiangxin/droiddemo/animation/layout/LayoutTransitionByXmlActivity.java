@@ -29,6 +29,10 @@ import androidx.annotation.LayoutRes;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.app.NavUtils;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.appbar.MaterialToolbar;
 
@@ -62,9 +66,16 @@ public class LayoutTransitionByXmlActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        WindowCompat.setDecorFitsSystemWindows(getWindow(), false);
         setContentView(R.layout.activity_layout_changes);
 
         mContainerView = findViewById(R.id.container);
+        ViewCompat.setOnApplyWindowInsetsListener(mContainerView, (v, insets) -> {
+            int typeMask = WindowInsetsCompat.Type.statusBars() | WindowInsetsCompat.Type.displayCutout();
+            Insets sysInsets = insets.getInsets(typeMask);
+            v.setPadding(sysInsets.left, sysInsets.top, sysInsets.right, 0);
+            return insets;
+        });
     }
 
     @Override
