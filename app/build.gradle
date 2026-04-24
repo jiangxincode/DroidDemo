@@ -98,5 +98,5 @@ dependencies {
         exclude group: 'xpp3', module: 'xpp3'
     }
 
-    implementation 'com.google.code.gson:gson:2.13.2'
+    implementation 'com.google.code.gson:gson:2.14.0'
 }
